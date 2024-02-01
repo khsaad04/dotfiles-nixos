@@ -41,6 +41,7 @@
     starship
     wl-clipboard
     pamixer
+    rustup
   ];
 
   # basic configuration of git, please change to your own

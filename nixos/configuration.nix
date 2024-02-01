@@ -92,8 +92,6 @@
     fira-code-nerdfont
   ];
 
-  programs.hyprland.enable = true;
-
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 

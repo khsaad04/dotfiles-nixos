@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -7,12 +7,11 @@
 
     withNodeJs = true;
     withPython3 = true;
-    
+
     extraPackages = with pkgs; [
       lua-language-server
       rnix-lsp
       tree-sitter
-      cargo
       ripgrep
       fd
       unzip

@@ -18,6 +18,7 @@ return {
                 "markdown",
                 "bash",
                 "markdown_inline",
+                "nix",
             },
 
             -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
