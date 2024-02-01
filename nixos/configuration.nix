@@ -58,10 +58,6 @@
   services = {
     xserver = {
       layout = "us";
-      enable = true;
-      displayManager.sddm = {
-        enable = true;
-      };
     };
     pipewire = {
       enable = true;
