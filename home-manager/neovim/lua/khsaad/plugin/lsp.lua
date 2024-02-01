@@ -2,10 +2,6 @@ return {
 
     "neovim/nvim-lspconfig",
     dependencies = {
-        -- Automatically install LSPs to stdpath for neovim
-        { "williamboman/mason.nvim", config = true, build = ":MasonInstall stylua ruff" },
-        "williamboman/mason-lspconfig.nvim",
-
         -- Additional lua configuration, makes nvim stuff amazing!
         "folke/neodev.nvim",
     },
@@ -75,28 +71,32 @@ return {
         }
 
         -- Setup neovim lua configuration
-        require("neodev").setup()
-
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-        -- Ensure the servers above are installed
-        local mason_lspconfig = require("mason-lspconfig")
+        require("neodev").setup()
 
-        mason_lspconfig.setup({
-            ensure_installed = vim.tbl_keys(servers),
-        })
-
-        mason_lspconfig.setup_handlers({
-            function(server_name)
-                require("lspconfig")[server_name].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = servers[server_name],
-                })
+        require('lspconfig').lua_ls.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            root_dir = function()
+                return vim.loop.cwd()
             end,
-        })
+            cmd = { "lua-language-server" },
+            settings = {
+                Lua = {
+                    workspace = { checkThirdParty = false },
+                    telemetry = { enable = false },
+                },
+            }
+        }
+
+        require('lspconfig').rnix.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+        }
+
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },
