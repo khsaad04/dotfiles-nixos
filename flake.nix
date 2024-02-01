@@ -16,7 +16,7 @@
           ./nixos/configuration.nix
 
           hyprland.nixosModules.default
-          {programs.hyprland.enable = true;}
+          { programs.hyprland.enable = true; }
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
