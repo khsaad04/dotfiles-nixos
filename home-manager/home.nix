@@ -4,10 +4,14 @@
   home.homeDirectory = "/home/${username}";
 
   imports = [
+    ./dunst.nix
     ./fish.nix
+    ./foot.nix
     ./hyprland
     ./neovim
+    ./starship.nix
     ./theme.nix
+    ./waybar.nix
   ];
 
   # Packages that should be installed to the user profile.
@@ -15,16 +19,11 @@
     git
     neofetch
     firefox
-    foot
-    waybar
     wofi
     swww
     networkmanagerapplet
-    dunst
-    libnotify
     grim
     slurp
-    starship
     pamixer
     rustup
   ];
