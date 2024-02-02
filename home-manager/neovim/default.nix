@@ -9,8 +9,13 @@
     withPython3 = true;
 
     extraPackages = with pkgs; [
+      # LSPs, Formatters and Linters
       lua-language-server
       rnix-lsp
+      ruff
+      python311Packages.python-lsp-server
+
+      # Deps
       tree-sitter
       ripgrep
       fd

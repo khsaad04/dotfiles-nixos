@@ -80,14 +80,27 @@ return {
         require('lspconfig').lua_ls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            root_dir = function()
-                return vim.loop.cwd()
-            end,
-            cmd = { "lua-language-server" },
+        }
+
+        require('lspconfig').pylsp.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
             settings = {
-                Lua = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
+                pylsp = {
+                    plugins = {
+                        pycodestyle = {
+                            enabled = false,
+                        },
+                        autopep8 = {
+                            enabled = false,
+                        },
+                        yapf = {
+                            enabled = false,
+                        },
+                        pyflakes = {
+                            enabled = false,
+                        },
+                    },
                 },
             }
         }
