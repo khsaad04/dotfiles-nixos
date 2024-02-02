@@ -1,9 +1,10 @@
-{ config, pkgs, username, ... }:
+{ pkgs, username, ... }:
 {
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
   imports = [
+    ./fish.nix
     ./hyprland
     ./neovim
     ./theme.nix

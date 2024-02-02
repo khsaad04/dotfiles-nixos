@@ -13,6 +13,7 @@
       lua-language-server
       stylua
       rnix-lsp
+      nil
       ruff
       python311Packages.python-lsp-server
 
