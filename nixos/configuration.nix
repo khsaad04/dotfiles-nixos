@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
   imports =
@@ -74,7 +74,7 @@
   users = {
     defaultUserShell = pkgs.fish;
     users = {
-      khsaad = {
+      ${username} = {
         isNormalUser = true;
         description = "KH Saad";
         extraGroups = [ "networkmanager" "wheel" ];

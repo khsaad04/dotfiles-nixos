@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, username, ... }:
 {
-  home.username = "khsaad";
-  home.homeDirectory = "/home/khsaad";
+  home.username = "${username}";
+  home.homeDirectory = "/home/${username}";
 
   imports = [
     ./neovim
@@ -10,7 +9,6 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    vim
     git
     neofetch
     firefox
@@ -34,28 +32,6 @@
     enable = true;
     userName = "khsaad04";
     userEmail = "khsaad0404@gmail.com";
-  };
-
-  gtk = {
-    enable = true;
-    font = {
-      name = "FiraCode Nerd Font";
-      package = pkgs.fira-code-nerdfont;
-      size = 11;
-    };
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
-    theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
-        size = "standard";
-        tweaks = [ "rimless" "black" ];
-        variant = "mocha";
-      };
-    };
   };
 
   home.stateVersion = "23.11";
