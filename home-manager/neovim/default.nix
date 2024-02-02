@@ -11,6 +11,7 @@
     extraPackages = with pkgs; [
       # LSPs, Formatters and Linters
       lua-language-server
+      stylua
       rnix-lsp
       ruff
       python311Packages.python-lsp-server
