@@ -1,16 +1,19 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     settings = {
       monitor = [
         ",preferred,auto,auto"
       ];
       exec-once = [
-        "${pkgs.wl-clipboard}/bin/wl-clipboard &"
-        "${pkgs.waybar}/bin/waybar &"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-        "${pkgs.swww}/bin/swww init &"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "${pkgs.wl-clipboard}/bin/wl-clipboard"
+        "${pkgs.waybar}/bin/waybar"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet"
+        "${pkgs.swww}/bin/swww init"
+        "${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png"
       ];
       env = [ "XCURSOR_SIZE,24" ];
       general = {

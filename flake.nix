@@ -18,7 +18,7 @@
     {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit username; };
+          specialArgs = { inherit username inputs; };
           inherit system;
           modules = [
             ./nixos/configuration.nix
@@ -30,7 +30,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.${username} = import ./home-manager/home.nix;
-                extraSpecialArgs = { inherit username; };
+                extraSpecialArgs = { inherit username inputs; };
               };
             }
           ];

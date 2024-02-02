@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, inputs, ... }:
 
 {
   imports =
@@ -31,10 +31,10 @@
     };
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Dhaka";
@@ -68,7 +68,15 @@
     };
   };
 
-  programs.dconf.enable = true;
+  programs = {
+    fish.enable = true;
+    dconf.enable = true;
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    };
+  };
+
   security.rtkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -90,8 +98,6 @@
     fira-code-nerdfont
   ];
 
-  programs.fish.enable = true;
-  programs.hyprland.enable = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

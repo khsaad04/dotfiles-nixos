@@ -4,7 +4,7 @@
   home.homeDirectory = "/home/${username}";
 
   imports = [
-    ./hyprland.nix
+    ./hyprland
     ./neovim
     ./theme.nix
   ];
