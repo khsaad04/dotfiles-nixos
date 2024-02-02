@@ -1,10 +1,12 @@
 { config, pkgs, username, ... }:
 {
-  home.username = "${username}";
+  home.username = username;
   home.homeDirectory = "/home/${username}";
 
   imports = [
+    ./hyprland.nix
     ./neovim
+    ./theme.nix
   ];
 
   # Packages that should be installed to the user profile.
@@ -22,7 +24,6 @@
     grim
     slurp
     starship
-    wl-clipboard
     pamixer
     rustup
   ];

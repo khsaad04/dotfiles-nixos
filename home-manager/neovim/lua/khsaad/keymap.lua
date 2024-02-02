@@ -49,4 +49,4 @@ keymap("x", "p", [["_dp]], opts)
 keymap("n", "<C-e>", vim.cmd.NvimTreeFindFileToggle, opts)
 
 -- Lsp
-keymap("n", "<leader>lf", "<cmd>Format<cr>", opts)
+keymap("n", "<leader>lf", "<cmd>FormatCustom<cr>", opts)

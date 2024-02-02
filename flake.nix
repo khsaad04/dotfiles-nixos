@@ -3,12 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ nixpkgs, hyprland, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       username = "khsaad";
@@ -21,21 +23,15 @@
           modules = [
             ./nixos/configuration.nix
 
-            hyprland.nixosModules.default
-            { programs.hyprland.enable = true; }
-
             # make home-manager as a module of nixos
-            # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.users.${username} = import ./home-manager/home.nix;
-
-              home-manager.extraSpecialArgs = { inherit username; };
-
-              # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${username} = import ./home-manager/home.nix;
+                extraSpecialArgs = { inherit username; };
+              };
             }
           ];
         };

@@ -68,6 +68,7 @@
     };
   };
 
+  programs.dconf.enable = true;
   security.rtkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -90,6 +91,7 @@
   ];
 
   programs.fish.enable = true;
+  programs.hyprland.enable = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
