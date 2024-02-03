@@ -46,7 +46,7 @@ keymap("x", "p", [["_dp]], opts)
 
 ---- Plugins ----
 -- NvimTree
-keymap("n", "<C-e>", vim.cmd.NvimTreeFindFileToggle, opts)
+keymap("n", "<C-e>", "<cmd>Neotree toggle<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>FormatCustom<cr>", opts)

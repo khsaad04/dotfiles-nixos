@@ -7,7 +7,7 @@ let
   });
 in
 {
-  home.packages = with pkgs; [ nerdfonts ];
+  home.packages = [ nerdfonts ];
 
   gtk = {
     enable = true;

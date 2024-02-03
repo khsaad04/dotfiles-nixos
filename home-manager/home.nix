@@ -8,6 +8,7 @@
     ./fish.nix
     ./foot.nix
     ./hyprland
+    ./neofetch.nix
     ./neovim
     ./scripts.nix
     ./starship.nix
@@ -19,7 +20,6 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     git
-    neofetch
     firefox
     rustup
   ];
