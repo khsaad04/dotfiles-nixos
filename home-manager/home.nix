@@ -9,9 +9,11 @@
     ./foot.nix
     ./hyprland
     ./neovim
+    ./scripts.nix
     ./starship.nix
     ./theme.nix
     ./waybar.nix
+    ./wofi.nix
   ];
 
   # Packages that should be installed to the user profile.
@@ -19,12 +21,6 @@
     git
     neofetch
     firefox
-    wofi
-    swww
-    networkmanagerapplet
-    grim
-    slurp
-    pamixer
     rustup
   ];
 

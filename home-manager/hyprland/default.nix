@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }:
 {
+  home.packages = with pkgs; [ swww networkmanagerapplet grimblast ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -10,6 +11,7 @@
       exec-once = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "${pkgs.wl-clipboard}/bin/wl-clipboard"
+        "${pkgs.waybar}/bin/waybar"
         "${pkgs.networkmanagerapplet}/bin/nm-applet"
         "${pkgs.swww}/bin/swww init"
         "${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png"
@@ -120,8 +122,8 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
-        ", Print, exec, screenshot"
-        "SHIFT, Print, exec, screenshot select"
+        ", Print, exec, grimblast --notify copysave"
+        "SHIFT, Print, exec, grimblast --notify copysave area"
       ];
       binde = [
         ", XF86AudioRaiseVolume, exec, changevolume up"

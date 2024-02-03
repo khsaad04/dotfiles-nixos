@@ -68,6 +68,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+  ];
+
   programs = {
     fish.enable = true;
     dconf.enable = true;
