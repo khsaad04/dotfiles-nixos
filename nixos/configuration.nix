@@ -56,9 +56,6 @@
 
   # Configure keymap in X11
   services = {
-    xserver = {
-      layout = "us";
-    };
     pipewire = {
       enable = true;
       alsa.enable = true;
