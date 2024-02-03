@@ -22,6 +22,14 @@
     git
     firefox
     rustup
+    # for gtk proj
+    gtk4
+    gtk4-layer-shell
+    glib
+    gdk-pixbuf
+    pkg-config
+    gobject-introspection
+    gcc
   ];
 
   # basic configuration of git, please change to your own

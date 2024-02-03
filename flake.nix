@@ -38,7 +38,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${username} = import ./home-manager/home.nix;
+                users.${username} = import ./home;
                 extraSpecialArgs = { inherit username inputs; };
               };
             }
