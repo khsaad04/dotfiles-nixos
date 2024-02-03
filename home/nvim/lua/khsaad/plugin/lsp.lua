@@ -88,6 +88,11 @@ return {
             capabilities = capabilities,
         })
 
+        require("lspconfig").rust_analyzer.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
+
         local signs = {
             { name = "DiagnosticSignError", text = "" },
             { name = "DiagnosticSignWarn", text = "" },

@@ -16,6 +16,7 @@
       nil
       ruff
       python311Packages.python-lsp-server
+      rust-analyzer
 
       # Deps
       tree-sitter

@@ -7,9 +7,9 @@
     ./dunst.nix
     ./fish.nix
     ./foot.nix
-    ./hyprland
+    ./hypr
     ./neofetch.nix
-    ./neovim
+    ./nvim
     ./scripts.nix
     ./starship.nix
     ./theme.nix
@@ -19,17 +19,8 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    git
     firefox
     rustup
-    # for gtk proj
-    gtk4
-    gtk4-layer-shell
-    glib
-    gdk-pixbuf
-    pkg-config
-    gobject-introspection
-    gcc
   ];
 
   # basic configuration of git, please change to your own
