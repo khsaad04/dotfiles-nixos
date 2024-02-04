@@ -21,6 +21,7 @@
   home.packages = with pkgs; [
     firefox
     rustup
+    obs-studio
   ];
 
   # basic configuration of git, please change to your own
