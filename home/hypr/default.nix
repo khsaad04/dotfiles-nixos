@@ -9,7 +9,6 @@
         ",preferred,auto,auto"
       ];
       exec-once = [
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "${pkgs.wl-clipboard}/bin/wl-clipboard"
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.networkmanagerapplet}/bin/nm-applet"
@@ -63,64 +62,74 @@
       ];
 
       #KEYBINDS
-      "$mainMod" = "SUPER";
-      bind = [
-        "$mainMod, RETURN, exec, foot"
-        "$mainMod, Q, killactive,"
-        "$mainMod, M, exit,"
-        "$mainMod, V, togglefloating,"
-        "$mainMod, F, fullscreen,"
-        "$mainMod, SPACE, exec, pkill wofi || wofi -I --show drun"
-        "$mainMod, T, exec, pkill waybar || waybar"
-        "$mainMod, X, exec, pkill wofi || powermenu"
-        "$mainMod, P, pseudo, # dwindle"
-        "$mainMod, J, togglesplit, # dwindle"
+      bind =
+        let
+          mod = "SUPER";
+          mf = "movefocus";
+          mtw = "movetoworkspace";
+          mtws = "movetoworkspacesilent";
+        in
+        [
+          "${mod}, RETURN, exec, foot"
+          "${mod}, Q, killactive,"
+          "${mod}, M, exit,"
+          "${mod}, V, togglefloating,"
+          "${mod}, F, fullscreen,"
+          "${mod}, SPACE, exec, pkill wofi || wofi -I --show drun"
+          "${mod}, T, exec, pkill waybar || waybar"
+          "${mod}, X, exec, pkill wofi || powermenu"
+          "${mod}, P, pseudo, # dwindle"
+          "${mod}, J, togglesplit, # dwindle"
 
-        "$mainMod SHIFT, h, movefocus, r"
-        "$mainMod SHIFT, j, movefocus, d"
-        "$mainMod SHIFT , k, movefocus, u"
-        "$mainMod SHIFT, l, movefocus, l"
+          "${mod} SHIFT, h, ${mf}, r"
+          "${mod} SHIFT, j, ${mf}, d"
+          "${mod} SHIFT , k, ${mf}, u"
+          "${mod} SHIFT, l, ${mf}, l"
 
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
+          "${mod}, 1, workspace, 1"
+          "${mod}, 2, workspace, 2"
+          "${mod}, 3, workspace, 3"
+          "${mod}, 4, workspace, 4"
+          "${mod}, 5, workspace, 5"
+          "${mod}, 6, workspace, 6"
+          "${mod}, 7, workspace, 7"
+          "${mod}, 8, workspace, 8"
+          "${mod}, 9, workspace, 9"
+          "${mod}, 0, workspace, 10"
 
-        "$mainMod SHIFT, 1, movetoworkspace, 1"
-        "$mainMod SHIFT, 2, movetoworkspace, 2"
-        "$mainMod SHIFT, 3, movetoworkspace, 3"
-        "$mainMod SHIFT, 4, movetoworkspace, 4"
-        "$mainMod SHIFT, 5, movetoworkspace, 5"
-        "$mainMod SHIFT, 6, movetoworkspace, 6"
-        "$mainMod SHIFT, 7, movetoworkspace, 7"
-        "$mainMod SHIFT, 8, movetoworkspace, 8"
-        "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
+          "${mod} SHIFT, 1, ${mtw}, 1"
+          "${mod} SHIFT, 2, ${mtw}, 2"
+          "${mod} SHIFT, 3, ${mtw}, 3"
+          "${mod} SHIFT, 4, ${mtw}, 4"
+          "${mod} SHIFT, 5, ${mtw}, 5"
+          "${mod} SHIFT, 6, ${mtw}, 6"
+          "${mod} SHIFT, 7, ${mtw}, 7"
+          "${mod} SHIFT, 8, ${mtw}, 8"
+          "${mod} SHIFT, 9, ${mtw}, 9"
+          "${mod} SHIFT, 0, ${mtw}, 10"
 
-        "$mainMod SHIFT CTRL, 1, movetoworkspacesilent, 1"
-        "$mainMod SHIFT CTRL, 2, movetoworkspacesilent, 2"
-        "$mainMod SHIFT CTRL, 3, movetoworkspacesilent, 3"
-        "$mainMod SHIFT CTRL, 4, movetoworkspacesilent, 4"
-        "$mainMod SHIFT CTRL, 5, movetoworkspacesilent, 5"
-        "$mainMod SHIFT CTRL, 6, movetoworkspacesilent, 6"
-        "$mainMod SHIFT CTRL, 7, movetoworkspacesilent, 7"
-        "$mainMod SHIFT CTRL, 8, movetoworkspacesilent, 8"
-        "$mainMod SHIFT CTRL, 9, movetoworkspacesilent, 9"
-        "$mainMod SHIFT CTRL, 0, movetoworkspacesilent, 10"
+          "${mod} SHIFT CTRL, 1, ${mtws}, 1"
+          "${mod} SHIFT CTRL, 2, ${mtws}, 2"
+          "${mod} SHIFT CTRL, 3, ${mtws}, 3"
+          "${mod} SHIFT CTRL, 4, ${mtws}, 4"
+          "${mod} SHIFT CTRL, 5, ${mtws}, 5"
+          "${mod} SHIFT CTRL, 6, ${mtws}, 6"
+          "${mod} SHIFT CTRL, 7, ${mtws}, 7"
+          "${mod} SHIFT CTRL, 8, ${mtws}, 8"
+          "${mod} SHIFT CTRL, 9, ${mtws}, 9"
+          "${mod} SHIFT CTRL, 0, ${mtws}, 10"
 
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
-      ];
-      bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-      ];
+          "${mod}, mouse_down, workspace, e+1"
+          "${mod}, mouse_up, workspace, e-1"
+        ];
+      bindm =
+        let
+          mod = "SUPER";
+        in
+        [
+          "${mod}, mouse:272, movewindow"
+          "${mod}, mouse:273, resizewindow"
+        ];
       bindr = [
         ", Print, exec, grimblast --notify copysave"
         "SHIFT, Print, exec, grimblast --notify copysave area"

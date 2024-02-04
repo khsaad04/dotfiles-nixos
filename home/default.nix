@@ -22,10 +22,6 @@
     firefox
     rustup
     obs-studio
-    pkg-config
-    gtk4
-    gtk4-layer-shell
-    glib
   ];
 
   # basic configuration of git, please change to your own
