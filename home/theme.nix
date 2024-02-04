@@ -23,8 +23,8 @@ in
       name = "Catppuccin-Mocha-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" ];
+        tweaks = [ "black" ];
         size = "standard";
-        tweaks = [ "rimless" "black" ];
         variant = "mocha";
       };
     };
