@@ -14,8 +14,8 @@
         "${pkgs.networkmanagerapplet}/bin/nm-applet"
         "${pkgs.swww}/bin/swww init"
         "${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png"
+        "${pkgs.firefox}/bin/firefox"
       ];
-      env = [ "XCURSOR_SIZE,24" ];
       general = {
         gaps_in = 2;
         gaps_out = 5;
