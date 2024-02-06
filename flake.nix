@@ -3,14 +3,24 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
+
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs =
+    { nixpkgs
+    , home-manager
+    , ...
+    } @ inputs:
     let
       system = "x86_64-linux";
       username = "khsaad";
@@ -29,7 +39,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${username} = import ./home;
+                users.${username} = import ./home-manager;
                 extraSpecialArgs = { inherit username inputs; };
               };
             }
