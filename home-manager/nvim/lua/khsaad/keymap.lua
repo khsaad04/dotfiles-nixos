@@ -49,4 +49,4 @@ keymap("x", "p", [["_dp]], opts)
 keymap("n", "<C-e>", "<cmd>Neotree toggle<cr>", opts)
 
 -- Lsp
-keymap("n", "<leader>lf", "<cmd>FormatCustom<cr>", opts)
+keymap("n", "<leader>lf", "<cmd>FormatCustom<cr><cmd>Format<cr>", opts)
