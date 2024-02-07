@@ -16,14 +16,12 @@
     ./wofi.nix
   ];
 
-  # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     firefox
     rustup
     obs-studio
   ];
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "khsaad04";
@@ -31,7 +29,5 @@
   };
 
   home.stateVersion = "23.11";
-
-  # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

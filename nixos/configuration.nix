@@ -69,6 +69,7 @@
 
   programs = {
     fish.enable = true;
+    git.enable = true;
     dconf.enable = true;
     hyprland = {
       enable = true;
@@ -124,5 +125,5 @@
   ];
 
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }
