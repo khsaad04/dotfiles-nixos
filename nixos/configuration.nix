@@ -105,7 +105,6 @@
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.fish;
     users = {
@@ -117,13 +116,11 @@
     };
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   fonts.packages = with pkgs; [
     fira-code-nerdfont
   ];
-
 
   system.stateVersion = "24.05";
 }
