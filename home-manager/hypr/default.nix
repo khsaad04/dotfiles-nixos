@@ -1,9 +1,18 @@
 { pkgs, inputs, ... }:
+let
+  hypr = inputs.hyprland.packages."${pkgs.system}".hyprland;
+in
 {
   home.packages = with pkgs; [ swww networkmanagerapplet grimblast ];
+  home.file.".config/fish/conf.d/hyprland.fish" = {
+    text = ''
+      set TTY1 (tty)
+      [ "$TTY1" = "/dev/tty1" ] && exec ${hypr}/bin/Hyprland
+    '';
+  };
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    package = hypr;
     settings = {
       monitor = [
         ",preferred,auto,auto"
