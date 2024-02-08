@@ -8,6 +8,7 @@
     ./fish.nix
     ./foot.nix
     ./hypr
+    ./neofetch.nix
     ./nvim
     ./scripts.nix
     ./starship.nix
