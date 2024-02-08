@@ -140,8 +140,8 @@ in
           "${mod}, mouse:273, resizewindow"
         ];
       bindr = [
-        ", Print, exec, grimblast --notify copysave"
-        "SHIFT, Print, exec, grimblast --notify copysave area"
+        ", Print, exec, ${pkgs.grimblast}/bin/grimblast --notify copysave"
+        "SHIFT, Print, exec, ${pkgs.grimblast}/grimblast --notify copysave area"
       ];
       binde = [
         ", XF86AudioRaiseVolume, exec, changevolume up"

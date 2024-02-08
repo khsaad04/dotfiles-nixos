@@ -8,6 +8,7 @@
     ./fish.nix
     ./foot.nix
     ./hypr
+    # ./sway
     ./neofetch.nix
     ./nvim
     ./scripts.nix
