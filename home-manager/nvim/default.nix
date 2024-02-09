@@ -11,7 +11,6 @@
       # LSPs, Formatters and Linters
       lua-language-server
       stylua
-      rnix-lsp
       nil
       alejandra
       ruff
