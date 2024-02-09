@@ -50,3 +50,6 @@ keymap("n", "<C-e>", "<cmd>Neotree toggle<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>FormatCustom<cr><cmd>Format<cr>", opts)
+
+-- Formatter for nix
+keymap("n", "<leader>fn", "<cmd>%!alejandra -qq<cr>", opts)

@@ -1,14 +1,11 @@
-{ pkgs
-, username
-, inputs
-, ...
-}:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  pkgs,
+  username,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
@@ -29,7 +26,7 @@
     };
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
   };
 
@@ -71,10 +68,6 @@
     fish.enable = true;
     git.enable = true;
     dconf.enable = true;
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    };
   };
 
   xdg.portal = {
@@ -82,6 +75,7 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
+    config.common.default = ["gtk"];
   };
 
   security = {
@@ -92,9 +86,9 @@
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -111,7 +105,7 @@
       ${username} = {
         isNormalUser = true;
         description = "KH Saad";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = ["networkmanager" "wheel"];
       };
     };
   };

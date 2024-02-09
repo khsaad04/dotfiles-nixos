@@ -1,13 +1,11 @@
-{ pkgs, ... }:
-let
-  nerdfonts = (pkgs.nerdfonts.override {
+{pkgs, ...}: let
+  nerdfonts = pkgs.nerdfonts.override {
     fonts = [
       "FiraCode"
     ];
-  });
-in
-{
-  home.packages = [ nerdfonts ];
+  };
+in {
+  home.packages = [nerdfonts];
 
   gtk = {
     enable = true;
@@ -22,8 +20,8 @@ in
     theme = {
       name = "Catppuccin-Mocha-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
-        tweaks = [ "black" ];
+        accents = ["blue"];
+        tweaks = ["black"];
         size = "standard";
         variant = "mocha";
       };

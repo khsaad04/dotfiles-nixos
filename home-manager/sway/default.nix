@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [ swww networkmanagerapplet grimblast ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [swww networkmanagerapplet grimblast];
   home.file.".config/fish/conf.d/hyprland.fish" = {
     text = ''
       set TTY1 (tty)

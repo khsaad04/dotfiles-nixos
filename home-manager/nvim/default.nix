@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -14,6 +13,7 @@
       stylua
       rnix-lsp
       nil
+      alejandra
       ruff
       python311Packages.python-lsp-server
       rust-analyzer
