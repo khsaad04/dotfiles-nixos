@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  inputs,
   ...
 }: {
   imports = [
@@ -68,6 +69,10 @@
     fish.enable = true;
     git.enable = true;
     dconf.enable = true;
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    };
   };
 
   xdg.portal = {
@@ -75,7 +80,7 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
-    config.common.default = ["gtk"];
+    config.common.default = ["wlr" "gtk"];
   };
 
   security = {
