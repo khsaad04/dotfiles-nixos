@@ -21,6 +21,7 @@
     username = "khsaad";
     pkgs = import nixpkgs {inherit system;};
   in {
+    formatter = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit username inputs;};
