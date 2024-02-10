@@ -9,7 +9,6 @@ in {
     swww
     networkmanagerapplet
     grimblast
-    hyprpicker
   ];
   home.file.".config/fish/conf.d/hyprland.fish" = {
     text = ''
@@ -144,7 +143,7 @@ in {
       ];
       bindr = [
         ", Print, exec, ${pkgs.grimblast}/bin/grimblast --notify copysave"
-        "SHIFT, Print, exec, ${pkgs.grimblast}/grimblast --notify copysave area"
+        "SHIFT, Print, exec, ${pkgs.grimblast}/bin/grimblast --notify copysave area"
       ];
       binde = [
         ", XF86AudioRaiseVolume, exec, changevolume up"
