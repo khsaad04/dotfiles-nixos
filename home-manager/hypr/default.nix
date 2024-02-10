@@ -5,7 +5,12 @@
 }: let
   hypr = inputs.hyprland.packages."${pkgs.system}".hyprland;
 in {
-  home.packages = with pkgs; [swww networkmanagerapplet grimblast];
+  home.packages = with pkgs; [
+    swww
+    networkmanagerapplet
+    grimblast
+    hyprpicker
+  ];
   home.file.".config/fish/conf.d/hyprland.fish" = {
     text = ''
       set TTY1 (tty)
