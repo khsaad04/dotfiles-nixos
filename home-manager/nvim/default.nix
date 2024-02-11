@@ -24,6 +24,7 @@
       unzip
       wl-clipboard
       gcc13
+      gnumake42
     ];
   };
 
