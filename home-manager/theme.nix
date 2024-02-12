@@ -6,6 +6,13 @@
   };
 in {
   home.packages = [nerdfonts];
+  
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Adwaita";
+    package = pkgs.gnome.adwaita-icon-theme;
+    size = 24;
+  };
 
   gtk = {
     enable = true;
