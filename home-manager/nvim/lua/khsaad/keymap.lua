@@ -44,11 +44,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- greatest remap ever
 keymap("x", "p", [["_dp]], opts)
 
----- Plugins ----
--- NvimTree
-keymap("n", "<C-e>", "<cmd>Neotree toggle<cr>", opts)
-
--- Lsp
+-- Format
 keymap("n", "<leader>lf", "<cmd>FormatCustom<cr><cmd>Format<cr>", opts)
 
 -- Formatter for nix

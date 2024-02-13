@@ -7,6 +7,7 @@ return {
 
 		-- Adds LSP completion capabilities
 		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-path",
 
 		-- Adds a number of user-friendly snippets
 		"rafamadriz/friendly-snippets",
@@ -22,6 +23,9 @@ return {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping.select_next_item(),
@@ -55,6 +59,7 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+				{ name = "path" },
 			},
 		})
 	end,
