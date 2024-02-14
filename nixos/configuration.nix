@@ -80,7 +80,7 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
-    config.common.default = ["wlr" "gtk"];
+    config.common.default = ["gtk"];
   };
 
   security = {
@@ -119,6 +119,7 @@
 
   fonts.packages = with pkgs; [
     fira-code-nerdfont
+    noto-fonts
   ];
 
   system.stateVersion = "24.05";
