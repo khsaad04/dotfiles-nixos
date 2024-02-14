@@ -10,6 +10,11 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    lf-icons = {
+      url = "github:gokcehan/lf";
+      flake = false;
+    };
   };
 
   outputs = {
