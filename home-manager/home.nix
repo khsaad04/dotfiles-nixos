@@ -12,7 +12,7 @@
     ./foot.nix
     ./hypr
     # ./sway
-    ./lf.nix
+    ./lf
     ./neofetch.nix
     ./nvim
     ./scripts.nix
