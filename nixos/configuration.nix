@@ -117,10 +117,5 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  fonts.packages = with pkgs; [
-    fira-code-nerdfont
-    noto-fonts
-  ];
-
   system.stateVersion = "24.05";
 }
