@@ -1,11 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [swww networkmanagerapplet grimblast];
-  home.file.".config/fish/conf.d/hyprland.fish" = {
-    text = ''
-      set TTY1 (tty)
-      [ "$TTY1" = "/dev/tty1" ] && exec ${pkgs.sway}/bin/sway
-    '';
-  };
   wayland.windowManager.sway = {
     enable = true;
     extraConfig = ''
