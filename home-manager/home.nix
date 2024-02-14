@@ -26,7 +26,6 @@
     firefox
     rustup
     obs-studio
-    feh
   ];
 
   programs.git = {

@@ -4,9 +4,6 @@
   ...
 }: {
   xdg.configFile."lf/icons".source = "${inputs.lf-icons}/etc/icons.example";
-  home.file."./.config/ctpv/config".text = ''
-    set chafasixel
-  '';
   programs.lf = let
     previewer = pkgs.writeShellScriptBin "previewer" ''
       case "$(${pkgs.file}/bin/file -Lb --mime-type -- "$1")" in
@@ -15,7 +12,7 @@
               exit 1
               ;;
           *)
-              cat "$1"
+              ${pkgs.pistol}/bin/pistol "$1"
               ;;
       esac
     '';
@@ -31,13 +28,7 @@
     };
     previewer = {
       keybinding = "i";
-      # source = "${pkgs.ctpv}/bin/ctpv";
       source = "${previewer}/bin/previewer";
     };
-    # extraConfig = ''
-    #   &${pkgs.ctpv}/bin/ctpv -s $id
-    #   cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
-    #   set cleaner ${pkgs.ctpv}/bin/ctpvclear
-    # '';
   };
 }
