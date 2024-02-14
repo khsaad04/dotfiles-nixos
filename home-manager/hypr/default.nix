@@ -10,12 +10,12 @@ in {
     networkmanagerapplet
     grimblast
   ];
-  home.file.".config/fish/conf.d/hyprland.fish" = {
-    text = ''
-      set TTY1 (tty)
-      [ "$TTY1" = "/dev/tty1" ] && exec ${hypr}/bin/Hyprland
-    '';
-  };
+  # home.file.".config/fish/conf.d/hyprland.fish" = {
+  #   text = ''
+  #     set TTY1 (tty)
+  #     [ "$TTY1" = "/dev/tty1" ] && exec ${hypr}/bin/Hyprland
+  #   '';
+  # };
   wayland.windowManager.hyprland = {
     enable = true;
     package = hypr;

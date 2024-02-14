@@ -55,6 +55,10 @@
   };
 
   services = {
+    xserver = {
+      enable = true;
+      displayManager.sddm.enable = true;
+    };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -80,7 +84,7 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
-    config.common.default = ["gtk"];
+    config.common.default = "*";
   };
 
   security = {
