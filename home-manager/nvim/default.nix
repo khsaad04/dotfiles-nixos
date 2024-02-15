@@ -28,32 +28,36 @@
       rust-analyzer
     ];
     plugins = with pkgs.vimPlugins; [
-      catppuccin-nvim
-      comment-nvim
-      formatter-nvim
-      gitsigns-nvim
-      vim-fugitive
-      vim-rhubarb
-      indent-blankline-nvim
+      # LSP, Formatter and Linter
       nvim-lspconfig
       neodev-nvim
-      lualine-nvim
-      neo-tree-nvim
-      plenary-nvim
-      nvim-web-devicons
-      nui-nvim
-      noice-nvim
-      nvim-notify
-      nvim-autopairs
+      formatter-nvim
+      nvim-lint
+
+      # CMP
       nvim-cmp
       luasnip
       cmp_luasnip
       cmp-nvim-lsp
       cmp-path
       friendly-snippets
-      nvim-lint
+
+      # Git related
+      gitsigns-nvim
+      vim-fugitive
+      vim-rhubarb
+
+      # Noice
+      noice-nvim
+      plenary-nvim
+      nvim-notify
+      nui-nvim
+
+      # Telescope
       telescope-nvim
       telescope-fzf-native-nvim
+
+      # Treesitter
       {
         plugin = nvim-treesitter.withPlugins (p: [
           p.tree-sitter-lua
@@ -69,7 +73,16 @@
         ]);
       }
       nvim-treesitter-textobjects
+
+      # Misc
+      lualine-nvim
+      neo-tree-nvim
       which-key-nvim
+      nvim-web-devicons
+      nvim-autopairs
+      catppuccin-nvim
+      comment-nvim
+      indent-blankline-nvim
     ];
   };
 
