@@ -9,7 +9,6 @@
   imports = [
     ./dunst.nix
     ./fish.nix
-    ./foot.nix
     ./hypr
     # ./sway
     ./lf.nix
@@ -19,6 +18,7 @@
     ./starship.nix
     ./theme.nix
     ./waybar.nix
+    ./wezterm.nix
     ./wofi.nix
   ];
 

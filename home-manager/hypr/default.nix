@@ -77,7 +77,7 @@ in {
         mtw = "movetoworkspace";
         mtws = "movetoworkspacesilent";
       in [
-        "${mod}, RETURN, exec, foot"
+        "${mod}, RETURN, exec, wezterm"
         "${mod}, Q, killactive,"
         "${mod}, M, exit,"
         "${mod}, V, togglefloating,"
