@@ -3,6 +3,7 @@
 in {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     settings = {
       mainBar = {
         "layer" = "top";
@@ -78,9 +79,9 @@ in {
               ""
             ];
           };
-          "on-scroll-up" = "changevolume up";
-          "on-scroll-down" = "changevolume down";
-          "on-click" = "changevolume mute";
+          "on-scroll-up" = "$HOME/.nix-profile/bin/changevolume up";
+          "on-scroll-down" = "/$HOME/.nix-profile/bin/changevolume down";
+          "on-click" = "/$HOME/.nix-profile/bin/changevolume mute";
         };
         "cpu" = {
           "format" = " {usage}%";
@@ -122,7 +123,7 @@ in {
         };
         "custom/power" = {
           "format" = "";
-          "on-click" = "powermenu";
+          "on-click" = "/$HOME/.nix-profile/bin/powermenu";
           "tooltip" = false;
         };
       };
