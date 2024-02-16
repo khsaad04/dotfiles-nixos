@@ -28,7 +28,7 @@ in {
       directory = {
         style = "bold fg:#${clr.base0D} bg:#${clr.base03}";
         read_only_style = "bold fg:#${clr.base0D} bg:#${clr.base03}";
-        format = "[[$path]($style)[$read_only]($read_only_style)](bg:surface1)";
+        format = "[[ $path]($style)[$read_only]($read_only_style)](bg:surface1)";
       };
       line_break = {disabled = true;};
       python = {symbol = " ";};
