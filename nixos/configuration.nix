@@ -82,6 +82,12 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+  ];
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
