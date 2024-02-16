@@ -17,7 +17,7 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Clear highlights
+-- Clear highlights on search
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Center cursor while navigating
@@ -38,8 +38,8 @@ keymap("v", ">", ">gv", opts)
 
 ---- Visual Block ----
 -- Move text up and down
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<A-j>", ":move '>+1<CR>gv=gv", opts)
+keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)
 
 -- greatest remap ever
 keymap("x", "p", [["_dp]], opts)
