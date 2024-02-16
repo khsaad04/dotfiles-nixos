@@ -3,7 +3,10 @@
     enable = true;
     extraConfig = ''
       return {
-        font = wezterm.font("FiraCode Nerd Font"),
+        font = wezterm.font({
+          family = "FiraCode Nerd Font",
+          harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+        }),
         font_size = 11.0,
         font_rules = {
           {
