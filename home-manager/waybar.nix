@@ -1,4 +1,6 @@
-{...}: {
+{config, ...}: let
+  clr = config.colorScheme.palette;
+in {
   programs.waybar = {
     enable = true;
     settings = {
@@ -100,10 +102,10 @@
             "on-scroll" = 1;
             "on-click-right" = "mode";
             "format" = {
-              "months" = "<span color='#89B4FA'><b>{}</b></span>";
-              "days" = "<span color='#ffffff'><b>{}</b></span>";
-              "weekdays" = "<span color='#94E2D5'><b>{}</b></span>";
-              "today" = "<span color='#F38BA8'><b>{}</b></span>";
+              "months" = "<span color='#${clr.base0D}'><b>{}</b></span>";
+              "days" = "<span color='#${clr.base05}'><b>{}</b></span>";
+              "weekdays" = "<span color='#${clr.base0C}'><b>{}</b></span>";
+              "today" = "<span color='#${clr.base08}'><b>{}</b></span>";
             };
           };
           "actions" = {
@@ -146,43 +148,43 @@
       }
 
       window#waybar {
-          color: #d4d4ca;
+          color: #${clr.base05};
           background: transparent;
       }
 
       tooltip {
-          background: #313244;
-          border: 1px solid #89b4fa;
+          background: #${clr.base02};
+          border: 1px solid #${clr.base0D};
       }
 
       #workspaces button label {
-          color: #d4d4ca;
+          color: #${clr.base05};
       }
 
       #workspaces button.active label {
-          color: #313244;
+          color: #${clr.base02};
       }
 
       #workspaces {
-          background-color: #313244;
+          background-color: #${clr.base02};
           border-radius: 10px;
       }
 
       #workspaces button {
           background: transparent;
           padding: 4px 8px;
-          color: #89b4fa;
+          color: #${clr.base0D};
           transition: all 0.3s ease;
           border: 0;
       }
 
       #workspaces button.active {
-          background-color: #d4d4ca;
+          background-color: #${clr.base05};
           transition: all 0.3s ease;
       }
 
       #mpris {
-          color: #20202A;
+          color: #${clr.base00};
           font-size: 13px;
           padding: 0px 5px;
       }
@@ -226,9 +228,9 @@
       #clock,
       #tray,
       #custom-power {
-          color: #20202A;
+          color: #${clr.base00};
           padding: 0px 6px;
-          background-color: #d4d4ca;
+          background-color: #${clr.base05};
           margin: 0px 2px;
           border-radius: 8px;
       }
@@ -249,7 +251,7 @@
       }
 
       #tray {
-          background-color: #313244;
+          background-color: #${clr.base02};
           border-radius: 8px 0 0 8px;
           margin-right: 0;
           margin-left: 5px;
@@ -257,8 +259,8 @@
 
       #custom-power {
           font-size: 16px;
-          color: #20202A;
-          background-color: #f38ba8;
+          color: #${clr.base00};
+          background-color: #${clr.base08};
           border-radius: 0 8px 8px 0;
           margin-right: 0px;
           margin-left: 0px;

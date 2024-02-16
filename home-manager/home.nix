@@ -1,12 +1,14 @@
 {
   pkgs,
   username,
+  inputs,
   ...
 }: {
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
   imports = [
+    inputs.nix-colors.homeManagerModules.default
     ./dunst.nix
     ./fish.nix
     ./hypr
@@ -21,6 +23,8 @@
     ./wezterm.nix
     ./wofi.nix
   ];
+
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home.packages = with pkgs; [
     firefox

@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  clr = config.colorScheme.palette;
+in {
   services.dunst = {
     enable = true;
     settings = {
@@ -13,21 +19,21 @@
         font = "FiraCode Nerd Font 11";
       };
       urgency_low = {
-        background = "#1E1E2E";
-        foreground = "#CDD6F4";
-        highlight = "#89b4fa";
+        background = "#${clr.base00}";
+        foreground = "#${clr.base05}";
+        highlight = "#${clr.base0D}";
         timeout = 10;
       };
       urgency_normal = {
-        background = "#1E1E2E";
-        foreground = "#CDD6F4";
-        highlight = "#89b4fa";
+        background = "#${clr.base00}";
+        foreground = "#${clr.base05}";
+        highlight = "#${clr.base0D}";
         timeout = 10;
       };
       urgency_critical = {
-        background = "#900000";
-        foreground = "#ffffff";
-        frame_color = "#ff0000";
+        background = "#${clr.base08}";
+        foreground = "#${clr.base00}";
+        frame_color = "#${clr.base00}";
         timeout = 0;
       };
     };

@@ -1,4 +1,6 @@
-{...}: {
+{config, ...}: let
+  clr = config.colorScheme.palette;
+in {
   programs.wofi = {
     enable = true;
     settings = {
@@ -19,14 +21,14 @@
           font-family: FiraCode Nerd Font;
           font-size: 16px;
           font-weight: 500;
-          color: #cdd6f4;
+          color: #${clr.base05};
       }
 
       #window {
           margin: 0;
-          background: rgba(30, 30, 46, 0.95);
+          background: #${clr.base00};
           border-radius: 8px;
-          border: 2px solid #89b4fa;
+          border: 2px solid #${clr.base0D};
       }
 
       #input {
@@ -54,7 +56,7 @@
       }
 
       #entry:selected {
-          background-color: #2e3440;
+          background-color: #${clr.base02};
       }
 
       #text {

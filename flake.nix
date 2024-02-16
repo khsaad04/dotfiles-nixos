@@ -11,6 +11,8 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    nix-colors.url = "github:misterio77/nix-colors";
+
     lf-icons = {
       url = "github:gokcehan/lf";
       flake = false;
