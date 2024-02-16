@@ -8,7 +8,7 @@
       exec ${pkgs.wl-clipboard}/bin/wl-clipboard &
       exec ${pkgs.networkmanagerappler}/bin/nm-applet --indicator &
       exec ${pkgs.firefox}/bin/firefox &
-      exec ${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &
+      exec ${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./../wallpaper}/wp.png &
 
       font pango: FiraCode Nerd Regular 11
 
