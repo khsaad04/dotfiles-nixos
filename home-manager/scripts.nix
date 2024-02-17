@@ -40,6 +40,12 @@
             reboot;;
     esac
   '';
+  tmux_sess = pkgs.writeShellScriptBin "tmux_sess" ''
+    if ! ${pkgs.tmux}/bin/tmux has-session -t main 2> /dev/null; then
+      ${pkgs.tmux}/bin/tmux new-session -s main
+    fi
+    ${pkgs.tmux}/bin/tmux attach -t main
+  '';
 in {
-  home.packages = [changevolume powermenu];
+  home.packages = [changevolume powermenu tmux_sess];
 }

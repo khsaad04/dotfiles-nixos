@@ -19,6 +19,7 @@
         },
         color_scheme = "${config.colorScheme.name}",
 
+        default_prog = {"tmux_sess"},
         hide_tab_bar_if_only_one_tab = true,
         window_close_confirmation = "NeverPrompt",
 
