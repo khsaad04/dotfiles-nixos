@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  clr = config.colorScheme.palette;
+in {
   home.packages = [pkgs.tmux-sessionizer];
   programs.tmux = {
     enable = true;
@@ -77,6 +83,12 @@
 
       # Clipbaord Integration
       set -g set-clipboard on
+
+      # Status bar
+      set -g status-style "bg=#${clr.base01},fg=#${clr.base05}"
+      set -g status-left "#[fg=#${clr.base00},bold,bg=#${clr.base0D}] #S "
+      set -g status-left-length 20
+      set -g status-right "#[fg=#${clr.base00},bold,bg=#${clr.base0D}] #{pane_current_path} "
     '';
   };
 }
