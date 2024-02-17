@@ -5,6 +5,7 @@
 
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
 
     withNodeJs = true;
     withPython3 = true;
@@ -40,12 +41,12 @@
       cmp_luasnip
       cmp-nvim-lsp
       cmp-path
+      cmp-buffer
       friendly-snippets
 
       # Git related
       gitsigns-nvim
       vim-fugitive
-      vim-rhubarb
 
       # Noice
       noice-nvim

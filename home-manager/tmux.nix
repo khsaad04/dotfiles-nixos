@@ -8,28 +8,35 @@ in {
   home.packages = [pkgs.tmux-sessionizer];
   programs.tmux = {
     enable = true;
-    mouse = true;
-    keyMode = "vi";
-    prefix = "C-space";
-    baseIndex = 1;
-    sensibleOnTop = true;
-
     extraConfig = ''
       # Fix colors for terminal
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
 
+      # Setting ctrl + a as prefix
+      set -g prefix C-space
+
+      # Start indexing windows at 1
+      set -g base-index 1
+
       # Renumber windows when they are closed
       set -g renumber-windows on
+
+      # Enable mouse support for TMUX
+      set -g mouse on
+
+      # Make delay shorter
+      set -sg escape-time 0
 
       # Set pane border style
       set -g pane-border-lines heavy
 
       # Making things sense
+      set -g history-limit 50000
       set -g focus-events on
 
       # Reloading .conf file
-      bind r source-file ~/.config/tmux/tmux.conf \; display " Sourced config "
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Config file has be reloaded "
 
       # Split Windows
       bind -n M-h split-window -h
@@ -77,18 +84,25 @@ in {
       # Break a pane and move it to a new window
       bind -n M-q break-pane \; display "Moved pane to a new window "
 
-
-      bind -n M-o display-popup -E "${pkgs.tmux-sessionizer}/bin/tms"
-      bind -n M-j display-popup -E "${pkgs.tmux-sessionizer}/bin/tms switch"
+      # Tmux-sessionizer
+      bind C-o display-popup -E "${pkgs.tmux-sessionizer}/bin/tms"
+      bind C-j display-popup -E "${pkgs.tmux-sessionizer}/bin/tms switch"
 
       # Clipbaord Integration
       set -g set-clipboard on
 
       # Status bar
-      set -g status-style "bg=#${clr.base01},fg=#${clr.base05}"
-      set -g status-left "#[fg=#${clr.base00},bold,bg=#${clr.base0D}] #S "
+      set -g status-interval 1
+      set -g status-keys vi
+      set -g status-style "fg=#${clr.base05},bg=#${clr.base01}"
+
+      set -g status-left "#[bold,fg=#${clr.base01},bg=#${clr.base0D}] #{session_name} "
       set -g status-left-length 20
-      set -g status-right "#[fg=#${clr.base00},bold,bg=#${clr.base0D}] #{pane_current_path} "
+
+      set -g window-status-current-format "#[bold,fg=#${clr.base0D}] #{window_index}:#{window_name}"
+      set -g window-status-format " #{window_index}:#{window_name}"
+
+      set -g status-right "#[bold,fg=#${clr.base01},bg=#${clr.base0D}] #{pane_current_path} "
     '';
   };
 }
