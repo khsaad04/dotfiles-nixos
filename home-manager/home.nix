@@ -19,6 +19,7 @@
     ./scripts.nix
     ./starship.nix
     ./theme.nix
+    ./tmux.nix
     ./waybar.nix
     ./wezterm.nix
     ./wofi.nix

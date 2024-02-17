@@ -18,6 +18,7 @@
           },
         },
         color_scheme = "${config.colorScheme.name}",
+
         hide_tab_bar_if_only_one_tab = true,
         window_close_confirmation = "NeverPrompt",
 
