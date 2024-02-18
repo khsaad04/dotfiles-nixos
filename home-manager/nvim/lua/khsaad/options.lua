@@ -17,8 +17,6 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.o.clipboard = "unnamedplus"
 
 -- Save undo history
@@ -37,4 +35,7 @@ vim.o.completeopt = "menuone,noselect"
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.o.cmdheight = 1
+-- Blazingly fast
+if vim.loader then
+    vim.loader.enable()
+end

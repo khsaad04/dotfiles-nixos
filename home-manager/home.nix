@@ -31,6 +31,7 @@
     firefox
     rustup
     obs-studio
+    hyperfine
   ];
 
   programs.git = {
