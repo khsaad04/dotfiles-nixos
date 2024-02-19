@@ -26,12 +26,14 @@
       alejandra
       ruff
       python311Packages.python-lsp-server
-      rust-analyzer
+      python311Packages.black
+      python311Packages.isort
     ];
+
     plugins = with pkgs.vimPlugins; [
       # LSP, Formatter and Linter
       nvim-lspconfig
-      formatter-nvim
+      conform-nvim
       nvim-lint
 
       # CMP

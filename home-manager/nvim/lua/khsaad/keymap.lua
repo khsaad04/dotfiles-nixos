@@ -45,7 +45,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)
 keymap("x", "p", [["_dp]], opts)
 
 -- Format
-keymap("n", "<leader>lf", "<cmd>FormatCustom<cr><cmd>Format<cr>", opts)
-
--- Formatter for nix
-keymap("n", "<leader>fn", "<cmd>%!alejandra -qq<cr>", opts)
+keymap("n", "<leader>lf", function()
+	require("conform").format({ lsp_fallback = true })
+end, { silent = true, desc = "Format current buffer using conform" })
