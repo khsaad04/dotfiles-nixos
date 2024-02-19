@@ -37,5 +37,5 @@ vim.o.termguicolors = true
 
 -- Blazingly fast
 if vim.loader then
-    vim.loader.enable()
+	vim.loader.enable()
 end

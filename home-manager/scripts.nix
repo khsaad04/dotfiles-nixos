@@ -31,13 +31,13 @@
         exit)
             hyprctl dispatch exit;;
         shutdown)
-            shutdown now;;
+            systemctl poweroff;;
         suspend)
             systemctl suspend;;
         hibernate)
             systemctl hibernate;;
         reboot)
-            reboot;;
+            systemctl reboot;;
     esac
   '';
   tmux_sess = pkgs.writeShellScriptBin "tmux_sess" ''

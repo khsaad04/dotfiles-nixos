@@ -1,1 +1,1 @@
-require("khsaad");
+require("khsaad")

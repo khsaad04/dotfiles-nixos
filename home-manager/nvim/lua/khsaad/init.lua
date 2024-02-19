@@ -1,2 +1,2 @@
-require("khsaad.options");
-require("khsaad.keymap");
+require("khsaad.options")
+require("khsaad.keymap")

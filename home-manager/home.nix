@@ -11,8 +11,8 @@
     inputs.nix-colors.homeManagerModules.default
     ./dunst.nix
     ./fish.nix
-    ./hypr
-    # ./sway
+    ./hypr.nix
+    # ./sway.nix
     ./lf.nix
     ./neofetch.nix
     ./nvim
