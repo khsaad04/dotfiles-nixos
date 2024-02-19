@@ -31,7 +31,6 @@
     plugins = with pkgs.vimPlugins; [
       # LSP, Formatter and Linter
       nvim-lspconfig
-      neodev-nvim
       formatter-nvim
       nvim-lint
 
@@ -50,13 +49,13 @@
 
       # Noice
       noice-nvim
-      plenary-nvim
       nvim-notify
       nui-nvim
 
       # Telescope
       telescope-nvim
       telescope-fzf-native-nvim
+      plenary-nvim
 
       # Treesitter
       {
@@ -83,6 +82,7 @@
       nvim-autopairs
       catppuccin-nvim
       comment-nvim
+      vim-sleuth
       indent-blankline-nvim
     ];
   };

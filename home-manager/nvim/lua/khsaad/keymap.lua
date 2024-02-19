@@ -4,7 +4,10 @@ local opts = { silent = true }
 -- Keymaps for better default experience
 keymap({ "n", "v" }, "<Space>", "<Nop>", opts)
 
----- Normal ----
+-- Remap for dealing with word wrap
+keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -28,15 +31,12 @@ keymap("n", "N", "Nzzzv", opts)
 keymap("n", "j", "jzz", opts)
 keymap("n", "k", "kzz", opts)
 
----- Insert ----
 keymap("i", "<C-c>", "<Esc>", opts)
 
----- Visual ----
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
----- Visual Block ----
 -- Move text up and down
 keymap("x", "<A-j>", ":move '>+1<CR>gv=gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)

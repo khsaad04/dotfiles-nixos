@@ -15,6 +15,7 @@ in {
 
       # Setting ctrl + a as prefix
       set -g prefix C-space
+      unbind C-b
 
       # Start indexing windows at 1
       set -g base-index 1
