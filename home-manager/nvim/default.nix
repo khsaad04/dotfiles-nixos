@@ -29,64 +29,6 @@
       python311Packages.black
       python311Packages.isort
     ];
-
-    plugins = with pkgs.vimPlugins; [
-      # LSP, Formatter and Linter
-      nvim-lspconfig
-      conform-nvim
-      nvim-lint
-
-      # CMP
-      nvim-cmp
-      luasnip
-      cmp_luasnip
-      cmp-nvim-lsp
-      cmp-path
-      cmp-buffer
-      friendly-snippets
-
-      # Git related
-      gitsigns-nvim
-      vim-fugitive
-
-      # Noice
-      noice-nvim
-      nvim-notify
-      nui-nvim
-
-      # Telescope
-      telescope-nvim
-      telescope-fzf-native-nvim
-      plenary-nvim
-
-      # Treesitter
-      {
-        plugin = nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-lua
-          p.tree-sitter-python
-          p.tree-sitter-rust
-          p.tree-sitter-vimdoc
-          p.tree-sitter-vim
-          p.tree-sitter-regex
-          p.tree-sitter-markdown
-          p.tree-sitter-bash
-          p.tree-sitter-markdown_inline
-          p.tree-sitter-nix
-        ]);
-      }
-      nvim-treesitter-textobjects
-
-      # Misc
-      lualine-nvim
-      neo-tree-nvim
-      which-key-nvim
-      nvim-web-devicons
-      nvim-autopairs
-      catppuccin-nvim
-      comment-nvim
-      vim-sleuth
-      indent-blankline-nvim
-    ];
   };
 
   home.file."./.config/nvim/" = {

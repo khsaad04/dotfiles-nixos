@@ -1,50 +1,55 @@
-local keymap = vim.keymap.set
-local opts = { silent = true }
+local map = vim.keymap.set
 
--- Keymaps for better default experience
-keymap({ "n", "v" }, "<Space>", "<Nop>", opts)
+-- maps for better default experience
+map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- Remap for dealing with word wrap
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Clear highlights on search
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+map("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 
 -- Center cursor while navigating
-keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "<C-u>", "<C-u>zz", opts)
-keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts)
-keymap("n", "j", "jzz", opts)
-keymap("n", "k", "kzz", opts)
+map("n", "<C-d>", "<C-d>zz", { silent = true })
+map("n", "<C-u>", "<C-u>zz", { silent = true })
+map("n", "n", "nzzzv", { silent = true })
+map("n", "N", "Nzzzv", { silent = true })
+map("n", "j", "jzz", { silent = true })
+map("n", "k", "kzz", { silent = true })
 
-keymap("i", "<C-c>", "<Esc>", opts)
+map("i", "<C-c>", "<Esc>", { silent = true })
 
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+map("v", "<", "<gv", { silent = true })
+map("v", ">", ">gv", { silent = true })
 
--- Move text up and down
-keymap("x", "<A-j>", ":move '>+1<CR>gv=gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)
+-- Move Lines
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- greatest remap ever
-keymap("x", "p", [["_dp]], opts)
+map("x", "p", [["_dp]], { silent = true })
 
 -- Format
-keymap("n", "<leader>lf", function()
+map("n", "<leader>lf", function()
 	require("conform").format({ lsp_fallback = true })
 end, { silent = true, desc = "Format current buffer using conform" })
