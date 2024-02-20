@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
+	event = "BufEnter",
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
