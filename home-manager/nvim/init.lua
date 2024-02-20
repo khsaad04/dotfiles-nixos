@@ -1,1 +1,2 @@
-require("khsaad")
+require("config")
+require("plugin")
