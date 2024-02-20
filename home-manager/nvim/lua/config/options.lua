@@ -39,8 +39,3 @@ vim.o.completeopt = "menu,menuone,noselect"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-
--- Blazingly fast
-if vim.loader then
-	vim.loader.enable()
-end
