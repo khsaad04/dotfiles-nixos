@@ -24,5 +24,6 @@ return {
 				additional_vim_regex_highlighting = false,
 			},
 		})
+		vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 	end,
 }
