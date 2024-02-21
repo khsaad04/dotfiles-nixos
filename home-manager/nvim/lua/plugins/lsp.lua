@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	event = "BufReadPre",
 	config = function()
 		local on_attach = function(_, bufnr)
 			local nmap = function(keys, func, desc)

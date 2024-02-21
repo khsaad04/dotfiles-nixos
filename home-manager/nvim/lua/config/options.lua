@@ -1,16 +1,17 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Set highlight on search
-vim.o.hlsearch = true
-
 -- Make line numbers default
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- Set highlight on search
+vim.o.hlsearch = true
+
 -- Enable mouse mode
 vim.o.mouse = "a"
 
+-- Tabs
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
@@ -29,6 +30,9 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = "yes"
+
+-- Cursorline
+vim.o.cursorline = true
 
 -- Decrease update time
 vim.o.updatetime = 250

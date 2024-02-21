@@ -142,7 +142,7 @@ in {
       #custom-power {
           all: initial;
           font-family: FiraCode Nerd Font;
-          font-size: 11px;
+          font-size: 10.5px;
           font-weight: 800;
           border-radius: 8px;
       }

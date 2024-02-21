@@ -6,19 +6,19 @@
   };
 in {
   home.packages = [nerdfonts];
-  
+
   home.pointerCursor = {
     gtk.enable = true;
     name = "Adwaita";
     package = pkgs.gnome.adwaita-icon-theme;
-    size = 24;
+    size = 22;
   };
 
   gtk = {
     enable = true;
     font = {
       name = "FiraCode Nerd Font";
-      size = 11;
+      size = 10.5;
     };
     iconTheme = {
       name = "Papirus";
