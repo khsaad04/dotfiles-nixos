@@ -1,45 +1,41 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Make line numbers default
-vim.o.number = true
-vim.o.relativenumber = true
+local opt = vim.opt
 
--- Set highlight on search
-vim.o.hlsearch = true
+opt.number = true
+opt.relativenumber = true
 
--- Enable mouse mode
-vim.o.mouse = "a"
+opt.splitbelow = true
+opt.splitright = true
 
--- Tabs
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.breakindent = true
+opt.wrap = false
 
--- Sync clipboard between OS and Neovim.
-vim.o.clipboard = "unnamedplus"
+opt.mouse = "a"
 
--- Save undo history
-vim.o.undofile = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.breakindent = true
 
--- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
+opt.scrolloff = 999
+opt.virtualedit = "block"
 
--- Keep signcolumn on by default
+opt.clipboard = "unnamedplus"
+
+opt.undofile = true
+
+opt.ignorecase = true
+opt.smartcase = true
+
 vim.wo.signcolumn = "yes"
 
--- Cursorline
-vim.o.cursorline = true
+opt.cursorline = true
 
--- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+opt.updatetime = 250
+opt.timeoutlen = 300
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menu,menuone,noselect"
+opt.completeopt = "menu,menuone,noselect"
 
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
+opt.termguicolors = true

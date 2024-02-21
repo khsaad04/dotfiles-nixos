@@ -24,14 +24,6 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window w
 -- Clear highlights on search
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 
--- Center cursor while navigating
-map("n", "<C-d>", "<C-d>zz", { silent = true })
-map("n", "<C-u>", "<C-u>zz", { silent = true })
-map("n", "n", "nzzzv", { silent = true })
-map("n", "N", "Nzzzv", { silent = true })
-map("n", "j", "jzz", { silent = true })
-map("n", "k", "kzz", { silent = true })
-
 map("i", "<C-c>", "<Esc>", { silent = true })
 
 -- Stay in indent mode
