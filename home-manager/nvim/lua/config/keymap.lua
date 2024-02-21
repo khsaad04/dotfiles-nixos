@@ -1,6 +1,5 @@
 local map = vim.keymap.set
 
--- maps for better default experience
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- better up/down
@@ -26,7 +25,7 @@ map("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear highlights on searc
 
 map("i", "<C-c>", "<Esc>", { silent = true })
 
--- Stay in indent mode
+-- Stay in indent mode while indenting
 map("v", "<", "<gv", { silent = true })
 map("v", ">", ">gv", { silent = true })
 

@@ -39,3 +39,4 @@ opt.timeoutlen = 300
 opt.completeopt = "menu,menuone,noselect"
 
 opt.termguicolors = true
+opt.cmdheight = 1
