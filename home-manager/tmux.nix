@@ -93,6 +93,7 @@ in {
       set -g set-clipboard on
 
       # Status bar
+      set -g status-position top
       set -g status-interval 1
       set -g status-keys vi
       set -g status-style "fg=#${clr.base05},bg=#${clr.base01}"
