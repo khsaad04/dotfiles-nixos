@@ -1,5 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = {
+		{ "j-hui/fidget.nvim", opts = {} },
+	},
 	ft = { "python", "rust", "nix", "lua" },
 	config = function()
 		local on_attach = function(_, bufnr)
