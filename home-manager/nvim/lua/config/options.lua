@@ -38,3 +38,6 @@ opt.completeopt = "menu,menuone,noselect"
 
 opt.termguicolors = true
 opt.cmdheight = 1
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
