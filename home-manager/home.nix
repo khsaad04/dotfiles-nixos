@@ -40,6 +40,11 @@
     userEmail = "khsaad0404@gmail.com";
   };
 
+  programs.eza = {
+    enable = true;
+    enableAliases = true;
+  };
+
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 }
