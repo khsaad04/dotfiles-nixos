@@ -10,7 +10,7 @@
       exec ${pkgs.firefox}/bin/firefox &
       exec ${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &
 
-      font pango: FiraCode Nerd Regular 11
+      font pango: FiraCode Nerd Regular 10
 
       gaps inner 5
       gaps outer 0

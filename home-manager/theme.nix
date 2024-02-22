@@ -18,7 +18,7 @@ in {
     enable = true;
     font = {
       name = "FiraCode Nerd Font";
-      size = 10.5;
+      size = 10;
     };
     iconTheme = {
       name = "Papirus";

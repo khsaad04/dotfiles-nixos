@@ -16,7 +16,7 @@ in {
         notification_limit = 4;
         frame_width = 2;
         frame_color = "89b4fa";
-        font = "FiraCode Nerd Font 11";
+        font = "FiraCode Nerd Font 10";
       };
       urgency_low = {
         background = "#${clr.base00}";

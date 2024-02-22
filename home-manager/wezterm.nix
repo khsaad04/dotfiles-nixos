@@ -7,7 +7,7 @@
           family = "FiraCode Nerd Font",
           harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
         }),
-        font_size = 10.5,
+        font_size = 10,
         font_rules = {
           {
             intensity = "Bold",
@@ -26,9 +26,6 @@
           saturation = 0.9,
           brightness = 0.8,
         },
-
-        window_background_opacity = 0.97,
-        text_background_opacity = 1.0,
       }
     '';
   };
