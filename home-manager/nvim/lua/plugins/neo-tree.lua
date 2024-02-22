@@ -3,8 +3,8 @@ vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 return {
 	"nvim-neo-tree/neo-tree.nvim",
+	priority = 998,
 	version = "*",
-	event = "BufEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended

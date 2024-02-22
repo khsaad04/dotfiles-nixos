@@ -1,5 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	priority = 999,
 	config = function()
 		require("lualine").setup({
 			options = {

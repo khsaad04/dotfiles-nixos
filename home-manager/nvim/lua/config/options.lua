@@ -29,9 +29,7 @@ opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
 
-vim.wo.signcolumn = "yes"
-
-opt.cursorline = true
+vim.wo.signcolumn = "yes:1"
 
 opt.updatetime = 250
 opt.timeoutlen = 300
