@@ -11,7 +11,7 @@ in {
     gtk.enable = true;
     name = "Adwaita";
     package = pkgs.gnome.adwaita-icon-theme;
-    size = 22;
+    size = 20;
   };
 
   gtk = {
