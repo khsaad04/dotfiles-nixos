@@ -4,9 +4,17 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "auto",
-				section_separators = { left = "", right = "" },
-				component_separators = { left = "", right = "" },
+				theme = "catppuccin",
+				component_separators = "",
+				section_separators = { left = "", right = "" },
+			},
+			sections = {
+				lualine_a = {
+					{ "mode", separator = { left = "" }, right_padding = 1 },
+				},
+				lualine_z = {
+					{ "location", separator = { right = "" }, left_padding = 1 },
+				},
 			},
 		})
 	end,

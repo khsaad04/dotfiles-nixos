@@ -93,18 +93,19 @@ in {
       set -g set-clipboard on
 
       # Status bar
-      set -g status-position top
       set -g status-interval 1
       set -g status-keys vi
       set -g status-style "fg=#${clr.base05},bg=#${clr.base01}"
 
-      set -g status-left "#[bold,fg=#${clr.base01},bg=#${clr.base0D}] #{session_name} "
+      set -g status-left "#[bold,bg=#${clr.base00},fg=#${clr.base0D}]#[bold,fg=#${clr.base01},bg=#${clr.base0D}]#{session_name}#[bold,bg=#${clr.base00},fg=#${clr.base0D}]"
       set -g status-left-length 20
 
-      set -g window-status-current-format "#[bold,fg=#${clr.base0D}] #{window_index}:#{window_name}"
-      set -g window-status-format " #{window_index}:#{window_name}"
+      set -g window-status-current-format "#[bold,bg=#${clr.base00},fg=#${clr.base0D}]#[bold,fg=#${clr.base01},bg=#${clr.base0D}]#{window_index}:#{window_name}#[bold,bg=#${clr.base00},fg=#${clr.base0D}]"
+      set -g window-status-format "#[bold,bg=#${clr.base00},fg=#${clr.base02}]#[fg=#${clr.base0D},bg=#${clr.base02}]#{window_index}:#{window_name}#[bold,bg=#${clr.base00},fg=#${clr.base02}]"
+      set -g window-status-separator " "
+      set -g status-justify centre
 
-      set -g status-right "#[bold,fg=#${clr.base01},bg=#${clr.base0D}] #{pane_current_path} "
+      set -g status-right "#[bold,bg=#${clr.base00},fg=#${clr.base0D}]#[bold,fg=#${clr.base01},bg=#${clr.base0D}]#H#[bold,bg=#${clr.base00},fg=#${clr.base0D}]"
     '';
   };
 }

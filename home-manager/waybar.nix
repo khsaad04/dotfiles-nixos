@@ -1,5 +1,6 @@
 {config, ...}: let
   clr = config.colorScheme.palette;
+  radius = "16px";
 in {
   programs.waybar = {
     enable = true;
@@ -144,7 +145,7 @@ in {
           font-family: FiraCode Nerd Font;
           font-size: 10px;
           font-weight: 800;
-          border-radius: 50%;
+          border-radius: ${radius};
       }
 
       window#waybar {
@@ -167,7 +168,7 @@ in {
 
       #workspaces {
           background-color: #${clr.base02};
-          border-radius: 10px;
+          border-radius: ${radius};
       }
 
       #workspaces button {
@@ -192,7 +193,7 @@ in {
       #mpris.player {
           margin-right: 0px;
           margin-left: 5px;
-          border-radius: 8px 0 0 8px;
+          border-radius: ${radius} 0 0 ${radius};
           padding-right: 0px;
       }
 
@@ -209,7 +210,7 @@ in {
 
       #mpris.next {
           margin-right: 0px;
-          border-radius: 0 8px 8px 0;
+          border-radius: 0 ${radius} ${radius} 0;
           margin-right: 5px;
       }
 
@@ -232,11 +233,11 @@ in {
           padding: 0px 6px;
           background-color: #${clr.base05};
           margin: 0px 2px;
-          border-radius: 8px;
+          border-radius: ${radius};
       }
 
       #pulseaudio {
-          border-radius: 8px 0 0 8px;
+          border-radius: ${radius} 0 0 ${radius};
           margin-right: 0px;
       }
 
@@ -246,13 +247,13 @@ in {
       }
 
       #memory {
-          border-radius: 0 8px 8px 0;
+          border-radius: 0 ${radius} ${radius} 0;
           margin-left: 0px;
       }
 
       #tray {
           background-color: #${clr.base02};
-          border-radius: 8px 0 0 8px;
+          border-radius: ${radius} 0 0 ${radius};
           margin-right: 0;
           margin-left: 5px;
       }
@@ -261,7 +262,7 @@ in {
           font-size: 16px;
           color: #${clr.base00};
           background-color: #${clr.base08};
-          border-radius: 0 8px 8px 0;
+          border-radius: 0 ${radius} ${radius} 0;
           margin-right: 0px;
           margin-left: 0px;
           padding: 0px 10px 0px 6px;

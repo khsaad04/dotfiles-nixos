@@ -15,7 +15,7 @@ in {
         offset = "10x10";
         notification_limit = 4;
         frame_width = 2;
-        frame_color = "89b4fa";
+        frame_color = "#${clr.base0D}";
         font = "FiraCode Nerd Font 10";
       };
       urgency_low = {
