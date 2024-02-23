@@ -7,7 +7,7 @@ in {
       mainBar = {
         "layer" = "top";
         "position" = "top";
-        "margin" = "5 5 0 5";
+        "margin" = "0 0 0 0";
         "spacing" = 0;
         "modules-left" = [
           "hyprland/workspaces"
@@ -144,7 +144,7 @@ in {
           font-family: FiraCode Nerd Font;
           font-size: 10px;
           font-weight: 800;
-          border-radius: 8px;
+          border-radius: 50%;
       }
 
       window#waybar {
