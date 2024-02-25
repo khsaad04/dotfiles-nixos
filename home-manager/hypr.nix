@@ -18,11 +18,11 @@ in {
         ",preferred,auto,auto"
       ];
       exec-once = [
-        "${pkgs.wl-clipboard}/bin/wl-clipboard"
-        "${pkgs.waybar}/bin/waybar"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet"
-        "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &"
-        "${pkgs.firefox}/bin/firefox"
+        "${pkgs.wl-clipboard}/bin/wl-clipboard &"
+        "${pkgs.waybar}/bin/waybar &"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet &"
+        "${pkgs.swww}/bin/swww init &"
+        "${pkgs.firefox}/bin/firefox &"
       ];
       general = {
         gaps_in = 2;
@@ -36,7 +36,7 @@ in {
         blur = {enabled = false;};
       };
       animations = {
-        enabled = 1;
+        enabled = 0;
         bezier = [
           "in, 0.5, 1.2, 0.4, 1"
           "wss, 0.5, 1.15, 0.4, 1"

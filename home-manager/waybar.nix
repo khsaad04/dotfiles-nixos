@@ -150,7 +150,7 @@ in {
 
       window#waybar {
           color: #${clr.base05};
-          background: transparent;
+          background: #${clr.base01};
       }
 
       tooltip {
