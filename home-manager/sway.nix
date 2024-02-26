@@ -3,10 +3,10 @@
   wayland.windowManager.sway = {
     enable = true;
     extraConfig = ''
-      include /etc/sway/config.d/*
+      include ${pkgs.sway}/etc/sway/config.d/*
 
       exec ${pkgs.wl-clipboard}/bin/wl-clipboard &
-      exec ${pkgs.networkmanagerappler}/bin/nm-applet --indicator &
+      exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
       exec ${pkgs.firefox}/bin/firefox &
       exec ${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &
 

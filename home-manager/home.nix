@@ -13,12 +13,12 @@
     ./firefox.nix
     ./fish.nix
     ./hypr.nix
-    # ./sway.nix
     ./lf.nix
     ./neofetch.nix
     ./nvim
     ./scripts.nix
     ./starship.nix
+    ./sway.nix
     ./theme.nix
     ./tmux.nix
     ./waybar.nix

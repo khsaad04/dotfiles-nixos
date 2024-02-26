@@ -21,7 +21,7 @@ in {
         "${pkgs.wl-clipboard}/bin/wl-clipboard &"
         "${pkgs.waybar}/bin/waybar &"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-        "${pkgs.swww}/bin/swww init &"
+        "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &"
         "${pkgs.firefox}/bin/firefox &"
       ];
       general = {
