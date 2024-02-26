@@ -29,20 +29,25 @@
 
   home.packages = with pkgs; [
     firefox
-    rustup
     obs-studio
     hyperfine
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
   ];
 
-  programs.git = {
-    enable = true;
-    userName = "khsaad04";
-    userEmail = "khsaad0404@gmail.com";
-  };
+  fonts.fontconfig.enable = true;
 
-  programs.eza = {
-    enable = true;
-    enableAliases = true;
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    git = {
+      enable = true;
+      userName = "khsaad04";
+      userEmail = "khsaad0404@gmail.com";
+    };
   };
 
   home.stateVersion = "23.11";

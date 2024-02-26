@@ -31,27 +31,29 @@
     };
   };
 
+  # Networking
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
   };
 
-  # Set your time zone.
+  # Timezone
   time.timeZone = "Asia/Dhaka";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  # Locale
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   services = {
@@ -62,6 +64,7 @@
         enable = true;
       };
     };
+    # Sound
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -80,20 +83,6 @@
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     };
-  };
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-  ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*";
   };
 
   security = {
@@ -129,6 +118,5 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
   system.stateVersion = "24.05";
 }
