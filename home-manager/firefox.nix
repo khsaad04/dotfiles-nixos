@@ -39,11 +39,6 @@
           display:none !important
         }
 
-        /* Remove extensions button */
-        #unified-extensions-button {
-          display: none !important
-        }
-
         /* Remove icons from urlbar */
         /* #identity-permission-box
         */
@@ -60,6 +55,13 @@
         /* Hide Extension Name in the identity area */
         #identity-box.extensionPage #identity-icon-label {
           visibility: collapse !important
+        }
+
+        /* Panel/menu position */
+        #PanelUI-button {
+          -moz-box-ordinal-group: 0 !important;
+          order: -2 !important;
+          margin: 2px !important;
         }
 
         /* Fades window while not in focus */
