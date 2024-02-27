@@ -19,7 +19,7 @@
       # LSPs, Formatters and Linters
       lua-language-server
       stylua
-      nil
+      nixd
       alejandra
       ruff
       python311Packages.python-lsp-server

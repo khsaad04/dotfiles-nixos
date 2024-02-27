@@ -37,7 +37,7 @@ return {
 			capabilities = capabilities,
 		})
 
-		lspconfig.nil_ls.setup({
+		lspconfig.nixd.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
