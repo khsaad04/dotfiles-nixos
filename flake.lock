@@ -198,24 +198,7 @@
         "hyprland": "hyprland",
         "lf-icons": "lf-icons",
         "nix-colors": "nix-colors",
-        "nixpkgs": "nixpkgs_2",
-        "rycee-expressions": "rycee-expressions"
-      }
-    },
-    "rycee-expressions": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1708920243,
-        "narHash": "sha256-vAl9OpUSTySUoASlGUIn9rcl4fQ1RmnMWhzE47ePf8k=",
-        "owner": "rycee",
-        "repo": "nur-expressions",
-        "rev": "5890c1604631ece220d9c5d121e8e35962041d1b",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "rycee",
-        "repo": "nur-expressions",
-        "type": "gitlab"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {
