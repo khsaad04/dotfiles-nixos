@@ -9,127 +9,106 @@
       name = username;
       extensions = with firefox-addons; [
         ublock-origin
-        firefox-color
         vimium
       ];
       extraConfig = ''
         user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+        user_pref("ui.key.menuAccessKeyFocuses", false);
       '';
       userChrome = ''
-        /* Navbar size calc stuff */
-        :root{
-        --tab-border-radius: 6px !important; /*  Tab border radius -- Changes the tabs rounding  *//*  Default: 6px  */
-        --NavbarWidth: 43; /*  Default values: 36 - 43  */
-        --TabsHeight: 36; /*  Minimum: 30  *//*  Default: 36  */
-        --TabsBorder: 8; /*  Doesnt do anything on small layout  *//*  Default: 8  */
-        --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))  /*  Only on small layout  *//*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  *//*  Default as a number: 44  */}
+        /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/navbar_tabs_responsive_oneliner.css made available under Mozilla Public License v. 2.0
+        See the above repository for updates as well as full license text. */
 
-        @media screen and (min-width:1325px)    /*  Only the tabs space will grow from here  */
-        {:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px)!important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(1325px / 100 * var(--NavbarWidth)) !important} #nav-bar{margin-right: calc(100vw - calc(1325px / 100 * var(--NavbarWidth))) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important}}
+        /* Make tabs and navbar appear side-by-side tabs on right */
 
-        @media screen and (min-width:950px) and (max-width:1324px)    /*  Both the tabs space and the navbar will grow  */
-        {:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(var(--NavbarWidth) * 1vw) !important} #nav-bar{margin-right: calc(100vw - calc(var(--NavbarWidth) * 1vw)) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important} #TabsToolbar, #nav-bar{transition: margin-top .25s !important}}
+        /* Use page_action_buttons_on_hover.css to hide page-action-buttons to save more space for the address */
 
-        @media screen and (max-width:949px)    /*  The window is not enough wide for a one line layout  */
-        {:root #nav-bar{padding: 0 5px 0 5px!important; height: calc(var(--NavbarHeightSmall) * 1px) !important} toolbarspring{display: none !important;} #TabsToolbar, #nav-bar{transition: margin-top .25s !important}}
-        #nav-bar, #PersonalToolbar{background-color: #0000 !important;background-image: none !important; box-shadow: none !important} #nav-bar{margin-left: 3px;} .tab-background, .tab-stack { min-height: calc(var(--TabsHeight) * 1px) !important}
+        /* Toolbars will be shown normally if window width goes below the value below */
 
-        /* Remove close window button*/
-        .titlebar-buttonbox-container{
-          display:none !important
-        }
 
-        /* Remove icons from urlbar */
-        /* #identity-permission-box
-        */
-        #star-button-box,
-        #alltabs-button,
-        #identity-icon-box,
-        #picture-in-picture-button,
-        #tracking-protection-icon-container,
-        #reader-mode-button,
-        #translations-button {
-          display: none !important
-        }
 
-        /* Hide Extension Name in the identity area */
-        #identity-box.extensionPage #identity-icon-label {
-          visibility: collapse !important
-        }
+        /* Modify it to suit your needs */
+        @media screen and (min-width: 1100px){
+          :root[tabsintitlebar][sizemode="normal"]{
+            --uc-window-drag-space-width: 24px;
+          }
+          :root[uidensity="compact"]{
+            --tab-block-margin: 2px !important;
+            }
 
-        /* Panel/menu position */
-        #PanelUI-button {
-          -moz-box-ordinal-group: 0 !important;
-          order: -2 !important;
-          margin: 2px !important;
-        }
+          /* Modify these to change relative widths or default height */
+          #navigator-toolbox{
+            --uc-navigationbar-width: 40vw;
+            --uc-toolbar-height: 40px;
+            --uc-urlbar-min-width: 50vw; /* minimum width for opened urlbar */
+          }
 
-        /* Fades window while not in focus */
-        #navigator-toolbox-background:-moz-window-inactive {
-          filter: contrast(90%)
+          #scrollbutton-up,
+          #scrollbutton-down{ border-block-width: 2px !important; }
+
+        /* prevent urlbar overflow on narrow windows */
+        /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
+          @media screen and (max-width: 1500px){
+            #urlbar-container{
+              min-width: 300px !important;
+              flex-shrink: 1 !important;
+            }
+          }
+
+          /* Override for other densities */
+          :root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 34px; }
+          :root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 44px; }
+
+          #TabsToolbar{
+            margin-left: var(--uc-navigationbar-width);
+            --tabs-navbar-shadow-size: 0px;
+          }
+          #tabbrowser-tabs{
+          --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;
         }
 
-        /*  Removes urlbar border/background  */
-        #urlbar-background {
-          border: none !important;
-          outline: none !important;
-          transition: .15s !important;
-        }
+          /* This isn't useful when tabs start in the middle of the window */
+          .titlebar-spacer[type="pre-tabs"]{ display: none }
 
-        /* Remove "This time search with:..." */
-        #urlbar .search-one-offs {
-          display: none !important
-        }
+          #navigator-toolbox > #nav-bar{
+            margin-right:calc(100vw - var(--uc-navigationbar-width));
+            margin-top: calc(0px - var(--uc-toolbar-height));
+          }
 
-        /* Remove fullscreen warning border */
-        #fullscreen-warning {
-          border: none !important;
-          background: -moz-Dialog !important;
-        }
+          /* Window drag space  */
+          :root[tabsintitlebar="true"] #nav-bar{ padding-left: var(--uc-window-drag-space-width) !important }
 
-        /*  X-button on the tabs  */
-        .tabbrowser-tab:not(:hover) .tab-close-button {
-            opacity: 0% !important;
-            transition: 0.3s !important;
-            display: -moz-box !important;
-        }
-        .tab-close-button[selected]:not(:hover) {
-            opacity: 45% !important;
-            transition: 0.3s !important;
-            display: -moz-box !important;
-        }
-        .tabbrowser-tab:hover .tab-close-button {
-            opacity: 50%;
-            transition: 0.3s !important;
-            background: none !important;
-            cursor: pointer;
-            display: -moz-box !important;
-        }
-        .tab-close-button:hover {
-            opacity: 100% !important;
-            transition: 0.3s !important;
-            background: none !important;
-            cursor: pointer;
-            display: -moz-box !important;
-        }
-        .tab-close-button[selected]:hover {
-            opacity: 100% !important;
-            transition: 0.3s !important;
-            background: none !important;
-            cursor: pointer;
-            display: -moz-box !important;
-        }
+          /* Rules for window controls on left layout */
 
-        /*  Removes annoying border  */
-        #navigator-toolbox {
-            border: none !important
-        }
+          @media (-moz-gtk-csd-reversed-placement),
+                 (-moz-platform: macos){
+            .titlebar-buttonbox-container{
+              position: fixed;
+              display: flex;
+              left: 0px;
+              z-index: 3;
+              height: var(--uc-toolbar-height);
+              align-items: center
+            }
+            :root[tabsintitlebar="true"] #nav-bar{ padding-inline: calc(var(--uc-window-drag-space-width,0px) + 84px) 0px !important; }
+          }
+          @media (-moz-platform: macos){
+            :root[tabsintitlebar="true"] #nav-bar{ padding-inline: calc(var(--uc-window-drag-space-width,0px) + 72px) 0px !important; }
+          }
 
-        /*  Removes the background from the urlbar while not in use  */
-        #urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
-            box-shadow: none !important;
-            background: #0000 !important;
+          /* 1px margin on touch density causes tabs to be too high */
+          .tab-close-button{ margin-top: 0 !important }
+
+          /* Make opened urlbar overlay the toolbar */
+          #urlbar[open]:focus-within{ min-width: var(--uc-urlbar-min-width,none) !important; }
+
+          /* Hide dropdown placeholder */
+          #urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
+
         }
+        /* Fix customization view */
+        #customization-panelWrapper > .panel-arrowbox > .panel-arrow{ margin-inline-end: initial !important; }
+
       '';
       userContent = ''
         @-moz-document url-prefix("about:newtab"),
