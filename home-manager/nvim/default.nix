@@ -7,6 +7,8 @@
     vimAlias = true;
     vimdiffAlias = true;
 
+    withNodeJs = true;
+
     extraPackages = with pkgs; [
       tree-sitter
       ripgrep

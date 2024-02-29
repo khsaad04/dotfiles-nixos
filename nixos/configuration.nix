@@ -19,6 +19,11 @@
     };
   };
 
+  fileSystems."/home/khsaad/ext" = {
+    device = "/dev/disk/by-uuid/ddc29dcd-c01c-4650-97c2-bf0255608e3b";
+    fsType = "ext4";
+  };
+
   nix = {
     gc = {
       automatic = true;

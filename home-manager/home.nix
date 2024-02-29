@@ -29,8 +29,6 @@
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home.packages = with pkgs; [
-    obs-studio
-    hyperfine
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -39,6 +37,7 @@
   fonts.fontconfig.enable = true;
 
   programs = {
+    obs-studio.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;

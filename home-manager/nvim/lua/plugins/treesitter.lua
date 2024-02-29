@@ -20,6 +20,7 @@ return {
 				"markdown",
 				"bash",
 				"markdown_inline",
+				"nix",
 			},
 			auto_install = false,
 
