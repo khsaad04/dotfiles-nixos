@@ -203,6 +203,7 @@
           [app_id="firefox"] workspace number 2
           [class="Spotify"] workspace number 3
       }
+
       #
       # Status Bar:
       #
