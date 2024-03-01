@@ -9,6 +9,7 @@
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.nur.hmModules.nur
     ./dunst.nix
     ./firefox.nix
     ./fish.nix

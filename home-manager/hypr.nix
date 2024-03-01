@@ -1,9 +1,12 @@
 {
   pkgs,
+  pkgs-stable,
   inputs,
   ...
 }: let
   hypr = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  term = "wezterm";
+  terminal = "${pkgs.${term}}/bin/${term}";
 in {
   home.packages = with pkgs; [
     swww
@@ -12,7 +15,8 @@ in {
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hypr;
+    # package = hypr;
+    package = pkgs-stable.hyprland;
     settings = {
       monitor = [
         ",preferred,auto,auto"
@@ -76,7 +80,7 @@ in {
         mtw = "movetoworkspace";
         mtws = "movetoworkspacesilent";
       in [
-        "${mod}, RETURN, exec, ${pkgs.foot}/bin/foot"
+        "${mod}, RETURN, exec, ${terminal}"
         "${mod}, Q, killactive,"
         "${mod}, M, exit,"
         "${mod}, V, togglefloating,"

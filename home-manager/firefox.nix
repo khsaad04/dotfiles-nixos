@@ -1,13 +1,13 @@
 {
+  config,
   username,
-  firefox-addons,
   ...
 }: {
   programs.firefox = {
     enable = true;
     profiles.${username} = {
       name = username;
-      extensions = with firefox-addons; [ublock-origin vimium];
+      extensions = with config.nur.repos.rycee.firefox-addons; [ublock-origin vimium];
       extraConfig = ''
         user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
         user_pref("ui.key.menuAccessKeyFocuses", false);
