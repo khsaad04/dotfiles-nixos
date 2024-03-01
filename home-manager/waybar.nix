@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   clr = config.colorScheme.palette;
   radius = "16px";
 in {
@@ -12,10 +16,10 @@ in {
         "spacing" = 0;
         "modules-left" = [
           "hyprland/workspaces"
-          "mpris#player"
-          "mpris#prev"
-          "mpris#status"
-          "mpris#next"
+          # "mpris#player"
+          # "mpris#prev"
+          # "mpris#status"
+          # "mpris#next"
         ];
         "modules-right" = [
           "network"
@@ -259,7 +263,7 @@ in {
       }
 
       #custom-power {
-          font-size: 16px;
+          font-size: 14px;
           color: #${clr.base00};
           background-color: #${clr.base08};
           border-radius: 0 ${radius} ${radius} 0;

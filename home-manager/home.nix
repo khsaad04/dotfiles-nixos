@@ -19,10 +19,10 @@
     ./nvim
     ./scripts.nix
     ./starship.nix
-    ./sway.nix
     ./theme.nix
     ./tmux.nix
     ./waybar.nix
+    ./wezterm.nix
     ./wofi.nix
   ];
 

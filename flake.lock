@@ -47,11 +47,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1709219234,
-        "narHash": "sha256-rklk/GODTfdWtlr9vvCOQ4l099K8KgMVJRndbllgQIA=",
+        "lastModified": 1709243510,
+        "narHash": "sha256-e47KWaUGQc+JLUABYdG0eCeqY1fFf1xGvakpKcdOP9c=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "6916d0a6a316d602ff766abe5abffacf929b6801",
+        "rev": "f590505daf90dfb4059289a906863b59663e70a6",
         "type": "github"
       },
       "original": {
@@ -198,7 +198,24 @@
         "hyprland": "hyprland",
         "lf-icons": "lf-icons",
         "nix-colors": "nix-colors",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "rycee-expressions": "rycee-expressions"
+      }
+    },
+    "rycee-expressions": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709265832,
+        "narHash": "sha256-8xugHXnVw4UPMVvjXV8xEhXNStLgH3z8FCO0Cn1kLEc=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "22e635035e2a682b7ecde732b575ad452a2a4252",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
       }
     },
     "systems": {

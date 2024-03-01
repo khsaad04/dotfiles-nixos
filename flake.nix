@@ -13,11 +13,16 @@
       url = "github:gokcehan/lf";
       flake = false;
     };
+    rycee-expressions = {
+      url = "gitlab:rycee/nur-expressions";
+      flake = false;
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    rycee-expressions,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -32,10 +37,15 @@
       };
     };
 
-    homeConfigurations = {
+    homeConfigurations = let
+      inherit
+        (import "${rycee-expressions}" {inherit pkgs;})
+        firefox-addons
+        ;
+    in {
       "${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit username inputs;};
+        extraSpecialArgs = {inherit username inputs firefox-addons;};
         modules = [./home-manager/home.nix];
       };
     };
