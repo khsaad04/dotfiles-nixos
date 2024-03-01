@@ -35,7 +35,7 @@
 
           /* Modify these to change relative widths or default height */
           #navigator-toolbox{
-            --uc-navigationbar-width: 40vw;
+            --uc-navigationbar-width: 45vw;
             --uc-toolbar-height: 40px;
             --uc-urlbar-min-width: 50vw; /* minimum width for opened urlbar */
           }

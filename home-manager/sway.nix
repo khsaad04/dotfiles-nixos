@@ -9,6 +9,7 @@
     enable = true;
     package = pkgs.swayfx;
     config = {
+      defaultWorkspace = "workspace number 1";
       startup = [
         {command = "${pkgs.wl-clipboard}/bin/wl-clipboard &";}
         {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &";}
