@@ -79,7 +79,10 @@
     fish.enable = true;
     git.enable = true;
     dconf.enable = true;
-    sway.enable = true;
+    sway = {
+      enable = true;
+      package = pkgs.swayfx;
+    };
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
