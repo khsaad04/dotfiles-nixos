@@ -14,7 +14,6 @@
 
       gaps inner 5
       gaps outer 0
-      corner_radius 10
 
       default_border none
 

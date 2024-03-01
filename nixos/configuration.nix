@@ -19,11 +19,6 @@
     };
   };
 
-  fileSystems."/home/khsaad/ext" = {
-    device = "/dev/disk/by-uuid/ddc29dcd-c01c-4650-97c2-bf0255608e3b";
-    fsType = "ext4";
-  };
-
   nix = {
     gc = {
       automatic = true;
@@ -31,7 +26,6 @@
       options = "--delete-older-than 1w";
     };
     settings = {
-      sandbox = "relaxed";
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
     };
@@ -85,6 +79,7 @@
     fish.enable = true;
     git.enable = true;
     dconf.enable = true;
+    sway.enable = true;
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -94,22 +89,6 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-  };
-
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = ["graphical-session.target"];
-      wants = ["graphical-session.target"];
-      after = ["graphical-session.target"];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
   };
 
   users = {
