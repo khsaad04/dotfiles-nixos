@@ -27,6 +27,7 @@
       options = "--delete-older-than 1w";
     };
     settings = {
+      warn-dirty = false;
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
     };
@@ -79,6 +80,7 @@
   programs = {
     fish.enable = true;
     git.enable = true;
+    neovim.enable = true;
     dconf.enable = true;
     sway = {
       enable = true;
