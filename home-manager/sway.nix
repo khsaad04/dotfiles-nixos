@@ -8,9 +8,6 @@
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.swayfx;
-    extraConfigEarly = ''
-      include ${pkgs.sway}/etc/sway/config.d/*
-    '';
     config = {
       startup = [
         {command = "${pkgs.wl-clipboard}/bin/wl-clipboard &";}
@@ -32,10 +29,10 @@
       down = "j";
       up = "k";
       right = "l";
-      terminal = "${pkgs.foot}/bin/foot";
+      terminal = "${pkgs.wezterm}/bin/wezterm";
       menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       input = {
-        "type:mouse" = {accel_profile = "flat";};
+        "*" = {accel_profile = "flat";};
       };
       keybindings = let
         cfg = config.wayland.windowManager.sway;
@@ -43,6 +40,7 @@
       in
         lib.mkOptionDefault {
           "${modifier}+space" = "exec ${cfg.config.menu}";
+          "${modifier}+q" = "kill";
           "${modifier}+x" = "exec powermenu";
 
           "Print" = "exec ${pkgs.grimblast}/bin/grimblast --notify copysave";
@@ -54,8 +52,10 @@
       assigns = {
         "2" = [{app_id = "firefox";}];
       };
+      bars = [];
     };
     extraConfig = ''
+      corner_radius 8
       default_border none
 
       # Status Bar:

@@ -6,6 +6,7 @@
   clr = config.colorScheme.palette;
   radius = "16px";
 in {
+  home.packages = [pkgs.playerctl];
   programs.waybar = {
     enable = true;
     settings = {
@@ -16,10 +17,11 @@ in {
         "spacing" = 0;
         "modules-left" = [
           "hyprland/workspaces"
-          # "mpris#player"
-          # "mpris#prev"
-          # "mpris#status"
-          # "mpris#next"
+          "sway/workspaces"
+          "mpris#player"
+          "mpris#prev"
+          "mpris#status"
+          "mpris#next"
         ];
         "modules-right" = [
           "network"
@@ -155,6 +157,7 @@ in {
       window#waybar {
           color: #${clr.base05};
           background: #${clr.base01};
+          border-radius: 0px;
       }
 
       tooltip {
@@ -167,6 +170,10 @@ in {
       }
 
       #workspaces button.active label {
+          color: #${clr.base02};
+      }
+
+      #workspaces button.focused label {
           color: #${clr.base02};
       }
 
@@ -184,6 +191,11 @@ in {
       }
 
       #workspaces button.active {
+          background-color: #${clr.base05};
+          transition: all 0.3s ease;
+      }
+
+      #workspaces button.focused {
           background-color: #${clr.base05};
           transition: all 0.3s ease;
       }
