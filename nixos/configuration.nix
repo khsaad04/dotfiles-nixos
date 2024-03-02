@@ -47,28 +47,8 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  # Sound
   services = {
-    xserver.enable = true;
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = let
-          swayConfig = pkgs.writeText "greetd-sway-config" ''
-            # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
-            exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
-            bindsym Mod4+shift+e exec swaynag \
-              -t warning \
-              -m 'What do you want to do?' \
-              -b 'Poweroff' 'systemctl poweroff' \
-              -b 'Reboot' 'systemctl reboot'
-          '';
-        in {
-          command = "${pkgs.swayfx}/bin/sway --config ${swayConfig}";
-        };
-      };
-    };
-
-    # Sound
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -78,11 +58,6 @@
       wireplumber.enable = true;
     };
   };
-
-  environment.etc."greetd/environments".text = ''
-    sway
-    fish
-  '';
 
   programs = {
     fish.enable = true;
