@@ -48,12 +48,19 @@
   };
 
   services = {
-    xserver = {
-      enable = true;
-      displayManager.sddm = {
-        enable = true;
+    xserver.enable = true;
+    greetd = {
+      settings = {
+        default_session = let
+          swayConfig = pkgs.writeText "greetd-sway-config" ''
+            exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
+          '';
+        in {
+          command = "${pkgs.swayfx}/bin/sway --config ${swayConfig}";
+        };
       };
     };
+
     # Sound
     pipewire = {
       enable = true;
@@ -64,6 +71,11 @@
       wireplumber.enable = true;
     };
   };
+
+  environment.etc."greetd/environments".text = ''
+    sway
+    fish
+  '';
 
   programs = {
     fish.enable = true;
@@ -76,7 +88,6 @@
     };
     hyprland = {
       enable = true;
-      # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       package = pkgs-stable.hyprland;
     };
   };
