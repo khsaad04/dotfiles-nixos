@@ -8,7 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
     nix-colors.url = "github:misterio77/nix-colors";
     lf-icons = {
       url = "github:gokcehan/lf";
@@ -42,5 +41,7 @@
         modules = [./home-manager/home.nix];
       };
     };
+
+    devShells.${system}.default = pkgs.mkShell {};
   };
 }
