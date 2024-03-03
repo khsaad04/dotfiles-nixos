@@ -30,13 +30,12 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
   ];
-
-  fonts.fontconfig.enable = true;
 
   programs = {
     obs-studio.enable = true;

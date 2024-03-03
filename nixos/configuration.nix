@@ -1,8 +1,10 @@
 {
+  inputs,
+  lib,
+  config,
   pkgs,
   pkgs-stable,
   username,
-  inputs,
   ...
 }: {
   imports = [
@@ -20,7 +22,17 @@
     };
   };
 
+  environment.etc =
+    lib.mapAttrs'
+    (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
+
   nix = {
+    nixPath = ["/etc/nix/path"];
+    registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
     gc = {
       automatic = true;
       dates = "weekly";
@@ -90,6 +102,5 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05";
 }

@@ -17,17 +17,20 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    hostname = "nixos";
     username = "khsaad";
     pkgs = import nixpkgs {inherit system;};
     pkgs-stable = import nixpkgs {inherit system;};
   in {
+    formatter = pkgs.alejandra;
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      ${hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit username inputs pkgs-stable;};
         inherit system;
         modules = [./nixos/configuration.nix];
@@ -35,7 +38,7 @@
     };
 
     homeConfigurations = {
-      "${username}" = home-manager.lib.homeManagerConfiguration {
+      "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit username inputs pkgs-stable;};
         modules = [./home-manager/home.nix];

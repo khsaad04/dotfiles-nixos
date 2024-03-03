@@ -1,10 +1,8 @@
 {
   pkgs,
   pkgs-stable,
-  inputs,
   ...
 }: let
-  hypr = inputs.hyprland.packages."${pkgs.system}".hyprland;
   term = "wezterm";
   terminal = "${pkgs.${term}}/bin/${term}";
 in {
