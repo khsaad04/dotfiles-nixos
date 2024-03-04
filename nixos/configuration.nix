@@ -33,11 +33,6 @@
   nix = {
     nixPath = ["/etc/nix/path"];
     registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 1w";
-    };
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
@@ -71,19 +66,12 @@
     };
   };
 
+  # Necessary programs
   programs = {
     fish.enable = true;
     git.enable = true;
     neovim.enable = true;
     dconf.enable = true;
-    sway = {
-      enable = true;
-      package = pkgs.swayfx;
-    };
-    hyprland = {
-      enable = true;
-      package = pkgs-stable.hyprland;
-    };
   };
 
   security = {
@@ -91,6 +79,7 @@
     polkit.enable = true;
   };
 
+  # Users
   users = {
     defaultUserShell = pkgs.fish;
     users = {

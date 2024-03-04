@@ -28,7 +28,7 @@
     pkgs = import nixpkgs {inherit system;};
     pkgs-stable = import nixpkgs {inherit system;};
   in {
-    formatter = pkgs.alejandra;
+    formatter.${system} = pkgs.alejandra;
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit username inputs pkgs-stable;};
