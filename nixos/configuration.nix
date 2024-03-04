@@ -72,6 +72,14 @@
     git.enable = true;
     neovim.enable = true;
     dconf.enable = true;
+    sway = {
+      enable = true;
+      package = pkgs.swayfx;
+    };
+    hyprland = {
+      enable = true;
+      package = pkgs-stable.hyprland;
+    };
   };
 
   security = {
