@@ -8,12 +8,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur. 
+      url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     lf-icons = {
       url = "github:gokcehan/lf";
       flake = false;
     };
-    nur.url = "github:nix-community/NUR";
   };
 
   outputs = {
@@ -28,7 +29,6 @@
     pkgs = import nixpkgs {inherit system;};
     pkgs-stable = import nixpkgs {inherit system;};
   in {
-    formatter.${system} = pkgs.alejandra;
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit username inputs pkgs-stable;};
@@ -46,5 +46,6 @@
     };
 
     devShells.${system}.default = pkgs.mkShell {};
+    formatter.${system} = pkgs.alejandra;
   };
 }
