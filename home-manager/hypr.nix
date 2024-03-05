@@ -13,7 +13,6 @@ in {
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = hypr;
     package = pkgs-stable.hyprland;
     settings = {
       monitor = [

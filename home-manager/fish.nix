@@ -10,8 +10,4 @@
       starship init fish | source
     '';
   };
-  home.file."./.config/fish/conf.d/sway.fish".text = ''
-    set TTY1 (tty)
-    [ "$TTY1" = "/dev/tty1" ] && exec sway
-  '';
 }
