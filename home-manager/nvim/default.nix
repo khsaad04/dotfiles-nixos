@@ -27,7 +27,6 @@
       python311Packages.python-lsp-server
       python311Packages.black
       python311Packages.isort
-      zls
     ];
   };
 
