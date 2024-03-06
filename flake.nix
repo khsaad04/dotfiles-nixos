@@ -41,7 +41,7 @@
       "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit username inputs pkgs-stable;};
-        modules = [./home-manager/home.nix];
+        modules = [./home-manager];
       };
     };
 
