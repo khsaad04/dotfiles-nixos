@@ -3,7 +3,7 @@
     disk = {
       sda = {
         type = "disk";
-        device = "/dev/disk/by-diskseq/1";
+        device = "/dev/disk/by-id/ata-HS-SSD-C100_120G_30056630062";
         content = {
           type = "gpt";
           partitions = {

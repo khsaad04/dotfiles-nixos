@@ -17,7 +17,7 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXOS";
+    device = "/dev/disk/by-id/ata-HS-SSD-C100_120G_30056630062-part2";
     fsType = "ext4";
   };
 
