@@ -5,6 +5,19 @@
 }: let
   clr = config.colorScheme.palette;
 in {
+  home.file."./.config/tms/config.toml".text = ''
+    [[search_dirs]]
+    path = "/home/khsaad/dotfiles"
+    depth = 10
+
+    [[search_dirs]]
+    path = "/home/khsaad/ext/code"
+    depth = 10
+
+    [[search_dirs]]
+    path = "/home/khsaad/Documents"
+    depth = 10
+  '';
   home.packages = [pkgs.tmux-sessionizer];
   programs.tmux = {
     enable = true;
