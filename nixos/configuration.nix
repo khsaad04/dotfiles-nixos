@@ -82,10 +82,10 @@
       enable = true;
       package = pkgs.swayfx;
     };
-    hyprland = {
-      enable = true;
-      package = pkgs-stable.hyprland;
-    };
+    # hyprland = {
+    #   enable = true;
+    #   package = pkgs-stable.hyprland;
+    # };
   };
 
   security = {

@@ -14,7 +14,7 @@
     ./firefox.nix
     ./fish.nix
     ./foot.nix
-    ./hypr.nix
+    # ./hypr.nix
     ./lf.nix
     ./neofetch.nix
     ./nvim
