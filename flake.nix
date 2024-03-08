@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur. 
       url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
@@ -21,6 +25,7 @@
     self,
     nixpkgs,
     home-manager,
+    disko,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -33,7 +38,7 @@
       ${hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit username inputs pkgs-stable;};
         inherit system;
-        modules = [./nixos/configuration.nix];
+        modules = [./nixos/configuration.nix disko.nixosModules.disko];
       };
     };
 
