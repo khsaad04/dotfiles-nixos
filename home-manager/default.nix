@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   username,
   inputs,
@@ -29,6 +28,7 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
+  # Custom module options go here
   desktops.sway.enable = true;
 
   fonts.fontconfig.enable = true;
@@ -40,10 +40,6 @@
 
   programs = {
     obs-studio.enable = true;
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
     git = {
       enable = true;
       userName = "khsaad04";
