@@ -20,13 +20,13 @@
             };
             swap = {
               end = "13G";
-	      content = {
-	        type = "swap";
-	        resumeDevice = true;
-	      };
+              content = {
+                type = "swap";
+                resumeDevice = true;
+              };
             };
             root = {
-	      size = "100%";
+              size = "100%";
               content = {
                 type = "btrfs";
                 extraArgs = ["-f"]; # Override existing partition
