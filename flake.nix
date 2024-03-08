@@ -36,9 +36,13 @@
   in {
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit username inputs pkgs-stable;};
+        specialArgs = {inherit hostname username inputs pkgs-stable;};
         inherit system;
-        modules = [./nixos/configuration.nix disko.nixosModules.disko];
+        modules = [
+          ./nixos/configuration.nix
+          disko.nixosModules.disko
+          ./modules/nixos
+        ];
       };
     };
 
@@ -46,7 +50,10 @@
       "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit username inputs pkgs-stable;};
-        modules = [./home-manager];
+        modules = [
+          ./home-manager
+          ./modules/home-manager
+        ];
       };
     };
 

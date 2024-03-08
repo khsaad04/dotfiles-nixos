@@ -3,7 +3,7 @@
   lib,
   config,
   pkgs,
-  pkgs-stable,
+  hostname,
   username,
   ...
 }: {
@@ -48,7 +48,7 @@
 
   # Networking
   networking = {
-    hostName = "nixos";
+    hostName = "${hostname}";
     networkmanager.enable = true;
   };
 
@@ -78,15 +78,9 @@
     git.enable = true;
     neovim.enable = true;
     dconf.enable = true;
-    sway = {
-      enable = true;
-      package = pkgs.swayfx;
-    };
-    # hyprland = {
-    #   enable = true;
-    #   package = pkgs-stable.hyprland;
-    # };
   };
+
+  wm.sway.enable = true;
 
   security = {
     rtkit.enable = true;

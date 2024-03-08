@@ -14,7 +14,7 @@
     ./firefox.nix
     ./fish.nix
     ./foot.nix
-    # ./hypr.nix
+    ./hypr.nix
     ./lf.nix
     ./neofetch.nix
     ./nvim
@@ -29,6 +29,8 @@
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+
+  wm.sway.enable = true;
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
