@@ -1,6 +1,5 @@
 {
   imports = [
-    ./sway.nix
-    ./hyprland.nix
+    ./desktops
   ];
 }

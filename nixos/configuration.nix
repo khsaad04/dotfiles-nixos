@@ -80,7 +80,7 @@
     dconf.enable = true;
   };
 
-  wm.sway.enable = true;
+  desktops.sway.enable = true;
 
   security = {
     rtkit.enable = true;
