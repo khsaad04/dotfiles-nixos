@@ -1,19 +1,14 @@
 {
+  config,
   pkgs,
-  pkgs-stable,
   ...
 }: let
   term = "wezterm";
   terminal = "${pkgs.${term}}/bin/${term}";
 in {
-  home.packages = with pkgs; [
-    swww
-    networkmanagerapplet
-    grimblast
-  ];
   wayland.windowManager.hyprland = {
-    enable = true;
-    package = pkgs-stable.hyprland;
+    enable = config.desktops.hyprland.enable;
+    package = config.desktops.hyprland.package;
     settings = {
       monitor = [
         ",preferred,auto,auto"

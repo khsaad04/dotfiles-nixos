@@ -4,10 +4,9 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [swww networkmanagerapplet grimblast];
   wayland.windowManager.sway = {
-    enable = true;
-    package = pkgs.swayfx;
+    enable = config.desktops.sway.enable;
+    package = config.desktops.sway.package;
     config = {
       defaultWorkspace = "workspace number 1";
       startup = [

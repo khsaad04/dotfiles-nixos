@@ -52,6 +52,8 @@
         extraSpecialArgs = {inherit username inputs pkgs-stable;};
         modules = [
           ./home-manager
+          inputs.nix-colors.homeManagerModules.default
+          inputs.nur.hmModules.nur
           ./modules/home-manager
         ];
       };

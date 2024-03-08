@@ -15,25 +15,12 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
     loader = {
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 10;
-      };
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
   };
 
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
-
   nix = {
-    nixPath = ["/etc/nix/path"];
-    registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
@@ -56,8 +43,19 @@
   time.timeZone = "Asia/Dhaka";
 
   # Locale
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  # Users
+  users = {
+    defaultUserShell = pkgs.fish;
+    users = {
+      ${username} = {
+        isNormalUser = true;
+        initialPassword = "khsaad";
+        description = "KH Saad";
+        extraGroups = ["networkmanager" "wheel"];
+      };
+    };
   };
 
   # Sound
@@ -72,6 +70,11 @@
     };
   };
 
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
+
   # Necessary programs
   programs = {
     fish.enable = true;
@@ -80,24 +83,20 @@
     dconf.enable = true;
   };
 
+  # Custom module options
   desktops.sway.enable = true;
 
-  security = {
-    rtkit.enable = true;
-    polkit.enable = true;
-  };
+  environment.etc =
+    lib.mapAttrs'
+    (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
 
-  # Users
-  users = {
-    defaultUserShell = pkgs.fish;
-    users = {
-      ${username} = {
-        isNormalUser = true;
-        initialPassword = "khsaad";
-        description = "KH Saad";
-        extraGroups = ["networkmanager" "wheel"];
-      };
-    };
+  nix = {
+    nixPath = ["/etc/nix/path"];
+    registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
   };
 
   system.stateVersion = "24.05";

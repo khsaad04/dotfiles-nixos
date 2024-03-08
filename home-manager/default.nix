@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   username,
   inputs,
@@ -8,8 +9,6 @@
   home.homeDirectory = "/home/${username}";
 
   imports = [
-    inputs.nix-colors.homeManagerModules.default
-    inputs.nur.hmModules.nur
     ./dunst.nix
     ./firefox.nix
     ./fish.nix
@@ -30,7 +29,7 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
-  wm.sway.enable = true;
+  desktops.sway.enable = true;
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
