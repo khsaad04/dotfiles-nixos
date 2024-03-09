@@ -4,33 +4,14 @@
   inputs,
   ...
 }: {
-  home.username = username;
+  home.username = "${username}";
   home.homeDirectory = "/home/${username}";
-
-  imports = [
-    ./dunst.nix
-    ./firefox.nix
-    ./fish.nix
-    ./foot.nix
-    ./hypr.nix
-    ./lf.nix
-    ./neofetch.nix
-    ./nvim
-    ./scripts.nix
-    ./starship.nix
-    ./sway.nix
-    ./theme.nix
-    ./tmux.nix
-    ./waybar.nix
-    ./wezterm.nix
-    ./wofi.nix
-  ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   # Custom module options go here
   desktops.sway.enable = true;
-  # desktops.hyprland.enable = true;
+  desktops.hyprland.enable = true;
 
   terminals = {
     defaultTerminal = "wezterm";
@@ -38,6 +19,7 @@
     foot.enable = true;
   };
 
+  # Fonts
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     noto-fonts
@@ -45,6 +27,7 @@
     noto-fonts-emoji
   ];
 
+  # Necessarry programs
   programs = {
     obs-studio.enable = true;
     git = {

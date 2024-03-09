@@ -29,34 +29,36 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    hostname = "nixos";
-    username = "khsaad";
     pkgs = import nixpkgs {inherit system;};
     pkgs-stable = import nixpkgs {inherit system;};
   in {
     nixosConfigurations = {
-      ${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit hostname username inputs pkgs-stable;};
-        inherit system;
-        modules = [
-          ./nixos/configuration.nix
-          disko.nixosModules.disko
-          ./modules/nixos
-        ];
-      };
+      pc = let
+        hostname = "pc";
+      in
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs pkgs-stable hostname;};
+          inherit system;
+          modules = [
+            ./system
+            ./hosts/pc/nixos/configuration.nix
+            ./modules/nixos
+          ];
+        };
     };
 
     homeConfigurations = {
-      "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit username inputs pkgs-stable;};
-        modules = [
-          ./home-manager
-          inputs.nix-colors.homeManagerModules.default
-          inputs.nur.hmModules.nur
-          ./modules/home-manager
-        ];
-      };
+      khsaad = let
+        username = "khsaad";
+      in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {inherit inputs pkgs-stable username;};
+          modules = [
+            ./users/khsaad/home.nix
+            ./modules/home-manager
+          ];
+        };
     };
 
     devShells.${system}.default = pkgs.mkShell {};
