@@ -5,8 +5,6 @@
   ...
 }: {
   wayland.windowManager.sway = {
-    enable = config.desktops.sway.enable;
-    package = config.desktops.sway.package;
     config = {
       defaultWorkspace = "workspace number 1";
       startup = [
@@ -29,7 +27,7 @@
       down = "j";
       up = "k";
       right = "l";
-      terminal = "${pkgs.wezterm}/bin/wezterm";
+      terminal = "${config.terminals.defaultTerminal}";
       menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       input = {
         "*" = {accel_profile = "flat";};

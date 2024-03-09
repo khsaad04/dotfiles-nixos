@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   pkgs-stable,
   config,
   ...
@@ -21,5 +22,9 @@ in {
       [ "$TTY1" = "/dev/tty1" ] && exec ${cfg.package}/bin/Hyprland
     '';
     home.packages = with pkgs; [swww networkmanagerapplet grimblast];
+    wayland.windowManager.hyprland = {
+      enable = cfg.enable;
+      package = cfg.package;
+    };
   };
 }

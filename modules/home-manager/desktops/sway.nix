@@ -21,5 +21,9 @@ in {
       [ "$TTY1" = "/dev/tty1" ] && exec ${cfg.package}/bin/sway
     '';
     home.packages = with pkgs; [swww networkmanagerapplet grimblast];
+    wayland.windowManager.sway = {
+      enable = cfg.enable;
+      package = cfg.package;
+    };
   };
 }

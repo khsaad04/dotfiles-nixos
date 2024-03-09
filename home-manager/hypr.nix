@@ -3,12 +3,9 @@
   pkgs,
   ...
 }: let
-  term = "wezterm";
-  terminal = "${pkgs.${term}}/bin/${term}";
+  terminal = "${config.terminal.defaultTerminal}";
 in {
   wayland.windowManager.hyprland = {
-    enable = config.desktops.hyprland.enable;
-    package = config.desktops.hyprland.package;
     settings = {
       monitor = [
         ",preferred,auto,auto"
