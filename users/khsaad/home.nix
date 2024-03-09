@@ -12,6 +12,11 @@
   # Custom module options go here
   desktops.sway.enable = true;
   desktops.hyprland.enable = true;
+  browsers.firefox.enable = true;
+  shell = {
+    fish.enable = true;
+    starship.enable = true;
+  };
 
   terminals = {
     defaultTerminal = "wezterm";
