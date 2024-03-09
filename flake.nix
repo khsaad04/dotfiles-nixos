@@ -40,8 +40,7 @@
           specialArgs = {inherit inputs pkgs-stable hostname;};
           inherit system;
           modules = [
-            ./system
-            ./hosts/pc/nixos/configuration.nix
+            ./hosts/pc/configuration.nix
             ./modules/nixos
           ];
         };
