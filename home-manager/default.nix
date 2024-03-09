@@ -30,7 +30,13 @@
 
   # Custom module options go here
   desktops.sway.enable = true;
-  terminals.wezterm.enable = true;
+  # desktops.hyprland.enable = true;
+
+  terminals = {
+    defaultTerminal = "wezterm";
+    wezterm.enable = true;
+    foot.enable = true;
+  };
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [

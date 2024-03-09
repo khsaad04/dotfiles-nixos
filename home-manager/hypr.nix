@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  terminal = "${config.terminal.defaultTerminal}";
+  terminal = "${config.terminal.defaultPackage}";
 in {
   wayland.windowManager.hyprland = {
     settings = {

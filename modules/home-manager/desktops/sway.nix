@@ -16,7 +16,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.file."./.config/fish/conf.d/sway.fish".text = ''
+    home.file."./.config/fish/conf.d/sway.fish".text = mkIf (config.desktops.defaultSession == "sway") ''
       set TTY1 (tty)
       [ "$TTY1" = "/dev/tty1" ] && exec ${cfg.package}/bin/sway
     '';

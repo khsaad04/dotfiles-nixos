@@ -20,5 +20,6 @@ in {
       enable = cfg.enable;
       package = cfg.package;
     };
+    terminals.defaultPackage = mkIf (config.terminals.defaultTerminal == "wezterm") "${pkgs.wezterm}/bin/wezterm";
   };
 }

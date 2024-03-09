@@ -20,5 +20,6 @@ in {
       enable = cfg.enable;
       package = cfg.package;
     };
+    terminals.defaultPackage = mkIf (config.terminals.defaultTerminal == "foot") "${pkgs.foot}/bin/foot";
   };
 }
