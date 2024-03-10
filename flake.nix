@@ -22,25 +22,21 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     disko,
     ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
-    pkgs-stable = import nixpkgs {inherit system;};
-  in {
+  } @ inputs: {
     nixosConfigurations = {
       pc = let
-        hostname = "pc";
+        pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
       in
         nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs pkgs-stable hostname;};
-          inherit system;
+          specialArgs = {inherit inputs pkgs-stable;};
+          system = "x86_64-linux";
           modules = [
-            ./hosts/pc/configuration.nix
+            ./hosts/pc
             ./modules/nixos
           ];
         };
@@ -48,10 +44,11 @@
 
     homeConfigurations = {
       khsaad = let
+        pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
         username = "khsaad";
       in
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {inherit inputs pkgs-stable username;};
           modules = [
             ./users/khsaad/home.nix
@@ -60,7 +57,7 @@
         };
     };
 
-    devShells.${system}.default = pkgs.mkShell {};
-    formatter.${system} = pkgs.alejandra;
+    devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {};
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }

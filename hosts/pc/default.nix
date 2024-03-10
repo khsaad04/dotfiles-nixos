@@ -1,26 +1,19 @@
 {
+  lib,
+  config,
   inputs,
   pkgs,
-  hostname,
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     inputs.disko.nixosModules.disko
     ./disko.nix
+    ../../users/khsaad/configuration.nix
   ];
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-  };
 
   # Networking
   networking = {
-    hostName = "${hostname}";
+    hostName = "pc";
     networkmanager.enable = true;
   };
 
@@ -63,4 +56,17 @@
   # Custom module options
   desktops.sway.enable = true;
   desktops.hyprland.enable = true;
+
+  boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
+
+  fileSystems."/home/khsaad/ext" = {
+    device = "/dev/disk/by-label/EXT";
+    fsType = "ext4";
+  };
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
