@@ -1,6 +1,5 @@
 {
   imports = [
-    ./dunst.nix
     ./lf.nix
     ./neofetch.nix
     ./scripts.nix

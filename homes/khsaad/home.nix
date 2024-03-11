@@ -37,21 +37,37 @@
 
   # Fonts
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
+  home.packages = with pkgs; let
+    nerdfonts = pkgs.nerdfonts.override {
+      fonts = [
+        "FiraCode"
+      ];
+    };
+  in [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    nerdfonts
   ];
 
-  # Necessarry programs
   programs = {
     obs-studio.enable = true;
+    lf.enable = true;
+    neofetch.enable = true;
+    tmux = {
+      enable = true;
+      tms.enable = true;
+    };
+    waybar.enable = true;
+    wofi.enable = true;
     git = {
       enable = true;
       userName = "khsaad04";
       userEmail = "khsaad0404@gmail.com";
     };
   };
+
+  services.dunst.enable = true;
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;

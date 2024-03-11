@@ -1,12 +1,4 @@
-{pkgs, ...}: let
-  nerdfonts = pkgs.nerdfonts.override {
-    fonts = [
-      "FiraCode"
-    ];
-  };
-in {
-  home.packages = [nerdfonts];
-
+{pkgs, ...}: {
   home.pointerCursor = {
     gtk.enable = true;
     name = "Adwaita";

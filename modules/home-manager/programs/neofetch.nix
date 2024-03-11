@@ -1,6 +1,18 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.neofetch];
-  home.file.".config/neofetch/config.conf".text = ''
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.programs.neofetch;
+in {
+  options.programs.neofetch = {
+    enable = mkEnableOption "Neofetch";
+  };
+  config = mkIf cfg.enable {
+    home.packages = [pkgs.neofetch];
+    home.file.".config/neofetch/config.conf".text = ''
       # See this wiki page for more info:
       # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
       print_info() {
@@ -506,363 +518,364 @@
       mpc_args=()
 
 
-    # Text Colors
+      # Text Colors
 
 
-    # Text Colors
-    #
-    # Default:  'distro'
-    # Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
-    # Flag:     --colors
-    #
-    # Each number represents a different part of the text in
-    # this order: 'title', '@', 'underline', 'subtitle', 'colon', 'info'
-    #
-    # Example:
-    # colors=(distro)      - Text is colored based on Distro colors.
-    # colors=(4 6 1 8 8 6) - Text is colored in the order above.
-    colors=(distro)
+      # Text Colors
+      #
+      # Default:  'distro'
+      # Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
+      # Flag:     --colors
+      #
+      # Each number represents a different part of the text in
+      # this order: 'title', '@', 'underline', 'subtitle', 'colon', 'info'
+      #
+      # Example:
+      # colors=(distro)      - Text is colored based on Distro colors.
+      # colors=(4 6 1 8 8 6) - Text is colored in the order above.
+      colors=(distro)
 
 
-    # Text Options
+      # Text Options
 
 
-    # Toggle bold text
-    #
-    # Default:  'on'
-    # Values:   'on', 'off'
-    # Flag:     --bold
-    bold="on"
+      # Toggle bold text
+      #
+      # Default:  'on'
+      # Values:   'on', 'off'
+      # Flag:     --bold
+      bold="on"
 
-    # Enable/Disable Underline
-    #
-    # Default:  'on'
-    # Values:   'on', 'off'
-    # Flag:     --underline
-    underline_enabled="on"
+      # Enable/Disable Underline
+      #
+      # Default:  'on'
+      # Values:   'on', 'off'
+      # Flag:     --underline
+      underline_enabled="on"
 
-    # Underline character
-    #
-    # Default:  '-'
-    # Values:   'string'
-    # Flag:     --underline_char
-    underline_char="-"
-
-
-    # Info Separator
-    # Replace the default separator with the specified string.
-    #
-    # Default:  ':'
-    # Flag:     --separator
-    #
-    # Example:
-    # separator="->":   'Shell-> bash'
-    # separator=" =":   'WM = dwm'
-    separator=":"
+      # Underline character
+      #
+      # Default:  '-'
+      # Values:   'string'
+      # Flag:     --underline_char
+      underline_char="-"
 
 
-    # Color Blocks
+      # Info Separator
+      # Replace the default separator with the specified string.
+      #
+      # Default:  ':'
+      # Flag:     --separator
+      #
+      # Example:
+      # separator="->":   'Shell-> bash'
+      # separator=" =":   'WM = dwm'
+      separator=":"
 
 
-    # Color block range
-    # The range of colors to print.
-    #
-    # Default:  '0', '15'
-    # Values:   'num'
-    # Flag:     --block_range
-    #
-    # Example:
-    #
-    # Display colors 0-7 in the blocks.  (8 colors)
-    # neofetch --block_range 0 7
-    #
-    # Display colors 0-15 in the blocks. (16 colors)
-    # neofetch --block_range 0 15
-    block_range=(0 15)
-
-    # Toggle color blocks
-    #
-    # Default:  'on'
-    # Values:   'on', 'off'
-    # Flag:     --color_blocks
-    color_blocks="on"
-
-    # Color block width in spaces
-    #
-    # Default:  '3'
-    # Values:   'num'
-    # Flag:     --block_width
-    block_width=3
-
-    # Color block height in lines
-    #
-    # Default:  '1'
-    # Values:   'num'
-    # Flag:     --block_height
-    block_height=1
-
-    # Color Alignment
-    #
-    # Default: 'auto'
-    # Values: 'auto', 'num'
-    # Flag: --col_offset
-    #
-    # Number specifies how far from the left side of the terminal (in spaces) to
-    # begin printing the columns, in case you want to e.g. center them under your
-    # text.
-    # Example:
-    # col_offset="auto" - Default behavior of neofetch
-    # col_offset=7      - Leave 7 spaces then print the colors
-    col_offset="auto"
-
-    # Progress Bars
+      # Color Blocks
 
 
-    # Bar characters
-    #
-    # Default:  '-', '='
-    # Values:   'string', 'string'
-    # Flag:     --bar_char
-    #
-    # Example:
-    # neofetch --bar_char 'elapsed' 'total'
-    # neofetch --bar_char '-' '='
-    bar_char_elapsed="-"
-    bar_char_total="="
+      # Color block range
+      # The range of colors to print.
+      #
+      # Default:  '0', '15'
+      # Values:   'num'
+      # Flag:     --block_range
+      #
+      # Example:
+      #
+      # Display colors 0-7 in the blocks.  (8 colors)
+      # neofetch --block_range 0 7
+      #
+      # Display colors 0-15 in the blocks. (16 colors)
+      # neofetch --block_range 0 15
+      block_range=(0 15)
 
-    # Toggle Bar border
-    #
-    # Default:  'on'
-    # Values:   'on', 'off'
-    # Flag:     --bar_border
-    bar_border="on"
+      # Toggle color blocks
+      #
+      # Default:  'on'
+      # Values:   'on', 'off'
+      # Flag:     --color_blocks
+      color_blocks="on"
 
-    # Progress bar length in spaces
-    # Number of chars long to make the progress bars.
-    #
-    # Default:  '15'
-    # Values:   'num'
-    # Flag:     --bar_length
-    bar_length=15
+      # Color block width in spaces
+      #
+      # Default:  '3'
+      # Values:   'num'
+      # Flag:     --block_width
+      block_width=3
 
-    # Progress bar colors
-    # When set to distro, uses your distro's logo colors.
-    #
-    # Default:  'distro', 'distro'
-    # Values:   'distro', 'num'
-    # Flag:     --bar_colors
-    #
-    # Example:
-    # neofetch --bar_colors 3 4
-    # neofetch --bar_colors distro 5
-    bar_color_elapsed="distro"
-    bar_color_total="distro"
+      # Color block height in lines
+      #
+      # Default:  '1'
+      # Values:   'num'
+      # Flag:     --block_height
+      block_height=1
 
+      # Color Alignment
+      #
+      # Default: 'auto'
+      # Values: 'auto', 'num'
+      # Flag: --col_offset
+      #
+      # Number specifies how far from the left side of the terminal (in spaces) to
+      # begin printing the columns, in case you want to e.g. center them under your
+      # text.
+      # Example:
+      # col_offset="auto" - Default behavior of neofetch
+      # col_offset=7      - Leave 7 spaces then print the colors
+      col_offset="auto"
 
-    # Info display
-    # Display a bar with the info.
-    #
-    # Default: 'off'
-    # Values:  'bar', 'infobar', 'barinfo', 'off'
-    # Flags:   --memory_display
-    #          --battery_display
-    #          --disk_display
-    #
-    # Example:
-    # bar:     '[---=======]'
-    # infobar: 'info [---=======]'
-    # barinfo: '[---=======] info'
-    # off:     'info'
-    memory_display="off"
-    battery_display="off"
-    disk_display="off"
+      # Progress Bars
 
 
-    # Backend Settings
+      # Bar characters
+      #
+      # Default:  '-', '='
+      # Values:   'string', 'string'
+      # Flag:     --bar_char
+      #
+      # Example:
+      # neofetch --bar_char 'elapsed' 'total'
+      # neofetch --bar_char '-' '='
+      bar_char_elapsed="-"
+      bar_char_total="="
+
+      # Toggle Bar border
+      #
+      # Default:  'on'
+      # Values:   'on', 'off'
+      # Flag:     --bar_border
+      bar_border="on"
+
+      # Progress bar length in spaces
+      # Number of chars long to make the progress bars.
+      #
+      # Default:  '15'
+      # Values:   'num'
+      # Flag:     --bar_length
+      bar_length=15
+
+      # Progress bar colors
+      # When set to distro, uses your distro's logo colors.
+      #
+      # Default:  'distro', 'distro'
+      # Values:   'distro', 'num'
+      # Flag:     --bar_colors
+      #
+      # Example:
+      # neofetch --bar_colors 3 4
+      # neofetch --bar_colors distro 5
+      bar_color_elapsed="distro"
+      bar_color_total="distro"
 
 
-    # Image backend.
-    #
-    # Default:  'ascii'
-    # Values:   'ascii', 'caca', 'catimg', 'chafa', 'jp2a', 'iterm2', 'off',
-    #           'pot', 'termpix', 'pixterm', 'tycat', 'w3m', 'kitty', 'ueberzug',
-    #           'viu'
-
-    # Flag:     --backend
-    image_backend="ascii"
-
-    # Image Source
-    #
-    # Which image or ascii file to display.
-    #
-    # Default:  'auto'
-    # Values:   'auto', 'ascii', 'wallpaper', '/path/to/img', '/path/to/ascii', '/path/to/dir/'
-    #           'command output (neofetch --ascii "$(fortune | cowsay -W 30)")'
-    # Flag:     --source
-    #
-    # NOTE: 'auto' will pick the best image source for whatever image backend is used.
-    #       In ascii mode, distro ascii art will be used and in an image mode, your
-    #       wallpaper will be used.
-    image_source="auto"
+      # Info display
+      # Display a bar with the info.
+      #
+      # Default: 'off'
+      # Values:  'bar', 'infobar', 'barinfo', 'off'
+      # Flags:   --memory_display
+      #          --battery_display
+      #          --disk_display
+      #
+      # Example:
+      # bar:     '[---=======]'
+      # infobar: 'info [---=======]'
+      # barinfo: '[---=======] info'
+      # off:     'info'
+      memory_display="off"
+      battery_display="off"
+      disk_display="off"
 
 
-    # Ascii Options
+      # Backend Settings
 
 
-    # Ascii distro
-    # Which distro's ascii art to display.
-    #
-    # Default: 'auto'
-    # Values:  'auto', 'distro_name'
-    # Flag:    --ascii_distro
-    # NOTE: AIX, Hash, Alpine, AlterLinux, Amazon, Anarchy, Android, instantOS,
-    #       Antergos, antiX, "AOSC OS", "AOSC OS/Retro", Apricity, ArchCraft,
-    #       ArcoLinux, ArchBox, ARCHlabs, ArchStrike, XFerience, ArchMerge, Arch,
-    #       Artix, Arya, Bedrock, Bitrig, BlackArch, BLAG, BlankOn, BlueLight,
-    #       Bodhi, bonsai, BSD, BunsenLabs, Calculate, Carbs, CentOS, Chakra, ChaletOS,
-    #       Chapeau, Chrom*, Cleanjaro, ClearOS, Clear_Linux, Clover, Condres,
-    #       Container_Linux, Crystal Linux, CRUX, Cucumber, dahlia, Debian, Deepin,
-    #       DesaOS, Devuan, DracOS, DarkOs, Itc, DragonFly, Drauger, Elementary,
-    #       EndeavourOS, Endless, EuroLinux, Exherbo, Fedora, Feren, FreeBSD,
-    #       FreeMiNT, Frugalware, Funtoo, GalliumOS, Garuda, Gentoo, Pentoo,
-    #       gNewSense, GNOME, GNU, GoboLinux, Grombyang, Guix, Haiku, Huayra, HydroOS
-    #       Hyperbola, iglunix, janus, Kali, KaOS, KDE_neon, Kibojoe, Kogaion, Korora,
-    #       KSLinux, Kubuntu, LEDE, LaxerOS, LibreELEC, LFS, Linux_Lite, LMDE,
-    #       Lubuntu, Lunar, macos, Mageia, MagpieOS, Mandriva, Manjaro, TeArch, Maui,
-    #       Mer, Minix, LinuxMint, Live_Raizo, MX_Linux, Namib, Neptune, NetBSD,
-    #       Netrunner, Nitrux, NixOS, Nurunner, NuTyX, OBRevenge, OpenBSD,
-    #       openEuler, OpenIndiana, openmamba, OpenMandriva, OpenStage, OpenWrt,
-    #       osmc, Oracle, OS Elbrus, PacBSD, Parabola, Pardus, Parrot, Parsix,
-    #       TrueOS, PCLinuxOS, Pengwin, Peppermint, Pisi, popos, Porteus, PostMarketOS,
-    #       Proxmox, PuffOS, Puppy, PureOS, Qubes, Qubyt, Quibian, Radix, Raspbian,
-    #       Reborn_OS, Redstar, Redcore, Redhat, Refracted_Devuan, Regata, Regolith,
-    #       Rocky, Rosa, sabotage, Sabayon, Sailfish, SalentOS, Scientific, Septor,
-    #       SereneLinux, SharkLinux, Siduction, SkiffOS, Slackware, SliTaz, SmartOS,
-    #       Solus, Source_Mage, Sparky, Star, SteamOS, SunOS, openSUSE_Leap, t2,
-    #       openSUSE_Tumbleweed, openSUSE, SwagArch, Tails, Trisquel,
-    #       Ubuntu-Cinnamon, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE,
-    #       Ubuntu-Studio, Ubuntu, Univention, Venom, Void, VNux, LangitKetujuh, semc,
-    #       Obarun, windows10, Windows7, Xubuntu, Zorin, and IRIX have ascii logos.
-    # NOTE: Arch, Ubuntu, Redhat, Fedora and Dragonfly have 'old' logo variants.
-    #       Use '{distro name}_old' to use the old logos.
-    # NOTE: Ubuntu has flavor variants.
-    #       Change this to Lubuntu, Kubuntu, Xubuntu, Ubuntu-GNOME,
-    #       Ubuntu-Studio, Ubuntu-Mate  or Ubuntu-Budgie to use the flavors.
-    # NOTE: Arcolinux, Dragonfly, Fedora, Alpine, Arch, Ubuntu,
-    #       CRUX, Debian, Gentoo, FreeBSD, Mac, NixOS, OpenBSD, android,
-    #       Artix, CentOS, Cleanjaro, ElementaryOS, GUIX, Hyperbola,
-    #       Manjaro, MXLinux, NetBSD, Parabola, POP_OS, PureOS,
-    #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
-    #       postmarketOS, and Void have a smaller logo variant.
-    #       Use '{distro name}_small' to use the small variants.
-    ascii_distro="NixOS_small"
+      # Image backend.
+      #
+      # Default:  'ascii'
+      # Values:   'ascii', 'caca', 'catimg', 'chafa', 'jp2a', 'iterm2', 'off',
+      #           'pot', 'termpix', 'pixterm', 'tycat', 'w3m', 'kitty', 'ueberzug',
+      #           'viu'
 
-    # Ascii Colors
-    #
-    # Default:  'distro'
-    # Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
-    # Flag:     --ascii_colors
-    #
-    # Example:
-    # ascii_colors=(distro)      - Ascii is colored based on Distro colors.
-    # ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
-    ascii_colors=(distro)
+      # Flag:     --backend
+      image_backend="ascii"
 
-    # Bold ascii logo
-    # Whether or not to bold the ascii logo.
-    #
-    # Default: 'on'
-    # Values:  'on', 'off'
-    # Flag:    --ascii_bold
-    ascii_bold="on"
+      # Image Source
+      #
+      # Which image or ascii file to display.
+      #
+      # Default:  'auto'
+      # Values:   'auto', 'ascii', 'wallpaper', '/path/to/img', '/path/to/ascii', '/path/to/dir/'
+      #           'command output (neofetch --ascii "$(fortune | cowsay -W 30)")'
+      # Flag:     --source
+      #
+      # NOTE: 'auto' will pick the best image source for whatever image backend is used.
+      #       In ascii mode, distro ascii art will be used and in an image mode, your
+      #       wallpaper will be used.
+      image_source="auto"
 
 
-    # Image Options
+      # Ascii Options
 
 
-    # Image loop
-    # Setting this to on will make neofetch redraw the image constantly until
-    # Ctrl+C is pressed. This fixes display issues in some terminal emulators.
-    #
-    # Default:  'off'
-    # Values:   'on', 'off'
-    # Flag:     --loop
-    image_loop="off"
+      # Ascii distro
+      # Which distro's ascii art to display.
+      #
+      # Default: 'auto'
+      # Values:  'auto', 'distro_name'
+      # Flag:    --ascii_distro
+      # NOTE: AIX, Hash, Alpine, AlterLinux, Amazon, Anarchy, Android, instantOS,
+      #       Antergos, antiX, "AOSC OS", "AOSC OS/Retro", Apricity, ArchCraft,
+      #       ArcoLinux, ArchBox, ARCHlabs, ArchStrike, XFerience, ArchMerge, Arch,
+      #       Artix, Arya, Bedrock, Bitrig, BlackArch, BLAG, BlankOn, BlueLight,
+      #       Bodhi, bonsai, BSD, BunsenLabs, Calculate, Carbs, CentOS, Chakra, ChaletOS,
+      #       Chapeau, Chrom*, Cleanjaro, ClearOS, Clear_Linux, Clover, Condres,
+      #       Container_Linux, Crystal Linux, CRUX, Cucumber, dahlia, Debian, Deepin,
+      #       DesaOS, Devuan, DracOS, DarkOs, Itc, DragonFly, Drauger, Elementary,
+      #       EndeavourOS, Endless, EuroLinux, Exherbo, Fedora, Feren, FreeBSD,
+      #       FreeMiNT, Frugalware, Funtoo, GalliumOS, Garuda, Gentoo, Pentoo,
+      #       gNewSense, GNOME, GNU, GoboLinux, Grombyang, Guix, Haiku, Huayra, HydroOS
+      #       Hyperbola, iglunix, janus, Kali, KaOS, KDE_neon, Kibojoe, Kogaion, Korora,
+      #       KSLinux, Kubuntu, LEDE, LaxerOS, LibreELEC, LFS, Linux_Lite, LMDE,
+      #       Lubuntu, Lunar, macos, Mageia, MagpieOS, Mandriva, Manjaro, TeArch, Maui,
+      #       Mer, Minix, LinuxMint, Live_Raizo, MX_Linux, Namib, Neptune, NetBSD,
+      #       Netrunner, Nitrux, NixOS, Nurunner, NuTyX, OBRevenge, OpenBSD,
+      #       openEuler, OpenIndiana, openmamba, OpenMandriva, OpenStage, OpenWrt,
+      #       osmc, Oracle, OS Elbrus, PacBSD, Parabola, Pardus, Parrot, Parsix,
+      #       TrueOS, PCLinuxOS, Pengwin, Peppermint, Pisi, popos, Porteus, PostMarketOS,
+      #       Proxmox, PuffOS, Puppy, PureOS, Qubes, Qubyt, Quibian, Radix, Raspbian,
+      #       Reborn_OS, Redstar, Redcore, Redhat, Refracted_Devuan, Regata, Regolith,
+      #       Rocky, Rosa, sabotage, Sabayon, Sailfish, SalentOS, Scientific, Septor,
+      #       SereneLinux, SharkLinux, Siduction, SkiffOS, Slackware, SliTaz, SmartOS,
+      #       Solus, Source_Mage, Sparky, Star, SteamOS, SunOS, openSUSE_Leap, t2,
+      #       openSUSE_Tumbleweed, openSUSE, SwagArch, Tails, Trisquel,
+      #       Ubuntu-Cinnamon, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE,
+      #       Ubuntu-Studio, Ubuntu, Univention, Venom, Void, VNux, LangitKetujuh, semc,
+      #       Obarun, windows10, Windows7, Xubuntu, Zorin, and IRIX have ascii logos.
+      # NOTE: Arch, Ubuntu, Redhat, Fedora and Dragonfly have 'old' logo variants.
+      #       Use '{distro name}_old' to use the old logos.
+      # NOTE: Ubuntu has flavor variants.
+      #       Change this to Lubuntu, Kubuntu, Xubuntu, Ubuntu-GNOME,
+      #       Ubuntu-Studio, Ubuntu-Mate  or Ubuntu-Budgie to use the flavors.
+      # NOTE: Arcolinux, Dragonfly, Fedora, Alpine, Arch, Ubuntu,
+      #       CRUX, Debian, Gentoo, FreeBSD, Mac, NixOS, OpenBSD, android,
+      #       Artix, CentOS, Cleanjaro, ElementaryOS, GUIX, Hyperbola,
+      #       Manjaro, MXLinux, NetBSD, Parabola, POP_OS, PureOS,
+      #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
+      #       postmarketOS, and Void have a smaller logo variant.
+      #       Use '{distro name}_small' to use the small variants.
+      ascii_distro="NixOS_small"
 
-    # Thumbnail directory
-    #
-    # Default: '~/.cache/thumbnails/neofetch'
-    # Values:  'dir'
+      # Ascii Colors
+      #
+      # Default:  'distro'
+      # Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
+      # Flag:     --ascii_colors
+      #
+      # Example:
+      # ascii_colors=(distro)      - Ascii is colored based on Distro colors.
+      # ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
+      ascii_colors=(distro)
 
-    # Crop mode
-    #
-    # Default:  'normal'
-    # Values:   'normal', 'fit', 'fill'
-    # Flag:     --crop_mode
-    #
-    # See this wiki page to learn about the fit and fill options.
-    # https://github.com/dylanaraps/neofetch/wiki/What-is-Waifu-Crop%3F
-    crop_mode="normal"
-
-    # Crop offset
-    # Note: Only affects 'normal' crop mode.
-    #
-    # Default:  'center'
-    # Values:   'northwest', 'north', 'northeast', 'west', 'center'
-    #           'east', 'southwest', 'south', 'southeast'
-    # Flag:     --crop_offset
-    crop_offset="center"
-
-    # Image size
-    # The image is half the terminal width by default.
-    #
-    # Default: 'auto'
-    # Values:  'auto', '00px', '00%', 'none'
-    # Flags:   --image_size
-    #          --size
-    image_size="auto"
-
-    # Catimg block size.
-    # Control the resolution of catimg.
-    #
-    # Default: '2'
-    # Values:  '1', '2'
-    # Flags:   --catimg_size
-    catimg_size="2"
-
-    # Gap between image and text
-    #
-    # Default: '3'
-    # Values:  'num', '-num'
-    # Flag:    --gap
-    gap=3
-
-    # Image offsets
-    # Only works with the w3m backend.
-    #
-    # Default: '0'
-    # Values:  'px'
-    # Flags:   --xoffset
-    #          --yoffset
-    yoffset=0
-    xoffset=0
-
-    # Image background color
-    # Only works with the w3m backend.
-    #
-    # Default: ""
-    # Values:  'color', 'blue'
-    # Flag:    --bg_color
-    background_color=
+      # Bold ascii logo
+      # Whether or not to bold the ascii logo.
+      #
+      # Default: 'on'
+      # Values:  'on', 'off'
+      # Flag:    --ascii_bold
+      ascii_bold="on"
 
 
-    # Misc Options
+      # Image Options
 
-    # Stdout mode
-    # Turn off all colors and disables image backend (ASCII/Image).
-    # Useful for piping into another command.
-    # Default: 'off'
-    # Values: 'on', 'off'
-    stdout="off"
-  '';
+
+      # Image loop
+      # Setting this to on will make neofetch redraw the image constantly until
+      # Ctrl+C is pressed. This fixes display issues in some terminal emulators.
+      #
+      # Default:  'off'
+      # Values:   'on', 'off'
+      # Flag:     --loop
+      image_loop="off"
+
+      # Thumbnail directory
+      #
+      # Default: '~/.cache/thumbnails/neofetch'
+      # Values:  'dir'
+
+      # Crop mode
+      #
+      # Default:  'normal'
+      # Values:   'normal', 'fit', 'fill'
+      # Flag:     --crop_mode
+      #
+      # See this wiki page to learn about the fit and fill options.
+      # https://github.com/dylanaraps/neofetch/wiki/What-is-Waifu-Crop%3F
+      crop_mode="normal"
+
+      # Crop offset
+      # Note: Only affects 'normal' crop mode.
+      #
+      # Default:  'center'
+      # Values:   'northwest', 'north', 'northeast', 'west', 'center'
+      #           'east', 'southwest', 'south', 'southeast'
+      # Flag:     --crop_offset
+      crop_offset="center"
+
+      # Image size
+      # The image is half the terminal width by default.
+      #
+      # Default: 'auto'
+      # Values:  'auto', '00px', '00%', 'none'
+      # Flags:   --image_size
+      #          --size
+      image_size="auto"
+
+      # Catimg block size.
+      # Control the resolution of catimg.
+      #
+      # Default: '2'
+      # Values:  '1', '2'
+      # Flags:   --catimg_size
+      catimg_size="2"
+
+      # Gap between image and text
+      #
+      # Default: '3'
+      # Values:  'num', '-num'
+      # Flag:    --gap
+      gap=3
+
+      # Image offsets
+      # Only works with the w3m backend.
+      #
+      # Default: '0'
+      # Values:  'px'
+      # Flags:   --xoffset
+      #          --yoffset
+      yoffset=0
+      xoffset=0
+
+      # Image background color
+      # Only works with the w3m backend.
+      #
+      # Default: ""
+      # Values:  'color', 'blue'
+      # Flag:    --bg_color
+      background_color=
+
+
+      # Misc Options
+
+      # Stdout mode
+      # Turn off all colors and disables image backend (ASCII/Image).
+      # Useful for piping into another command.
+      # Default: 'off'
+      # Values: 'on', 'off'
+      stdout="off"
+    '';
+  };
 }

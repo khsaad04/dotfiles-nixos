@@ -6,7 +6,6 @@
   clr = config.colorScheme.palette;
 in {
   services.dunst = {
-    enable = true;
     settings = {
       global = {
         width = 300;

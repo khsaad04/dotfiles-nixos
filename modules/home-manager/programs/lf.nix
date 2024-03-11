@@ -5,7 +5,6 @@
 }: {
   xdg.configFile."lf/icons".source = "${inputs.lf-icons}/etc/icons.example";
   programs.lf = {
-    enable = true;
     settings = {
       preview = true;
       drawbox = true;

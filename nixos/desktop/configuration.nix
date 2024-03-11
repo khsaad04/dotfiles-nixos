@@ -9,7 +9,7 @@
   imports = [
     inputs.disko.nixosModules.disko
     ./disko.nix
-    ../../users/khsaad/configuration.nix
+    ../../homes/khsaad/configuration.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
