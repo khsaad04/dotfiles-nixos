@@ -29,14 +29,14 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      pc = let
+      desktop = let
         pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
       in
         nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs pkgs-stable;};
           system = "x86_64-linux";
           modules = [
-            ./hosts/pc
+            ./hosts/desktop/configuration.nix
             ./modules/nixos
           ];
         };

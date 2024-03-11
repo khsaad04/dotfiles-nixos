@@ -4,15 +4,24 @@
   inputs,
   ...
 }: {
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+    inputs.nur.hmModules.nur
+  ];
+
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   # Custom module options go here
-  desktops.sway.enable = true;
-  desktops.hyprland.enable = true;
+  desktops = {
+    sway.enable = true;
+    hyprland.enable = true;
+  };
+
   browsers.firefox.enable = true;
+
   shell = {
     fish.enable = true;
     starship.enable = true;
@@ -23,6 +32,8 @@
     wezterm.enable = true;
     foot.enable = true;
   };
+
+  editors.nvim.enable = true;
 
   # Fonts
   fonts.fontconfig.enable = true;
