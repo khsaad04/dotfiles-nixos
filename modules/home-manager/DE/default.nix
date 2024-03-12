@@ -3,7 +3,7 @@
     ./sway.nix
     ./hyprland.nix
   ];
-  options.desktops = with lib; {
+  options.DE = with lib; {
     defaultSession = mkOption {
       type = types.enum ["sway" "hyprland"];
       default = "sway";

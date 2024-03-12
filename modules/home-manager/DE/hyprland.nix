@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.desktops.hyprland;
+  cfg = config.DE.hyprland;
 in {
-  options.desktops.hyprland = {
+  options.DE.hyprland = {
     enable = mkEnableOption "hyprland";
     package = mkOption {
       type = types.package;
@@ -16,7 +16,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home = mkIf (config.desktops.defaultSession == "hyprland") {
+    home = mkIf (config.DE.defaultSession == "hyprland") {
       file."./.config/fish/conf.d/hyprland.fish".text = ''
         set TTY1 (tty)
         [ "$TTY1" = "/dev/tty1" ] && exec Hyprland

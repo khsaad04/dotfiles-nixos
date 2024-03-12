@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.desktops.hyprland;
+  cfg = config.DE.hyprland;
 in {
-  options.desktops.hyprland = {
+  options.DE.hyprland = {
     enable = mkEnableOption "hyprland";
     package = mkOption {
       type = types.package;

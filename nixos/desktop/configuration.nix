@@ -1,16 +1,12 @@
 {
-  lib,
-  config,
   inputs,
   pkgs,
-  modulesPath,
   ...
 }: {
   imports = [
     inputs.disko.nixosModules.disko
     ./disko.nix
     ../../homes/khsaad/configuration.nix
-    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   networking = {
@@ -21,10 +17,14 @@
   time.timeZone = "Asia/Dhaka";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  environment.systemPackages = with pkgs; [
+    vim
+    fish
+    git
+  ];
+
   programs = {
     fish.enable = true;
-    git.enable = true;
-    neovim.enable = true;
     dconf.enable = true;
     direnv = {
       enable = true;
@@ -38,25 +38,13 @@
     rtkit.enable = true;
   };
 
-  fileSystems."/home/khsaad/ext" = {
-    device = "/dev/disk/by-label/EXT";
-    fsType = "ext4";
-  };
-
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-    initrd.kernelModules = [];
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
     kernelPackages = pkgs.linuxPackages_zen;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
   };
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   nix = {
     settings = {
@@ -82,12 +70,12 @@
     };
   };
 
-  networking.useDHCP = lib.mkDefault true;
-
   # Custom module options
-  desktops.sway.enable = true;
-  desktops.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  DE = {
+    sway.enable = true;
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
   };
 }

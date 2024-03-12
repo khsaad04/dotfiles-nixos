@@ -15,7 +15,7 @@
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   # Custom module options go here
-  desktops = {
+  DE = {
     sway.enable = true;
     hyprland = {
       enable = true;

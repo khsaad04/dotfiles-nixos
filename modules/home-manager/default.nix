@@ -1,6 +1,6 @@
 {
   imports = [
-    ./desktops
+    ./DE
     ./terminals
     ./browsers
     ./editors

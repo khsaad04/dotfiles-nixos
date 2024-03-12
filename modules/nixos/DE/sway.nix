@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.desktops.sway;
+  cfg = config.DE.sway;
 in {
-  options.desktops.sway = {
+  options.DE.sway = {
     enable = mkEnableOption "sway";
     package = mkOption {
       type = types.package;

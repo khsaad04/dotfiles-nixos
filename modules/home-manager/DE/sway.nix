@@ -5,14 +5,14 @@
   ...
 }:
 with lib; let
-  cfg = config.desktops.sway;
+  cfg = config.DE.sway;
 in {
-  options.desktops.sway = {
+  options.DE.sway = {
     enable = mkEnableOption "sway";
   };
 
   config = mkIf cfg.enable {
-    home = mkIf (config.desktops.defaultSession == "sway") {
+    home = mkIf (config.DE.defaultSession == "sway") {
       file."./.config/fish/conf.d/sway.fish".text = ''
         set TTY1 (tty)
         [ "$TTY1" = "/dev/tty1" ] && exec sway
