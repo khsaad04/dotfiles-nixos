@@ -7,7 +7,21 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ../../homes/khsaad/configuration.nix
+    ./hardware-configuration.nix
   ];
+
+  nix = {
+    settings = {
+      warn-dirty = false;
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["khsaad"];
+      extra-substituters = ["https://nix-community.cachix.org"];
+      extra-trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+  };
 
   networking = {
     hostName = "desktop";
@@ -19,7 +33,6 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    fish
     git
   ];
 
@@ -46,19 +59,6 @@
     };
   };
 
-  nix = {
-    settings = {
-      warn-dirty = false;
-      auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["khsaad"];
-      extra-substituters = ["https://nix-community.cachix.org"];
-      extra-trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-    };
-  };
-
   services = {
     pipewire = {
       enable = true;
@@ -74,7 +74,7 @@
   DE = {
     sway.enable = true;
     hyprland = {
-      enable = true;
+      enable = false;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
