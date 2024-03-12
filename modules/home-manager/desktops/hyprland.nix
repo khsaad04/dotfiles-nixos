@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-stable,
   config,
   ...
 }:
@@ -12,7 +11,7 @@ in {
     enable = mkEnableOption "hyprland";
     package = mkOption {
       type = types.package;
-      default = pkgs-stable.hyprland;
+      default = pkgs.hyprland;
     };
   };
 

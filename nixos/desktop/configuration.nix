@@ -90,6 +90,4 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
-
-  system.stateVersion = "24.05";
 }
