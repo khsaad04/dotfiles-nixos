@@ -49,7 +49,7 @@ in {
       ];
     };
 
-    home.file."./.config/nvim/" = {
+    xdg.configFile."nvim" = {
       source = ./.;
       recursive = true;
     };

@@ -21,6 +21,7 @@ return {
 				"bash",
 				"markdown_inline",
 				"nix",
+				"zig",
 			},
 			auto_install = false,
 

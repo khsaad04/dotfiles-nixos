@@ -86,7 +86,10 @@
 
   # Custom module options
   desktops.sway.enable = true;
-  desktops.hyprland.enable = true;
+  desktops.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
 
   system.stateVersion = "24.05";
 }

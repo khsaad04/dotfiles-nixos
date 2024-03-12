@@ -17,7 +17,10 @@
   # Custom module options go here
   desktops = {
     sway.enable = true;
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
   };
 
   browsers.firefox.enable = true;
