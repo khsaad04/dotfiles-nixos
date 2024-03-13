@@ -4,8 +4,14 @@
     ./terminals
     ./browsers
     ./editors
-    ./programs
     ./shell
-    ./services
+    ./lf.nix
+    ./tmux.nix
+    ./wofi.nix
+    ./dunst.nix
+    ./theme.nix
+    ./waybar.nix
+    ./scripts.nix
+    ./neofetch.nix
   ];
 }
