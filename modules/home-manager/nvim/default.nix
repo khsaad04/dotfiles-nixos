@@ -9,10 +9,7 @@ with lib; let
 in {
   options.editors.nvim = {
     enable = mkEnableOption "Neovim";
-    package = mkOption {
-      type = types.package;
-      default = pkgs.neovim-unwrapped;
-    };
+    package = mkPackageOption pkgs "neovim-unwrapped" {};
   };
 
   config = mkIf cfg.enable {

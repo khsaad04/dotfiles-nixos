@@ -9,10 +9,7 @@ with lib; let
 in {
   options.DE.hyprland = {
     enable = mkEnableOption "hyprland";
-    package = mkOption {
-      type = types.package;
-      default = pkgs.hyprland;
-    };
+    package = mkPackageOption pkgs "hyprland" {};
   };
 
   config = mkIf cfg.enable {

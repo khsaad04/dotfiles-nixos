@@ -9,10 +9,7 @@ with lib; let
 in {
   options.terminals.wezterm = {
     enable = mkEnableOption "WezTerm terminal emulator";
-    package = mkOption {
-      type = types.package;
-      default = pkgs.wezterm;
-    };
+    package = mkPackageOption pkgs "wezterm" {};
   };
 
   config = mkIf cfg.enable {

@@ -9,10 +9,7 @@ with lib; let
 in {
   options.terminals.foot = {
     enable = mkEnableOption "Foot terminal emulator";
-    package = mkOption {
-      type = types.package;
-      default = pkgs.foot;
-    };
+    package = mkPackageOption pkgs "foot" {};
   };
 
   config = mkIf cfg.enable {

@@ -9,10 +9,7 @@ with lib; let
 in {
   options.DE.sway = {
     enable = mkEnableOption "sway";
-    package = mkOption {
-      type = types.package;
-      default = pkgs.swayfx;
-    };
+    package = mkPackageOption pkgs "swayfx" {};
   };
 
   config = mkIf cfg.enable {
