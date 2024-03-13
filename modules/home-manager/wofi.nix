@@ -25,7 +25,7 @@ in {
 
       #window {
           margin: 0;
-          background: #${clr.base00};
+          background: #${clr.base01};
           border-radius: 8px;
           border: 2px solid #${clr.base0D};
       }

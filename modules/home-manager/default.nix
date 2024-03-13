@@ -1,17 +1,17 @@
 {
   imports = [
     ./DE
-    ./terminals
     ./browsers
-    ./editors
+    ./nvim
     ./shell
-    ./lf.nix
-    ./tmux.nix
-    ./wofi.nix
+    ./terminals
     ./dunst.nix
-    ./theme.nix
-    ./waybar.nix
-    ./scripts.nix
+    ./lf.nix
     ./neofetch.nix
+    ./scripts.nix
+    ./theme.nix
+    ./tmux.nix
+    ./waybar.nix
+    ./wofi.nix
   ];
 }
