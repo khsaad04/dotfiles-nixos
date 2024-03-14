@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   clr = config.colorScheme.palette;
-in {
+in
+{
   programs.wofi = {
     settings = {
       show = "drun";

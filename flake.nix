@@ -16,8 +16,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur. 
-      url = "github:nix-community/NUR";
+    nur.
+    url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     lf-icons = {
       url = "github:gokcehan/lf";
@@ -25,16 +25,16 @@
     };
   };
 
-  outputs = {flake-parts, ...} @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs = { flake-parts, ... } @ inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./nixos
+        ./hosts
         ./homes
       ];
-      systems = ["x86_64-linux"];
-      perSystem = {pkgs, ...}: {
-        devShells.default = pkgs.mkShell {};
-        formatter = pkgs.alejandra;
+      systems = [ "x86_64-linux" ];
+      perSystem = { pkgs, ... }: {
+        devShells.default = pkgs.mkShell { };
+        formatter = pkgs.nixpkgs-fmt;
       };
     };
 }

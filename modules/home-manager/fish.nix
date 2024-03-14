@@ -1,11 +1,11 @@
-{
-  lib,
-  config,
-  ...
+{ lib
+, config
+, ...
 }:
 with lib; let
   cfg = config.shell.fish;
-in {
+in
+{
   options.shell.fish = {
     enable = mkEnableOption "Fish Shell";
   };

@@ -1,11 +1,11 @@
-{lib, ...}: {
+{ lib, ... }: {
   imports = [
     ./sway.nix
     ./hyprland.nix
   ];
-  options.DE = with lib; {
-    defaultSession = mkOption {
-      type = types.enum ["sway" "hyprland"];
+  options.DE = {
+    defaultSession = lib.mkOption {
+      type = lib.types.enum [ "sway" "hyprland" ];
       default = "sway";
     };
   };

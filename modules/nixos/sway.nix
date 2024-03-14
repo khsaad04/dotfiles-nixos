@@ -1,15 +1,15 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   cfg = config.DE.sway;
-in {
+in
+{
   options.DE.sway = {
     enable = mkEnableOption "sway";
-    package = mkPackageOption pkgs "swayfx" {};
+    package = mkPackageOption pkgs "swayfx" { };
   };
 
   config = mkIf cfg.enable {

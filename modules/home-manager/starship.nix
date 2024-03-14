@@ -1,12 +1,12 @@
-{
-  lib,
-  config,
-  ...
+{ lib
+, config
+, ...
 }:
 with lib; let
   clr = config.colorScheme.palette;
   cfg = config.shell.starship;
-in {
+in
+{
   options.shell.starship = {
     enable = mkEnableOption "Starship prompt";
   };
@@ -36,8 +36,8 @@ in {
           read_only_style = "bold fg:#${clr.base0D} bg:#${clr.base03}";
           format = "[[ $path]($style)[$read_only]($read_only_style)](bg:surface1)";
         };
-        line_break = {disabled = true;};
-        python = {symbol = " ";};
+        line_break = { disabled = true; };
+        python = { symbol = " "; };
         git_branch = {
           format = " [$symbol$branch(:$remote_branch)]($style) ";
           symbol = " ";

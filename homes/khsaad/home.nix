@@ -1,8 +1,7 @@
-{
-  pkgs,
-  username,
-  inputs,
-  ...
+{ pkgs
+, username
+, inputs
+, ...
 }: {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -47,7 +46,8 @@
         "FiraCode"
       ];
     };
-  in [
+  in
+  [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -72,6 +72,7 @@
   };
 
   services.dunst.enable = true;
+  dconf.enable = true;
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;

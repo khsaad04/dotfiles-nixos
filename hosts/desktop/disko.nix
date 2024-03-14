@@ -29,23 +29,23 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"]; # Override existing partition
+                extraArgs = [ "-f" ]; # Override existing partition
                 # Subvolumes must set a mountpoint in order to be mounted,
                 # unless their parent is mounted
                 mountpoint = "/";
                 subvolumes = {
                   "@" = {
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = [ "compress=zstd" "noatime" ];
                     mountpoint = "/";
                   };
 
                   "@home" = {
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = [ "compress=zstd" "noatime" ];
                     mountpoint = "/home";
                   };
 
                   "@nix" = {
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = [ "compress=zstd" "noatime" ];
                     mountpoint = "/nix";
                   };
                 };

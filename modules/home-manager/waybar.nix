@@ -1,12 +1,13 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs
+, config
+, ...
+}:
+let
   clr = config.colorScheme.palette;
   radius = "16px";
-in {
-  home.packages = [pkgs.playerctl];
+in
+{
+  home.packages = [ pkgs.playerctl ];
   programs.waybar = {
     settings = {
       mainBar = {

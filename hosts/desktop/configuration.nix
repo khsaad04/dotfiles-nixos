@@ -1,7 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
+{ inputs
+, pkgs
+, ...
 }: {
   imports = [
     inputs.disko.nixosModules.disko
@@ -10,16 +9,38 @@
     ./hardware-configuration.nix
   ];
 
+  # Custom module options
+  DE = {
+    sway.enable = true;
+    hyprland = {
+      enable = false;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
+  };
+
   nix = {
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["khsaad"];
-      extra-substituters = ["https://nix-community.cachix.org"];
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "khsaad" ];
+      extra-substituters = [ "https://nix-community.cachix.org" ];
       extra-trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
     };
   };
 
@@ -38,7 +59,6 @@
 
   programs = {
     fish.enable = true;
-    dconf.enable = true;
     direnv = {
       enable = true;
       silent = true;
@@ -49,14 +69,6 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
-  };
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
   };
 
   services = {
@@ -70,12 +82,5 @@
     };
   };
 
-  # Custom module options
-  DE = {
-    sway.enable = true;
-    hyprland = {
-      enable = false;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
-  };
+  system.stateVersion = "24.05";
 }

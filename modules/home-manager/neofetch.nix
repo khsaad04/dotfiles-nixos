@@ -1,17 +1,17 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
+{ lib
+, config
+, pkgs
+, ...
 }:
 with lib; let
   cfg = config.programs.neofetch;
-in {
+in
+{
   options.programs.neofetch = {
     enable = mkEnableOption "Neofetch";
   };
   config = mkIf cfg.enable {
-    home.packages = [pkgs.neofetch];
+    home.packages = [ pkgs.neofetch ];
     xdg.configFile."neofetch/config.conf".text = ''
       # See this wiki page for more info:
       # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info

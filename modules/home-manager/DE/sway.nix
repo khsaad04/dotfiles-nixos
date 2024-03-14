@@ -1,37 +1,38 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
-with lib; let
+let
   cfg = config.DE.sway;
-in {
+in
+{
   options.DE.sway = {
-    enable = mkEnableOption "sway";
+    enable = lib.mkEnableOption "sway";
   };
 
-  config = mkIf cfg.enable {
-    home = mkIf (config.DE.defaultSession == "sway") {
+  config = lib.mkIf cfg.enable {
+    home = lib.mkIf (config.DE.defaultSession == "sway") {
       file."./.config/fish/conf.d/sway.fish".text = ''
         set TTY1 (tty)
         [ "$TTY1" = "/dev/tty1" ] && exec sway
       '';
-      packages = with pkgs; [swww networkmanagerapplet grimblast];
+      packages = with pkgs; [ swww networkmanagerapplet grimblast ];
     };
     wayland.windowManager.sway = {
       enable = cfg.enable;
       package = null;
+      systemd.enable = true;
       config = {
         defaultWorkspace = "workspace number 1";
         startup = [
-          {command = "${pkgs.wl-clipboard}/bin/wl-clipboard &";}
-          {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &";}
-          {command = "${pkgs.firefox}/bin/firefox &";}
-          {command = "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &";}
+          { command = "${pkgs.wl-clipboard}/bin/wl-clipboard &"; }
+          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
+          { command = "${pkgs.firefox}/bin/firefox &"; }
+          { command = "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &"; }
         ];
         fonts = {
-          names = ["FiraCode Nerd Font"];
+          names = [ "FiraCode Nerd Font" ];
           style = "Regular";
           size = 10.0;
         };
@@ -47,12 +48,13 @@ in {
         terminal = "${config.terminals.defaultPackage}";
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
-          "*" = {accel_profile = "flat";};
+          "*" = { accel_profile = "flat"; };
         };
-        keybindings = let
-          cfg = config.wayland.windowManager.sway;
-          modifier = cfg.config.modifier;
-        in
+        keybindings =
+          let
+            cfg = config.wayland.windowManager.sway;
+            modifier = cfg.config.modifier;
+          in
           lib.mkOptionDefault {
             "${modifier}+space" = "exec ${cfg.config.menu}";
             "${modifier}+q" = "kill";
@@ -65,9 +67,9 @@ in {
             "XF86AudioMute" = "exec changevolume mute";
           };
         assigns = {
-          "2" = [{app_id = "firefox";}];
+          "2" = [{ app_id = "firefox"; }];
         };
-        bars = [];
+        bars = [ ];
       };
       extraConfig = ''
         corner_radius 8
@@ -79,6 +81,14 @@ in {
             position top
         }
       '';
+    };
+
+    systemd.user.services = {
+      autotiling = {
+        Install.WantedBy = [ "graphical-session.target" ];
+        Unit.Description = "Autotiling";
+        Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
+      };
     };
   };
 }

@@ -1,12 +1,12 @@
-{
-  config,
-  username,
-  lib,
-  ...
+{ config
+, username
+, lib
+, ...
 }:
 with lib; let
   cfg = config.browsers.firefox;
-in {
+in
+{
   options.browsers.firefox = {
     enable = mkEnableOption "Mozilla Firefox browser";
   };
@@ -15,7 +15,7 @@ in {
       enable = true;
       profiles.${username} = {
         name = username;
-        extensions = with config.nur.repos.rycee.firefox-addons; [ublock-origin vimium];
+        extensions = with config.nur.repos.rycee.firefox-addons; [ ublock-origin vimium ];
         extraConfig = ''
               user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
           user_pref("ui.key.menuAccessKeyFocuses", false);

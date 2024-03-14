@@ -1,13 +1,13 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   clr = config.colorScheme.palette;
   cfg = config.programs.tmux;
-in {
+in
+{
   options.programs.tmux = {
     tms.enable = mkEnableOption "tmux sessionizer";
   };
@@ -26,7 +26,7 @@ in {
         path = "/home/khsaad/Documents"
         depth = 10
       '';
-      packages = [pkgs.tmux-sessionizer];
+      packages = [ pkgs.tmux-sessionizer ];
     };
     programs.tmux = {
       extraConfig = ''

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.pointerCursor = {
     gtk.enable = true;
     name = "Adwaita";
@@ -19,8 +19,8 @@
     theme = {
       name = "Catppuccin-Mocha-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = ["blue"];
-        tweaks = ["black"];
+        accents = [ "blue" ];
+        tweaks = [ "black" ];
         size = "standard";
         variant = "mocha";
       };

@@ -1,15 +1,15 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   cfg = config.terminals.foot;
-in {
+in
+{
   options.terminals.foot = {
     enable = mkEnableOption "Foot terminal emulator";
-    package = mkPackageOption pkgs "foot" {};
+    package = mkPackageOption pkgs "foot" { };
   };
 
   config = mkIf cfg.enable {

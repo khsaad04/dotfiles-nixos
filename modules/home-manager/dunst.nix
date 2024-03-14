@@ -1,10 +1,11 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs
+, config
+, ...
+}:
+let
   clr = config.colorScheme.palette;
-in {
+in
+{
   services.dunst = {
     settings = {
       global = {

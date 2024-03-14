@@ -1,15 +1,15 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   cfg = config.DE.hyprland;
-in {
+in
+{
   options.DE.hyprland = {
     enable = mkEnableOption "hyprland";
-    package = mkPackageOption pkgs "hyprland" {};
+    package = mkPackageOption pkgs "hyprland" { };
   };
 
   config = mkIf cfg.enable {

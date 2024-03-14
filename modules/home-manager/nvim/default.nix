@@ -1,15 +1,15 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
+{ lib
+, config
+, pkgs
+, ...
 }:
 with lib; let
   cfg = config.editors.nvim;
-in {
+in
+{
   options.editors.nvim = {
     enable = mkEnableOption "Neovim";
-    package = mkPackageOption pkgs "neovim-unwrapped" {};
+    package = mkPackageOption pkgs "neovim-unwrapped" { };
   };
 
   config = mkIf cfg.enable {

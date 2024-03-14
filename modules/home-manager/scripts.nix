@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   changevolume = pkgs.writeShellScriptBin "changevolume" ''
     case $1 in
     up)
@@ -40,6 +41,7 @@
             systemctl reboot;;
     esac
   '';
-in {
-  home.packages = [changevolume powermenu];
+in
+{
+  home.packages = [ changevolume powermenu ];
 }
