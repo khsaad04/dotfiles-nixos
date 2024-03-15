@@ -3,14 +3,14 @@
 , pkgs
 , ...
 }:
-with lib; let
+let
   cfg = config.programs.neofetch;
 in
 {
   options.programs.neofetch = {
-    enable = mkEnableOption "Neofetch";
+    enable = lib.mkEnableOption "Neofetch";
   };
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.neofetch ];
     xdg.configFile."neofetch/config.conf".text = ''
       # See this wiki page for more info:

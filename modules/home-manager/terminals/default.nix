@@ -3,13 +3,13 @@
     ./foot.nix
     ./wezterm.nix
   ];
-  options.terminals = with lib; {
-    default = mkOption {
-      type = types.enum [ "wezterm" "foot" ];
+  options.terminals = {
+    default = lib.mkOption {
+      type = lib.types.enum [ "wezterm" "foot" ];
       default = "wezterm";
     };
-    program = mkOption {
-      type = types.path;
+    program = lib.mkOption {
+      type = lib.types.path;
     };
   };
 }

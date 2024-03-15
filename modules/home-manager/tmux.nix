@@ -3,16 +3,16 @@
 , config
 , ...
 }:
-with lib; let
+let
   clr = config.colorScheme.palette;
   cfg = config.programs.tmux;
 in
 {
   options.programs.tmux = {
-    tms.enable = mkEnableOption "tmux sessionizer";
+    tms.enable = lib.mkEnableOption "tmux sessionizer";
   };
   config = {
-    home = mkIf cfg.tms.enable {
+    home = lib.mkIf cfg.tms.enable {
       file."./.config/tms/config.toml".text = ''
         [[search_dirs]]
         path = "/home/khsaad/dotfiles"

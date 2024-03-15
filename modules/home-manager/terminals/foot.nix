@@ -3,16 +3,16 @@
 , config
 , ...
 }:
-with lib; let
+let
   cfg = config.terminals.foot;
 in
 {
   options.terminals.foot = {
-    enable = mkEnableOption "Foot terminal emulator";
-    package = mkPackageOption pkgs "foot" { };
+    enable = lib.mkEnableOption "Foot terminal emulator";
+    package = lib.mkPackageOption pkgs "foot" { };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.foot = {
       enable = cfg.enable;
       package = cfg.package;
@@ -43,6 +43,6 @@ in
         };
       };
     };
-    terminals.program = mkIf (config.terminals.default == "foot") "${pkgs.foot}/bin/foot";
+    terminals.program = lib.mkIf (config.terminals.default == "foot") "${pkgs.foot}/bin/foot";
   };
 }

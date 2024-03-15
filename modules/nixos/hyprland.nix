@@ -3,16 +3,16 @@
 , config
 , ...
 }:
-with lib; let
+let
   cfg = config.DE.hyprland;
 in
 {
   options.DE.hyprland = {
-    enable = mkEnableOption "hyprland";
-    package = mkPackageOption pkgs "hyprland" { };
+    enable = lib.mkEnableOption "hyprland";
+    package = lib.mkPackageOption pkgs "hyprland" { };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs = {
       hyprland = {
         enable = true;

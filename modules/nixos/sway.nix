@@ -3,16 +3,16 @@
 , config
 , ...
 }:
-with lib; let
+let
   cfg = config.DE.sway;
 in
 {
   options.DE.sway = {
-    enable = mkEnableOption "sway";
-    package = mkPackageOption pkgs "swayfx" { };
+    enable = lib.mkEnableOption "sway";
+    package = lib.mkPackageOption pkgs "swayfx" { };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs = {
       sway = {
         enable = true;

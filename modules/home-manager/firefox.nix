@@ -3,14 +3,14 @@
 , lib
 , ...
 }:
-with lib; let
+let
   cfg = config.browsers.firefox;
 in
 {
   options.browsers.firefox = {
-    enable = mkEnableOption "Mozilla Firefox browser";
+    enable = lib.mkEnableOption "Mozilla Firefox browser";
   };
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
       profiles.${username} = {

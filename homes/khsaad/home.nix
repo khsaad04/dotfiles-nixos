@@ -25,11 +25,6 @@
 
   browsers.firefox.enable = true;
 
-  shell = {
-    fish.enable = true;
-    starship.enable = true;
-  };
-
   terminals = {
     default = "wezterm";
     wezterm.enable = true;
@@ -55,6 +50,8 @@
   ];
 
   programs = {
+    fish.enable = true;
+    starship.enable = true;
     obs-studio.enable = true;
     lf.enable = true;
     neofetch.enable = true;

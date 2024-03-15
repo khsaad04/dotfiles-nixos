@@ -3,16 +3,16 @@
 , config
 , ...
 }:
-with lib; let
+let
   cfg = config.terminals.wezterm;
 in
 {
   options.terminals.wezterm = {
-    enable = mkEnableOption "WezTerm terminal emulator";
-    package = mkPackageOption pkgs "wezterm" { };
+    enable = lib.mkEnableOption "WezTerm terminal emulator";
+    package = lib.mkPackageOption pkgs "wezterm" { };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.wezterm = {
       enable = cfg.enable;
       package = cfg.package;
@@ -47,6 +47,6 @@ in
         }
       '';
     };
-    terminals.program = mkIf (config.terminals.default == "wezterm") "${pkgs.wezterm}/bin/wezterm";
+    terminals.program = lib.mkIf (config.terminals.default == "wezterm") "${pkgs.wezterm}/bin/wezterm";
   };
 }
