@@ -88,7 +88,7 @@ in
             mtws = "movetoworkspacesilent";
           in
           [
-            "${mod}, RETURN, exec, ${config.terminals.defaultPackage}"
+            "${mod}, RETURN, exec, ${config.terminals.program}"
             "${mod}, Q, killactive,"
             "${mod}, M, exit,"
             "${mod}, V, togglefloating,"

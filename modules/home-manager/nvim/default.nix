@@ -1,18 +1,12 @@
-{ lib
-, config
-, pkgs
-, ...
-}:
-with lib; let
-  cfg = config.editors.nvim;
-in
-{
+{ lib, config, pkgs, ... }:
+let cfg = config.editors.nvim;
+in {
   options.editors.nvim = {
-    enable = mkEnableOption "Neovim";
-    package = mkPackageOption pkgs "neovim-unwrapped" { };
+    enable = lib.mkEnableOption "Neovim";
+    package = lib.mkPackageOption pkgs "neovim-unwrapped" { };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.neovim = {
       enable = true;
       package = cfg.package;
@@ -38,7 +32,6 @@ in
         lua-language-server
         stylua
         nil
-        alejandra
         ruff
         python311Packages.python-lsp-server
         python311Packages.black

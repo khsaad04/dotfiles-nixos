@@ -31,7 +31,7 @@
   };
 
   terminals = {
-    defaultTerminal = "wezterm";
+    default = "wezterm";
     wezterm.enable = true;
     foot.enable = true;
   };

@@ -47,6 +47,6 @@ in
         }
       '';
     };
-    terminals.defaultPackage = mkIf (config.terminals.defaultTerminal == "wezterm") "${pkgs.wezterm}/bin/wezterm";
+    terminals.program = mkIf (config.terminals.default == "wezterm") "${pkgs.wezterm}/bin/wezterm";
   };
 }

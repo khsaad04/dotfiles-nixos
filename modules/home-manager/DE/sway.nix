@@ -45,7 +45,7 @@ in
         down = "j";
         up = "k";
         right = "l";
-        terminal = "${config.terminals.defaultPackage}";
+        terminal = "${config.terminals.program}";
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
           "*" = { accel_profile = "flat"; };

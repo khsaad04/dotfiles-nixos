@@ -4,11 +4,11 @@
     ./wezterm.nix
   ];
   options.terminals = with lib; {
-    defaultTerminal = mkOption {
+    default = mkOption {
       type = types.enum [ "wezterm" "foot" ];
       default = "wezterm";
     };
-    defaultPackage = mkOption {
+    program = mkOption {
       type = types.path;
     };
   };

@@ -43,6 +43,6 @@ in
         };
       };
     };
-    terminals.defaultPackage = mkIf (config.terminals.defaultTerminal == "foot") "${pkgs.foot}/bin/foot";
+    terminals.program = mkIf (config.terminals.default == "foot") "${pkgs.foot}/bin/foot";
   };
 }
