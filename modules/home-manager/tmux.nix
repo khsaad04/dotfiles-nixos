@@ -15,10 +15,6 @@ in
     home = lib.mkIf cfg.tms.enable {
       file."./.config/tms/config.toml".text = ''
         [[search_dirs]]
-        path = "/home/khsaad/dotfiles"
-        depth = 10
-
-        [[search_dirs]]
         path = "/home/khsaad/ext/code"
         depth = 10
 

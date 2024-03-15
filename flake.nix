@@ -16,8 +16,7 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.
-    url = "github:nix-community/NUR";
+    nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     lf-icons = {
       url = "github:gokcehan/lf";
