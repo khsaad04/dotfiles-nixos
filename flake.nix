@@ -32,7 +32,13 @@
       ];
       systems = [ "x86_64-linux" ];
       perSystem = { pkgs, ... }: {
-        devShells.default = pkgs.mkShell { };
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            lua-language-server
+            stylua
+            nil
+          ];
+        };
         formatter = pkgs.nixpkgs-fmt;
       };
     };

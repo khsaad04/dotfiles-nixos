@@ -27,15 +27,6 @@ in {
         wl-clipboard
         gcc13
         gnumake42
-
-        # LSPs, Formatters and Linters
-        lua-language-server
-        stylua
-        nil
-        ruff
-        python311Packages.python-lsp-server
-        python311Packages.black
-        python311Packages.isort
       ];
     };
 
