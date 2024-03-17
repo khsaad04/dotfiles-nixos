@@ -21,10 +21,10 @@ return {
     {
       "<leader>/",
       function()
-        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
           winblend = 10,
           previewer = false,
-        })
+        }))
       end,
       mode = "n",
       desc = "[/] Fuzzily search in current buffer",
@@ -84,12 +84,12 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       cond = function()
-        return vim.fn.executable "make" == 1
+        return vim.fn.executable("make") == 1
       end,
     },
   },
   config = function()
-    require("telescope").setup {
+    require("telescope").setup({
       defaults = {
         mappings = {
           i = {
@@ -98,7 +98,7 @@ return {
           },
         },
       },
-    }
+    })
 
     -- Enable telescope fzf native, if installed
     pcall(require("telescope").load_extension, "fzf")

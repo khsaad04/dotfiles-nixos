@@ -6,7 +6,7 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   config = function()
-    require("nvim-treesitter.configs").setup {
+    require("nvim-treesitter.configs").setup({
       -- Add languages to be installed here that you want installed for treesitter
       ensure_installed = {
         "c",
@@ -64,6 +64,6 @@ return {
           include_surrounding_whitespace = true,
         },
       },
-    }
+    })
   end,
 }

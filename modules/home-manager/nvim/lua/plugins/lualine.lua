@@ -2,7 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   priority = 999,
   config = function()
-    require("lualine").setup {
+    require("lualine").setup({
       options = {
         theme = "catppuccin",
         component_separators = "",
@@ -16,6 +16,6 @@ return {
           { "location", separator = { right = "" }, left_padding = 1 },
         },
       },
-    }
+    })
   end,
 }

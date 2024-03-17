@@ -36,7 +36,7 @@ map("x", "p", [["_dp]], { silent = true })
 
 -- Format
 map("n", "<leader>lf", function()
-  require("conform").format { lsp_fallback = true }
+  require("conform").format({ lsp_fallback = true })
 end, { silent = true, desc = "Format current buffer using conform" })
 
 -- Neotree

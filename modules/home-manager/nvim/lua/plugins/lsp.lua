@@ -5,7 +5,7 @@ return {
   },
   ft = { "python", "rust", "nix", "lua", "zig" },
   config = function()
-    local lspconfig = require "lspconfig"
+    local lspconfig = require("lspconfig")
     local on_attach = function(_, bufnr)
       local nmap = function(keys, func, desc)
         if desc then
@@ -32,27 +32,27 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    lspconfig.lua_ls.setup {
+    lspconfig.lua_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-    }
+    })
 
-    lspconfig.nil_ls.setup {
+    lspconfig.nil_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-    }
+    })
 
-    lspconfig.rust_analyzer.setup {
+    lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-    }
+    })
 
-    lspconfig.zls.setup {
+    lspconfig.zls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-    }
+    })
 
-    lspconfig.pylsp.setup {
+    lspconfig.pylsp.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -73,7 +73,7 @@ return {
           },
         },
       },
-    }
+    })
 
     -- Diagnostics
 

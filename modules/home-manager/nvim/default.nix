@@ -1,6 +1,8 @@
 { lib, config, pkgs, ... }:
-let cfg = config.editors.nvim;
-in {
+let
+  cfg = config.editors.nvim;
+in
+{
   options.editors.nvim = {
     enable = lib.mkEnableOption "Neovim";
     package = lib.mkPackageOption pkgs "neovim-unwrapped" { };
