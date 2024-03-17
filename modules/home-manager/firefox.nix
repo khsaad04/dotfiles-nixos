@@ -4,10 +4,10 @@
 , ...
 }:
 let
-  cfg = config.browsers.firefox;
+  cfg = config.local.browsers.firefox;
 in
 {
-  options.browsers.firefox = {
+  options.local.browsers.firefox = {
     enable = lib.mkEnableOption "Mozilla Firefox browser";
   };
   config = lib.mkIf cfg.enable {

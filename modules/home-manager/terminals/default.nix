@@ -3,7 +3,7 @@
     ./foot.nix
     ./wezterm.nix
   ];
-  options.terminals = {
+  options.local.terminals = {
     default = lib.mkOption {
       type = lib.types.enum [ "wezterm" "foot" ];
       default = "wezterm";

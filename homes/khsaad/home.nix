@@ -14,24 +14,34 @@
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   # Custom module options go here
-  DE = {
-    defaultSession = "sway";
-    sway.enable = true;
-    hyprland = {
-      enable = false;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  local = {
+    DE = {
+      defaultSession = "sway";
+      sway.enable = true;
+      hyprland = {
+        enable = false;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      };
+    };
+
+    browsers.firefox.enable = true;
+
+    terminals = {
+      default = "wezterm";
+      wezterm.enable = true;
+      foot.enable = true;
+    };
+
+    editors.nvim.enable = true;
+
+    programs = {
+      neofetch.enable = true;
+      tmux = {
+        enable = true;
+        tms.enable = true;
+      };
     };
   };
-
-  browsers.firefox.enable = true;
-
-  terminals = {
-    default = "wezterm";
-    wezterm.enable = true;
-    foot.enable = true;
-  };
-
-  editors.nvim.enable = true;
 
   # Fonts
   fonts.fontconfig.enable = true;
@@ -54,11 +64,6 @@
     starship.enable = true;
     obs-studio.enable = true;
     lf.enable = true;
-    neofetch.enable = true;
-    tmux = {
-      enable = true;
-      tms.enable = true;
-    };
     waybar.enable = true;
     wofi.enable = true;
     git = {

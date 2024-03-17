@@ -4,10 +4,10 @@
 , ...
 }:
 let
-  cfg = config.DE.hyprland;
+  cfg = config.local.DE.hyprland;
 in
 {
-  options.DE.hyprland = {
+  options.local.DE.hyprland = {
     enable = lib.mkEnableOption "hyprland";
     package = lib.mkPackageOption pkgs "hyprland" { };
   };

@@ -4,16 +4,16 @@
 , ...
 }:
 let
-  cfg = config.DE.hyprland;
+  cfg = config.local.DE.hyprland;
 in
 {
-  options.DE.hyprland = {
+  options.local.DE.hyprland = {
     enable = lib.mkEnableOption "hyprland";
     package = lib.mkPackageOption pkgs "hyprland" { };
   };
 
   config = lib.mkIf cfg.enable {
-    home = lib.mkIf (config.DE.defaultSession == "hyprland") {
+    home = lib.mkIf (config.local.DE.defaultSession == "hyprland") {
       file."./.config/fish/conf.d/hyprland.fish".text = ''
         set TTY1 (tty)
         [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
@@ -88,7 +88,7 @@ in
             mtws = "movetoworkspacesilent";
           in
           [
-            "${mod}, RETURN, exec, ${config.terminals.program}"
+            "${mod}, RETURN, exec, ${config.local.terminals.program}"
             "${mod}, Q, killactive,"
             "${mod}, M, exit,"
             "${mod}, V, togglefloating,"

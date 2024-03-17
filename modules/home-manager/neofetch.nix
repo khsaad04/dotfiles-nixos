@@ -4,10 +4,10 @@
 , ...
 }:
 let
-  cfg = config.programs.neofetch;
+  cfg = config.local.programs.neofetch;
 in
 {
-  options.programs.neofetch = {
+  options.local.programs.neofetch = {
     enable = lib.mkEnableOption "Neofetch";
   };
   config = lib.mkIf cfg.enable {

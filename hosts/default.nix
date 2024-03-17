@@ -5,6 +5,7 @@
       modules = [
         ./desktop/configuration.nix
         ../modules/nixos
+        ../homes/khsaad/configuration.nix
       ];
     };
   };

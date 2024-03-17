@@ -5,10 +5,11 @@
 }:
 let
   clr = config.colorScheme.palette;
-  cfg = config.programs.tmux;
+  cfg = config.local.programs.tmux;
 in
 {
-  options.programs.tmux = {
+  options.local.programs.tmux = {
+    enable = lib.mkEnableOption "Tmux multiplexer";
     tms.enable = lib.mkEnableOption "tmux sessionizer";
   };
   config = {
@@ -25,6 +26,7 @@ in
       packages = [ pkgs.tmux-sessionizer ];
     };
     programs.tmux = {
+      enable = cfg.enable;
       extraConfig = ''
         # Fix colors for terminal
         set -g default-terminal "tmux-256color"

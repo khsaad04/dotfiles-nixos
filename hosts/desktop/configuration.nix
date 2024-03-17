@@ -5,16 +5,17 @@
   imports = [
     inputs.disko.nixosModules.disko
     ./disko.nix
-    ../../homes/khsaad/configuration.nix
     ./hardware-configuration.nix
   ];
 
   # Custom module options
-  DE = {
-    sway.enable = true;
-    hyprland = {
-      enable = false;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  local = {
+    DE = {
+      sway.enable = true;
+      hyprland = {
+        enable = false;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      };
     };
   };
 

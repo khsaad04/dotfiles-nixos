@@ -4,15 +4,15 @@
 , ...
 }:
 let
-  cfg = config.DE.sway;
+  cfg = config.local.DE.sway;
 in
 {
-  options.DE.sway = {
+  options.local.DE.sway = {
     enable = lib.mkEnableOption "sway";
   };
 
   config = lib.mkIf cfg.enable {
-    home = lib.mkIf (config.DE.defaultSession == "sway") {
+    home = lib.mkIf (config.local.DE.defaultSession == "sway") {
       file."./.config/fish/conf.d/sway.fish".text = ''
         set TTY1 (tty)
         [ "$TTY1" = "/dev/tty1" ] && exec sway
@@ -45,7 +45,7 @@ in
         down = "j";
         up = "k";
         right = "l";
-        terminal = "${config.terminals.program}";
+        terminal = "${config.local.terminals.program}";
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
           "*" = { accel_profile = "flat"; };

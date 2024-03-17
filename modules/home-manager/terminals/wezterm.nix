@@ -4,10 +4,10 @@
 , ...
 }:
 let
-  cfg = config.terminals.wezterm;
+  cfg = config.local.terminals.wezterm;
 in
 {
-  options.terminals.wezterm = {
+  options.local.terminals.wezterm = {
     enable = lib.mkEnableOption "WezTerm terminal emulator";
     package = lib.mkPackageOption pkgs "wezterm" { };
   };
@@ -47,6 +47,6 @@ in
         }
       '';
     };
-    terminals.program = lib.mkIf (config.terminals.default == "wezterm") "${pkgs.wezterm}/bin/wezterm";
+    local.terminals.program = lib.mkIf (config.local.terminals.default == "wezterm") "${pkgs.wezterm}/bin/wezterm";
   };
 }

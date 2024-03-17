@@ -4,10 +4,10 @@
 , ...
 }:
 let
-  cfg = config.DE.sway;
+  cfg = config.local.DE.sway;
 in
 {
-  options.DE.sway = {
+  options.local.DE.sway = {
     enable = lib.mkEnableOption "sway";
     package = lib.mkPackageOption pkgs "swayfx" { };
   };

@@ -1,9 +1,9 @@
 { lib, config, pkgs, ... }:
 let
-  cfg = config.editors.nvim;
+  cfg = config.local.editors.nvim;
 in
 {
-  options.editors.nvim = {
+  options.local.editors.nvim = {
     enable = lib.mkEnableOption "Neovim";
     package = lib.mkPackageOption pkgs "neovim-unwrapped" { };
   };
@@ -33,7 +33,7 @@ in
     };
 
     xdg.configFile."nvim" = {
-      source = ./.;
+      source = ./src;
       recursive = true;
     };
   };
