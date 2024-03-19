@@ -48,9 +48,6 @@ in
         # Make delay shorter
         set -sg escape-time 0
 
-        # Set pane border style
-        set -g pane-border-lines heavy
-
         # Making things sense
         set -g history-limit 50000
         set -g focus-events on
@@ -78,8 +75,8 @@ in
         # Window Manipulation
         bind -n -r C-t new-window
         bind -n -r M-. next-window
-        bind -n -r M-, previous-window
 
+        bind -n -r M-, previous-window
         # Rename Windows
         bind -n F2 command-prompt -p " 󰑕 Rename window:" "rename-window '%%'"
 
