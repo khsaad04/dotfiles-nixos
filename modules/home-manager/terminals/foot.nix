@@ -43,6 +43,5 @@ in
         };
       };
     };
-    local.terminals.program = lib.mkIf (config.local.terminals.default == "foot") "${pkgs.foot}/bin/foot";
   };
 }

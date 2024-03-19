@@ -47,6 +47,5 @@ in
         }
       '';
     };
-    local.terminals.program = lib.mkIf (config.local.terminals.default == "wezterm") "${pkgs.wezterm}/bin/wezterm";
   };
 }

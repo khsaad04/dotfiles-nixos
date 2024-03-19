@@ -62,6 +62,7 @@
   programs = {
     fish.enable = true;
     starship.enable = true;
+    eza = { enable = true; extraOptions = [ "--group-directories-first" ]; };
     obs-studio.enable = true;
     lf.enable = true;
     waybar.enable = true;
