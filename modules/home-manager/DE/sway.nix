@@ -17,7 +17,7 @@ in
         set TTY1 (tty)
         [ "$TTY1" = "/dev/tty1" ] && exec sway
       '';
-      packages = with pkgs; [ swww networkmanagerapplet grimblast ];
+      packages = with pkgs; [ swww wl-clipboard networkmanagerapplet grimblast ];
     };
     wayland.windowManager.sway = {
       enable = cfg.enable;
@@ -26,10 +26,10 @@ in
       config = {
         defaultWorkspace = "workspace number 1";
         startup = [
-          { command = "${pkgs.wl-clipboard}/bin/wl-clipboard &"; }
-          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
-          { command = "${pkgs.firefox}/bin/firefox &"; }
-          { command = "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &"; }
+          { command = "wl-clipboard &"; }
+          { command = "nm-applet --indicator &"; }
+          { command = "firefox &"; }
+          { command = "swww init && swww img ${./wallpaper}/wp.png &"; }
         ];
         fonts = {
           names = [ "FiraCode Nerd Font" ];
