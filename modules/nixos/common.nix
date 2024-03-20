@@ -1,6 +1,4 @@
-{ pkgs
-, ...
-}: {
+{
   nix = {
     settings = {
       warn-dirty = false;
@@ -12,15 +10,6 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
-    };
-  };
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
-    loader = {
-      systemd-boot.enable = true;
-      systemd-boot.configurationLimit = 10;
-      efi.canTouchEfiVariables = true;
     };
   };
 
