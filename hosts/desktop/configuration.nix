@@ -10,6 +10,7 @@
 
   # Custom module options
   local = {
+    sound.enable = true;
     DE = {
       sway.enable = true;
       hyprland = {
@@ -40,7 +41,7 @@
     };
   };
 
-  services.pipewire.enable = true;
+  security.polkit.enable = true;
 
   system.stateVersion = "24.05";
 }

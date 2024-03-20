@@ -1,7 +1,8 @@
 {
   imports = [
-    ./common.nix
     ./boot.nix
+    ./sound.nix
+    ./nix.nix
     ./sway.nix
     ./hyprland.nix
   ];
