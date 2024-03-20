@@ -23,6 +23,7 @@
         enable = lib.mkDefault true;
       };
       efi.canTouchEfiVariables = lib.mkDefault true;
+      timeout = 1;
     };
   };
 }

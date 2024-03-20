@@ -30,18 +30,24 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    git
   ];
 
   programs = {
+    git.enable = true;
+    nano.enable = false;
     fish.enable = true;
     direnv = {
       enable = true;
       silent = true;
     };
+    command-not-found.enable = false;
   };
 
   security.polkit.enable = true;
+  documentation = {
+    info.enable = false;
+    nixos.enable = false;
+  };
 
   system.stateVersion = "24.05";
 }

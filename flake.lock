@@ -231,6 +231,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-waybar": {
+      "locked": {
+        "lastModified": 1710848093,
+        "narHash": "sha256-pOBxHb78EP7+nYEh9+v+eQps3yCBTuxuvoAEzVUSrbs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "49f83b701e7939079c529f378c79fa8544f4db72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "49f83b701e7939079c529f378c79fa8544f4db72",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
         "lastModified": 1710919093,
@@ -255,6 +271,7 @@
         "lf-icons": "lf-icons",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-waybar": "nixpkgs-waybar",
         "nur": "nur"
       }
     },

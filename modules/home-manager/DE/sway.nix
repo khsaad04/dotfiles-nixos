@@ -77,7 +77,7 @@ in
 
         # Status Bar:
         bar {
-            swaybar_command ${pkgs.waybar}/bin/waybar
+            swaybar_command waybar
             position top
         }
       '';

@@ -43,22 +43,6 @@
     };
   };
 
-  # Fonts
-  fonts.fontconfig.enable = true;
-  home.packages = with pkgs; let
-    nerdfonts = pkgs.nerdfonts.override {
-      fonts = [
-        "FiraCode"
-      ];
-    };
-  in
-  [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    nerdfonts
-  ];
-
   programs = {
     fish.enable = true;
     starship.enable = true;
