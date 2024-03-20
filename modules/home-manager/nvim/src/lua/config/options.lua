@@ -29,7 +29,7 @@ opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
 
-vim.wo.signcolumn = "yes:1"
+opt.signcolumn = "yes:1"
 
 opt.updatetime = 250
 opt.timeoutlen = 300
@@ -38,6 +38,3 @@ opt.completeopt = "menu,menuone,noselect"
 
 opt.termguicolors = true
 opt.cmdheight = 1
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
