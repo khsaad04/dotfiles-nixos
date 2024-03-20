@@ -51,6 +51,7 @@ in
         # Making things sense
         set -g history-limit 50000
         set -g focus-events on
+        set-window-option -g mode-keys vi
 
         # Reloading .conf file
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config file has be reloaded "
