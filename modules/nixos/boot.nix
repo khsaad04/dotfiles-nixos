@@ -6,7 +6,6 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = lib.mkBefore [
-      "vt.global_cursor_default=0"
       "quiet"
       "systemd.show_status=false"
       "rd.udev.log_level=3"
