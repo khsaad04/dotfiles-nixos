@@ -3,7 +3,7 @@ return {
   dependencies = {
     { "j-hui/fidget.nvim", opts = {} },
   },
-  ft = { "python", "rust", "nix", "lua", "zig" },
+  ft = { "python", "rust", "nix", "lua", "zig", "c" },
   config = function()
     local lspconfig = require("lspconfig")
     local on_attach = function(_, bufnr)
@@ -48,6 +48,11 @@ return {
     })
 
     lspconfig.zls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
+    lspconfig.clangd.setup({
       on_attach = on_attach,
       capabilities = capabilities,
     })
