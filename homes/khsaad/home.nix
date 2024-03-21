@@ -51,7 +51,9 @@
     starship.enable = true;
     eza = {
       enable = true;
-      extraOptions = [ "--group-directories-first" ];
+      extraOptions = [
+        "-F"
+      ];
     };
     obs-studio.enable = true;
     lf.enable = true;
