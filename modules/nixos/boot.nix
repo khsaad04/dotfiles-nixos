@@ -16,6 +16,10 @@
       verbose = false;
       systemd.enable = true;
     };
+    plymouth = {
+      enable = lib.mkDefault true;
+      theme = "breeze";
+    };
     loader = {
       systemd-boot = {
         configurationLimit = 10;
