@@ -1,12 +1,9 @@
 { inputs, ... }: {
   flake.homeConfigurations = {
     khsaad =
-      let
-        username = "khsaad";
-      in
       inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs username; };
+        extraSpecialArgs = { inherit inputs; };
         modules = [
           ./home.nix
           ../../modules/home-manager

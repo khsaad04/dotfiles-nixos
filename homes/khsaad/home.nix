@@ -1,5 +1,5 @@
 { pkgs
-, username
+, config
 , inputs
 , ...
 }: {
@@ -8,8 +8,11 @@
     inputs.nur.hmModules.nur
   ];
 
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  home = {
+    username = "khsaad";
+    homeDirectory = "/home/${config.home.username}";
+    stateVersion = "23.11";
+  };
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
@@ -46,7 +49,10 @@
   programs = {
     fish.enable = true;
     starship.enable = true;
-    eza = { enable = true; extraOptions = [ "--group-directories-first" ]; };
+    eza = {
+      enable = true;
+      extraOptions = [ "--group-directories-first" ];
+    };
     obs-studio.enable = true;
     lf.enable = true;
     waybar.enable = true;
@@ -61,6 +67,5 @@
   services.dunst.enable = true;
   dconf.enable = true;
 
-  home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 }

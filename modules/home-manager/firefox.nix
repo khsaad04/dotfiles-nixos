@@ -1,5 +1,4 @@
 { config
-, username
 , lib
 , ...
 }:
@@ -13,8 +12,8 @@ in
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      profiles.${username} = {
-        name = username;
+      profiles.${config.home.username} = {
+        name = config.home.username;
         extensions = with config.nur.repos.rycee.firefox-addons; [ ublock-origin vimium ];
         extraConfig = ''
               user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
