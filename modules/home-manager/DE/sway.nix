@@ -12,13 +12,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home = lib.mkIf (config.local.DE.defaultSession == "sway") {
-      file."./.config/fish/conf.d/sway.fish".text = ''
-        set TTY1 (tty)
-        [ "$TTY1" = "/dev/tty1" ] && exec sway
-      '';
-      packages = with pkgs; [ swww wl-clipboard networkmanagerapplet grimblast ];
-    };
+    home.packages = with pkgs; [ swww wl-clipboard networkmanagerapplet grimblast ];
     wayland.windowManager.sway = {
       enable = cfg.enable;
       package = null;

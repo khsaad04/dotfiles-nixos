@@ -1,4 +1,5 @@
 { pkgs
+, config
 , ...
 }:
 {
@@ -9,7 +10,7 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd sway
+          --cmd ${config.local.DE.defaultSession}
       '';
     };
   };

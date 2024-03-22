@@ -19,7 +19,6 @@
   # Custom module options go here
   local = {
     DE = {
-      defaultSession = "sway";
       sway.enable = true;
       hyprland = {
         enable = false;

@@ -13,13 +13,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home = lib.mkIf (config.local.DE.defaultSession == "hyprland") {
-      file."./.config/fish/conf.d/hyprland.fish".text = ''
-        set TTY1 (tty)
-        [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
-      '';
-      packages = with pkgs; [ swww wl-clipboard networkmanagerapplet grimblast ];
-    };
+    home.packages = with pkgs; [ swww wl-clipboard networkmanagerapplet grimblast ];
     wayland.windowManager.hyprland = {
       enable = cfg.enable;
       package = cfg.package;

@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.system};
+in
+{
   home.pointerCursor = {
     gtk.enable = true;
     name = "Adwaita";
@@ -18,7 +22,7 @@
     };
     theme = {
       name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
+      package = pkgs-stable.catppuccin-gtk.override {
         accents = [ "blue" ];
         tweaks = [ "black" ];
         size = "standard";
