@@ -142,7 +142,7 @@ in
       # on:   '998 (pacman), 8 (flatpak), 4 (snap)'
       # tiny: '908 (pacman, flatpak, snap)'
       # off:  '908'
-      package_managers="on"
+      package_managers="off"
 
 
       # Shell
