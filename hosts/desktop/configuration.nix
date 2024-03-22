@@ -20,6 +20,16 @@
     };
   };
 
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "khsaad";
+      };
+    };
+  };
+
   networking = {
     hostName = "desktop";
     networkmanager.enable = true;
