@@ -1,5 +1,4 @@
 { pkgs
-, inputs
 , config
 , ...
 }:
@@ -10,7 +9,6 @@ in
 {
   home.packages = [ pkgs.playerctl ];
   programs.waybar = {
-    package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.waybar;
     settings = {
       mainBar = {
         "layer" = "top";
