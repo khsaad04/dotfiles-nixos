@@ -27,8 +27,8 @@ in
         fd
         unzip
         wl-clipboard
-        gcc13
-        gnumake42
+        gcc
+        gnumake
       ];
     };
 
