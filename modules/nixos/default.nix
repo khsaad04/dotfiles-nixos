@@ -4,5 +4,6 @@
     ./sound.nix
     ./nix.nix
     ./DE
+    ./greetd.nix
   ];
 }
