@@ -4,7 +4,7 @@
 }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
     kernelParams = lib.mkBefore [
       "quiet"
       "systemd.show_status=false"
