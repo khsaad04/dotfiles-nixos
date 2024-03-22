@@ -14,6 +14,7 @@ in
       enable = true;
       profiles.${config.home.username} = {
         name = config.home.username;
+        search.default = "DuckDuckGo";
         extensions = with config.nur.repos.rycee.firefox-addons; [ ublock-origin vimium ];
         extraConfig = ''
               user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
