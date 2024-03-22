@@ -82,13 +82,5 @@ in
         }
       '';
     };
-
-    systemd.user.services = {
-      autotiling = {
-        Install.WantedBy = [ "graphical-session.target" ];
-        Unit.Description = "Autotiling";
-        Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
-      };
-    };
   };
 }
