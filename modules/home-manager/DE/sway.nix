@@ -12,7 +12,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [ swww wl-clipboard networkmanagerapplet grimblast ];
+    home.packages = with pkgs; [ swww ]; # For manually changing wallpapers
     wayland.windowManager.sway = {
       enable = cfg.enable;
       package = null;
@@ -20,10 +20,10 @@ in
       config = {
         defaultWorkspace = "workspace number 1";
         startup = [
-          { command = "wl-clipboard &"; }
-          { command = "nm-applet --indicator &"; }
-          { command = "firefox &"; }
-          { command = "swww init && swww img ${./wallpaper}/wp.png &"; }
+          { command = "${pkgs.wl-clipboard}/bin/wl-clipboard &"; }
+          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
+          { command = "firefox &"; } # So uhh read ./hyprland.nix
+          { command = "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &"; }
         ];
         fonts = {
           names = [ "FiraCode Nerd Font" ];
