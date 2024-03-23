@@ -16,6 +16,7 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       python = { "black", "isort" },
+      c = { "astyle" },
       -- Use a sub-list to run only the first available formatter
       -- javascript = { { "prettierd", "prettier" } },
     },
