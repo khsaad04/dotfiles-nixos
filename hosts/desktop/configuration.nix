@@ -43,6 +43,7 @@
       silent = true;
     };
     command-not-found.enable = false;
+    nix-ld.enable = true;
   };
 
   security.polkit.enable = true;
