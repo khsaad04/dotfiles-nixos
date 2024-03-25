@@ -20,10 +20,6 @@
     };
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
-    lf-icons = {
-      url = "github:gokcehan/lf";
-      flake = false;
-    };
   };
 
   outputs = { flake-parts, ... } @ inputs:

@@ -6,7 +6,7 @@
     ./dunst.nix
     ./firefox.nix
     ./fish.nix
-    ./lf.nix
+    ./lf
     ./neofetch.nix
     ./scripts.nix
     ./starship.nix

@@ -1,8 +1,7 @@
 { pkgs
-, inputs
 , ...
 }: {
-  xdg.configFile."lf/icons".source = "${inputs.lf-icons}/etc/icons.example";
+  xdg.configFile."lf/icons".source = ./icons;
   programs.lf = {
     settings = {
       preview = true;
