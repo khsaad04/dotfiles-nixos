@@ -30,7 +30,7 @@ let
 
     case $selected in
         exit)
-            hyprctl dispatch exit;;
+            hyprctl dispatch exit || swaymsg exit;;
         shutdown)
             systemctl poweroff;;
         suspend)
