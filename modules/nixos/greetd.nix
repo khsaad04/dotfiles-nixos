@@ -10,8 +10,8 @@
           --time \
           --asterisks \
           --user-menu \
-          --remember
-          --remember-session
+          --remember \
+          --remember-session \
           --cmd ${config.local.DE.defaultSession}
       '';
     };
