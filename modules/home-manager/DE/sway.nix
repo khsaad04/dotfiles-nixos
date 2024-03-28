@@ -43,6 +43,7 @@ in
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
           "*" = { accel_profile = "flat"; };
+          "type:keyboard" = { xkb_options = "caps:swapescape"; };
         };
         keybindings =
           let
