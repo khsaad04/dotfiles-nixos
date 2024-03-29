@@ -23,7 +23,7 @@ in
           { command = "${pkgs.wl-clipboard}/bin/wl-clipboard &"; }
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
           { command = "firefox &"; } # So uhh read ./hyprland.nix
-          { command = "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &"; }
+          { command = "${pkgs.swww}/bin/swww init &"; }
         ];
         fonts = {
           names = [ "FiraCode Nerd Font" ];
@@ -42,8 +42,7 @@ in
         terminal = "${config.local.terminals.program}";
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
-          "*" = { accel_profile = "flat"; };
-          "type:keyboard" = { xkb_options = "caps:swapescape"; };
+          "type:mouse" = { accel_profile = "flat"; };
         };
         keybindings =
           let
