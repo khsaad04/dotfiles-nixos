@@ -42,7 +42,7 @@ in
         terminal = "${config.local.terminals.program}";
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
-          "type:mouse" = { accel_profile = "flat"; };
+          "*" = { accel_profile = "flat"; };
         };
         keybindings =
           let
