@@ -6,6 +6,7 @@ let
   clr = config.colorScheme.palette;
 in
 {
+  home.packages = [ pkgs.libnotify ];
   services.dunst = {
     settings = {
       global = {

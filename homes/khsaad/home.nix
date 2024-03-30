@@ -12,7 +12,11 @@
     username = "khsaad";
     homeDirectory = "/home/${config.home.username}";
     stateVersion = "23.11";
+    packages = [
+      pkgs.vlc
+    ];
   };
+  news.display = "silent";
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
