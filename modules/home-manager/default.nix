@@ -1,7 +1,6 @@
 {
   imports = [
     ./DE
-    ./eww
     ./nvim
     ./terminals
     ./dunst.nix
