@@ -19,6 +19,7 @@ in
       settings = {
         main = {
           font = "FiraCode Nerd Font:size=10";
+          pad = "10x10";
         };
         colors = {
           alpha = 0.97;

@@ -32,7 +32,7 @@ in
               },
             },
           },
-          color_scheme = "Catppuccin Mocha",
+          color_scheme = "Kanagawa (Gogh)",
 
           hide_tab_bar_if_only_one_tab = true,
           window_close_confirmation = "NeverPrompt",

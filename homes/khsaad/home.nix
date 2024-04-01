@@ -18,7 +18,7 @@
   };
   news.display = "silent";
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = inputs.nix-colors.colorSchemes.kanagawa;
 
   # Custom module options go here
   local = {

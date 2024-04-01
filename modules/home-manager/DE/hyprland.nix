@@ -25,7 +25,7 @@ in
           "${pkgs.wl-clipboard}/bin/wl-clipboard &"
           "waybar &" # its configuration is managed seperately by HM so don't do the ${pkgs.<?>}/bin/? thing
           "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-          "${pkgs.swww}/bin/swww init && ${pkgs.swww}/bin/swww img ${./wallpaper}/wp.png &"
+          "${pkgs.swww}/bin/swww init &"
           "firefox &" # Also for firefox
         ];
         general = {
@@ -82,7 +82,7 @@ in
             mtws = "movetoworkspacesilent";
           in
           [
-            "${mod}, RETURN, exec, ${config.local.terminals.program}"
+            "${mod}, RETURN, exec, foot"
             "${mod}, Q, killactive,"
             "${mod}, M, exit,"
             "${mod}, V, togglefloating,"
