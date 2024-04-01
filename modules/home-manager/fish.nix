@@ -2,6 +2,7 @@
   programs.fish = {
     shellAliases = {
       t = "tmux attach || tmux new-session -s main tms";
+      l = "ls -la";
     };
     interactiveShellInit = ''
       set fish_greeting
