@@ -33,7 +33,6 @@
     browsers.firefox.enable = true;
 
     terminals = {
-      default = "wezterm";
       wezterm.enable = true;
       foot.enable = true;
     };

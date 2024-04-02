@@ -39,7 +39,7 @@ in
         down = "j";
         up = "k";
         right = "l";
-        terminal = "${config.local.terminals.program}";
+        terminal = "wezterm";
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
           "*" = { accel_profile = "flat"; };
