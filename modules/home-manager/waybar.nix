@@ -4,7 +4,7 @@
 }:
 let
   clr = config.colorScheme.palette;
-  radius = "8px";
+  radius = "5px";
 in
 {
   home.packages = [ pkgs.playerctl ];
@@ -283,6 +283,19 @@ in
           margin-right: 5px;
           margin-left: 0px;
           padding: 0px 10px 0px 6px;
+      }
+
+      #workspaces,
+      #mpris,
+      #network,
+      #pulseaudio,
+      #cpu,
+      #memory,
+      #clock,
+      #tray,
+      #custom-power {
+        margin-top: 3px;
+        margin-bottom: 3px;
       }
     '';
   };

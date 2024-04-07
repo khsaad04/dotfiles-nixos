@@ -34,7 +34,7 @@ in
         };
         output = {
           "*" = {
-            bg = "~/Downloads/mandelbrot_full_blue.png fill";
+            bg = "~/Downloads/wallhaven-l8vp7y_1366x768.png fill";
           };
         };
         modifier = "Mod4";
