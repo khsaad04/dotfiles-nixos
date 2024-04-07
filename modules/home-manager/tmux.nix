@@ -17,11 +17,11 @@ in
       file."./.config/tms/config.toml".text = ''
         [[search_dirs]]
         path = "/home/khsaad/ext/code"
-        depth = 10
+        depth = 2
 
         [[search_dirs]]
         path = "/home/khsaad/Documents"
-        depth = 10
+        depth = 2
       '';
       packages = [ pkgs.tmux-sessionizer ];
     };
