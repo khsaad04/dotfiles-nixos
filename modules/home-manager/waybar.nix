@@ -185,7 +185,7 @@ in
 
       #workspaces button {
           background: transparent;
-          padding: 4px 8px;
+          padding: 0px 8px;
           color: #${clr.base0D};
           transition: all 0.3s ease;
           border: 0;
