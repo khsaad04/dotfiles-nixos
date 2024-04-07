@@ -4,7 +4,7 @@
 }:
 let
   clr = config.colorScheme.palette;
-  radius = "16px";
+  radius = "8px";
 in
 {
   home.packages = [ pkgs.playerctl ];
@@ -180,6 +180,7 @@ in
       #workspaces {
           background-color: #${clr.base02};
           border-radius: ${radius};
+          margin-left: 5px;
       }
 
       #workspaces button {
@@ -279,7 +280,7 @@ in
           color: #${clr.base00};
           background-color: #${clr.base08};
           border-radius: 0 ${radius} ${radius} 0;
-          margin-right: 0px;
+          margin-right: 5px;
           margin-left: 0px;
           padding: 0px 10px 0px 6px;
       }
