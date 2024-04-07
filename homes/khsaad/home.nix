@@ -18,8 +18,6 @@
   };
   news.display = "silent";
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-
   # Custom module options go here
   local = {
     DE = {
@@ -45,6 +43,11 @@
         enable = true;
         tms.enable = true;
       };
+    };
+
+    theme = {
+      colorScheme = "catppuccin-mocha";
+      wezterm = "Catppuccin Mocha";
     };
   };
 
