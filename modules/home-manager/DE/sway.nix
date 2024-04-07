@@ -12,7 +12,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [ swww ]; # For manually changing wallpapers
     wayland.windowManager.sway = {
       enable = cfg.enable;
       package = null;
@@ -23,7 +22,6 @@ in
           { command = "${pkgs.wl-clipboard}/bin/wl-clipboard &"; }
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
           { command = "firefox &"; } # So uhh read ./hyprland.nix
-          { command = "${pkgs.swww}/bin/swww-daemon &"; }
         ];
         fonts = {
           names = [ "FiraCode Nerd Font" ];
@@ -33,6 +31,11 @@ in
         gaps = {
           inner = 2;
           outer = 5;
+        };
+        output = {
+          "*" = {
+            bg = "~/Downloads/mandelbrot_full_blue.png fill";
+          };
         };
         modifier = "Mod4";
         left = "h";
