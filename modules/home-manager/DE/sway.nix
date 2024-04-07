@@ -23,7 +23,7 @@ in
           { command = "${pkgs.wl-clipboard}/bin/wl-clipboard &"; }
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
           { command = "firefox &"; } # So uhh read ./hyprland.nix
-          { command = "${pkgs.swww}/bin/swww init &"; }
+          { command = "${pkgs.swww}/bin/swww-daemon &"; }
         ];
         fonts = {
           names = [ "FiraCode Nerd Font" ];
