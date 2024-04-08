@@ -4,7 +4,15 @@
 }:
 let
   clr = config.colorScheme.palette;
-  radius = "5px";
+  radius = "8px";
+  bg = "#${clr.base00}";
+  widget_bg = "#${clr.base02}";
+  fg = "#${clr.base05}";
+  blue = "#${clr.base0D}";
+  green = "#${clr.base0B}";
+  peach = "#${clr.base09}";
+  lavender = "#${clr.base07}";
+  flamingo = "#${clr.base0F}";
 in
 {
   home.packages = [ pkgs.playerctl ];
@@ -150,35 +158,35 @@ in
           all: initial;
           font-family: FiraCode Nerd Font;
           font-size: 10px;
-          font-weight: 800;
+          font-weight: 600;
           border-radius: ${radius};
       }
 
       window#waybar {
-          color: #${clr.base05};
-          background: #${clr.base01};
+          color: ${fg};
+          background: ${bg};
           border-radius: 0px;
       }
 
       tooltip {
-          background: #${clr.base02};
-          border: 1px solid #${clr.base0D};
+          background: ${widget_bg};
+          border: 1px solid ${blue};
       }
 
       #workspaces button label {
-          color: #${clr.base05};
+          color: ${fg};
       }
 
       #workspaces button.active label {
-          color: #${clr.base02};
+          color: ${widget_bg};
       }
 
       #workspaces button.focused label {
-          color: #${clr.base02};
+          color: ${widget_bg};
       }
 
       #workspaces {
-          background-color: #${clr.base02};
+          background-color: ${widget_bg};
           border-radius: ${radius};
           margin-left: 5px;
       }
@@ -186,23 +194,23 @@ in
       #workspaces button {
           background: transparent;
           padding: 0px 8px;
-          color: #${clr.base0D};
+          color: ${blue};
           transition: all 0.3s ease;
           border: 0;
       }
 
       #workspaces button.active {
-          background-color: #${clr.base05};
+          background-color: ${fg};
           transition: all 0.3s ease;
       }
 
       #workspaces button.focused {
-          background-color: #${clr.base05};
+          background-color: ${fg};
           transition: all 0.3s ease;
       }
 
       #mpris {
-          color: #${clr.base00};
+          color: ${bg};
           font-size: 13px;
           padding: 0px 5px;
       }
@@ -246,30 +254,37 @@ in
       #clock,
       #tray,
       #custom-power {
-          color: #${clr.base00};
+          color: ${lavender};
           padding: 0px 6px;
-          background-color: #${clr.base05};
+          background-color: ${widget_bg};
           margin: 0px 2px;
           border-radius: ${radius};
       }
 
       #pulseaudio {
+          color: ${peach};
           border-radius: ${radius} 0 0 ${radius};
           margin-right: 0px;
       }
 
       #cpu {
+          color: ${green};
           border-radius: 0;
           margin: 0;
       }
 
       #memory {
+          color: ${blue};
           border-radius: 0 ${radius} ${radius} 0;
           margin-left: 0px;
       }
 
+      #clock {
+         color: ${flamingo};
+      }
+
       #tray {
-          background-color: #${clr.base02};
+          background-color: ${widget_bg};
           border-radius: ${radius} 0 0 ${radius};
           margin-right: 0;
           margin-left: 5px;
@@ -277,7 +292,7 @@ in
 
       #custom-power {
           font-size: 14px;
-          color: #${clr.base00};
+          color: ${bg};
           background-color: #${clr.base08};
           border-radius: 0 ${radius} ${radius} 0;
           margin-right: 5px;
