@@ -19,7 +19,7 @@ in
     style = ''
       * {
           all: initial;
-          font-family: FiraCode Nerd Font;
+          font-family: ${config.local.theme.font};
           font-size: 16px;
           font-weight: 500;
           color: #${clr.base05};

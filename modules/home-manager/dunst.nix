@@ -18,7 +18,7 @@ in
         frame_width = 0;
         frame_color = "#${clr.base0D}";
         corner_radius = 8;
-        font = "FiraCode Nerd Font 10";
+        font = "${config.local.theme.font} 10";
       };
       urgency_low = {
         background = "#${clr.base01}";

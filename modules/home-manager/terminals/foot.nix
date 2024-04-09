@@ -18,7 +18,7 @@ in
       package = cfg.package;
       settings = {
         main = {
-          font = "FiraCode Nerd Font:size=10";
+          font = "${config.local.theme.font}:size=10";
           pad = "10x10";
         };
         colors = {

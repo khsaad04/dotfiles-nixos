@@ -24,7 +24,7 @@ in
           { command = "firefox &"; } # So uhh read ./hyprland.nix
         ];
         fonts = {
-          names = [ "FiraCode Nerd Font" ];
+          names = [ "${config.local.theme.font}" ];
           style = "Regular";
           size = 10.0;
         };

@@ -4,11 +4,15 @@ let
 in
 {
   options.local.theme = {
+    font = lib.mkOption {
+      type = lib.types.str;
+      default = "FiraCode Nerd Font";
+    };
     colorScheme = lib.mkOption {
       type = lib.types.str;
       default = "catppuccin-mocha";
     };
-    wezterm = lib.mkOption {
+    weztermTheme = lib.mkOption {
       type = lib.types.str;
       default = "Catppuccin Mocha";
     };
@@ -27,7 +31,7 @@ in
     gtk = {
       enable = true;
       font = {
-        name = "FiraCode Nerd Font";
+        name = "${config.local.theme.font}";
         size = 10;
       };
       iconTheme = {
@@ -51,6 +55,7 @@ in
       nerdfonts = pkgs.nerdfonts.override {
         fonts = [
           "FiraCode"
+          "CascadiaCode"
         ];
       };
     in

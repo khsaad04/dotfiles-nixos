@@ -19,7 +19,7 @@ in
       extraConfig = ''
         return {
           font = wezterm.font({
-            family = "FiraCode Nerd Font",
+            family = "${config.local.theme.font}",
             harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
           }),
           font_size = 10,
@@ -27,12 +27,12 @@ in
             {
               intensity = "Bold",
               font = wezterm.font {
-                family = "FiraCode Nerd Font",
+                family = "${config.local.theme.font}",
                 weight = "Bold",
               },
             },
           },
-          color_scheme = "${config.local.theme.wezterm}",
+          color_scheme = "${config.local.theme.weztermTheme}",
 
           hide_tab_bar_if_only_one_tab = true,
           window_close_confirmation = "NeverPrompt",

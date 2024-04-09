@@ -46,8 +46,9 @@
     };
 
     theme = {
+      font = "FiraCode Nerd Font";
       colorScheme = "catppuccin-mocha";
-      wezterm = "Catppuccin Mocha";
+      weztermTheme = "Catppuccin Mocha";
     };
   };
 

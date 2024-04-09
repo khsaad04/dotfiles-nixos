@@ -13,7 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [ swww ]; # For manually changing wallpapers
     wayland.windowManager.hyprland = {
       enable = cfg.enable;
       package = cfg.package;
@@ -25,7 +24,6 @@ in
           "${pkgs.wl-clipboard}/bin/wl-clipboard &"
           "waybar &" # its configuration is managed seperately by HM so don't do the ${pkgs.<?>}/bin/? thing
           "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-          "${pkgs.swww}/bin/swww-daemon &"
           "firefox &" # Also for firefox
         ];
         general = {
