@@ -767,7 +767,7 @@ in
       #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
       #       postmarketOS, and Void have a smaller logo variant.
       #       Use '{distro name}_small' to use the small variants.
-      ascii_distro="NixOS_small"
+      ascii_distro="NixOS"
 
       # Ascii Colors
       #
