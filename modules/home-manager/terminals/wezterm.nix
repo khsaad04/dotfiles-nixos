@@ -23,15 +23,6 @@ in
             harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
           }),
           font_size = 10,
-          font_rules = {
-            {
-              intensity = "Bold",
-              font = wezterm.font {
-                family = "${config.local.theme.font}",
-                weight = "Bold",
-              },
-            },
-          },
           color_scheme = "${config.local.theme.weztermTheme}",
 
           hide_tab_bar_if_only_one_tab = true,

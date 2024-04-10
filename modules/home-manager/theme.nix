@@ -6,7 +6,7 @@ in
   options.local.theme = {
     font = lib.mkOption {
       type = lib.types.str;
-      default = "FiraCode Nerd Font";
+      default = "Fira Code";
     };
     colorScheme = lib.mkOption {
       type = lib.types.str;
@@ -54,8 +54,7 @@ in
     home.packages = with pkgs; let
       nerdfonts = pkgs.nerdfonts.override {
         fonts = [
-          "FiraCode"
-          "CascadiaCode"
+          "NerdFontsSymbolsOnly"
         ];
       };
     in
@@ -63,6 +62,8 @@ in
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      fira-code
+      cascadia-code
       nerdfonts
     ];
   };
