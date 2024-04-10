@@ -302,6 +302,7 @@ in
 
       #custom-power {
           font-size: 14px;
+          font-weight: 400;
           color: ${bg};
           background-color: #${clr.base08};
           border-radius: 0 0 ${radius} ${radius};
