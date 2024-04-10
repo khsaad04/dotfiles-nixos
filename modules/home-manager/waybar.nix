@@ -51,12 +51,14 @@ in
             "spotify" = " ";
             "firefox" = " ";
           };
+          "justify" = "center";
         };
         "mpris#prev" = {
-          "format" = "󰒮";
+          "format" = "";
           "on-click" = "playerctl previous";
           "interval" = 1;
           "tooltip" = false;
+          "justify" = "center";
         };
         "mpris#status" = {
           "format" = "{status_icon}";
@@ -67,12 +69,14 @@ in
           "on-click" = "playerctl play-pause";
           "interval" = 1;
           "tooltip" = false;
+          "justify" = "center";
         };
         "mpris#next" = {
-          "format" = "󰒭";
+          "format" = "";
           "on-click" = "playerctl next";
           "interval" = 1;
           "tooltip" = false;
+          "justify" = "center";
         };
         "network" = {
           "format-wifi" = "󰖩 \n{signalStrength}%";
@@ -138,7 +142,7 @@ in
         };
         "tray" = {
           "icon-size" = 15;
-          "spacing" = 10;
+          "spacing" = 2;
           "justify" = "center";
         };
         "custom/power" = {
