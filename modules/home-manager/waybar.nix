@@ -54,7 +54,7 @@ in
           "justify" = "center";
         };
         "mpris#prev" = {
-          "format" = "";
+          "format" = "";
           "on-click" = "playerctl previous";
           "interval" = 1;
           "tooltip" = false;
@@ -72,15 +72,15 @@ in
           "justify" = "center";
         };
         "mpris#next" = {
-          "format" = "";
+          "format" = "";
           "on-click" = "playerctl next";
           "interval" = 1;
           "tooltip" = false;
           "justify" = "center";
         };
         "network" = {
-          "format-wifi" = "󰖩 \n{signalStrength}%";
-          "format-ethernet" = "󰈀 \n{bandwidthTotalBytes}";
+          "format-wifi" = "󰖩\n{signalStrength}%";
+          "format-ethernet" = "󰈀\n{bandwidthTotalBytes}";
           "tooltip-format" = "{essid}";
           "tooltip-format-disconnected" = "";
           "interval" = 1;
@@ -104,13 +104,13 @@ in
           "justify" = "center";
         };
         "cpu" = {
-          "format" = " \n{usage}%";
+          "format" = "\n{usage}%";
           "tooltip" = false;
           "interval" = 1;
           "justify" = "center";
         };
         "memory" = {
-          "format" = " \n{}%";
+          "format" = "\n{}%";
           "interval" = 1;
           "justify" = "center";
         };
@@ -142,7 +142,7 @@ in
         };
         "tray" = {
           "icon-size" = 15;
-          "spacing" = 2;
+          "spacing" = 4;
           "justify" = "center";
         };
         "custom/power" = {
@@ -171,6 +171,8 @@ in
           font-size: 10px;
           font-weight: bold;
           border-radius: ${radius};
+          margin-left: 3px;
+          margin-right: 3px;
       }
 
       window#waybar {
@@ -204,7 +206,6 @@ in
 
       #workspaces button {
           background: transparent;
-          padding: 0px 6px;
           color: ${blue};
           transition: all 0.3s ease;
           border: 0;
@@ -310,7 +311,7 @@ in
           padding: 0px 10px 0px 6px;
       }
 
-      #workspaces,
+      #workspaces button,
       #mpris,
       #network,
       #pulseaudio,
@@ -319,7 +320,7 @@ in
       #clock,
       #tray,
       #custom-power {
-        padding: 2px 2px;
+        padding: 4px 4px;
         margin-right: 3px;
         margin-left: 3px;
       }
