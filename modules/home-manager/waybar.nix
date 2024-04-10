@@ -169,20 +169,17 @@ in
           font-family: Symbols Nerd Font, ${config.local.theme.font};
           font-size: 10px;
           font-weight: bold;
-          border-radius: ${radius};
-          margin-left: 3px;
-          margin-right: 3px;
       }
 
       window#waybar {
           color: ${fg};
           background: ${bg};
-          border-radius: 0px;
       }
 
       tooltip {
           background: ${bg};
           border: 1px solid ${blue};
+          border-radius: ${radius};
       }
 
       #workspaces button label {
@@ -200,12 +197,13 @@ in
       #workspaces {
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin-left: 5px;
+          margin: 3px 3px;
       }
 
       #workspaces button {
           background: transparent;
-          color: ${blue};
+          border-radius: ${radius};
+          padding: 3px 3px;
           transition: all 0.3s ease;
           border: 0;
       }
@@ -223,14 +221,15 @@ in
       #mpris {
           color: ${bg};
           font-size: 13px;
-          padding: 0px 5px;
+          padding: 3px 3px;
+          margin-left: 3px;
+          margin-right: 3px;
       }
 
       #mpris.player {
           margin-bottom: 0px;
           margin-top: 5px;
           border-radius: ${radius} ${radius} 0 0 ;
-          padding-right: 0px;
       }
 
       #mpris.prev {
@@ -257,40 +256,51 @@ in
           background-color: #ee8424;
       }
 
-      #network,
-      #pulseaudio,
-      #cpu,
-      #memory,
-      #clock,
-      #tray,
-      #custom-power {
+      #network {
           color: ${lavender};
-          padding: 0px 6px;
           background-color: ${widget_bg};
-          margin: 2px 0px;
           border-radius: ${radius};
+          margin-left: 3px;
+          margin-right: 3px;
+          margin-bottom: 5px;
+          padding: 3px 3px;
       }
 
       #pulseaudio {
           color: ${peach};
+          background-color: ${widget_bg};
           border-radius: ${radius} ${radius} 0 0;
-          margin-bottom: 0px;
+          margin-left: 3px;
+          margin-right: 3px;
+          padding: 3px 3px;
       }
 
       #cpu {
           color: ${green};
+          background-color: ${widget_bg};
           border-radius: 0;
-          margin: 0;
+          margin-left: 3px;
+          margin-right: 3px;
+          padding: 3px 3px;
       }
 
       #memory {
           color: ${blue};
+          background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
-          margin-top: 0px;
+          margin-left: 3px;
+          margin-right: 3px;
+          margin-bottom: 5px;
+          padding: 3px 3px;
       }
 
       #clock {
-         color: ${flamingo};
+          color: ${flamingo};
+          background-color: ${widget_bg};
+          border-radius: ${radius};
+          margin-left: 3px;
+          margin-right: 3px;
+          padding: 3px 3px;
       }
 
       #tray {
@@ -298,6 +308,9 @@ in
           border-radius: ${radius} ${radius} 0 0;
           margin-bottom: 0;
           margin-top: 5px;
+          margin-left: 3px;
+          margin-right: 3px;
+          padding: 3px 3px;
       }
 
       #custom-power {
@@ -308,21 +321,7 @@ in
           border-radius: 0 0 ${radius} ${radius};
           margin-bottom: 5px;
           margin-top: 0px;
-          padding: 0px 10px 0px 6px;
-      }
-
-      #workspaces button,
-      #mpris,
-      #network,
-      #pulseaudio,
-      #cpu,
-      #memory,
-      #clock,
-      #tray,
-      #custom-power {
-        padding: 4px 4px;
-        margin-right: 3px;
-        margin-left: 3px;
+          padding: 3px 3px;
       }
     '';
   };
