@@ -5,7 +5,7 @@
 let
   clr = config.colorScheme.palette;
   radius = "8px";
-  bg = "#${clr.base00}";
+  bg = "#${clr.base01}";
   widget_bg = "#${clr.base02}";
   fg = "#${clr.base05}";
   blue = "#${clr.base0D}";
@@ -20,7 +20,7 @@ in
     settings = {
       mainBar = {
         "layer" = "top";
-        "position" = "top";
+        "position" = "left";
         "margin" = "0 0 0 0";
         "spacing" = 0;
         "modules-left" = [
@@ -75,14 +75,15 @@ in
           "tooltip" = false;
         };
         "network" = {
-          "format-wifi" = "󰖩 {signalStrength}% 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
-          "format-ethernet" = "󰈀 {bandwidthTotalBytes}";
+          "format-wifi" = "󰖩 \n{signalStrength}%";
+          "format-ethernet" = "󰈀 \n{bandwidthTotalBytes}";
           "tooltip-format" = "{essid}";
           "tooltip-format-disconnected" = "";
           "interval" = 1;
+          "justify" = "center";
         };
         "pulseaudio" = {
-          "format" = "{icon} {volume}%";
+          "format" = "{icon}\n{volume}%";
           "format-muted" = "󰝟";
           "tooltip" = false;
           "format-icons" = {
@@ -96,18 +97,21 @@ in
           "on-scroll-up" = "$HOME/.nix-profile/bin/changevolume up";
           "on-scroll-down" = "/$HOME/.nix-profile/bin/changevolume down";
           "on-click" = "/$HOME/.nix-profile/bin/changevolume mute";
+          "justify" = "center";
         };
         "cpu" = {
-          "format" = " {usage}%";
+          "format" = " \n{usage}%";
           "tooltip" = false;
           "interval" = 1;
+          "justify" = "center";
         };
         "memory" = {
-          "format" = " {}%";
+          "format" = " \n{}%";
           "interval" = 1;
+          "justify" = "center";
         };
         "clock" = {
-          "format" = "󰥔 {:%I:%M %p}";
+          "format" = "{:%I\n%M\n%p}";
           "format-alt" = " {:%A, %B %d, %Y (%r)}";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           "interval" = 1;
@@ -130,15 +134,18 @@ in
             "on-scroll-up" = "shift_up";
             "on-scroll-down" = "shift_down";
           };
+          "justify" = "center";
         };
         "tray" = {
           "icon-size" = 15;
           "spacing" = 10;
+          "justify" = "center";
         };
         "custom/power" = {
           "format" = "";
           "on-click" = "/$HOME/.nix-profile/bin/powermenu";
           "tooltip" = false;
+          "justify" = "center";
         };
       };
     };
@@ -193,7 +200,7 @@ in
 
       #workspaces button {
           background: transparent;
-          padding: 0px 8px;
+          padding: 0px 6px;
           color: ${blue};
           transition: all 0.3s ease;
           border: 0;
@@ -216,27 +223,26 @@ in
       }
 
       #mpris.player {
-          margin-right: 0px;
-          margin-left: 5px;
-          border-radius: ${radius} 0 0 ${radius};
+          margin-bottom: 0px;
+          margin-top: 5px;
+          border-radius: ${radius} ${radius} 0 0 ;
           padding-right: 0px;
       }
 
       #mpris.prev {
-          margin-right: 0px;
+          margin-bottom: 0px;
           border-radius: 0;
       }
 
       #mpris.status {
           font-size: 9px;
-          margin-right: 0px;
+          margin-bottom: 0px;
           border-radius: 0;
       }
 
       #mpris.next {
-          margin-right: 0px;
-          border-radius: 0 ${radius} ${radius} 0;
-          margin-right: 5px;
+          border-radius: 0 0 ${radius} ${radius};
+          margin-bottom: 5px;
       }
 
       #mpris.spotify {
@@ -257,14 +263,14 @@ in
           color: ${lavender};
           padding: 0px 6px;
           background-color: ${widget_bg};
-          margin: 0px 2px;
+          margin: 2px 0px;
           border-radius: ${radius};
       }
 
       #pulseaudio {
           color: ${peach};
-          border-radius: ${radius} 0 0 ${radius};
-          margin-right: 0px;
+          border-radius: ${radius} ${radius} 0 0;
+          margin-bottom: 0px;
       }
 
       #cpu {
@@ -275,8 +281,8 @@ in
 
       #memory {
           color: ${blue};
-          border-radius: 0 ${radius} ${radius} 0;
-          margin-left: 0px;
+          border-radius: 0 0 ${radius} ${radius};
+          margin-top: 0px;
       }
 
       #clock {
@@ -285,18 +291,18 @@ in
 
       #tray {
           background-color: ${widget_bg};
-          border-radius: ${radius} 0 0 ${radius};
-          margin-right: 0;
-          margin-left: 5px;
+          border-radius: ${radius} ${radius} 0 0;
+          margin-bottom: 0;
+          margin-top: 5px;
       }
 
       #custom-power {
           font-size: 14px;
           color: ${bg};
           background-color: #${clr.base08};
-          border-radius: 0 ${radius} ${radius} 0;
-          margin-right: 5px;
-          margin-left: 0px;
+          border-radius: 0 0 ${radius} ${radius};
+          margin-bottom: 5px;
+          margin-top: 0px;
           padding: 0px 10px 0px 6px;
       }
 
@@ -309,8 +315,9 @@ in
       #clock,
       #tray,
       #custom-power {
-        margin-top: 3px;
-        margin-bottom: 3px;
+        padding: 2px 2px;
+        margin-right: 3px;
+        margin-left: 3px;
       }
     '';
   };
