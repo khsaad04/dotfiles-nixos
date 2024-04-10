@@ -6,11 +6,6 @@
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "khsaad" ];
     };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 3d";
-    };
   };
 
   nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }))
