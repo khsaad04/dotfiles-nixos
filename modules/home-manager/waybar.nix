@@ -321,6 +321,8 @@ in
           border-radius: 0 0 ${radius} ${radius};
           margin-bottom: 5px;
           margin-top: 0px;
+          margin-left: 3px;
+          margin-right: 3px;
           padding: 3px 3px;
       }
     '';
