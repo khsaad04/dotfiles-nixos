@@ -116,7 +116,6 @@ in
         };
         "clock" = {
           "format" = "{:%I\n%M\n%p}";
-          "format-alt" = " {:%A, %B %d, %Y (%r)}";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           "interval" = 1;
           "calendar" = {
@@ -182,7 +181,7 @@ in
       }
 
       tooltip {
-          background: ${widget_bg};
+          background: ${bg};
           border: 1px solid ${blue};
       }
 

@@ -6,7 +6,7 @@ in
   options.local.theme = {
     font = lib.mkOption {
       type = lib.types.str;
-      default = "Fira Code";
+      default = "Iosevka";
     };
     colorScheme = lib.mkOption {
       type = lib.types.str;
@@ -63,7 +63,7 @@ in
       noto-fonts-cjk
       noto-fonts-emoji
       fira-code
-      cascadia-code
+      iosevka
       nerdfonts
     ];
   };
