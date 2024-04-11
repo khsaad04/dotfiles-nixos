@@ -18,9 +18,12 @@ in
       package = cfg.package;
       extraConfig = ''
         return {
-          font = wezterm.font({
-            family = "${config.local.theme.font}",
-            harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+          font = wezterm.font_with_fallback({
+            {
+              family = "${config.local.theme.font}",
+              harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+            },
+            "Symbols Nerd Font",
           }),
           font_size = 10,
           color_scheme = "${config.local.theme.weztermTheme}",
