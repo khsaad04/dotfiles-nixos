@@ -30,7 +30,7 @@ in
         };
         gaps = {
           inner = 2;
-          outer = 5;
+          outer = 0;
         };
         output = {
           "*" = {
