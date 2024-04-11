@@ -316,8 +316,8 @@ in
       #custom-power {
           font-size: 14px;
           font-weight: 400;
-          color: ${bg};
-          background-color: #${clr.base08};
+          color: #${clr.base08};
+          background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
           margin-bottom: 5px;
           margin-top: 0px;
