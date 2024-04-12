@@ -1,7 +1,4 @@
 { pkgs, inputs, config, lib, ... }:
-let
-  pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.system};
-in
 {
   options.local.theme = {
     font = lib.mkOption {
@@ -40,7 +37,7 @@ in
       };
       theme = {
         name = "Catppuccin-Mocha-Standard-Blue-Dark";
-        package = pkgs-stable.catppuccin-gtk.override {
+        package = pkgs.catppuccin-gtk.override {
           accents = [ "blue" ];
           tweaks = [ "black" ];
           size = "standard";
