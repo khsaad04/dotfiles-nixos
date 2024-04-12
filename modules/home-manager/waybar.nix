@@ -243,11 +243,15 @@ in
           color: #ee8424;
       }
 
+      #window {
+          margin: 0px 3px;
+      }
+
       #network {
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin-right: 5px;
+          margin: 0px 3px;
           padding: ${padding};
       }
 
@@ -269,7 +273,7 @@ in
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
-          margin-right: 5px;
+          margin: 0px 3px;
           padding: ${padding};
       }
 
@@ -277,14 +281,14 @@ in
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
+          margin: 0px 3px;
           padding: ${padding};
       }
 
       #tray {
           background-color: ${widget_bg};
           border-radius: ${radius} ${radius} 0 0;
-          margin-right: 0;
-          margin-left: 5px;
+          margin: 0px 3px;
           padding: ${padding};
       }
 
@@ -294,8 +298,7 @@ in
           color: #${clr.base08};
           background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
-          margin-right: 5px;
-          margin-left: 0px;
+          margin: 0px 3px;
           padding: ${padding};
       }
     '';
