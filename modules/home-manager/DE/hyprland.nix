@@ -85,7 +85,7 @@ in
             mtws = "movetoworkspacesilent";
           in
           [
-            "${mod}, RETURN, exec, foot"
+            "${mod}, RETURN, exec, [float;tile] wezterm start --always-new-process"
             "${mod}, Q, killactive,"
             "${mod}, M, exit,"
             "${mod}, V, togglefloating,"
