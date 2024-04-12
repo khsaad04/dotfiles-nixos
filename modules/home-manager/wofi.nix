@@ -19,7 +19,7 @@ in
     style = ''
       * {
           all: initial;
-          font-family: Symbols Nerd Font, ${config.local.theme.font};
+          font-family: Symbols Nerd Font Mono, ${config.local.theme.font};
           font-size: 16px;
           font-weight: 500;
           color: #${clr.base05};
