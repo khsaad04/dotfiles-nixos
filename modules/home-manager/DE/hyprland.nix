@@ -13,6 +13,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    xdg.configFile."hypr/hyprpaper.conf".text = ''
+      preload = ~/Downloads/wallhaven-l8vp7y_1366x768.png
+      wallpaper = VGA-1,~/Downloads/wallhaven-l8vp7y_1366x768.png
+    '';
     wayland.windowManager.hyprland = {
       enable = cfg.enable;
       package = cfg.package;
@@ -22,6 +26,7 @@ in
         ];
         exec-once = [
           "${pkgs.wl-clipboard}/bin/wl-clipboard &"
+          "${pkgs.hyprpaper}/bin/hyprpaper &"
           "waybar &" # its configuration is managed seperately by HM so don't do the ${pkgs.<?>}/bin/? thing
           "${pkgs.networkmanagerapplet}/bin/nm-applet &"
           "firefox &" # Also for firefox
