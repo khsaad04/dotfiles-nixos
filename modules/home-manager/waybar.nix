@@ -6,13 +6,9 @@ let
   clr = config.colorScheme.palette;
   radius = "8px";
   bg = "#${clr.base01}";
-  widget_bg = "#${clr.base02}";
+  widget_bg = "#${clr.base01}";
   fg = "#${clr.base05}";
   blue = "#${clr.base0D}";
-  green = "#${clr.base0B}";
-  peach = "#${clr.base09}";
-  lavender = "#${clr.base07}";
-  flamingo = "#${clr.base0F}";
 in
 {
   home.packages = [ pkgs.playerctl ];
@@ -48,8 +44,8 @@ in
           "tooltip-format" = "{dynamic}";
           "interval" = 1;
           "player-icons" = {
-            "spotify" = " ";
-            "firefox" = " ";
+            "spotify" = "";
+            "firefox" = "󰈹";
           };
           "justify" = "center";
         };
@@ -140,7 +136,7 @@ in
           "justify" = "center";
         };
         "tray" = {
-          "icon-size" = 15;
+          "icon-size" = 10;
           "spacing" = 4;
           "justify" = "center";
         };
@@ -166,9 +162,8 @@ in
       #clock,
       #custom-power {
           all: initial;
-          font-family: Symbols Nerd Font Mono, ${config.local.theme.font};
+          font-family: Symbols Nerd Font Mono, ${config.local.theme.font} ExtraBold;
           font-size: 10px;
-          font-weight: bold;
       }
 
       window#waybar {
@@ -180,18 +175,6 @@ in
           background: ${bg};
           border: 1px solid ${blue};
           border-radius: ${radius};
-      }
-
-      #workspaces button label {
-          color: ${fg};
-      }
-
-      #workspaces button.active label {
-          color: ${widget_bg};
-      }
-
-      #workspaces button.focused label {
-          color: ${widget_bg};
       }
 
       #workspaces {
@@ -208,22 +191,22 @@ in
           border: 0;
       }
 
-      #workspaces button.active {
-          background-color: ${fg};
-          transition: all 0.3s ease;
+      #workspaces button label {
+          color: #${clr.base04};
       }
-
-      #workspaces button.focused {
-          background-color: ${fg};
-          transition: all 0.3s ease;
+  
+      #workspaces button.active label {
+          color: ${fg};
+      }
+  
+      #workspaces button.focused label {
+          color: ${fg};
       }
 
       #mpris {
-          color: ${bg};
-          font-size: 13px;
+          background-color: ${bg};
+          font-size: 12px;
           padding: 3px 3px;
-          margin-left: 3px;
-          margin-right: 3px;
       }
 
       #mpris.player {
@@ -249,57 +232,47 @@ in
       }
 
       #mpris.spotify {
-          background-color: #1ed760;
+          color: #1ed760;
       }
 
       #mpris.firefox {
-          background-color: #ee8424;
+          color: #ee8424;
       }
 
       #network {
-          color: ${lavender};
+          color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin-left: 3px;
-          margin-right: 3px;
           margin-bottom: 5px;
           padding: 3px 3px;
       }
 
       #pulseaudio {
-          color: ${peach};
+          color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius} ${radius} 0 0;
-          margin-left: 3px;
-          margin-right: 3px;
           padding: 3px 3px;
       }
 
       #cpu {
-          color: ${green};
+          color: ${fg};
           background-color: ${widget_bg};
           border-radius: 0;
-          margin-left: 3px;
-          margin-right: 3px;
           padding: 3px 3px;
       }
 
       #memory {
-          color: ${blue};
+          color: ${fg};
           background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
-          margin-left: 3px;
-          margin-right: 3px;
           margin-bottom: 5px;
           padding: 3px 3px;
       }
 
       #clock {
-          color: ${flamingo};
+          color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin-left: 3px;
-          margin-right: 3px;
           padding: 3px 3px;
       }
 
@@ -308,21 +281,17 @@ in
           border-radius: ${radius} ${radius} 0 0;
           margin-bottom: 0;
           margin-top: 5px;
-          margin-left: 3px;
-          margin-right: 3px;
           padding: 3px 3px;
       }
 
       #custom-power {
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 400;
           color: #${clr.base08};
           background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
           margin-bottom: 5px;
           margin-top: 0px;
-          margin-left: 3px;
-          margin-right: 3px;
           padding: 3px 3px;
       }
     '';
