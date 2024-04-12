@@ -18,7 +18,7 @@ in
       package = cfg.package;
       settings = {
         main = {
-          font = "${config.local.theme.font}:size=10";
+          font = "${config.local.theme.font}:size=10,Symbols Nerd Font";
           pad = "10x10";
         };
         colors = {
