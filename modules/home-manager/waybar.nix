@@ -5,6 +5,7 @@
 let
   clr = config.colorScheme.palette;
   radius = "8px";
+  padding = "0px 3px";
   bg = "#${clr.base01}";
   widget_bg = "#${clr.base01}";
   fg = "#${clr.base05}";
@@ -16,7 +17,7 @@ in
     settings = {
       mainBar = {
         "layer" = "top";
-        "position" = "left";
+        "position" = "top";
         "margin" = "0 0 0 0";
         "spacing" = 0;
         "modules-left" = [
@@ -26,6 +27,7 @@ in
           "mpris#prev"
           "mpris#status"
           "mpris#next"
+          "sway/window"
         ];
         "modules-right" = [
           "network"
@@ -50,7 +52,7 @@ in
           "justify" = "center";
         };
         "mpris#prev" = {
-          "format" = "";
+          "format" = "󰒮";
           "on-click" = "playerctl previous";
           "interval" = 1;
           "tooltip" = false;
@@ -68,22 +70,22 @@ in
           "justify" = "center";
         };
         "mpris#next" = {
-          "format" = "";
+          "format" = "󰒭";
           "on-click" = "playerctl next";
           "interval" = 1;
           "tooltip" = false;
           "justify" = "center";
         };
         "network" = {
-          "format-wifi" = "󰖩\n{signalStrength}%";
-          "format-ethernet" = "󰈀\n{bandwidthTotalBytes}";
+          "format-wifi" = "󰖩 {signalStrength}%";
+          "format-ethernet" = "󰈀 {bandwidthTotalBytes}";
           "tooltip-format" = "{essid}";
           "tooltip-format-disconnected" = "";
           "interval" = 1;
           "justify" = "center";
         };
         "pulseaudio" = {
-          "format" = "{icon}\n{volume}%";
+          "format" = "{icon} {volume}%";
           "format-muted" = "󰝟";
           "tooltip" = false;
           "format-icons" = {
@@ -100,18 +102,18 @@ in
           "justify" = "center";
         };
         "cpu" = {
-          "format" = "\n{usage}%";
+          "format" = " {usage}%";
           "tooltip" = false;
           "interval" = 1;
           "justify" = "center";
         };
         "memory" = {
-          "format" = "\n{}%";
+          "format" = " {}%";
           "interval" = 1;
           "justify" = "center";
         };
         "clock" = {
-          "format" = "{:%I\n%M\n%p}";
+          "format" = " {:%d/%m/%y 󰥔 %I:%M %p}";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           "interval" = 1;
           "calendar" = {
@@ -162,7 +164,7 @@ in
       #clock,
       #custom-power {
           all: initial;
-          font-family: Symbols Nerd Font Mono, ${config.local.theme.font} ExtraBold;
+          font-family: Symbols Nerd Font Mono, ${config.local.theme.font} Heavy;
           font-size: 10px;
       }
 
@@ -186,7 +188,7 @@ in
       #workspaces button {
           background: transparent;
           border-radius: ${radius};
-          padding: 3px 3px;
+          padding: ${padding};
           transition: all 0.3s ease;
           border: 0;
       }
@@ -206,29 +208,31 @@ in
       #mpris {
           background-color: ${bg};
           font-size: 12px;
-          padding: 3px 3px;
+          padding: ${padding};
       }
 
       #mpris.player {
-          margin-bottom: 0px;
-          margin-top: 5px;
+          margin-right: 0px;
+          margin-left: 5px;
           border-radius: ${radius} ${radius} 0 0 ;
       }
 
       #mpris.prev {
-          margin-bottom: 0px;
+          font-size: 9px;
+          margin-right: 0px;
           border-radius: 0;
       }
 
       #mpris.status {
           font-size: 9px;
-          margin-bottom: 0px;
+          margin-right: 0px;
           border-radius: 0;
       }
 
       #mpris.next {
+          font-size: 9px;
           border-radius: 0 0 ${radius} ${radius};
-          margin-bottom: 5px;
+          margin-right: 5px;
       }
 
       #mpris.spotify {
@@ -243,45 +247,45 @@ in
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin-bottom: 5px;
-          padding: 3px 3px;
+          margin-right: 5px;
+          padding: ${padding};
       }
 
       #pulseaudio {
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius} ${radius} 0 0;
-          padding: 3px 3px;
+          padding: ${padding};
       }
 
       #cpu {
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: 0;
-          padding: 3px 3px;
+          padding: ${padding};
       }
 
       #memory {
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
-          margin-bottom: 5px;
-          padding: 3px 3px;
+          margin-right: 5px;
+          padding: ${padding};
       }
 
       #clock {
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          padding: 3px 3px;
+          padding: ${padding};
       }
 
       #tray {
           background-color: ${widget_bg};
           border-radius: ${radius} ${radius} 0 0;
-          margin-bottom: 0;
-          margin-top: 5px;
-          padding: 3px 3px;
+          margin-right: 0;
+          margin-left: 5px;
+          padding: ${padding};
       }
 
       #custom-power {
@@ -290,9 +294,9 @@ in
           color: #${clr.base08};
           background-color: ${widget_bg};
           border-radius: 0 0 ${radius} ${radius};
-          margin-bottom: 5px;
-          margin-top: 0px;
-          padding: 3px 3px;
+          margin-right: 5px;
+          margin-left: 0px;
+          padding: ${padding};
       }
     '';
   };
