@@ -13,6 +13,9 @@
       type = lib.types.str;
       default = "Catppuccin Mocha";
     };
+    wallpaper = lib.mkOption {
+      type = lib.types.str;
+    };
   };
 
   config = {

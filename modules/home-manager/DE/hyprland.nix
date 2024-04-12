@@ -14,8 +14,8 @@ in
 
   config = lib.mkIf cfg.enable {
     xdg.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ~/Downloads/wallhaven-l8vp7y_1366x768.png
-      wallpaper = VGA-1,~/Downloads/wallhaven-l8vp7y_1366x768.png
+      preload = ${config.local.theme.wallpaper} 
+      wallpaper = VGA-1,${config.local.theme.wallpaper}
     '';
     wayland.windowManager.hyprland = {
       enable = cfg.enable;

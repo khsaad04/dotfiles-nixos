@@ -34,7 +34,7 @@ in
         };
         output = {
           "*" = {
-            bg = "~/Downloads/wallhaven-l8vp7y_1366x768.png fill";
+            bg = "${config.local.theme.wallpaper} fill";
           };
         };
         modifier = "Mod4";
