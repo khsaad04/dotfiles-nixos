@@ -164,7 +164,7 @@ in
       #clock,
       #custom-power {
           all: initial;
-          font-family: Symbols Nerd Font Mono, ${config.local.theme.font} Heavy;
+          font-family: ${config.local.theme.font} Regular, Symbols Nerd Font Mono;
           font-size: 10px;
       }
 
