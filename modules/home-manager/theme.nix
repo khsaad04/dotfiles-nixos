@@ -67,7 +67,6 @@ in
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      fira-code
       iosevka
       nerdfonts
     ];
