@@ -28,6 +28,10 @@ in
     programs.tmux = {
       enable = cfg.enable;
       extraConfig = ''
+        # Fix colors for terminal
+        set -g default-terminal "tmux-256color"
+        set -ag terminal-overrides ",xterm-256color:RGB"
+        
         # Change prefix
         set -g prefix C-space
 
