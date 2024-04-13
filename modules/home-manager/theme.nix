@@ -1,4 +1,7 @@
 { pkgs, inputs, config, lib, ... }:
+let
+  nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
+in
 {
   options.local.theme = {
     font = lib.mkOption {
@@ -39,14 +42,16 @@
         package = pkgs.papirus-icon-theme;
       };
       theme = {
-        name = "Catppuccin-Mocha-Standard-Blue-Dark";
-        package = pkgs.catppuccin-gtk.override {
-          accents = [ "blue" ];
-          tweaks = [ "black" ];
-          size = "standard";
-          variant = "mocha";
+        name = "${config.colorScheme.slug}";
+        package = nix-colors-lib.gtkThemeFromScheme {
+          scheme = config.colorScheme;
         };
       };
+    };
+
+    qt = {
+      enable = true;
+      platformTheme = "gtk";
     };
 
     # Fonts

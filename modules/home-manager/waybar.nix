@@ -1,12 +1,17 @@
 { pkgs
 , config
+, inputs
 , ...
 }:
 let
   clr = config.colorScheme.palette;
-  radius = "8px";
-  padding = "3px 3px";
-  bg = "#${clr.base01}";
+
+  radius = "2px";
+  padding = "2px 4px";
+  margin = "2px 2px";
+  margin_raw = "2px";
+
+  bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," clr.base00}, 0.97)";
   widget_bg = "#${clr.base01}";
   fg = "#${clr.base05}";
 in
@@ -138,8 +143,8 @@ in
           "justify" = "center";
         };
         "tray" = {
-          "icon-size" = 10;
-          "spacing" = 4;
+          "icon-size" = 12;
+          "spacing" = 5;
           "justify" = "center";
         };
         "custom/power" = {
@@ -170,11 +175,11 @@ in
 
       window#waybar {
           color: ${fg};
-          background: ${bg};
+          background-color: ${bg};
       }
 
       tooltip {
-          background: ${bg};
+          background-color: ${bg};
           border: 1px solid #${clr.base0D};
           border-radius: ${radius};
       }
@@ -182,13 +187,14 @@ in
       #workspaces {
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 0px 3px;
+          margin: ${margin};
       }
 
       #workspaces button {
           background: transparent;
           border-radius: ${radius};
           padding: ${padding};
+          margin: ${margin};
           transition: all 0.3s ease;
           border: 0;
       }
@@ -213,7 +219,7 @@ in
 
       #mpris.player {
           margin-right: 0px;
-          margin-left: 3px;
+          margin-left: ${margin_raw};
           border-radius: ${radius} 0 0 ${radius};
       }
 
@@ -232,7 +238,7 @@ in
       #mpris.next {
           font-size: 9px;
           border-radius: 0 ${radius} ${radius} 0;
-          margin-right: 3px;
+          margin-right: ${margin_raw};
           padding-right: 5px;
       }
 
@@ -245,14 +251,14 @@ in
       }
 
       #window {
-          margin: 0px 3px;
+          margin: ${margin};
       }
 
       #network {
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 0px 3px;
+          margin: ${margin};
           padding: ${padding};
       }
 
@@ -260,6 +266,7 @@ in
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
+          margin: ${margin};
           padding: ${padding};
       }
 
@@ -267,7 +274,7 @@ in
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 0px 3px;
+          margin: ${margin};
           padding: ${padding};
       }
 
@@ -275,7 +282,7 @@ in
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 0px 3px;
+          margin: ${margin};
           padding: ${padding};
       }
 
@@ -283,14 +290,14 @@ in
           color: ${fg};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 0px 3px;
+          margin: ${margin};
           padding: ${padding};
       }
 
       #tray {
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 0px 3px;
+          margin: ${margin};
           padding: ${padding};
       }
 
@@ -300,7 +307,7 @@ in
           color: #${clr.base0D};
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 0px 3px;
+          margin: ${margin};
           padding: ${padding};
       }
     '';
