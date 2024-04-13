@@ -214,6 +214,8 @@ in
       #mpris {
           color: ${bg};
           font-size: 12px;
+          margin-top: ${margin_raw};
+          margin-bottom: ${margin_raw};
           padding: ${padding};
       }
 
@@ -239,7 +241,6 @@ in
           font-size: 9px;
           border-radius: 0 ${radius} ${radius} 0;
           margin-right: ${margin_raw};
-          padding-right: 5px;
       }
 
       #mpris.spotify {
