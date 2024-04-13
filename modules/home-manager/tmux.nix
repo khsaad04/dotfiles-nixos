@@ -27,13 +27,16 @@ in
     };
     programs.tmux = {
       enable = cfg.enable;
+      sensibleOnTop = false;
       extraConfig = ''
+        # Change prefix
+        set -g prefix C-space
+        unbind C-b
+        bind C-space send-prefix
+
         # Fix colors for terminal
         set -g default-terminal "tmux-256color"
         set -ag terminal-overrides ",xterm-256color:RGB"
-        
-        # Change prefix
-        set -g prefix C-space
 
         # Increase tmux messages display duration from 750ms to 2s
         set -g display-time 2000
@@ -41,12 +44,25 @@ in
         # Vi key bindings in tmux command prompt (prefix + :)
         set -g status-keys vi
 
+        # Escape time
+        set -s escape-time 0
+
+        # Focus events enabled for terminals that support them
+        set -g focus-events on
+
+        # Super useful when using "grouped sessions" and multi-monitor setup
+        setw -g aggressive-resize on
+
+        # Easier and faster switching between next/prev window
+        bind C-p previous-window
+        bind C-n next-window
+
         # Reloading .conf file
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config file has be reloaded "
         
         # Disable confirmation prompt
-        bind-key -N "Kill the current window" & kill-window
-        bind-key -N "Kill the current pane" x kill-pane
+        bind -N "Kill the current window" & kill-window
+        bind -N "Kill the current pane" x kill-pane
 
         # Clipbaord Integration
         set -g set-clipboard on
