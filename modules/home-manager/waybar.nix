@@ -5,11 +5,10 @@
 let
   clr = config.colorScheme.palette;
   radius = "8px";
-  padding = "0px 3px";
+  padding = "3px 3px";
   bg = "#${clr.base01}";
   widget_bg = "#${clr.base01}";
   fg = "#${clr.base05}";
-  blue = "#${clr.base0D}";
 in
 {
   home.packages = [ pkgs.playerctl ];
@@ -21,12 +20,14 @@ in
         "margin" = "0 0 0 0";
         "spacing" = 0;
         "modules-left" = [
+          "custom/power"
           "hyprland/workspaces"
           "sway/workspaces"
           "mpris#player"
           "mpris#prev"
           "mpris#status"
           "mpris#next"
+          "hyprland/window"
           "sway/window"
         ];
         "modules-right" = [
@@ -36,7 +37,6 @@ in
           "memory"
           "clock"
           "tray"
-          "custom/power"
         ];
         "hyprland/workspaces" = {
           "on-click" = "activate";
@@ -113,7 +113,7 @@ in
           "justify" = "center";
         };
         "clock" = {
-          "format" = " {:%d/%m/%y 󰥔 %I:%M %p}";
+          "format" = "{:%A, %B %d, %Y (%r)}";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           "interval" = 1;
           "calendar" = {
@@ -143,7 +143,7 @@ in
           "justify" = "center";
         };
         "custom/power" = {
-          "format" = "";
+          "format" = "󱄅";
           "on-click" = "/$HOME/.nix-profile/bin/powermenu";
           "tooltip" = false;
           "justify" = "center";
@@ -175,14 +175,14 @@ in
 
       tooltip {
           background: ${bg};
-          border: 1px solid ${blue};
+          border: 1px solid #${clr.base0D};
           border-radius: ${radius};
       }
 
       #workspaces {
           background-color: ${widget_bg};
           border-radius: ${radius};
-          margin: 3px 3px;
+          margin: 0px 3px;
       }
 
       #workspaces button {
@@ -206,15 +206,15 @@ in
       }
 
       #mpris {
-          background-color: ${bg};
+          color: ${bg};
           font-size: 12px;
           padding: ${padding};
       }
 
       #mpris.player {
           margin-right: 0px;
-          margin-left: 5px;
-          border-radius: ${radius} ${radius} 0 0 ;
+          margin-left: 3px;
+          border-radius: ${radius} 0 0 ${radius};
       }
 
       #mpris.prev {
@@ -231,16 +231,17 @@ in
 
       #mpris.next {
           font-size: 9px;
-          border-radius: 0 0 ${radius} ${radius};
-          margin-right: 5px;
+          border-radius: 0 ${radius} ${radius} 0;
+          margin-right: 3px;
+          padding-right: 5px;
       }
 
       #mpris.spotify {
-          color: #1ed760;
+          background-color: #1ed760;
       }
 
       #mpris.firefox {
-          color: #ee8424;
+          background-color: #ee8424;
       }
 
       #window {
@@ -258,21 +259,22 @@ in
       #pulseaudio {
           color: ${fg};
           background-color: ${widget_bg};
-          border-radius: ${radius} ${radius} 0 0;
+          border-radius: ${radius};
           padding: ${padding};
       }
 
       #cpu {
           color: ${fg};
           background-color: ${widget_bg};
-          border-radius: 0;
+          border-radius: ${radius};
+          margin: 0px 3px;
           padding: ${padding};
       }
 
       #memory {
           color: ${fg};
           background-color: ${widget_bg};
-          border-radius: 0 0 ${radius} ${radius};
+          border-radius: ${radius};
           margin: 0px 3px;
           padding: ${padding};
       }
@@ -287,7 +289,7 @@ in
 
       #tray {
           background-color: ${widget_bg};
-          border-radius: ${radius} ${radius} 0 0;
+          border-radius: ${radius};
           margin: 0px 3px;
           padding: ${padding};
       }
@@ -295,9 +297,9 @@ in
       #custom-power {
           font-size: 12px;
           font-weight: 400;
-          color: #${clr.base08};
+          color: #${clr.base0D};
           background-color: ${widget_bg};
-          border-radius: 0 0 ${radius} ${radius};
+          border-radius: ${radius};
           margin: 0px 3px;
           padding: ${padding};
       }
