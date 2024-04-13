@@ -48,7 +48,7 @@
     theme = {
       colorScheme = "catppuccin-mocha";
       weztermTheme = "Catppuccin Mocha";
-      wallpaper = "~/Downloads/magma.jpg";
+      wallpaper = "~/Downloads/lake.png";
     };
   };
 
