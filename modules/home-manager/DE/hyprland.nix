@@ -41,23 +41,23 @@ in
         decoration = {
           rounding = 8;
           drop_shadow = "no";
-          blur = { enabled = false; };
+          blur = { enabled = true; };
         };
         animations = {
-          enabled = 0;
-          # bezier = [
-          #   "in, 0.5, 1.2, 0.4, 1"
-          #   "wss, 0.5, 1.15, 0.4, 1"
-          #   "fader, 0.33, 1, 0.68, 1"
-          #   "out, 0, 1, 0.6, 1"
-          # ];
-          #
-          # animation = [
-          #   "windows, 1, 4, in"
-          #   "border, 1, 10, default"
-          #   "fade, 1, 7, fader"
-          #   "workspaces, 1, 5, wss, slide"
-          # ];
+          enabled = 1;
+          bezier = [
+            "in, 0.5, 1.2, 0.4, 1"
+            "wss, 0.5, 1.15, 0.4, 1"
+            "fader, 0.33, 1, 0.68, 1"
+            "out, 0, 1, 0.6, 1"
+          ];
+
+          animation = [
+            "windows, 1, 4, in"
+            "border, 1, 10, default"
+            "fade, 1, 7, fader"
+            "workspaces, 1, 5, wss, slide"
+          ];
         };
         input = {
           follow_mouse = 1;
