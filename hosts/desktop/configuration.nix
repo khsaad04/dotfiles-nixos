@@ -31,6 +31,7 @@
     file
     xdg-utils
     vim
+    wget
   ];
 
   programs = {
