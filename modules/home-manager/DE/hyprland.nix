@@ -18,6 +18,7 @@ in
     xdg.configFile."hypr/hyprpaper.conf".text = ''
       preload = ${config.local.theme.wallpaper} 
       wallpaper = VGA-1,${config.local.theme.wallpaper}
+      splash = false
     '';
     wayland.windowManager.hyprland = {
       enable = cfg.enable;
