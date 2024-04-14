@@ -1,24 +1,18 @@
 { pkgs, inputs, config, lib, ... }:
 let
+  cfg = config.local.theme;
   nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
 in
 {
   options.local.theme = {
-    font = lib.mkOption {
-      type = lib.types.str;
-      default = "Iosevka";
+    font = lib.mkOption { type = lib.types.str; default = "Iosevka"; };
+    colorScheme = lib.mkOption { type = lib.types.str; default = "catppuccin-mocha"; };
+    iconTheme = {
+      name = lib.mkOption { type = lib.types.str; default = "Papirus"; };
+      package = lib.mkPackageOption pkgs "papirus-icon-theme" { };
     };
-    colorScheme = lib.mkOption {
-      type = lib.types.str;
-      default = "catppuccin-mocha";
-    };
-    weztermTheme = lib.mkOption {
-      type = lib.types.str;
-      default = "Catppuccin Mocha";
-    };
-    wallpaper = lib.mkOption {
-      type = lib.types.str;
-    };
+    weztermTheme = lib.mkOption { type = lib.types.str; default = "Catppuccin Mocha"; };
+    wallpaper = lib.mkOption { type = lib.types.str; };
   };
 
   config = {
@@ -38,8 +32,8 @@ in
         size = 10;
       };
       iconTheme = {
-        name = "Papirus";
-        package = pkgs.papirus-icon-theme;
+        name = cfg.iconTheme.name;
+        package = cfg.iconTheme.package;
       };
       theme = {
         name = "${config.colorScheme.slug}";
@@ -47,11 +41,6 @@ in
           scheme = config.colorScheme;
         };
       };
-    };
-
-    qt = {
-      enable = true;
-      platformTheme = "gtk";
     };
 
     # Fonts

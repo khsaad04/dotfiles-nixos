@@ -39,7 +39,7 @@ in
         timeout = 0;
       };
     };
-    iconTheme.name = "Papirus";
-    iconTheme.package = pkgs.papirus-icon-theme;
+    iconTheme.name = config.local.theme.iconTheme.name;
+    iconTheme.package = config.local.theme.iconTheme.package;
   };
 }

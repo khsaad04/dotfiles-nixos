@@ -14,6 +14,7 @@
     stateVersion = "23.11";
     packages = [
       pkgs.vlc
+      pkgs.nitch
     ];
   };
   news.display = "silent";
@@ -22,29 +23,20 @@
   local = {
     DE = {
       sway.enable = true;
-      hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      };
+      hyprland.enable = true;
     };
-
-    browsers.firefox.enable = true;
-
     terminals = {
       wezterm.enable = true;
       foot.enable = true;
     };
-
     editors.nvim.enable = true;
-
+    browsers.firefox.enable = true;
     programs = {
-      neofetch.enable = true;
       tmux = {
         enable = true;
         tms.enable = true;
       };
     };
-
     theme = {
       colorScheme = "catppuccin-mocha";
       weztermTheme = "Catppuccin Mocha";

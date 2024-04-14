@@ -13,10 +13,7 @@
     sound.enable = true;
     DE = {
       sway.enable = true;
-      hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      };
+      hyprland.enable = true;
     };
   };
 
