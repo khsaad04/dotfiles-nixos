@@ -7,7 +7,6 @@
     ./firefox.nix
     ./fish.nix
     ./lf
-    ./neofetch.nix
     ./scripts.nix
     ./starship.nix
     ./theme.nix
