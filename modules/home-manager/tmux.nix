@@ -70,6 +70,10 @@ in
         # Start indexing windows at 1
         set -g base-index 1
 
+        # Better navigation
+        set -g mouse on
+        set-window-option -g mode-keys vi
+
         # Tmux-sessionizer
         bind C-o display-popup -E "${pkgs.tmux-sessionizer}/bin/tms"
         bind C-j display-popup -E "${pkgs.tmux-sessionizer}/bin/tms switch"
