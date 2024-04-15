@@ -75,8 +75,8 @@ in
         set-window-option -g mode-keys vi
 
         # Tmux-sessionizer
-        bind C-o display-popup -E "${pkgs.tmux-sessionizer}/bin/tms"
-        bind C-j display-popup -E "${pkgs.tmux-sessionizer}/bin/tms switch"
+        bind C-o display-popup -E "tms"
+        bind C-j display-popup -E "tms switch"
 
         # Status bar
         set -g status-interval 1

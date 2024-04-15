@@ -27,11 +27,11 @@
   time.timeZone = "Asia/Dhaka";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = with pkgs; [
-    file
-    xdg-utils
-    vim
-    wget
+  environment.systemPackages = [
+    pkgs.file
+    pkgs.xdg-utils
+    pkgs.vim
+    pkgs.wget
   ];
 
   programs = {

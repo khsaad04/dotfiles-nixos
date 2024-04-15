@@ -21,14 +21,14 @@ in
 
       withNodeJs = true;
 
-      extraPackages = with pkgs; [
-        tree-sitter
-        ripgrep
-        fd
-        unzip
-        wl-clipboard
-        gcc
-        gnumake
+      extraPackages = [
+        pkgs.tree-sitter
+        pkgs.ripgrep
+        pkgs.fd
+        pkgs.unzip
+        pkgs.wl-clipboard
+        pkgs.gcc
+        pkgs.gnumake
       ];
     };
 

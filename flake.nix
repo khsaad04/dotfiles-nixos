@@ -31,11 +31,11 @@
       systems = [ "x86_64-linux" ];
       perSystem = { pkgs, ... }: {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            lua-language-server
-            stylua
-            nil
-            home-manager
+          packages = [
+            pkgs.lua-language-server
+            pkgs.stylua
+            pkgs.nil
+            pkgs.home-manager
           ];
         };
         formatter = pkgs.nixpkgs-fmt;

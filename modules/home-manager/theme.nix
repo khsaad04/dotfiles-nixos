@@ -45,7 +45,7 @@ in
 
     # Fonts
     fonts.fontconfig.enable = true;
-    home.packages = with pkgs; let
+    home.packages = let
       nerdfonts = pkgs.nerdfonts.override {
         fonts = [
           "NerdFontsSymbolsOnly"
@@ -53,10 +53,10 @@ in
       };
     in
     [
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      iosevka
+      pkgs.noto-fonts
+      pkgs.noto-fonts-cjk
+      pkgs.noto-fonts-emoji
+      pkgs.iosevka
       nerdfonts
     ];
   };
