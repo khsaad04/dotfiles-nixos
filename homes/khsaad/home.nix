@@ -15,6 +15,8 @@
     packages = [
       pkgs.vlc
       pkgs.nitch
+      pkgs.wl-clipboard
+      pkgs.networkmanagerapplet
     ];
   };
   news.display = "silent";

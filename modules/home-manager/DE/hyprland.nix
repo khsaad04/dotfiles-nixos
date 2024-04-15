@@ -27,11 +27,11 @@ in
           ",preferred,auto,auto"
         ];
         exec-once = [
-          "${pkgs.wl-clipboard}/bin/wl-clipboard &"
+          "wl-clipboard &"
           "${pkgs.hyprpaper}/bin/hyprpaper &"
-          "waybar &" # its configuration is managed seperately by HM so don't do the ${pkgs.<?>}/bin/? thing
-          "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-          "firefox &" # Also for firefox
+          "waybar &"
+          "nm-applet &"
+          "firefox &"
         ];
         general = {
           gaps_in = 2;

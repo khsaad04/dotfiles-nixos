@@ -19,9 +19,9 @@ in
       config = {
         defaultWorkspace = "workspace number 1";
         startup = [
-          { command = "${pkgs.wl-clipboard}/bin/wl-clipboard &"; }
-          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
-          { command = "firefox &"; } # So uhh read ./hyprland.nix
+          { command = "wl-clipboard &"; }
+          { command = "nm-applet --indicator &"; }
+          { command = "firefox &"; }
         ];
         fonts = {
           names = [ "${config.local.theme.font}" ];
