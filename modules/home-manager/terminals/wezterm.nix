@@ -42,22 +42,18 @@ in
             selection_fg = '#${clr.base05}',
             selection_bg = '#${clr.base04}',
 
-            scrollbar_thumb = '#${clr.base04}',
-
-            split = '#${clr.base04}',
-
             ansi = {
               '#${clr.base03}',
               '#${clr.base08}',
               '#${clr.base0B}',
               '#${clr.base0A}',
               '#${clr.base0D}',
-              '#${clr.base0E}',
+              '#${clr.base06}',
               '#${clr.base0C}',
               '#${clr.base05}',
             },
             brights = {
-              '#${clr.base03}',
+              '#${clr.base04}',
               '#${clr.base08}',
               '#${clr.base0B}',
               '#${clr.base0A}',
