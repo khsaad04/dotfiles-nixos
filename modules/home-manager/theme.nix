@@ -45,19 +45,20 @@ in
 
     # Fonts
     fonts.fontconfig.enable = true;
-    home.packages = let
-      nerdfonts = pkgs.nerdfonts.override {
-        fonts = [
-          "NerdFontsSymbolsOnly"
-        ];
-      };
-    in
-    [
-      pkgs.noto-fonts
-      pkgs.noto-fonts-cjk
-      pkgs.noto-fonts-emoji
-      pkgs.iosevka
-      nerdfonts
-    ];
+    home.packages =
+      let
+        nerdfonts = pkgs.nerdfonts.override {
+          fonts = [
+            "NerdFontsSymbolsOnly"
+          ];
+        };
+      in
+      [
+        pkgs.noto-fonts
+        pkgs.noto-fonts-cjk
+        pkgs.noto-fonts-emoji
+        pkgs.iosevka
+        nerdfonts
+      ];
   };
 }

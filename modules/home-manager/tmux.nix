@@ -17,7 +17,7 @@ in
       file."./.config/tms/config.toml".text = ''
         [[search_dirs]]
         path = "/home/khsaad/ext/code"
-        depth = 2
+        depth = 3
 
         [[search_dirs]]
         path = "/home/khsaad/Documents"
