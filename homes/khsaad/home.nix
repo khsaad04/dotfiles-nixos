@@ -41,7 +41,6 @@
     };
     theme = {
       colorScheme = "catppuccin-mocha";
-      weztermTheme = "Catppuccin Mocha";
       wallpaper = "~/Downloads/lake.png";
     };
   };

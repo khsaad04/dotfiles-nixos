@@ -5,6 +5,7 @@
 }:
 let
   cfg = config.local.terminals.wezterm;
+  clr = config.colorScheme.palette;
 in
 {
   options.local.terminals.wezterm = {
@@ -26,12 +27,46 @@ in
             "Symbols Nerd Font",
           }),
           font_size = 10,
-          color_scheme = "${config.local.theme.weztermTheme}",
-
           hide_tab_bar_if_only_one_tab = true,
           window_close_confirmation = "NeverPrompt",
           window_background_opacity = 0.9,
           text_background_opacity = 1.0,
+          colors = {
+            foreground = '#${clr.base05}',
+            background = '#${clr.base00}',
+
+            cursor_fg = '#${clr.base00}',
+            cursor_bg = '#${clr.base06}',
+            cursor_border = '#${clr.base06}',
+
+            selection_fg = '#${clr.base05}',
+            selection_bg = '#${clr.base04}',
+
+            scrollbar_thumb = '#${clr.base04}',
+
+            split = '#${clr.base04}',
+
+            ansi = {
+              '#${clr.base03}',
+              '#${clr.base08}',
+              '#${clr.base0B}',
+              '#${clr.base0A}',
+              '#${clr.base0D}',
+              '#${clr.base0E}',
+              '#${clr.base0C}',
+              '#${clr.base05}',
+            },
+            brights = {
+              '#${clr.base03}',
+              '#${clr.base08}',
+              '#${clr.base0B}',
+              '#${clr.base0A}',
+              '#${clr.base0D}',
+              '#${clr.base0E}',
+              '#${clr.base0C}',
+              '#${clr.base05}',
+            },
+          },
         }
       '';
     };
