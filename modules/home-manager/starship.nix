@@ -14,7 +14,7 @@ in
         "$username"
         "[](fg:#${clr.base0D} bg:#${clr.base03})"
         "$directory"
-        "[](fg:#${clr.base03} bg:#${clr.base00})"
+        "[](fg:#${clr.base03})"
         "$all"
         "$cmd_duration"
         "\n$character"

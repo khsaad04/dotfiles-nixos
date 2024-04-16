@@ -30,7 +30,7 @@ in
 
           hide_tab_bar_if_only_one_tab = true,
           window_close_confirmation = "NeverPrompt",
-          window_background_opacity = 0.97,
+          window_background_opacity = 0.9,
           text_background_opacity = 1.0,
         }
       '';
