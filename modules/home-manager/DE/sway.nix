@@ -45,7 +45,10 @@ in
         terminal = "wezterm";
         menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         input = {
-          "*" = { accel_profile = "flat"; };
+          "type:pointer" = {
+            accel_profile = "flat";
+            pointer_accel = "0";
+          };
           "type:keyboard" = { xkb_options = "caps:escape"; };
         };
         keybindings =
@@ -57,7 +60,6 @@ in
             "${modifier}+space" = "exec ${cfg.config.menu}";
             "${modifier}+q" = "kill";
             "${modifier}+x" = "exec powermenu";
-
             "Print" = "exec ${pkgs.grimblast}/bin/grimblast --notify copysave";
             "Shift+Print" = "exec ${pkgs.grimblast}/bin/grimblast --notify copysave area";
             "XF86AudioRaiseVolume" = "exec changevolume up";
@@ -71,12 +73,12 @@ in
       };
       extraConfig = ''
         corner_radius 8
+        blur enable
         default_border none
 
         # Status Bar:
         bar {
             swaybar_command waybar
-            position top
         }
       '';
     };
