@@ -12,13 +12,32 @@ in
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
+      policies = {
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        NoDefaultBookmarks = true;
+        FirefoxHome = {
+          Search = true;
+          Pocket = false;
+          Snippets = false;
+          TopSites = false;
+          Highlights = false;
+        };
+        UserMessaging = {
+          ExtensionRecommendations = false;
+          SkipOnboarding = true;
+        };
+      };
       profiles.${config.home.username} = {
         name = config.home.username;
         extensions = with config.nur.repos.rycee.firefox-addons; [ ublock-origin vimium ];
-        extraConfig = ''
-              user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-          user_pref("ui.key.menuAccessKeyFocuses", false);
-        '';
+        settings = {
+          "browser.sessionstore.resume_session" = true;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "ui.key.menuAccessKeyFocuses" = false;
+          "browser.toolbars.bookmarks.visibility" = "never";
+        };
         userChrome = ''
           /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/navbar_tabs_responsive_oneliner.css made available under Mozilla Public License v. 2.0
            See the above repository for updates as well as full license text. */
