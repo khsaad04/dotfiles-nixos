@@ -38,3 +38,6 @@ map("x", "p", [["_dp]], { silent = true })
 map("n", "<leader>lf", function()
   require("conform").format({ lsp_fallback = true })
 end, { silent = true, desc = "Format current buffer using conform" })
+
+-- Neotree
+vim.keymap.set("n", "<C-e>", "<cmd>Neotree toggle<cr>", { silent = true })
