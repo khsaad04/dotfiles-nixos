@@ -64,6 +64,7 @@ in
           follow_mouse = 1;
           sensitivity = 0;
           force_no_accel = 1;
+          kb_options = "caps:escape";
         };
         misc = { disable_hyprland_logo = true; };
         dwindle = {
