@@ -32,6 +32,7 @@
     pkgs.xdg-utils
     pkgs.vim
     pkgs.wget
+    pkgs.htop
   ];
 
   programs = {

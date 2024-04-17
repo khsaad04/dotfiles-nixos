@@ -14,6 +14,7 @@
     stateVersion = "23.11";
     packages = [
       pkgs.vlc
+      pkgs.feh
       pkgs.nitch
       pkgs.wl-clipboard
       pkgs.networkmanagerapplet
