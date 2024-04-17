@@ -61,6 +61,8 @@ in
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config file has be reloaded "
         
         # Disable confirmation prompt
+        bind -N "Kill the current window" C-& kill-window
+        bind -N "Kill the current pane" C-x kill-pane
         bind -N "Kill the current window" & kill-window
         bind -N "Kill the current pane" x kill-pane
 
@@ -75,8 +77,8 @@ in
         set-window-option -g mode-keys vi
 
         # Tmux-sessionizer
-        bind C-o display-popup -E "tms"
-        bind C-j display-popup -E "tms switch"
+        bind -N C-o display-popup -E "tms"
+        bind -N C-j display-popup -E "tms switch"
 
         # Status bar
         set -g status-interval 1
