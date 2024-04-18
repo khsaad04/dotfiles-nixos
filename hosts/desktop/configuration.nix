@@ -36,6 +36,7 @@
   ];
 
   programs = {
+    nh.enable = true;
     git.enable = true;
     nano.enable = false;
     fish.enable = true;
