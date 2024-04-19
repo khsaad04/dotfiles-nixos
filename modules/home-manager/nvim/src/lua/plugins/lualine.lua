@@ -4,6 +4,7 @@ return {
   config = function()
     local catppuccin = require("lualine.themes.catppuccin")
     catppuccin.normal.c.bg = "#181825"
+    catppuccin.inactive.c.bg = "#181825"
     require("lualine").setup({
       options = {
         theme = catppuccin,
