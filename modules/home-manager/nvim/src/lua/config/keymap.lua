@@ -2,12 +2,6 @@ local map = vim.keymap.set
 
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- Better window navigation
-map("n", "<C-h>", "<C-w>h", { remap = true })
-map("n", "<C-j>", "<C-w>j", { remap = true })
-map("n", "<C-k>", "<C-w>k", { remap = true })
-map("n", "<C-l>", "<C-w>l", { remap = true })
-
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>")
 map("n", "<C-Down>", "<cmd>resize -2<cr>")
@@ -32,4 +26,5 @@ map("v", "<A-j>", ":m '>+1<cr>gv=gv")
 map("v", "<A-k>", ":m '<-2<cr>gv=gv")
 
 -- greatest remap ever
-map("x", "p", [["_dp]], { silent = true })
+map("x", "<leader>p", [["_dp]], { silent = true })
+map("x", "<leader>P", [["_dP]], { silent = true })
