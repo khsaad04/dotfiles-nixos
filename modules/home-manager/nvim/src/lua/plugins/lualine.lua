@@ -2,9 +2,11 @@ return {
   "nvim-lualine/lualine.nvim",
   priority = 999,
   config = function()
+    local catppuccin = require("lualine.themes.catppuccin")
+    catppuccin.normal.c.bg = "#181825"
     require("lualine").setup({
       options = {
-        theme = "auto",
+        theme = catppuccin,
         component_separators = "",
         section_separators = { left = "", right = "" },
       },
