@@ -19,7 +19,7 @@ return {
       nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
       nmap("K", vim.lsp.buf.hover, "Hover Documentation")
       nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-      nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+      nmap("<leader>k", vim.lsp.buf.signature_help, "Signature Documentation")
       nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
       nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
