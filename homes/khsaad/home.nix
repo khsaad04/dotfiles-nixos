@@ -17,7 +17,6 @@
       pkgs.feh
       pkgs.nitch
       pkgs.wl-clipboard
-      pkgs.networkmanagerapplet
     ];
   };
   news.display = "silent";

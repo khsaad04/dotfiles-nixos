@@ -20,7 +20,7 @@ in
         defaultWorkspace = "workspace number 1";
         startup = [
           { command = "wl-clipboard &"; }
-          { command = "nm-applet --indicator &"; }
+          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet &"; }
           { command = "firefox &"; }
         ];
         fonts = {
@@ -30,7 +30,7 @@ in
         };
         gaps = {
           inner = 2;
-          outer = 0;
+          outer = 2;
         };
         output = {
           "*" = {

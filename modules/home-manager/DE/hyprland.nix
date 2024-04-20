@@ -11,7 +11,6 @@ in
   imports = [ inputs.hyprland.homeManagerModules.default ];
   options.local.DE.hyprland = {
     enable = lib.mkEnableOption "hyprland";
-    package = lib.mkPackageOption pkgs "hyprland" { };
   };
 
   config = lib.mkIf cfg.enable {
@@ -30,7 +29,7 @@ in
           "wl-clipboard &"
           "${pkgs.hyprpaper}/bin/hyprpaper &"
           "waybar &"
-          "nm-applet &"
+          "${pkgs.networkmanagerapplet}/bin/nm-applet &"
           "firefox &"
         ];
         general = {
