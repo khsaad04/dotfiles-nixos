@@ -1,6 +1,5 @@
 return {
   "hrsh7th/nvim-cmp",
-  version = false,
   event = "InsertEnter",
   dependencies = {
     "L3MON4D3/LuaSnip",
@@ -16,6 +15,9 @@ return {
     luasnip.config.setup({})
 
     cmp.setup({
+      completion = {
+        keyword_length = 0,
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -54,10 +56,10 @@ return {
         end, { "i", "s" }),
       }),
       sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
-        { name = "buffer" },
+        { name = "nvim_lsp", keyword_length = 0 },
+        { name = "luasnip", keyword_length = 0 },
+        { name = "path", keyword_length = 0 },
+        { name = "buffer", keyword_length = 0 },
       },
     })
   end,

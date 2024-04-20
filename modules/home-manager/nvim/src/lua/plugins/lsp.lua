@@ -44,6 +44,13 @@ return {
     lspconfig.lua_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
     })
 
     lspconfig.nil_ls.setup({
@@ -69,28 +76,9 @@ return {
     lspconfig.pylsp.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-      settings = {
-        pylsp = {
-          plugins = {
-            pycodestyle = {
-              enabled = false,
-            },
-            autopep8 = {
-              enabled = false,
-            },
-            yapf = {
-              enabled = false,
-            },
-            pyflakes = {
-              enabled = false,
-            },
-          },
-        },
-      },
     })
 
     -- Diagnostics
-
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
