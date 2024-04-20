@@ -1,8 +1,6 @@
-{ inputs, ... }: {
-  imports = [
-    ./khsaad
-  ];
-  _module.args.mkHome = homeName:
+{ inputs, ... }:
+let
+  mkHome = homeName:
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
       extraSpecialArgs = { inherit inputs; };
@@ -11,4 +9,9 @@
         ../modules/home-manager
       ];
     };
+in
+{
+  flake.homeConfigurations = {
+    khsaad = mkHome "khsaad";
+  };
 }
