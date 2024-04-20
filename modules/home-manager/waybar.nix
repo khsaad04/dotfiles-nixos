@@ -7,7 +7,7 @@ let
   clr = config.colorScheme.palette;
 
   radius = "2px";
-  padding = "2px 4px";
+  padding = "0px 4px";
   margin = "2px 2px";
   margin_raw = "2px";
 
