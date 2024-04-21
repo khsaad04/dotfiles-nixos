@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, lib, ... }:
+{ pkgs, config, lib, ... }:
 let
   inherit (lib) mkOption mkEnableOption mkPackageOption types;
   mkColorOption = default: mkOption {
