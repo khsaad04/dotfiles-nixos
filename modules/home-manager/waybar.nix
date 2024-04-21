@@ -1,6 +1,5 @@
 { pkgs
 , config
-, inputs
 , ...
 }:
 let
@@ -11,7 +10,7 @@ let
   margin = "2px 2px";
   margin_raw = "2px";
 
-  bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," clr.base00}, 0.97)";
+  bg = "#${clr.base00}";
   widget_bg = "#${clr.base01}";
   fg = "#${clr.base05}";
 in

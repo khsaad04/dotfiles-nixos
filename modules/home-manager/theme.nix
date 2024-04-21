@@ -1,27 +1,56 @@
 { pkgs, inputs, config, lib, ... }:
 let
+  inherit (lib) mkOption mkEnableOption mkPackageOption types;
   cfg = config.local.theme;
-  nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
 in
 {
   options.local.theme = {
-    font = lib.mkOption { type = lib.types.str; default = "Iosevka"; };
-    colorScheme = lib.mkOption { type = lib.types.str; default = "catppuccin-mocha"; };
-    iconTheme = {
-      name = lib.mkOption { type = lib.types.str; default = "Papirus"; };
-      package = lib.mkPackageOption pkgs "papirus-icon-theme" { };
+    font = mkOption { type = types.str; default = "Iosevka"; };
+    colorScheme = mkOption { type = types.str; default = "catppuccin-mocha"; };
+    gtkTheme = {
+      name = mkOption { type = types.str; default = "Catppuccin-Mocha-Standard-Blue-Dark"; };
+      package = mkOption {
+        type = types.package;
+        default = pkgs.catppuccin-gtk.override {
+          size = "standard";
+          accents = [ "blue" ];
+          variant = "mocha";
+          tweaks = [ "normal" ];
+        };
+      };
     };
-    wallpaper = lib.mkOption { type = lib.types.str; };
+    iconTheme = {
+      name = mkOption { type = types.str; default = "Papirus"; };
+      package = mkPackageOption pkgs "papirus-icon-theme" { };
+    };
+    wallpaper = mkOption { type = types.str; };
+    pointerCursor = {
+      gtk = mkEnableOption "Enable for gtk apps";
+      name = mkOption {
+        type = types.str;
+        default = "Adwaita";
+      };
+
+      package = mkOption {
+        type = types.package;
+        default = pkgs.gnome.adwaita-icon-theme;
+      };
+
+      size = mkOption {
+        type = types.int;
+        default = 10;
+      };
+    };
   };
 
   config = {
     colorScheme = inputs.nix-colors.colorSchemes.${config.local.theme.colorScheme};
 
     home.pointerCursor = {
-      gtk.enable = true;
-      name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
-      size = 15;
+      gtk.enable = cfg.pointerCursor.gtk;
+      name = cfg.pointerCursor.name;
+      package = cfg.pointerCursor.package;
+      size = cfg.pointerCursor.size;
     };
 
     gtk = {
@@ -35,10 +64,8 @@ in
         package = cfg.iconTheme.package;
       };
       theme = {
-        name = "${config.colorScheme.slug}";
-        package = nix-colors-lib.gtkThemeFromScheme {
-          scheme = config.colorScheme;
-        };
+        name = cfg.gtkTheme.name;
+        package = cfg.gtkTheme.package;
       };
     };
 
