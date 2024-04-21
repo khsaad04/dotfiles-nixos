@@ -3,16 +3,16 @@
 , ...
 }:
 let
-  clr = config.colorScheme.palette;
+  clr = config.local.theme.colorPalette;
 
   radius = "2px";
   padding = "0px 4px";
   margin = "2px 2px";
   margin_raw = "2px";
 
-  bg = "#${clr.base00}";
-  widget_bg = "#${clr.base01}";
-  fg = "#${clr.base05}";
+  bg = "${clr.base00}";
+  widget_bg = "${clr.base01}";
+  fg = "${clr.base05}";
 in
 {
   home.packages = [ pkgs.playerctl ];
@@ -126,10 +126,10 @@ in
             "on-scroll" = 1;
             "on-click-right" = "mode";
             "format" = {
-              "months" = "<span color='#${clr.base0D}'><b>{}</b></span>";
-              "days" = "<span color='#${clr.base05}'><b>{}</b></span>";
-              "weekdays" = "<span color='#${clr.base0C}'><b>{}</b></span>";
-              "today" = "<span color='#${clr.base08}'><b>{}</b></span>";
+              "months" = "<span color='${clr.base0D}'><b>{}</b></span>";
+              "days" = "<span color='${clr.base05}'><b>{}</b></span>";
+              "weekdays" = "<span color='${clr.base0C}'><b>{}</b></span>";
+              "today" = "<span color='${clr.base08}'><b>{}</b></span>";
             };
           };
           "actions" = {
@@ -179,7 +179,7 @@ in
 
       tooltip {
           background-color: ${bg};
-          border: 1px solid #${clr.base0D};
+          border: 1px solid ${clr.base0D};
           border-radius: ${radius};
       }
 
@@ -199,7 +199,7 @@ in
       }
 
       #workspaces button label {
-          color: #${clr.base04};
+          color: ${clr.base04};
       }
   
       #workspaces button.active label {
@@ -304,7 +304,7 @@ in
       #custom-power {
           font-size: 12px;
           font-weight: 400;
-          color: #${clr.base0D};
+          color: ${clr.base0D};
           background-color: ${widget_bg};
           border-radius: ${radius};
           margin: ${margin};

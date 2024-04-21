@@ -4,7 +4,6 @@
 , ...
 }: {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     inputs.nur.hmModules.nur
   ];
 
@@ -40,7 +39,6 @@
       };
     };
     theme = {
-      colorScheme = "catppuccin-mocha";
       wallpaper = "~/Downloads/lake.png";
     };
   };

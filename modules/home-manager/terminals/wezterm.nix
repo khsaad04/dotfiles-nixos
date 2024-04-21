@@ -5,7 +5,7 @@
 }:
 let
   cfg = config.local.terminals.wezterm;
-  clr = config.colorScheme.palette;
+  clr = config.local.theme.colorPalette;
 in
 {
   options.local.terminals.wezterm = {
@@ -32,35 +32,35 @@ in
           window_background_opacity = 0.9,
           text_background_opacity = 1.0,
           colors = {
-            foreground = '#${clr.base05}',
-            background = '#${clr.base00}',
+            foreground = '${clr.base05}',
+            background = '${clr.base00}',
 
-            cursor_fg = '#${clr.base00}',
-            cursor_bg = '#${clr.base06}',
-            cursor_border = '#${clr.base06}',
+            cursor_fg = '${clr.base00}',
+            cursor_bg = '${clr.base06}',
+            cursor_border = '${clr.base06}',
 
-            selection_fg = '#${clr.base05}',
-            selection_bg = '#${clr.base04}',
+            selection_fg = '${clr.base05}',
+            selection_bg = '${clr.base04}',
 
             ansi = {
-              '#${clr.base03}',
-              '#${clr.base08}',
-              '#${clr.base0B}',
-              '#${clr.base0A}',
-              '#${clr.base0D}',
-              '#${clr.base06}',
-              '#${clr.base0C}',
-              '#${clr.base05}',
+              '${clr.base03}',
+              '${clr.base08}',
+              '${clr.base0B}',
+              '${clr.base0A}',
+              '${clr.base0D}',
+              '${clr.base06}',
+              '${clr.base0C}',
+              '${clr.base05}',
             },
             brights = {
-              '#${clr.base04}',
-              '#${clr.base08}',
-              '#${clr.base0B}',
-              '#${clr.base0A}',
-              '#${clr.base0D}',
-              '#${clr.base0E}',
-              '#${clr.base0C}',
-              '#${clr.base05}',
+              '${clr.base04}',
+              '${clr.base08}',
+              '${clr.base0B}',
+              '${clr.base0A}',
+              '${clr.base0D}',
+              '${clr.base0E}',
+              '${clr.base0C}',
+              '${clr.base05}',
             },
           },
         }

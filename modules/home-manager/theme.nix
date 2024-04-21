@@ -1,12 +1,33 @@
 { pkgs, inputs, config, lib, ... }:
 let
   inherit (lib) mkOption mkEnableOption mkPackageOption types;
+  mkColorOption = default: mkOption {
+    type = types.str;
+    inherit default;
+  };
   cfg = config.local.theme;
 in
 {
   options.local.theme = {
     font = mkOption { type = types.str; default = "Iosevka"; };
-    colorScheme = mkOption { type = types.str; default = "catppuccin-mocha"; };
+    colorPalette = {
+      base00 = mkColorOption "#1e1e2e";
+      base01 = mkColorOption "#181825";
+      base02 = mkColorOption "#313244";
+      base03 = mkColorOption "#45475a";
+      base04 = mkColorOption "#585b70";
+      base05 = mkColorOption "#cdd6f4";
+      base06 = mkColorOption "#f5e0dc";
+      base07 = mkColorOption "#b4befe";
+      base08 = mkColorOption "#f38ba8";
+      base09 = mkColorOption "#fab387";
+      base0A = mkColorOption "#f9e2af";
+      base0B = mkColorOption "#a6e3a1";
+      base0C = mkColorOption "#94e2d5";
+      base0D = mkColorOption "#89b4fa";
+      base0E = mkColorOption "#cba6f7";
+      base0F = mkColorOption "#f2cdcd";
+    };
     gtkTheme = {
       name = mkOption { type = types.str; default = "Catppuccin-Mocha-Standard-Blue-Dark"; };
       package = mkOption {
@@ -44,8 +65,6 @@ in
   };
 
   config = {
-    colorScheme = inputs.nix-colors.colorSchemes.${config.local.theme.colorScheme};
-
     home.pointerCursor = {
       gtk.enable = cfg.pointerCursor.gtk;
       name = cfg.pointerCursor.name;

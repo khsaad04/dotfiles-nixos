@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  clr = config.colorScheme.palette;
+  clr = config.local.theme.colorPalette;
 in
 {
   programs.wofi = {
@@ -22,14 +22,14 @@ in
           font-family: Symbols Nerd Font Mono, ${config.local.theme.font};
           font-size: 16px;
           font-weight: 500;
-          color: #${clr.base05};
+          color: ${clr.base05};
       }
 
       #window {
           margin: 0;
-          background: #${clr.base01};
+          background: ${clr.base01};
           border-radius: 8px;
-          border: 2px solid #${clr.base0D};
+          border: 2px solid ${clr.base0D};
       }
 
       #input {
@@ -57,7 +57,7 @@ in
       }
 
       #entry:selected {
-          background-color: #${clr.base02};
+          background-color: ${clr.base02};
       }
 
       #text {
