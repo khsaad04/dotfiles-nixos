@@ -31,9 +31,7 @@
       perSystem = { pkgs, ... }: {
         devShells.default = pkgs.mkShell {
           packages = [
-            pkgs.lua-language-server
             pkgs.stylua
-            pkgs.nil
             pkgs.home-manager
           ];
         };

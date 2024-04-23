@@ -29,6 +29,8 @@ in
         pkgs.wl-clipboard
         pkgs.gcc
         pkgs.gnumake
+        pkgs.lua-language-server
+        pkgs.nil
       ];
     };
 

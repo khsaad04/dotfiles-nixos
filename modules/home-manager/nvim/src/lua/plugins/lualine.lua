@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  lazy = false,
   priority = 999,
   config = function()
     local catppuccin = require("lualine.themes.catppuccin")
