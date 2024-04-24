@@ -2,7 +2,7 @@
   imports = [
     ./boot.nix
     ./sound.nix
-    ./nix.nix
+    ./nixconf.nix
     ./DE
     ./greetd.nix
   ];
