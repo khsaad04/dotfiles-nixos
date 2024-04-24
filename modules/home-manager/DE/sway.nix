@@ -78,6 +78,7 @@ in
         corner_radius 8
         blur enable
         default_border none
+        smart_gaps on
 
         # Status Bar:
         bar {
