@@ -1,7 +1,8 @@
-{ lib
-, pkgs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  ...
 }:
 let
   cfg = config.local.terminals.foot;
@@ -14,8 +15,8 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.foot = {
-      enable = cfg.enable;
-      package = cfg.package;
+      inherit (cfg) enable;
+      inherit (cfg) package;
       settings = {
         main = {
           font = "${config.local.theme.font}:size=10,Symbols Nerd Font";

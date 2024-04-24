@@ -1,7 +1,8 @@
-{ lib
-, pkgs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  ...
 }:
 let
   cfg = config.local.DE.sway;
@@ -16,7 +17,7 @@ in
     programs = {
       sway = {
         enable = true;
-        package = cfg.package;
+        inherit (cfg) package;
       };
     };
   };

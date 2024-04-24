@@ -21,21 +21,43 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { flake-parts, ... } @ inputs:
+  outputs =
+    { flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./hosts
         ./homes
       ];
       systems = [ "x86_64-linux" ];
-      perSystem = { pkgs, ... }: {
-        devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.stylua
-            pkgs.home-manager
-          ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            packages = [
+              pkgs.stylua
+              pkgs.home-manager
+            ];
+          };
+          # Took this from Gerg (https://github.com/gerg-l/nixos) :)
+          formatter = pkgs.writeShellApplication {
+            name = "lint";
+            runtimeInputs = [
+              pkgs.nixfmt-rfc-style
+              pkgs.deadnix
+              pkgs.statix
+              pkgs.fd
+            ];
+            text = ''
+              if [ -z "''${1:-""}" ] || [ "$1" == "." ]; then
+                fd '.*\.nix' . -x statix fix -- {} \;
+                fd '.*\.nix' . -X deadnix -e -- {} \; -X nixfmt {} \;
+              else
+                statix fix -- "$1"
+                deadnix -e "$1"
+                nixfmt "$1"
+              fi
+            '';
+          };
         };
-        formatter = pkgs.nixpkgs-fmt;
-      };
     };
 }

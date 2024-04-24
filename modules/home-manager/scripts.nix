@@ -43,5 +43,8 @@ let
   '';
 in
 {
-  home.packages = [ changevolume powermenu ];
+  home.packages = [
+    changevolume
+    powermenu
+  ];
 }

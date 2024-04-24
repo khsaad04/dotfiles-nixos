@@ -1,7 +1,8 @@
-{ lib
-, pkgs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  ...
 }:
 let
   cfg = config.local.terminals.wezterm;
@@ -15,8 +16,8 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.wezterm = {
-      enable = cfg.enable;
-      package = cfg.package;
+      inherit (cfg) enable;
+      inherit (cfg) package;
       extraConfig = ''
         return {
           font = wezterm.font_with_fallback({

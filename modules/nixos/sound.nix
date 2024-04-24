@@ -1,4 +1,5 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+{
   options.local.sound.enable = lib.mkEnableOption "Enable sound on the host using pipewire";
   config = lib.mkIf config.local.sound.enable {
     security.rtkit.enable = true;

@@ -1,8 +1,9 @@
-{ lib
-, pkgs
-, inputs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  inputs,
+  config,
+  ...
 }:
 let
   cfg = config.local.DE.hyprland;

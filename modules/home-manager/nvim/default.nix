@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   cfg = config.local.editors.nvim;
 in
@@ -11,7 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.neovim = {
       enable = true;
-      package = cfg.package;
+      inherit (cfg) package;
 
       defaultEditor = true;
 

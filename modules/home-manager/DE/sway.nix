@@ -1,7 +1,8 @@
-{ lib
-, pkgs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  ...
 }:
 let
   cfg = config.local.DE.sway;
@@ -13,7 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     wayland.windowManager.sway = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       package = null;
       systemd.enable = true;
       config = {
@@ -49,12 +50,14 @@ in
             accel_profile = "flat";
             pointer_accel = "0";
           };
-          "type:keyboard" = { xkb_options = "caps:escape"; };
+          "type:keyboard" = {
+            xkb_options = "caps:escape";
+          };
         };
         keybindings =
           let
             cfg = config.wayland.windowManager.sway;
-            modifier = cfg.config.modifier;
+            inherit (cfg.config) modifier;
           in
           lib.mkOptionDefault {
             "${modifier}+space" = "exec ${cfg.config.menu}";
@@ -67,7 +70,7 @@ in
             "XF86AudioMute" = "exec changevolume mute";
           };
         assigns = {
-          "2" = [{ app_id = "firefox"; }];
+          "2" = [ { app_id = "firefox"; } ];
         };
         bars = [ ];
       };

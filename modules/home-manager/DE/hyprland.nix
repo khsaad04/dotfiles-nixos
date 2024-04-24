@@ -1,8 +1,9 @@
-{ lib
-, pkgs
-, inputs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  inputs,
+  config,
+  ...
 }:
 let
   cfg = config.local.DE.hyprland;
@@ -19,12 +20,10 @@ in
       splash = false
     '';
     wayland.windowManager.hyprland = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       package = inputs.hyprland.packages.${pkgs.system}.default;
       settings = {
-        monitor = [
-          ",preferred,auto,auto"
-        ];
+        monitor = [ ",preferred,auto,auto" ];
         exec-once = [
           "wl-clipboard &"
           "${pkgs.hyprpaper}/bin/hyprpaper &"
@@ -41,7 +40,9 @@ in
         decoration = {
           rounding = 8;
           drop_shadow = "no";
-          blur = { enabled = true; };
+          blur = {
+            enabled = true;
+          };
         };
         animations = {
           enabled = 1;
@@ -65,13 +66,17 @@ in
           force_no_accel = 1;
           kb_options = "caps:escape";
         };
-        misc = { disable_hyprland_logo = true; };
+        misc = {
+          disable_hyprland_logo = true;
+        };
         dwindle = {
           pseudotile = "yes";
           preserve_split = "yes";
           force_split = 2;
         };
-        master = { new_is_master = true; };
+        master = {
+          new_is_master = true;
+        };
         windowrule = [
           "workspace 2 silent, ^(firefox)$"
           "workspace 3 silent, ^(Spotify)$"

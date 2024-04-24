@@ -1,7 +1,4 @@
-{ pkgs
-, config
-, ...
-}:
+{ pkgs, config, ... }:
 let
   clr = config.local.theme.colorPalette;
 
@@ -201,11 +198,11 @@ in
       #workspaces button label {
           color: ${clr.base04};
       }
-  
+
       #workspaces button.active label {
           color: ${fg};
       }
-  
+
       #workspaces button.focused label {
           color: ${fg};
       }

@@ -1,6 +1,5 @@
-{ pkgs
-, ...
-}: {
+{ pkgs, ... }:
+{
   xdg.configFile."lf/icons".source = ./icons;
   home.packages = [ pkgs.chafa ];
   programs.lf = {
@@ -31,12 +30,13 @@
         source = "${previewer}/bin/previewer";
       };
     commands = {
-      open = ''''${{
-            case $(${pkgs.file}/bin/file --mime-type -Lb $f) in
-                text/*) lf -remote "send $id \$$EDITOR \$fx";;
-                *) for f in $fx; do $OPENER "$f" > /dev/null 2> /dev/null & done;;
-            esac
-        }}'';
+      open = ''
+        ''${{
+                    case $(${pkgs.file}/bin/file --mime-type -Lb $f) in
+                        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+                        *) for f in $fx; do $OPENER "$f" > /dev/null 2> /dev/null & done;;
+                    esac
+                }}'';
     };
     keybindings = {
       "<enter>" = "open";

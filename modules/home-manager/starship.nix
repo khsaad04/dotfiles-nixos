@@ -1,7 +1,4 @@
-{ lib
-, config
-, ...
-}:
+{ lib, config, ... }:
 let
   clr = config.local.theme.colorPalette;
 in
@@ -30,8 +27,12 @@ in
         read_only_style = "bold fg:${clr.base0D} bg:${clr.base03}";
         format = "[[ $path]($style)[$read_only]($read_only_style)](bg:surface1)";
       };
-      line_break = { disabled = true; };
-      python = { symbol = " "; };
+      line_break = {
+        disabled = true;
+      };
+      python = {
+        symbol = " ";
+      };
       git_branch = {
         format = " [$symbol$branch(:$remote_branch)]($style) ";
         symbol = " ";

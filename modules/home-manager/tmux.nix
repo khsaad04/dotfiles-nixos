@@ -1,7 +1,8 @@
-{ lib
-, pkgs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  ...
 }:
 let
   clr = config.local.theme.colorPalette;
@@ -26,7 +27,7 @@ in
       packages = [ pkgs.tmux-sessionizer ];
     };
     programs.tmux = {
-      enable = cfg.enable;
+      inherit (cfg) enable;
       sensibleOnTop = false;
       extraConfig = ''
         # Change prefix
@@ -59,7 +60,7 @@ in
 
         # Reloading .conf file
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config file has be reloaded "
-        
+
         # Disable confirmation prompt
         bind -N "Kill the current window" & kill-window
         bind -N "Kill the current pane" x kill-pane

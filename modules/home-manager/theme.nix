@@ -1,15 +1,30 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
-  inherit (lib) mkOption mkEnableOption mkPackageOption types;
-  mkColorOption = default: mkOption {
-    type = types.str;
-    inherit default;
-  };
+  inherit (lib)
+    mkOption
+    mkEnableOption
+    mkPackageOption
+    types
+    ;
+  mkColorOption =
+    default:
+    mkOption {
+      type = types.str;
+      inherit default;
+    };
   cfg = config.local.theme;
 in
 {
   options.local.theme = {
-    font = mkOption { type = types.str; default = "Iosevka"; };
+    font = mkOption {
+      type = types.str;
+      default = "Iosevka";
+    };
     colorPalette = {
       base00 = mkColorOption "#1e1e2e";
       base01 = mkColorOption "#181825";
@@ -29,7 +44,10 @@ in
       base0F = mkColorOption "#f2cdcd";
     };
     gtkTheme = {
-      name = mkOption { type = types.str; default = "Catppuccin-Mocha-Standard-Blue-Dark"; };
+      name = mkOption {
+        type = types.str;
+        default = "Catppuccin-Mocha-Standard-Blue-Dark";
+      };
       package = mkOption {
         type = types.package;
         default = pkgs.catppuccin-gtk.override {
@@ -41,7 +59,10 @@ in
       };
     };
     iconTheme = {
-      name = mkOption { type = types.str; default = "Papirus"; };
+      name = mkOption {
+        type = types.str;
+        default = "Papirus";
+      };
       package = mkPackageOption pkgs "papirus-icon-theme" { };
     };
     wallpaper = mkOption { type = types.str; };
@@ -67,9 +88,9 @@ in
   config = {
     home.pointerCursor = {
       gtk.enable = cfg.pointerCursor.gtk;
-      name = cfg.pointerCursor.name;
-      package = cfg.pointerCursor.package;
-      size = cfg.pointerCursor.size;
+      inherit (cfg.pointerCursor) name;
+      inherit (cfg.pointerCursor) package;
+      inherit (cfg.pointerCursor) size;
     };
 
     gtk = {
@@ -79,12 +100,12 @@ in
         size = 10;
       };
       iconTheme = {
-        name = cfg.iconTheme.name;
-        package = cfg.iconTheme.package;
+        inherit (cfg.iconTheme) name;
+        inherit (cfg.iconTheme) package;
       };
       theme = {
-        name = cfg.gtkTheme.name;
-        package = cfg.gtkTheme.package;
+        inherit (cfg.gtkTheme) name;
+        inherit (cfg.gtkTheme) package;
       };
     };
 
@@ -92,11 +113,7 @@ in
     fonts.fontconfig.enable = true;
     home.packages =
       let
-        nerdfonts = pkgs.nerdfonts.override {
-          fonts = [
-            "NerdFontsSymbolsOnly"
-          ];
-        };
+        nerdfonts = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
       in
       [
         pkgs.noto-fonts

@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.local.browsers.firefox;
 in
@@ -36,7 +33,10 @@ in
           force = true;
           default = "DuckDuckGo";
         };
-        extensions = with config.nur.repos.rycee.firefox-addons; [ ublock-origin vimium ];
+        extensions = with config.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          vimium
+        ];
         settings = {
           "browser.sessionstore.resume_session" = true;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

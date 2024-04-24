@@ -1,7 +1,5 @@
-{ pkgs
-, config
-, ...
-}: {
+{ pkgs, config, ... }:
+{
   home = {
     username = "khsaad";
     homeDirectory = "/home/${config.home.username}";
@@ -43,9 +41,7 @@
     starship.enable = true;
     eza = {
       enable = true;
-      extraOptions = [
-        "-F"
-      ];
+      extraOptions = [ "-F" ];
     };
     obs-studio.enable = true;
     lf.enable = true;
