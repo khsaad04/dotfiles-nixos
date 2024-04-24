@@ -16,8 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     programs = {
       sway = {
-        enable = true;
-        inherit (cfg) package;
+        inherit (cfg) enable package;
       };
     };
   };

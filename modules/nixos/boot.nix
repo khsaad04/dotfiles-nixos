@@ -1,8 +1,11 @@
 { lib, pkgs, ... }:
+let
+  inherit (lib) mkDefault mkBefore;
+in
 {
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
-    kernelParams = lib.mkBefore [
+    kernelPackages = mkDefault pkgs.linuxPackages_zen;
+    kernelParams = mkBefore [
       "vt.global_cursor_default=0"
       "quiet"
       "systemd.show_status=false"
@@ -15,15 +18,15 @@
       systemd.enable = true;
     };
     plymouth = {
-      enable = lib.mkDefault true;
+      enable = mkDefault true;
       theme = "breeze";
     };
     loader = {
       systemd-boot = {
         configurationLimit = 10;
-        enable = lib.mkDefault true;
+        enable = mkDefault true;
       };
-      efi.canTouchEfiVariables = lib.mkDefault true;
+      efi.canTouchEfiVariables = mkDefault true;
     };
   };
 }
