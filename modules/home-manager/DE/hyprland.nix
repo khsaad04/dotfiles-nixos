@@ -8,7 +8,6 @@ let
   cfg = config.local.DE.hyprland;
 in
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
   options.local.DE.hyprland = {
     enable = lib.mkEnableOption "hyprland";
   };
@@ -21,6 +20,7 @@ in
     '';
     wayland.windowManager.hyprland = {
       enable = cfg.enable;
+      package = inputs.hyprland.packages.${pkgs.system}.default;
       settings = {
         monitor = [
           ",preferred,auto,auto"
@@ -29,7 +29,7 @@ in
           "wl-clipboard &"
           "${pkgs.hyprpaper}/bin/hyprpaper &"
           "waybar &"
-          "${pkgs.networkmanagerapplet}/bin/nm-applet &"
+          "${pkgs.networkmanagerapplet}/bin/nm-applet & --indicator"
           "firefox &"
         ];
         general = {

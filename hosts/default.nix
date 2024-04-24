@@ -6,6 +6,12 @@ let
       ./${hostName}/configuration.nix
       ../modules/nixos
       ../homes/khsaad/configuration.nix
+      ./${hostName}/hardware-configuration.nix
+      inputs.disko.nixosModules.disko
+      ./${hostName}/disko.nix
+      {
+        networking.hostName = "${hostName}";
+      }
     ];
   };
 in

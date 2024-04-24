@@ -7,6 +7,7 @@ let
       modules = [
         ./${homeName}/home.nix
         ../modules/home-manager
+        inputs.nur.hmModules.nur
       ];
     };
 in

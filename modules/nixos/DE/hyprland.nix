@@ -8,7 +8,6 @@ let
   cfg = config.local.DE.hyprland;
 in
 {
-  imports = [ inputs.hyprland.nixosModules.default ];
   options.local.DE.hyprland = {
     enable = lib.mkEnableOption "hyprland";
     package = lib.mkPackageOption pkgs "hyprland" { };
@@ -18,6 +17,10 @@ in
     programs = {
       hyprland = {
         enable = true;
+        package = inputs.hyprland.packages.${pkgs.system}.default;
+        portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland.override {
+          hyprland = config.programs.hyprland.finalPackage;
+        };
       };
     };
   };

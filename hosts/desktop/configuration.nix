@@ -1,13 +1,6 @@
-{ inputs
-, pkgs
+{ pkgs
 , ...
 }: {
-  imports = [
-    inputs.disko.nixosModules.disko
-    ./disko.nix
-    ./hardware-configuration.nix
-  ];
-
   # Custom module options
   local = {
     sound.enable = true;
@@ -19,10 +12,7 @@
 
   services.greetd.enable = true;
 
-  networking = {
-    hostName = "desktop";
-    networkmanager.enable = true;
-  };
+  networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Dhaka";
   i18n.defaultLocale = "en_US.UTF-8";

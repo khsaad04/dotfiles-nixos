@@ -1,12 +1,7 @@
 { pkgs
 , config
-, inputs
 , ...
 }: {
-  imports = [
-    inputs.nur.hmModules.nur
-  ];
-
   home = {
     username = "khsaad";
     homeDirectory = "/home/${config.home.username}";

@@ -20,7 +20,7 @@ in
         defaultWorkspace = "workspace number 1";
         startup = [
           { command = "wl-clipboard &"; }
-          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet &"; }
+          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
           { command = "firefox &"; }
         ];
         fonts = {
