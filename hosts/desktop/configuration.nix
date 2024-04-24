@@ -9,7 +9,10 @@
     };
   };
 
-  services.greetd.enable = true;
+  services = {
+    greetd.enable = true;
+    fstrim.enable = true;
+  };
 
   networking.networkmanager.enable = true;
 
