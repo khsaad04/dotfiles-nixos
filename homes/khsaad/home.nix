@@ -39,7 +39,7 @@
       };
     };
     theme = {
-      wallpaper = "~/Downloads/lake.png";
+      wallpaper = "~/Pictures/wallpapers/lake.png";
     };
   };
 
