@@ -7,6 +7,8 @@
 let
   clr = config.local.theme.colorPalette;
   cfg = config.local.programs.tmux;
+  left-sep = "";
+  right-sep = "";
 in
 {
   options.local.programs.tmux = {
@@ -84,15 +86,15 @@ in
         set -g status-keys vi
         set -g status-style "fg=${clr.base05},bg=${clr.base01}"
 
-        set -g status-left "#[bold,bg=${clr.base00},fg=${clr.base0D}]#[bold,fg=${clr.base01},bg=${clr.base0D}]#{session_name}#[bold,bg=${clr.base00},fg=${clr.base0D}]"
+        set -g status-left "#[bold,bg=${clr.base00},fg=${clr.base0D}]${left-sep}#[bold,fg=${clr.base01},bg=${clr.base0D}]#{session_name}#[bold,bg=${clr.base00},fg=${clr.base0D}]${right-sep}"
         set -g status-left-length 20
 
-        set -g window-status-current-format "#[bold,bg=${clr.base00},fg=${clr.base0D}]#[bold,fg=${clr.base01},bg=${clr.base0D}]#{window_index}:#{window_name}#[bold,bg=${clr.base00},fg=${clr.base0D}]"
-        set -g window-status-format "#[bold,bg=${clr.base00},fg=${clr.base02}]#[fg=${clr.base0D},bg=${clr.base02}]#{window_index}:#{window_name}#[bold,bg=${clr.base00},fg=${clr.base02}]"
+        set -g window-status-current-format "#[bold,bg=${clr.base00},fg=${clr.base0D}]${left-sep}#[bold,fg=${clr.base01},bg=${clr.base0D}]#{window_index}:#{window_name}#[bold,bg=${clr.base00},fg=${clr.base0D}]${right-sep}"
+        set -g window-status-format "#[bold,bg=${clr.base00},fg=${clr.base02}]${left-sep}#[fg=${clr.base0D},bg=${clr.base02}]#{window_index}:#{window_name}#[bold,bg=${clr.base00},fg=${clr.base02}]${right-sep}"
         set -g window-status-separator " "
         set -g status-justify centre
 
-        set -g status-right "#[bold,bg=${clr.base00},fg=${clr.base0D}]#[bold,fg=${clr.base01},bg=${clr.base0D}]#H#[bold,bg=${clr.base00},fg=${clr.base0D}]"
+        set -g status-right "#[bold,bg=${clr.base00},fg=${clr.base0D}]${left-sep}#[bold,fg=${clr.base01},bg=${clr.base0D}]#H#[bold,bg=${clr.base00},fg=${clr.base0D}]${right-sep}"
       '';
     };
   };
