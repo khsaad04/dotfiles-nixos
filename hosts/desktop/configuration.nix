@@ -5,7 +5,6 @@
     sound.enable = true;
     DE = {
       sway.enable = true;
-      hyprland.enable = true;
     };
   };
 
