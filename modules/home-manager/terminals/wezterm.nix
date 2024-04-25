@@ -33,8 +33,8 @@ in
           window_background_opacity = 0.9,
           text_background_opacity = 1.0,
           colors = {
-            foreground = '${clr.base05}',
             background = '${clr.base00}',
+            foreground = '${clr.base05}',
 
             cursor_fg = '${clr.base00}',
             cursor_bg = '${clr.base06}',
