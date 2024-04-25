@@ -18,8 +18,6 @@ in
     programs = {
       hyprland = {
         inherit (cfg) enable package;
-        # enable = true;
-        # package = inputs.hyprland.packages.${pkgs.system}.default;
         portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland.override {
           hyprland = config.programs.hyprland.finalPackage;
         };
