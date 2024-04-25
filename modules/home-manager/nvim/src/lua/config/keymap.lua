@@ -15,7 +15,7 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
 
 -- Clear highlights on search
-map("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
+map({ "n", "v" }, "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 
 -- Stay in indent mode while indenting
 map("v", "<", "<gv", { silent = true })

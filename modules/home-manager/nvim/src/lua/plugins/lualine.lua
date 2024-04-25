@@ -3,12 +3,9 @@ return {
   lazy = false,
   priority = 999,
   config = function()
-    local catppuccin = require("lualine.themes.catppuccin")
-    catppuccin.normal.c.bg = "#181825"
-    catppuccin.inactive.c.bg = "#181825"
     require("lualine").setup({
       options = {
-        theme = catppuccin,
+        theme = "auto",
         component_separators = "",
         section_separators = { left = "", right = "" },
       },
