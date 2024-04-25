@@ -4,11 +4,11 @@ let
 
   radius = "2px";
   padding = "0px 4px";
-  margin = "1px 2px";
+  margin = "2px 2px";
   margin_raw = "2px";
 
-  bg = "${clr.base00}";
-  widget_bg = "${clr.base01}";
+  widget_bg = "${clr.base00}";
+  bg = "${clr.base01}";
   fg = "${clr.base05}";
 in
 {
