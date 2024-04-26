@@ -17,6 +17,7 @@ in
     programs = {
       sway = {
         inherit (cfg) enable package;
+        extraPackages = [];
       };
     };
   };
