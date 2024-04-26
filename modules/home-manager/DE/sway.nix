@@ -15,7 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.sway = {
       inherit (cfg) enable;
-      package = null;
+      package = pkgs.swayfx;
       systemd.enable = true;
       config = {
         defaultWorkspace = "workspace number 1";
