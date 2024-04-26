@@ -104,17 +104,5 @@ in
         inherit (cfg.gtkTheme) name package;
       };
     };
-
-    # Fonts
-    fonts.fontconfig.enable = true;
-    home.packages =
-      let
-        nerdfonts = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
-      in
-      [
-        pkgs.noto-fonts
-        pkgs.iosevka
-        nerdfonts
-      ];
   };
 }
