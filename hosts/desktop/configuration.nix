@@ -2,17 +2,20 @@
 {
   # Custom module options
   local = {
+    bootConfig = {
+      enable = true;
+      plymouth = true;
+    };
+    greetdConfig.enable = true;
+    nixConfig.enable = true;
     sound.enable = true;
+    fonts.enable = true;
     DE = {
       sway.enable = true;
     };
   };
 
-  services = {
-    greetd.enable = true;
-    fstrim.enable = true;
-  };
-
+  services.fstrim.enable = true;
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Dhaka";

@@ -1,32 +1,44 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
-  inherit (lib) mkDefault mkBefore;
+  inherit (lib) mkBefore mkEnableOption mkIf;
+  cfg = config.local.bootConfig;
 in
 {
-  boot = {
-    kernelPackages = mkDefault pkgs.linuxPackages_zen;
-    kernelParams = mkBefore [
-      "vt.global_cursor_default=0"
-      "quiet"
-      "systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "splash"
-    ];
-    consoleLogLevel = 3;
-    initrd = {
-      verbose = false;
-      systemd.enable = true;
-    };
-    plymouth = {
-      enable = mkDefault true;
-      theme = "breeze";
-    };
-    loader = {
-      systemd-boot = {
-        configurationLimit = 10;
-        enable = mkDefault true;
+  options.local.bootConfig = {
+    enable = mkEnableOption "Enable boot configurations";
+    plymouth = mkEnableOption "Enable plymouth";
+  };
+  config = mkIf cfg.enable {
+    boot = {
+      kernelPackages = pkgs.linuxPackages_zen;
+      kernelParams = mkBefore [
+        "vt.global_cursor_default=0"
+        "quiet"
+        "systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "splash"
+      ];
+      consoleLogLevel = 3;
+      initrd = {
+        verbose = false;
+        systemd.enable = true;
       };
-      efi.canTouchEfiVariables = mkDefault true;
+      plymouth = {
+        enable = cfg.plymouth;
+        theme = "breeze";
+      };
+      loader = {
+        systemd-boot = {
+          configurationLimit = 10;
+          enable = true;
+        };
+        efi.canTouchEfiVariables = true;
+      };
     };
   };
 }
