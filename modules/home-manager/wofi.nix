@@ -11,7 +11,7 @@ in
       height = 300;
       allow_images = true;
       image_size = 38;
-      term = "foot";
+      term = "wezterm";
       matching = "fuzzy";
       insensitive = true;
       location = "center";

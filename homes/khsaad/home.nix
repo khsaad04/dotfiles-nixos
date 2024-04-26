@@ -1,8 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   home = {
-    username = "khsaad";
-    homeDirectory = "/home/${config.home.username}";
     stateVersion = "23.11";
     packages = [
       pkgs.vlc

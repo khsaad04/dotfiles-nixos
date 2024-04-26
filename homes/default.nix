@@ -11,6 +11,10 @@ let
         ./${homeName}/home.nix
         ../modules/home-manager
         inputs.nur.hmModules.nur
+        {
+          home.username = "${homeName}";
+          home.homeDirectory = "/home/${homeName}";
+        }
       ];
     };
 in
