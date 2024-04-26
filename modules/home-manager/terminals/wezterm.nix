@@ -16,8 +16,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.wezterm = {
-      inherit (cfg) enable;
-      inherit (cfg) package;
+      inherit (cfg) enable package;
       extraConfig = ''
         return {
           font = wezterm.font_with_fallback({

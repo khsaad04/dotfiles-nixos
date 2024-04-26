@@ -80,7 +80,7 @@ in
 
       size = mkOption {
         type = types.int;
-        default = 10;
+        default = 30;
       };
     };
   };
@@ -88,9 +88,7 @@ in
   config = {
     home.pointerCursor = {
       gtk.enable = cfg.pointerCursor.gtk;
-      inherit (cfg.pointerCursor) name;
-      inherit (cfg.pointerCursor) package;
-      inherit (cfg.pointerCursor) size;
+      inherit (cfg.pointerCursor) name package size;
     };
 
     gtk = {
@@ -100,12 +98,10 @@ in
         size = 10;
       };
       iconTheme = {
-        inherit (cfg.iconTheme) name;
-        inherit (cfg.iconTheme) package;
+        inherit (cfg.iconTheme) name package;
       };
       theme = {
-        inherit (cfg.gtkTheme) name;
-        inherit (cfg.gtkTheme) package;
+        inherit (cfg.gtkTheme) name package;
       };
     };
 
@@ -117,8 +113,6 @@ in
       in
       [
         pkgs.noto-fonts
-        pkgs.noto-fonts-cjk
-        pkgs.noto-fonts-emoji
         pkgs.iosevka
         nerdfonts
       ];
