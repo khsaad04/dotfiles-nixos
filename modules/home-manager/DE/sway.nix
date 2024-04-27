@@ -29,6 +29,10 @@ in
           style = "Regular";
           size = 10.0;
         };
+        seat."*" = {
+          hide_cursor = "when-typing enable";
+          xcursor_theme = "${config.local.theme.pointerCursor.name} ${toString config.local.theme.pointerCursor.size}";
+        };
         gaps = {
           inner = 2;
           outer = 2;
