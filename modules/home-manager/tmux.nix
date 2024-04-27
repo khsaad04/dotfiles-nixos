@@ -86,9 +86,10 @@ in
         # Status bar
         set -g status-interval 1
         set -g status-style "fg=${clr.base05},bg=${clr.base01}"
+        set -g status-left-length 50
+        set -g window-status-current-style "fg=${clr.base0D},bg=${clr.base01}"
 
         # set -g status-left "#[bold,bg=${clr.base00},fg=${clr.base0D}]${left-sep}#[bold,fg=${clr.base01},bg=${clr.base0D}] #{session_name} #[bold,bg=${clr.base00},fg=${clr.base0D}]${right-sep}"
-        # set -g status-left-length 50
         #
         # set -g window-status-current-format "#[bold,bg=${clr.base00},fg=${clr.base0D}]${left-sep}#[bold,fg=${clr.base01},bg=${clr.base0D}] #{window_index}:#{window_name} #[bold,bg=${clr.base00},fg=${clr.base0D}]${right-sep}"
         # set -g window-status-format "#[bold,bg=${clr.base00},fg=${clr.base02}]${left-sep}#[fg=${clr.base0D},bg=${clr.base02}] #{window_index}:#{window_name} #[bold,bg=${clr.base00},fg=${clr.base02}]${right-sep}"
