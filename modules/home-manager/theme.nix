@@ -21,6 +21,7 @@ let
 in
 {
   options.local.theme = {
+    enable = mkEnableOption "Enable theming options";
     font = mkOption {
       type = types.str;
       default = "Iosevka";
@@ -85,7 +86,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf config.local.theme.enable {
     home.pointerCursor = {
       gtk.enable = cfg.pointerCursor.gtk;
       inherit (cfg.pointerCursor) name package size;

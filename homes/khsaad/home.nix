@@ -1,48 +1,46 @@
 { pkgs, ... }:
 {
-  home = {
-    stateVersion = "23.11";
-    packages = [
-      pkgs.vlc
-      pkgs.feh
-      pkgs.nitch
-      pkgs.wl-clipboard
-    ];
-  };
-  news.display = "silent";
-
-  # Custom module options go here
   local = {
-    DE = {
-      sway.enable = true;
-    };
-    terminals = {
-      wezterm.enable = true;
-    };
+    DE.sway.enable = true;
+    terminals.wezterm.enable = true;
     editors.nvim.enable = true;
     browsers.firefox.enable = true;
     programs = {
+      fish.enable = true;
+      starship.enable = true;
+      lf.enable = true;
+      waybar.enable = true;
+      wofi.enable = true;
       tmux = {
         enable = true;
-        tms.enable = true;
+        tms = true;
       };
     };
     theme = {
+      enable = true;
       wallpaper = "~/Pictures/wallpapers/lake.png";
     };
   };
 
+  home = {
+    packages = builtins.attrValues {
+      inherit (pkgs)
+        vlc
+        feh
+        nitch
+        wl-clipboard
+        ;
+    };
+  };
+  news.display = "silent";
+
   programs = {
-    fish.enable = true;
-    starship.enable = true;
+    home-manager.enable = true;
     eza = {
       enable = true;
       extraOptions = [ "-F" ];
     };
     obs-studio.enable = true;
-    lf.enable = true;
-    waybar.enable = true;
-    wofi.enable = true;
     git = {
       enable = true;
       userName = "khsaad04";
@@ -52,6 +50,4 @@
 
   services.dunst.enable = true;
   dconf.enable = true;
-
-  programs.home-manager.enable = true;
 }

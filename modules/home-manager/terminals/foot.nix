@@ -15,7 +15,8 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.foot = {
-      inherit (cfg) enable package;
+      enable = true;
+      inherit (cfg) package;
       settings = {
         main = {
           font = "${config.local.theme.font}:size=10,Symbols Nerd Font";

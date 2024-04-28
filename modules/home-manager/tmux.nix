@@ -5,8 +5,9 @@
   ...
 }:
 let
-  clr = config.local.theme.colorPalette;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.local.programs.tmux;
+  clr = config.local.theme.colorPalette;
   # left-sep = "";
   # right-sep = "";
   left-sep = "";
@@ -14,11 +15,11 @@ let
 in
 {
   options.local.programs.tmux = {
-    enable = lib.mkEnableOption "Tmux multiplexer";
-    tms.enable = lib.mkEnableOption "tmux sessionizer";
+    enable = mkEnableOption "Tmux multiplexer";
+    tms = mkEnableOption "tmux sessionizer";
   };
-  config = {
-    home = lib.mkIf cfg.tms.enable {
+  config = mkIf cfg.enable {
+    home = mkIf cfg.tms {
       file."./.config/tms/config.toml".text = ''
         [[search_dirs]]
         path = "/home/khsaad/ext/code"
@@ -31,7 +32,7 @@ in
       packages = [ pkgs.tmux-sessionizer ];
     };
     programs.tmux = {
-      inherit (cfg) enable;
+      enable = true;
       sensibleOnTop = false;
       extraConfig = ''
         # Change prefix

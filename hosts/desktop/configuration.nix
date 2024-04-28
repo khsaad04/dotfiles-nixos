@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # Custom module options
   local = {
     bootConfig = {
       enable = true;
@@ -21,13 +20,15 @@
   time.timeZone = "Asia/Dhaka";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = [
-    pkgs.file
-    pkgs.xdg-utils
-    pkgs.vim
-    pkgs.wget
-    pkgs.htop
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+      file
+      xdg-utils
+      vim
+      wget
+      htop
+      ;
+  };
 
   programs = {
     git.enable = true;
@@ -38,6 +39,21 @@
       silent = true;
     };
     command-not-found.enable = false;
+  };
+
+  users = {
+    mutableUsers = false;
+    defaultUserShell = pkgs.fish;
+    users.khsaad = {
+      isNormalUser = true;
+      useDefaultShell = true;
+      initialPassword = "khsaad";
+      description = "KH Saad";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+    };
   };
 
   security.polkit.enable = true;

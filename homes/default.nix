@@ -12,8 +12,11 @@ let
         ../modules/home-manager
         inputs.nur.hmModules.nur
         {
-          home.username = "${homeName}";
-          home.homeDirectory = "/home/${homeName}";
+          home = {
+            username = "${homeName}";
+            homeDirectory = "/home/${homeName}";
+            stateVersion = "23.11";
+          };
         }
       ];
     };

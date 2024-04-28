@@ -16,7 +16,8 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.alacritty = {
-      inherit (cfg) enable package;
+      enable = true;
+      inherit (cfg) package;
       settings = {
         window = {
           padding = {
