@@ -3,9 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nur.url = "github:nix-community/NUR";
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +17,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
   };
 
   outputs =
@@ -57,6 +55,7 @@
                 statix fix -- "$1"
                 deadnix -e "$1"
                 nixfmt "$1"
+                stylua --indent-type Spaces --indent-width 2 "$1"
               fi
             '';
           };
