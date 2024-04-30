@@ -106,9 +106,9 @@ in
                 ""
               ];
             };
-            "on-scroll-up" = "$HOME/.nix-profile/bin/changevolume up";
-            "on-scroll-down" = "/$HOME/.nix-profile/bin/changevolume down";
-            "on-click" = "/$HOME/.nix-profile/bin/changevolume mute";
+            "on-scroll-up" = "changevolume up";
+            "on-scroll-down" = "changevolume down";
+            "on-click" = "changevolume mute";
             "justify" = "center";
           };
           "cpu" = {
@@ -154,7 +154,7 @@ in
           };
           "custom/power" = {
             "format" = "󱄅";
-            "on-click" = "/$HOME/.nix-profile/bin/powermenu";
+            "on-click" = "powermenu";
             "tooltip" = false;
             "justify" = "center";
           };
