@@ -8,10 +8,7 @@
     greetdConfig.enable = true;
     nixConfig.enable = true;
     sound.enable = true;
-    theming = {
-      enable = true;
-      wallpaper = "~/Pictures/wallpapers/lake.png";
-    };
+    fonts.enable = true;
     DE.sway.enable = true;
   };
 
@@ -44,6 +41,7 @@
 
   users = {
     mutableUsers = false;
+    defaultUserShell = pkgs.fish;
     users.khsaad = {
       isNormalUser = true;
       useDefaultShell = true;
