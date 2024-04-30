@@ -43,7 +43,7 @@ let
   '';
 in
 {
-  environment.systemPackages = [
+  home.packages = [
     changevolume
     powermenu
   ];

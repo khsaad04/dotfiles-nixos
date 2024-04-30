@@ -6,6 +6,7 @@
     ./dunst.nix
     ./firefox.nix
     ./lf
+    ./scripts.nix
     ./theme.nix
     ./tmux.nix
     ./waybar.nix
