@@ -7,5 +7,6 @@
     ./greetd.nix
     ./shell.nix
     ./theming.nix
+    ./scripts.nix
   ];
 }

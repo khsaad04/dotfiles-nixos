@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 let
   inherit (lib)
     mkOption
@@ -17,11 +12,9 @@ let
       type = types.str;
       inherit default;
     };
-  cfg = config.local.theme;
 in
 {
   options.local.theme = {
-    enable = mkEnableOption "Enable theming options";
     font = mkOption {
       type = types.str;
       default = "Iosevka";
@@ -82,27 +75,6 @@ in
       size = mkOption {
         type = types.int;
         default = 10;
-      };
-    };
-  };
-
-  config = lib.mkIf config.local.theme.enable {
-    home.pointerCursor = {
-      gtk.enable = cfg.pointerCursor.gtk;
-      inherit (cfg.pointerCursor) name package size;
-    };
-
-    gtk = {
-      enable = true;
-      font = {
-        name = "${config.local.theme.font}";
-        size = 10;
-      };
-      iconTheme = {
-        inherit (cfg.iconTheme) name package;
-      };
-      theme = {
-        inherit (cfg.gtkTheme) name package;
       };
     };
   };
