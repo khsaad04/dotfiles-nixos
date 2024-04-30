@@ -5,6 +5,7 @@
     terminals.wezterm.enable = true;
     editors.nvim.enable = true;
     browsers.firefox.enable = true;
+    services.dunst.enable = true;
     programs = {
       fish.enable = true;
       starship.enable = true;
@@ -33,12 +34,16 @@
     };
   };
   news.display = "silent";
-
+  dconf.enable = true;
   programs = {
     home-manager.enable = true;
     eza = {
       enable = true;
-      extraOptions = [ "-F" ];
+      extraOptions = [
+        "-s"
+        "Ext"
+        "-F"
+      ];
     };
     obs-studio.enable = true;
     git = {
@@ -47,7 +52,4 @@
       userEmail = "khsaad0404@gmail.com";
     };
   };
-
-  services.dunst.enable = true;
-  dconf.enable = true;
 }

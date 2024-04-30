@@ -9,9 +9,7 @@
     nixConfig.enable = true;
     sound.enable = true;
     fonts.enable = true;
-    DE = {
-      sway.enable = true;
-    };
+    DE.sway.enable = true;
   };
 
   services.fstrim.enable = true;
