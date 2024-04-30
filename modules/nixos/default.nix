@@ -5,6 +5,7 @@
     ./nixconf.nix
     ./DE
     ./greetd.nix
-    ./fonts.nix
+    ./shell.nix
+    ./theming.nix
   ];
 }

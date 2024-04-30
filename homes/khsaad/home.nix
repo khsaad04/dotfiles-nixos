@@ -7,8 +7,6 @@
     browsers.firefox.enable = true;
     services.dunst.enable = true;
     programs = {
-      fish.enable = true;
-      starship.enable = true;
       lf.enable = true;
       waybar.enable = true;
       wofi.enable = true;
@@ -18,7 +16,6 @@
       };
     };
     theme = {
-      enable = true;
       wallpaper = "~/Pictures/wallpapers/lake.png";
     };
   };
