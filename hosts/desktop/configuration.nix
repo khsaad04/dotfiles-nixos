@@ -12,7 +12,10 @@
     DE.sway.enable = true;
   };
 
-  services.fstrim.enable = true;
+  services = {
+    xserver.videoDrivers = ["intel"];
+    fstrim.enable = true;
+  };
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Dhaka";
