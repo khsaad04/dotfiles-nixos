@@ -11,7 +11,7 @@
     ./starship.nix
     ./theme.nix
     ./tmux.nix
-    ./waybar.nix
+    ./waybar
     ./wofi.nix
   ];
 }

@@ -1,0 +1,155 @@
+window#waybar,
+tooltip,
+#workspaces,
+#workspaces button,
+#workspaces button label,
+#mpris,
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#clock,
+#custom-power {
+    all: initial;
+    font-family: ${config.local.theme.font} Regular, Symbols Nerd Font Mono, Noto Sans Bengali;
+    font-size: 10px;
+}
+
+window#waybar {
+    color: ${fg};
+    background-color: ${bg};
+}
+
+tooltip {
+    background-color: ${bg};
+    border: 1px solid ${blue};
+    border-radius: ${radius};
+}
+
+#workspaces {
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+}
+
+#workspaces button {
+    background: transparent;
+    border-radius: ${radius};
+    padding: ${padding};
+    margin: ${margin};
+    transition: all 0.3s ease;
+    border: 0;
+}
+
+#workspaces button label {
+    color: ${surface2};
+}
+
+#workspaces button.active label {
+    color: ${fg};
+}
+
+#workspaces button.focused label {
+    color: ${fg};
+}
+
+#mpris {
+    color: ${bg};
+    font-size: 12px;
+    margin-top: ${margin_raw};
+    margin-bottom: ${margin_raw};
+    padding: ${padding};
+}
+
+#mpris.player {
+    margin-right: 0px;
+    margin-left: ${margin_raw};
+    border-radius: ${radius} 0 0 ${radius};
+}
+
+#mpris.prev {
+    font-size: 9px;
+    margin-right: 0px;
+    border-radius: 0;
+}
+
+#mpris.status {
+    font-size: 9px;
+    margin-right: 0px;
+    border-radius: 0;
+}
+
+#mpris.next {
+    font-size: 9px;
+    border-radius: 0 ${radius} ${radius} 0;
+    margin-right: ${margin_raw};
+}
+
+#mpris.spotify {
+    background-color: #1ed760;
+}
+
+#mpris.firefox {
+    background-color: #ee8424;
+}
+
+#window {
+    margin: ${margin};
+}
+
+#network {
+    color: ${fg};
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+    padding: ${padding};
+}
+
+#pulseaudio {
+    color: ${fg};
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+    padding: ${padding};
+}
+
+#cpu {
+    color: ${fg};
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+    padding: ${padding};
+}
+
+#memory {
+    color: ${fg};
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+    padding: ${padding};
+}
+
+#clock {
+    color: ${fg};
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+    padding: ${padding};
+}
+
+#tray {
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+    padding: ${padding};
+}
+
+#custom-power {
+    font-size: 12px;
+    font-weight: 400;
+    color: ${blue};
+    background-color: ${widget_bg};
+    border-radius: ${radius};
+    margin: ${margin};
+    padding: ${padding};
+}
