@@ -13,7 +13,7 @@
   };
 
   services = {
-    xserver.videoDrivers = ["intel"];
+    xserver.videoDrivers = [ "intel" ];
     fstrim.enable = true;
   };
   networking.networkmanager.enable = true;

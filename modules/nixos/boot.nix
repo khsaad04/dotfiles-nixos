@@ -35,6 +35,8 @@ in
       loader = {
         systemd-boot = {
           configurationLimit = 10;
+          consoleMode = "max";
+          editor = false;
           enable = true;
         };
         efi.canTouchEfiVariables = true;
