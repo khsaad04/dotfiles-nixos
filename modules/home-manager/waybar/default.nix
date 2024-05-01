@@ -8,15 +8,18 @@ let
   cfg = config.local.programs.waybar;
   clr = config.local.theme.colorPalette;
 
-  radius = "2px";
-  padding = "0px 4px";
-  margin = "2px 2px";
-  margin_raw = "2px";
-  widget_bg = "${clr.base00}";
-  bg = "${clr.base01}";
-  fg = "${clr.base05}";
-  blue = "${clr.base0D}";
-  surface2 = "${clr.base04}";
+  css_vars = {
+    "@font" = config.local.theme.font;
+    "@radius" = "2px";
+    "@padding" = "0px 4px";
+    "@spacing" = "2px";
+    "@margin" = "2px 2px";
+    "@widget_bg" = "${clr.base00}";
+    "@bg" = "${clr.base01}";
+    "@fg" = "${clr.base05}";
+    "@blue" = "${clr.base0D}";
+    "@surface2" = "${clr.base04}";
+  };
 in
 {
   options.local.programs.waybar.enable = lib.mkEnableOption "Enable waybar configuration";
@@ -161,35 +164,9 @@ in
           };
         };
       };
-      style =
-        builtins.replaceStrings
-          [
-            "\${config.local.theme.font}"
-            "\${radius}"
-            "\${padding}"
-            "\${margin}"
-            "\${margin_raw}"
-            "\${widget_bg}"
-            "\${bg}"
-            "\${fg}"
-            "\${blue}"
-            "\${surface2}"
-          ]
-          [
-            "${config.local.theme.font}"
-            "${radius}"
-            "${padding}"
-            "${margin}"
-            "${margin_raw}"
-            "${widget_bg}"
-            "${bg}"
-            "${fg}"
-            "${blue}"
-            "${surface2}"
-          ]
-          ''
-            ${builtins.readFile ./style.css}
-          '';
+      style = builtins.replaceStrings (builtins.attrNames css_vars) (builtins.attrValues css_vars) ''
+        ${builtins.readFile ./style.css}
+      '';
     };
   };
 }
