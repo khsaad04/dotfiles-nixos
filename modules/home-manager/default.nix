@@ -1,14 +1,15 @@
 {
   imports = [
-    ./DE
-    ./nvim
-    ./terminals
     ./dunst.nix
     ./firefox.nix
     ./fish.nix
+    ./hyprland.nix
     ./lf
+    ./nvim
     ./scripts.nix
     ./starship.nix
+    ./sway.nix
+    ./terminals
     ./theme.nix
     ./tmux.nix
     ./waybar
