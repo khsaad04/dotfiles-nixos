@@ -22,6 +22,8 @@ return {
         "markdown_inline",
         "nix",
         "zig",
+        "css",
+        "json",
       },
       auto_install = false,
 
