@@ -10,7 +10,7 @@
     ./starship.nix
     ./sway.nix
     ./terminals
-    ./theme.nix
+    ./theming
     ./tmux.nix
     ./waybar
     ./wofi.nix

@@ -1,7 +1,7 @@
 { lib, config, ... }:
 let
   cfg = config.local.programs.starship;
-  clr = config.local.theme.colorPalette;
+  clr = config.local.theming.colorPalette;
 in
 {
   options.local.programs.starship.enable = lib.mkEnableOption "Enable starship configuration";

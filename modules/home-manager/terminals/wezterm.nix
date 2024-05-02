@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.local.terminals.wezterm;
-  clr = config.local.theme.colorPalette;
+  clr = config.local.theming.colorPalette;
 in
 {
   options.local.terminals.wezterm = {
@@ -22,7 +22,7 @@ in
         return {
           font = wezterm.font_with_fallback({
             {
-              family = "${config.local.theme.font}",
+              family = "${config.local.theming.font}",
               harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
             },
             "Symbols Nerd Font",

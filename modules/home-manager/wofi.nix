@@ -1,7 +1,7 @@
 { lib, config, ... }:
 let
   cfg = config.local.programs.wofi;
-  clr = config.local.theme.colorPalette;
+  clr = config.local.theming.colorPalette;
 in
 {
   options.local.programs.wofi.enable = lib.mkEnableOption "Enable wofi configuration";
@@ -23,7 +23,7 @@ in
       style = ''
         * {
             all: initial;
-            font-family: Symbols Nerd Font Mono, ${config.local.theme.font};
+            font-family: Symbols Nerd Font Mono, ${config.local.theming.font};
             font-size: 16px;
             font-weight: 500;
             color: ${clr.base05};

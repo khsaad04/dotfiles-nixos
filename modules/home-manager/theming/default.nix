@@ -17,10 +17,10 @@ let
       type = types.str;
       inherit default;
     };
-  cfg = config.local.theme;
+  cfg = config.local.theming;
 in
 {
-  options.local.theme = {
+  options.local.theming = {
     enable = mkEnableOption "Enable theming options";
     font = mkOption {
       type = types.str;
@@ -44,7 +44,7 @@ in
       base0E = mkColorOption "#cba6f7";
       base0F = mkColorOption "#f2cdcd";
     };
-    gtkTheme = {
+    gtk = {
       name = mkOption {
         type = types.str;
         default = "Catppuccin-Mocha-Standard-Blue-Dark";
@@ -59,15 +59,18 @@ in
         };
       };
     };
-    iconTheme = {
+    icons = {
       name = mkOption {
         type = types.str;
         default = "Papirus";
       };
       package = mkPackageOption pkgs "papirus-icon-theme" { };
     };
-    wallpaper = mkOption { type = types.str; };
-    pointerCursor = {
+    wallpaper = mkOption {
+      type = types.str;
+      default = "${./wp.png}";
+    };
+    cursor = {
       gtk = mkEnableOption "Enable for gtk apps";
       name = mkOption {
         type = types.str;
@@ -86,23 +89,23 @@ in
     };
   };
 
-  config = lib.mkIf config.local.theme.enable {
+  config = lib.mkIf cfg.enable {
     home.pointerCursor = {
-      gtk.enable = cfg.pointerCursor.gtk;
-      inherit (cfg.pointerCursor) name package size;
+      gtk.enable = cfg.cursor.gtk;
+      inherit (cfg.cursor) name package size;
     };
 
     gtk = {
       enable = true;
       font = {
-        name = "${config.local.theme.font}";
+        name = "${config.local.theming.font}";
         size = 10;
       };
       iconTheme = {
-        inherit (cfg.iconTheme) name package;
+        inherit (cfg.icons) name package;
       };
       theme = {
-        inherit (cfg.gtkTheme) name package;
+        inherit (cfg.gtk) name package;
       };
     };
   };

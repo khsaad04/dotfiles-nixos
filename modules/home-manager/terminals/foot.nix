@@ -19,7 +19,7 @@ in
       inherit (cfg) package;
       settings = {
         main = {
-          font = "${config.local.theme.font}:size=10,Symbols Nerd Font";
+          font = "${config.local.theming.font}:size=10,Symbols Nerd Font";
           pad = "10x10";
         };
         colors = {

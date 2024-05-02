@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.local.services.dunst;
-  clr = config.local.theme.colorPalette;
+  clr = config.local.theming.colorPalette;
 in
 {
   options.local.services.dunst.enable = lib.mkEnableOption "Enable dunst configuration";
@@ -24,7 +24,7 @@ in
           frame_width = 0;
           frame_color = "${clr.base0D}";
           corner_radius = 8;
-          font = "${config.local.theme.font} 10";
+          font = "${config.local.theming.font} 10";
         };
         urgency_low = {
           background = "${clr.base01}";
@@ -45,8 +45,8 @@ in
           timeout = 0;
         };
       };
-      iconTheme.name = config.local.theme.iconTheme.name;
-      iconTheme.package = config.local.theme.iconTheme.package;
+      iconTheme.name = config.local.theming.icons.name;
+      iconTheme.package = config.local.theming.icons.package;
     };
   };
 }

@@ -17,9 +17,8 @@
         tms = true;
       };
     };
-    theme = {
+    theming = {
       enable = true;
-      wallpaper = "~/Pictures/wallpapers/lake.png";
     };
   };
 

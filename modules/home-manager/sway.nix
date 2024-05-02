@@ -25,13 +25,13 @@ in
           { command = "firefox &"; }
         ];
         fonts = {
-          names = [ "${config.local.theme.font}" ];
+          names = [ "${config.local.theming.font}" ];
           style = "Regular";
           size = 10.0;
         };
         seat."*" = {
           hide_cursor = "when-typing enable";
-          xcursor_theme = "${config.local.theme.pointerCursor.name} ${toString config.local.theme.pointerCursor.size}";
+          xcursor_theme = "${config.local.theming.cursor.name} ${toString config.local.theming.cursor.size}";
         };
         gaps = {
           inner = 2;
@@ -39,7 +39,7 @@ in
         };
         output = {
           "*" = {
-            bg = "${config.local.theme.wallpaper} fill";
+            bg = "${config.local.theming.wallpaper} fill";
           };
         };
         modifier = "Mod4";

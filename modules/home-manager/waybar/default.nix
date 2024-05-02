@@ -6,10 +6,10 @@
 }:
 let
   cfg = config.local.programs.waybar;
-  clr = config.local.theme.colorPalette;
+  clr = config.local.theming.colorPalette;
 
   css_vars = {
-    "@font" = config.local.theme.font;
+    "@font" = config.local.theming.font;
     "@radius" = "2px";
     "@padding" = "0px 4px";
     "@spacing" = "2px";

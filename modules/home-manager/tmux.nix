@@ -7,7 +7,7 @@
 let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.local.programs.tmux;
-  clr = config.local.theme.colorPalette;
+  clr = config.local.theming.colorPalette;
 in
 {
   options.local.programs.tmux = {
