@@ -12,10 +12,22 @@
     DE.sway.enable = true;
   };
 
+  programs = {
+    git.enable = true;
+    nano.enable = false;
+    fish.enable = true;
+    direnv = {
+      enable = true;
+      silent = true;
+    };
+    command-not-found.enable = false;
+  };
+
   services = {
     xserver.videoDrivers = [ "intel" ];
     fstrim.enable = true;
   };
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Dhaka";
@@ -29,17 +41,6 @@
       wget
       htop
       ;
-  };
-
-  programs = {
-    git.enable = true;
-    nano.enable = false;
-    fish.enable = true;
-    direnv = {
-      enable = true;
-      silent = true;
-    };
-    command-not-found.enable = false;
   };
 
   users = {

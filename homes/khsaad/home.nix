@@ -23,18 +23,6 @@
     };
   };
 
-  home = {
-    packages = builtins.attrValues {
-      inherit (pkgs)
-        vlc
-        feh
-        nitch
-        wl-clipboard
-        ;
-    };
-  };
-  news.display = "silent";
-  dconf.enable = true;
   programs = {
     home-manager.enable = true;
     eza = {
@@ -52,4 +40,17 @@
       userEmail = "khsaad0404@gmail.com";
     };
   };
+
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      vlc
+      feh
+      nitch
+      wl-clipboard
+      hyperfine
+      ;
+  };
+
+  news.display = "silent";
+  dconf.enable = true;
 }
