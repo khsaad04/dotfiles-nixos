@@ -7,7 +7,7 @@ in
   options.local.programs.wofi.enable = lib.mkEnableOption "Enable wofi configuration";
   config = lib.mkIf cfg.enable {
     programs.wofi = {
-      enable = true;
+      inherit (cfg) enable;
       settings = {
         show = "drun";
         prompt = " Search...";

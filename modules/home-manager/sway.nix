@@ -14,7 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     wayland.windowManager.sway = {
-      enable = true;
+      inherit (cfg) enable;
       package = pkgs.swayfx;
       systemd.enable = true;
       config = {

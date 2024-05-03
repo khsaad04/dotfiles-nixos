@@ -7,8 +7,7 @@ in
   options.local.programs.starship.enable = lib.mkEnableOption "Enable starship configuration";
   config = lib.mkIf cfg.enable {
     programs.starship = {
-      enable = true;
-      enableTransience = true;
+      inherit (cfg) enable;
       settings = {
         format = lib.concatStrings [
           "[](fg:${clr.base0D})"

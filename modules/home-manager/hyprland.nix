@@ -20,7 +20,7 @@ in
       splash = false
     '';
     wayland.windowManager.hyprland = {
-      enable = true;
+      inherit (cfg) enable;
       package = inputs.hyprland.packages.${pkgs.system}.default;
       settings = {
         monitor = [ ",preferred,auto,auto" ];

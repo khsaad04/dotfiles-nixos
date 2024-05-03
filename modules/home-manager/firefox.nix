@@ -8,7 +8,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     programs.firefox = {
-      enable = true;
+      inherit (cfg) enable;
       policies = {
         DisableFirefoxStudies = true;
         DisablePocket = true;

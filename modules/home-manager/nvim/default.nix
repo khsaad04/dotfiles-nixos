@@ -15,28 +15,27 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.neovim = {
-      enable = true;
-      inherit (cfg) package;
+      inherit (cfg) enable package;
 
       defaultEditor = true;
-
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
-
       withNodeJs = true;
 
-      extraPackages = [
-        pkgs.tree-sitter
-        pkgs.ripgrep
-        pkgs.fd
-        pkgs.unzip
-        pkgs.wl-clipboard
-        pkgs.gcc
-        pkgs.gnumake
-        pkgs.lua-language-server
-        pkgs.nil
-      ];
+      extraPackages = builtins.attrValues {
+        inherit (pkgs)
+          tree-sitter
+          ripgrep
+          fd
+          unzip
+          wl-clipboard
+          gcc
+          gnumake
+          lua-language-server
+          nil
+          ;
+      };
     };
 
     xdg.configFile."nvim" = {

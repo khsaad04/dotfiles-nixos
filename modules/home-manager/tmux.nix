@@ -28,7 +28,7 @@ in
       packages = [ pkgs.tmux-sessionizer ];
     };
     programs.tmux = {
-      enable = true;
+      inherit (cfg) enable;
       sensibleOnTop = false;
       extraConfig = ''
         # Change prefix

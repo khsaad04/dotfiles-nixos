@@ -13,7 +13,7 @@ in
     xdg.configFile."lf/icons".source = ./icons;
     home.packages = [ pkgs.chafa ];
     programs.lf = {
-      enable = true;
+      inherit (cfg) enable;
       settings = {
         preview = true;
         drawbox = true;
