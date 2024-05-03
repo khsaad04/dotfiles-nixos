@@ -26,7 +26,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.playerctl ];
     programs.waybar = {
-      enable = true;
+      inherit (cfg) enable;
       settings = {
         mainBar = {
           "layer" = "top";

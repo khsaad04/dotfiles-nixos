@@ -5,8 +5,8 @@
   ...
 }:
 let
-  clr = config.local.theming.colorPalette;
   cfg = config.local.terminals.alacritty;
+  clr = config.local.theming.colorPalette;
 in
 {
   options.local.terminals.alacritty = {
