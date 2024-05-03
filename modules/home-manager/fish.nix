@@ -15,7 +15,6 @@ in
         set fish_greeting
         fish_vi_key_bindings
         fish_add_path -aP ~/.cargo/bin
-        enable_transience
       '';
     };
   };

@@ -8,6 +8,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.starship = {
       inherit (cfg) enable;
+      enableTransience = true;
       settings = {
         format = lib.concatStrings [
           "[](fg:${clr.base0D})"
