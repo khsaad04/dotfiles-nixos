@@ -19,6 +19,7 @@
     };
     theming = {
       enable = true;
+      colorScheme = "gruvbox-dark-hard";
     };
   };
 

@@ -27,9 +27,13 @@ in
       type = str;
       default = "Iosevka";
     };
+    colorScheme = mkOption {
+      type = str;
+      default = "catppuccin-mocha";
+    };
     colorPalette = mkOption {
       type = attrsOf str;
-      default = getColorPalette "catppuccin-mocha";
+      default = getColorPalette config.local.theming.colorScheme;
     };
     gtk = {
       name = mkOption {
