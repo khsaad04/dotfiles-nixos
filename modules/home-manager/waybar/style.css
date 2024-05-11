@@ -41,16 +41,24 @@ tooltip {
     border: 0;
 }
 
+#workspaces button.active {
+    background-color: @fg;
+}
+
+#workspaces button.focused {
+    background-color: @fg;
+}
+
 #workspaces button label {
     color: @surface2;
 }
 
 #workspaces button.active label {
-    color: @fg;
+    color: @bg;
 }
 
 #workspaces button.focused label {
-    color: @fg;
+    color: @bg;
 }
 
 #mpris {
