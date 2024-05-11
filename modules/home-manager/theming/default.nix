@@ -59,7 +59,7 @@ in
     };
     wallpaper = mkOption {
       type = str;
-      default = "${./wp.png}";
+      default = "${./wallpapers/wp2.png}";
     };
     cursor = {
       gtk = mkEnableOption "Enable for gtk apps";
