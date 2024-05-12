@@ -17,6 +17,7 @@ in
       inherit (cfg) enable;
       package = pkgs.swayfx;
       systemd.enable = true;
+      checkConfig = false;
       config = {
         defaultWorkspace = "workspace number 1";
         startup = [
