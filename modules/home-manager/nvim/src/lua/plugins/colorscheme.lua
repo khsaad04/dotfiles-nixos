@@ -4,8 +4,8 @@ return {
   --   name = "catppuccin",
   --   lazy = false,
   --   priority = 1000,
-  --   opts = {},
   --   config = function()
+  --     require("catppuccin").setup({})
   --     vim.cmd.colorscheme("catppuccin")
   --   end,
   -- },
@@ -13,8 +13,10 @@ return {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
     config = function()
+      require("gruvbox").setup({
+        contrast = "hard",
+      })
       vim.cmd.colorscheme("gruvbox")
     end,
   },
