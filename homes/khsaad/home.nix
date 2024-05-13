@@ -44,7 +44,7 @@
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      vlc
+      mpv
       feh
       nitch
       wl-clipboard
