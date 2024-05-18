@@ -23,6 +23,7 @@ in
       vimdiffAlias = true;
       withNodeJs = true;
 
+      extraLuaPackages = luaPkgs: [ luaPkgs.jsregexp ];
       extraPackages = builtins.attrValues {
         inherit (pkgs)
           tree-sitter
