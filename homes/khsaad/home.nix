@@ -1,12 +1,9 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   local = {
     DE.sway.enable = true;
     terminals.wezterm.enable = true;
-    editors.nvim = {
-      enable = true;
-      package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.neovim-unwrapped;
-    };
+    editors.nvim.enable = true;
     browsers.firefox.enable = true;
     services.dunst.enable = true;
     programs = {
