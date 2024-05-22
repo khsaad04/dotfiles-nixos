@@ -21,6 +21,10 @@
       enable = true;
       wallpaper = "${../../modules/home-manager/theming/wallpapers/wp3.png}";
       colorScheme = "gruvbox-dark-hard";
+      gtk = {
+        name = "Gruvbox-Dark-BL";
+        package = pkgs.gruvbox-gtk-theme;
+      };
     };
   };
 
