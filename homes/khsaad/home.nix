@@ -19,7 +19,7 @@
     };
     theming = {
       enable = true;
-      wallpaper = "${../../modules/home-manager/theming/wallpapers/wp3.png}";
+      wallpaper = "${../../modules/home-manager/theming/wp.png}";
       colorScheme = "gruvbox-dark-hard";
       gtk = {
         name = "Gruvbox-Dark-BL";
