@@ -53,6 +53,7 @@
       nitch
       wl-clipboard
       hyperfine
+      android-tools
       ;
   };
 
