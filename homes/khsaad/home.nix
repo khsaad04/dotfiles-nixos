@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   local = {
     DE.sway.enable = true;
@@ -46,16 +46,16 @@
     };
   };
 
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-      mpv
-      feh
-      nitch
-      wl-clipboard
-      hyperfine
-      android-tools
-      ;
-  };
+  home.packages = [
+    pkgs.mpv
+    pkgs.feh
+    pkgs.nitch
+    pkgs.wl-clipboard
+    pkgs.hyperfine
+    pkgs.android-tools
+    pkgs.jdk
+    inputs.pollymc.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 
   news.display = "silent";
   dconf.enable = true;
