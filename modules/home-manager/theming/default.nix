@@ -29,25 +29,33 @@ in
     };
     colorScheme = mkOption {
       type = str;
-      default = "catppuccin-mocha";
+      default = "gruvbox-dark-hard";
     };
     colorPalette = mkOption {
       type = attrsOf str;
       default = getColorPalette config.local.theming.colorScheme;
     };
     gtk = {
+      # name = mkOption {
+      #   type = str;
+      #   default = "Catppuccin-Mocha-Standard-Blue-Dark";
+      # };
+      # package = mkOption {
+      #   type = package;
+      #   default = pkgs.catppuccin-gtk.override {
+      #     size = "standard";
+      #     accents = [ "blue" ];
+      #     variant = "mocha";
+      #     tweaks = [ "normal" ];
+      #   };
+      # };
       name = mkOption {
         type = str;
-        default = "Catppuccin-Mocha-Standard-Blue-Dark";
+        default = "Gruvbox-Dark";
       };
       package = mkOption {
         type = package;
-        default = pkgs.catppuccin-gtk.override {
-          size = "standard";
-          accents = [ "blue" ];
-          variant = "mocha";
-          tweaks = [ "normal" ];
-        };
+        default = pkgs.gruvbox-gtk-theme;
       };
     };
     icons = {
@@ -70,7 +78,7 @@ in
 
       package = mkOption {
         type = package;
-        default = pkgs.gnome.adwaita-icon-theme;
+        default = pkgs.adwaita-icon-theme;
       };
 
       size = mkOption {
