@@ -10,6 +10,7 @@
     sound.enable = true;
     fonts.enable = true;
     DE.sway.enable = true;
+    DE.hyprland.enable = true;
   };
 
   programs = {

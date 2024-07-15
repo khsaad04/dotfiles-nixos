@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   config,
   ...
 }:
@@ -21,7 +20,8 @@ in
     '';
     wayland.windowManager.hyprland = {
       inherit (cfg) enable;
-      package = inputs.hyprland.packages.${pkgs.system}.default;
+      # package = inputs.hyprland.packages.${pkgs.system}.default;
+      package = pkgs.hyprland;
       settings = {
         monitor = [ ",preferred,auto,auto" ];
         exec-once = [
@@ -73,9 +73,6 @@ in
           pseudotile = "yes";
           preserve_split = "yes";
           force_split = 2;
-        };
-        master = {
-          new_is_master = true;
         };
         windowrule = [
           "workspace 2 silent, ^(firefox)$"

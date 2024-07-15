@@ -2,6 +2,7 @@
 {
   local = {
     DE.sway.enable = true;
+    DE.hyprland.enable = true;
     terminals.wezterm.enable = true;
     editors.nvim.enable = true;
     browsers.firefox.enable = true;
