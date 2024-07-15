@@ -15,7 +15,7 @@ in
       settings =
         let
           session = {
-            user = "khsaad";
+            user = "greeter";
             command = ''
               ${pkgs.greetd.tuigreet}/bin/tuigreet \
               --time \
@@ -29,12 +29,7 @@ in
         in
         {
           default_session = session;
-          initial_session = session;
         };
     };
-
-    environment.etc."greetd/environments".text = ''
-      sway
-    '';
   };
 }
