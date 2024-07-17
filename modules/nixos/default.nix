@@ -3,7 +3,7 @@
     ./boot.nix
     ./sound.nix
     ./nixconf.nix
-    ./DE
+    ./DE.nix
     ./greetd.nix
     ./fonts.nix
   ];
