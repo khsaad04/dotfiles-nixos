@@ -36,6 +36,7 @@ in
           gaps_out = 2;
           border_size = 0;
           layout = "dwindle";
+          allow_tearing = true;
         };
         decoration = {
           rounding = 8;
@@ -79,6 +80,8 @@ in
           "workspace 3 silent, ^(Spotify)$"
           "workspace 4 silent, ^(discord)$"
         ];
+
+        windowrulev2 = [ "immediate, class:^(Minecraft* 1.21)$" ];
 
         #KEYBINDS
         bind =
