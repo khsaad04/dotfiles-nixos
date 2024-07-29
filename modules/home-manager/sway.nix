@@ -31,7 +31,6 @@ in
           size = 10.0;
         };
         seat."*" = {
-          hide_cursor = "when-typing enable";
           xcursor_theme = "${config.local.theming.cursor.name} ${toString config.local.theming.cursor.size}";
         };
         gaps = {
