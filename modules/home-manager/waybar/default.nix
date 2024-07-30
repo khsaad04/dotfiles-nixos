@@ -130,27 +130,8 @@ in
           };
           "clock" = {
             "format" = "{:%A, %B %d, %Y (%r)}";
-            "tooltip-format" = "<tt><small>{calendar}</small></tt>";
+            "tooltip-format" = "";
             "interval" = 1;
-            "calendar" = {
-              "mode" = "month";
-              "mode-mon-col" = 3;
-              "on-scroll" = 1;
-              "on-click-right" = "mode";
-              "format" = {
-                "months" = "<span color='${clr.base0D}'><b>{}</b></span>";
-                "days" = "<span color='${clr.base05}'><b>{}</b></span>";
-                "weekdays" = "<span color='${clr.base0C}'><b>{}</b></span>";
-                "today" = "<span color='${clr.base08}'><b>{}</b></span>";
-              };
-            };
-            "actions" = {
-              "on-click-right" = "mode";
-              "on-click-forward" = "tz_up";
-              "on-click-backward" = "tz_down";
-              "on-scroll-up" = "shift_up";
-              "on-scroll-down" = "shift_down";
-            };
             "justify" = "center";
           };
           "tray" = {
