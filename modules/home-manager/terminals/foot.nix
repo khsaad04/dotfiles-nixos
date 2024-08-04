@@ -24,24 +24,24 @@ in
         };
         colors = {
           alpha = 0.9;
-          foreground = "${clr.base05}"; # Text
-          background = "${clr.base00}"; # Base
-          regular0 = "${clr.base03}"; # Surface 1
-          regular1 = "${clr.base08}"; # red
-          regular2 = "${clr.base0B}"; # green
-          regular3 = "${clr.base0A}"; # yellow
-          regular4 = "${clr.base0D}"; # blue
-          regular5 = "${clr.base06}"; # pink
-          regular6 = "${clr.base0C}"; # teal
-          regular7 = "${clr.base05}"; # Subtext 1
-          bright0 = "${clr.base04}"; # Surface 2
-          bright1 = "${clr.base08}"; # red
-          bright2 = "${clr.base0B}"; # green
-          bright3 = "${clr.base0A}"; # yellow
-          bright4 = "${clr.base0D}"; # blue
-          bright5 = "${clr.base0E}"; # pink
-          bright6 = "${clr.base0C}"; # teal
-          bright7 = "${clr.base05}"; # Subtext 0
+          foreground = "${builtins.replaceStrings ["#"] [""] clr.base05}"; # Text
+          background = "${builtins.replaceStrings ["#"] [""] clr.base00}"; # Base
+          regular0 = "${builtins.replaceStrings ["#"] [""] clr.base03}"; # Surface 1
+          regular1 = "${builtins.replaceStrings ["#"] [""] clr.base08}"; # red
+          regular2 = "${builtins.replaceStrings ["#"] [""] clr.base0B}"; # green
+          regular3 = "${builtins.replaceStrings ["#"] [""] clr.base0A}"; # yellow
+          regular4 = "${builtins.replaceStrings ["#"] [""] clr.base0D}"; # blue
+          regular5 = "${builtins.replaceStrings ["#"] [""] clr.base06}"; # pink
+          regular6 = "${builtins.replaceStrings ["#"] [""] clr.base0C}"; # teal
+          regular7 = "${builtins.replaceStrings ["#"] [""] clr.base05}"; # Subtext 1
+          bright0 = "${builtins.replaceStrings ["#"] [""] clr.base04}"; # Surface 2
+          bright1 = "${builtins.replaceStrings ["#"] [""] clr.base08}"; # red
+          bright2 = "${builtins.replaceStrings ["#"] [""] clr.base0B}"; # green
+          bright3 = "${builtins.replaceStrings ["#"] [""] clr.base0A}"; # yellow
+          bright4 = "${builtins.replaceStrings ["#"] [""] clr.base0D}"; # blue
+          bright5 = "${builtins.replaceStrings ["#"] [""] clr.base0E}"; # pink
+          bright6 = "${builtins.replaceStrings ["#"] [""] clr.base0C}"; # teal
+          bright7 = "${builtins.replaceStrings ["#"] [""] clr.base05}"; # Subtext 0
         };
       };
     };
