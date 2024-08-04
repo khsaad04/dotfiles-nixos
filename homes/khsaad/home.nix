@@ -51,6 +51,7 @@
     pkgs.android-tools
     pkgs.jdk
     inputs.pollymc.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   news.display = "silent";
