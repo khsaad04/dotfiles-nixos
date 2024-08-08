@@ -1,0 +1,121 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "spacing": 0,
+    "margin": "0 0 0 0",
+    "modules-left": [
+      "custom/power",
+      "hyprland/workspaces",
+      "sway/workspaces",
+      "mpris#player",
+      "mpris#prev",
+      "mpris#status",
+      "mpris#next",
+      "hyprland/window",
+      "sway/window"
+    ],
+    "modules-right": [
+      "network",
+      "pulseaudio",
+      "cpu",
+      "memory",
+      "clock",
+      "tray"
+    ],
+    "custom/power": {
+        "format": "󱄅",
+        "justify": "center",
+        "on-click": "powermenu",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-scroll-up": "hyprctl dispatch workspace e+1"
+    },
+    "mpris#player": {
+        "format": "{player_icon}",
+        "interval": 1,
+        "justify": "center",
+        "player-icons": {
+            "firefox": "󰈹",
+            "spotify": ""
+        },
+        "tooltip-format": "{dynamic}"
+    },
+    "mpris#prev": {
+      "format": "󰒮",
+      "interval": 1,
+      "justify": "center",
+      "on-click": "playerctl previous",
+      "tooltip": false
+    },
+    "mpris#status": {
+      "format": "{status_icon}",
+      "interval": 1,
+      "justify": "center",
+      "on-click": "playerctl play-pause",
+      "status-icons": {
+        "paused": "",
+        "playing": ""
+      },
+      "tooltip": false
+    },
+    "mpris#next": {
+      "format": "󰒭",
+      "interval": 1,
+      "justify": "center",
+      "on-click": "playerctl next",
+      "tooltip": false
+    },
+    "network": {
+      "format-ethernet": "󰈀 {bandwidthTotalBytes}",
+      "format-wifi": "󰖩 {signalStrength}%",
+      "interval": 1,
+      "justify": "center",
+      "tooltip-format": "{essid}",
+      "tooltip-format-disconnected": ""
+    },
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-icons": {
+        "default": [
+          "",
+          "",
+          ""
+        ],
+        "headphone": "󰋋"
+      },
+      "format-muted": "󰝟",
+      "justify": "center",
+      "on-click": "changevolume mute",
+      "on-scroll-down": "changevolume down",
+      "on-scroll-up": "changevolume up",
+      "tooltip": false
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 1,
+        "justify": "center",
+        "tooltip": false
+    },
+    "memory": {
+      "format": " {}%",
+      "interval": 1,
+      "justify": "center"
+    },
+    "clock": {
+      "format": "{:%A, %B %d, %Y (%r)}",
+      "interval": 1,
+      "justify": "center",
+      "tooltip": false,
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "tray": {
+      "icon-size": 12,
+      "justify": "center",
+      "spacing": 5
+    }
+  }
+]

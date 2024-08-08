@@ -1,3 +1,5 @@
+@import "colors.css";
+
 window#waybar,
 tooltip,
 #workspaces,
@@ -16,18 +18,19 @@ tooltip,
 }
 
 window#waybar {
-    color: @fg;
-    background-color: @bg;
+    background-color: @surface;
+    color: @on_surface;
 }
 
 tooltip {
-    background-color: @bg;
-    border: 1px solid @blue;
+    background-color: @surface;
+    color: @on_surface;
+    border: 1px solid @outline;
     border-radius: @radius;
 }
 
 #workspaces {
-    background-color: @widget_bg;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
 }
@@ -42,27 +45,27 @@ tooltip {
 }
 
 #workspaces button.active {
-    background-color: @fg;
+    background-color: @secondary_container;
 }
 
 #workspaces button.focused {
-    background-color: @fg;
+    background-color: @secondary_container;
 }
 
 #workspaces button label {
-    color: @surface2;
+    color: @on_primary;
 }
 
 #workspaces button.active label {
-    color: @bg;
+    color: @on_secondary_container;
 }
 
 #workspaces button.focused label {
-    color: @bg;
+    color: @on_secondary_container;
 }
 
 #mpris {
-    color: @bg;
+    color: @background;
     font-size: 12px;
     margin-top: @spacing;
     margin-bottom: @spacing;
@@ -106,47 +109,47 @@ tooltip {
 }
 
 #network {
-    color: @fg;
-    background-color: @widget_bg;
+    color: @on_primary;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;
 }
 
 #pulseaudio {
-    color: @fg;
-    background-color: @widget_bg;
+    color: @on_primary;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;
 }
 
 #cpu {
-    color: @fg;
-    background-color: @widget_bg;
+    color: @on_primary;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;
 }
 
 #memory {
-    color: @fg;
-    background-color: @widget_bg;
+    color: @on_primary;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;
 }
 
 #clock {
-    color: @fg;
-    background-color: @widget_bg;
+    color: @on_primary;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;
 }
 
 #tray {
-    background-color: @widget_bg;
+    background-color: @secondary_container;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;
@@ -155,8 +158,8 @@ tooltip {
 #custom-power {
     font-size: 12px;
     font-weight: 400;
-    color: @blue;
-    background-color: @widget_bg;
+    color: @on_primary;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;

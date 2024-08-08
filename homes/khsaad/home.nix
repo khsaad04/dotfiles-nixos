@@ -20,7 +20,7 @@
     };
     theming = {
       enable = true;
-      wallpaper = "${../../modules/home-manager/theming/wp.png}";
+      wallpaper = "${../../modules/home-manager/theming/wallpapers/wp.png}";
     };
   };
 

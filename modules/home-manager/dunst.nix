@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.local.services.dunst;
-  clr = config.local.theming.colorPalette;
+  matu = config.programs.matugen.theme.colors.colors.dark;
 in
 {
   options.local.services.dunst.enable = lib.mkEnableOption "Enable dunst configuration";
@@ -22,27 +22,29 @@ in
           offset = "10x10";
           notification_limit = 4;
           frame_width = 0;
-          frame_color = "${clr.base0D}";
+          frame_color = matu.outline;
           corner_radius = 8;
           font = "${config.local.theming.font} 10";
+          icon_path = "${./theming/icons}";
         };
         urgency_low = {
-          background = "${clr.base01}";
-          foreground = "${clr.base05}";
-          highlight = "${clr.base0D}";
+          background = matu.primary;
+          foreground = matu.on_primary;
+          highlight = matu.on_primary;
           timeout = 10;
         };
         urgency_normal = {
-          background = "${clr.base01}";
-          foreground = "${clr.base05}";
-          highlight = "${clr.base0D}";
+          background = matu.primary;
+          foreground = matu.on_primary;
+          highlight = matu.on_primary;
           timeout = 10;
         };
         urgency_critical = {
-          background = "${clr.base08}";
-          foreground = "${clr.base00}";
-          frame_color = "${clr.base00}";
+          background = matu.error;
+          foreground = matu.on_error;
           timeout = 0;
+          # default_icon = "${config.local.theming.icons.package}/share/icons/${config.local.theming.icons.name}/22x22/status/dialog-warning.svg";
+          default_icon = "dialog-warning";
         };
       };
       iconTheme.name = config.local.theming.icons.name;

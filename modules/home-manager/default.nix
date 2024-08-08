@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./lf
     ./nvim
+    ./matugen
     ./scripts.nix
     ./starship.nix
     ./sway.nix

@@ -13,17 +13,18 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = [ pkgs.networkmanagerapplet ];
     wayland.windowManager.sway = {
       inherit (cfg) enable;
       package = pkgs.swayfx;
-      systemd.enable = true;
       checkConfig = false;
       config = {
         defaultWorkspace = "workspace number 1";
         startup = [
           { command = "wl-clipboard &"; }
-          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"; }
+          { command = "nm-applet --indicator &"; }
           { command = "firefox &"; }
+          { command = "${pkgs.autotiling-rs}/bin/autotiling-rs &"; }
         ];
         fonts = {
           names = [ "${config.local.theming.font}" ];
@@ -83,20 +84,10 @@ in
         blur enable
         default_border none
         smart_gaps on
-
-        # Status Bar:
         bar {
-            swaybar_command waybar
+          swaybar_command waybar
         }
       '';
-    };
-
-    systemd.user.services = {
-      autotiling = {
-        Install.WantedBy = [ "graphical-session.target" ];
-        Unit.Description = "Autotiling";
-        Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
-      };
     };
   };
 }

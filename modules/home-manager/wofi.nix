@@ -1,7 +1,7 @@
 { lib, config, ... }:
 let
   cfg = config.local.programs.wofi;
-  clr = config.local.theming.colorPalette;
+  matu = config.programs.matugen.theme.colors.colors.dark;
 in
 {
   options.local.programs.wofi.enable = lib.mkEnableOption "Enable wofi configuration";
@@ -26,14 +26,14 @@ in
             font-family: Symbols Nerd Font Mono, ${config.local.theming.font};
             font-size: 16px;
             font-weight: 500;
-            color: ${clr.base05};
+            color: ${matu.on_background};
         }
 
         #window {
             margin: 0;
-            background: ${clr.base01};
+            background: ${matu.background};
             border-radius: 8px;
-            border: 2px solid ${clr.base0D};
+            border: 2px solid ${matu.primary};
         }
 
         #input {
@@ -61,7 +61,7 @@ in
         }
 
         #entry:selected {
-            background-color: ${clr.base02};
+            background-color: ${matu.surface_container};
         }
 
         #text {

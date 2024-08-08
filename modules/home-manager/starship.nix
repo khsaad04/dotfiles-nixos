@@ -1,7 +1,7 @@
 { lib, config, ... }:
 let
   cfg = config.local.programs.starship;
-  clr = config.local.theming.colorPalette;
+  matu = config.programs.matugen.theme.colors.colors.dark;
 in
 {
   options.local.programs.starship.enable = lib.mkEnableOption "Enable starship configuration";
@@ -11,24 +11,24 @@ in
       enableTransience = true;
       settings = {
         format = lib.concatStrings [
-          "[](fg:${clr.base0D})"
+          "[](fg:${matu.primary})"
           "$username"
-          "[](fg:${clr.base0D} bg:${clr.base03})"
+          "[](fg:${matu.primary} bg:${matu.primary_container})"
           "$directory"
-          "[](fg:${clr.base03})"
+          "[](fg:${matu.primary_container})"
           "$all"
           "$cmd_duration"
           "\n$character"
         ];
         username = {
-          style_user = "bold fg:${clr.base01} bg:${clr.base0D}";
-          style_root = "bold fg:${clr.base0A} bg:${clr.base0D}";
+          style_user = "bold fg:${matu.on_primary} bg:${matu.primary}";
+          style_root = "bold fg:${matu.on_primary} bg:${matu.primary}";
           format = "[$user]($style)";
           show_always = true;
         };
         directory = {
-          style = "bold fg:${clr.base0D} bg:${clr.base03}";
-          read_only_style = "bold fg:${clr.base0D} bg:${clr.base03}";
+          style = "bold fg:${matu.on_primary_container} bg:${matu.primary_container}";
+          read_only_style = "bold fg:${matu.on_primary_container} bg:${matu.primary_container}";
           format = "[[ $path]($style)[$read_only]($read_only_style)](bg:surface1)";
         };
         line_break = {
@@ -40,10 +40,14 @@ in
         git_branch = {
           format = " [$symbol$branch(:$remote_branch)]($style) ";
           symbol = " ";
-          style = "bold ${clr.base0D}";
+          style = "bold ${matu.on_primary_container}";
         };
         cmd_duration = {
           format = " took [$duration]($style)";
+        };
+        character = {
+          success_symbol = "[❯](bold ${matu.primary})";
+          error_symbol = "[❯](bold ${matu.error})";
         };
       };
     };
