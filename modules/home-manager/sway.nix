@@ -13,7 +13,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.networkmanagerapplet ];
+    home.packages = [
+      pkgs.networkmanagerapplet
+      pkgs.wl-clip-persist
+    ];
     wayland.windowManager.sway = {
       inherit (cfg) enable;
       package = pkgs.swayfx;
@@ -22,6 +25,7 @@ in
         defaultWorkspace = "workspace number 1";
         startup = [
           { command = "wl-clipboard &"; }
+          { command = "wl-clip-persist --clipboard regular &"; }
           { command = "nm-applet --indicator &"; }
           { command = "firefox &"; }
           { command = "${pkgs.autotiling-rs}/bin/autotiling-rs &"; }

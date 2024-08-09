@@ -19,6 +19,7 @@ in
       pkgs.swaybg
       pkgs.grimblast
       pkgs.networkmanagerapplet
+      pkgs.wl-clip-persist
     ];
     wayland.windowManager.hyprland = {
       inherit (cfg) enable;
@@ -27,6 +28,7 @@ in
         monitor = , preferred, auto, 1
 
         exec-once = wl-clipboard &
+        exec-once = wl-clip-persist --clipboard regular &
         exec-once = waybar &
         exec-once = nm-applet --indicator &
         exec-once = firefox &
