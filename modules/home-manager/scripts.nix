@@ -1,26 +1,57 @@
 { pkgs, ... }:
 let
   changevolume = pkgs.writeShellScriptBin "changevolume" ''
-    case $1 in
-    up)
-        ${pkgs.pamixer}/bin/pamixer -u
-        ${pkgs.pamixer}/bin/pamixer -i 5 --allow-boost
-        ;;
-    down)
-        ${pkgs.pamixer}/bin/pamixer -u
-        ${pkgs.pamixer}/bin/pamixer -d 5 --allow-boost
-        ;;
-    mute)
-        ${pkgs.pamixer}/bin/pamixer -t
-        ;;
-    esac
+        amount=$2
+        id_output="8052"
+        timeout=2000
+        is_muted_output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '[]')
 
-    volume=$(${pkgs.pamixer}/bin/pamixer --get-volume)
-    if $(${pkgs.pamixer}/bin/pamixer --get-mute); then
-        ${pkgs.dunst}/bin/dunstify -i volume-mute -a "changevolume" -t 2000 -r 9993 -u low "Muted"
-    else
-        ${pkgs.dunst}/bin/dunstify -a "changevolume" -u low -r "9993" -h int:value:"$volume" -i "volume-$1" "Volume: $volume%" -t 2000
-    fi
+        function notification_bar {
+            notify-send -u low -r "$id" -a "$header" -i "$icon" -h int:value:"$volume" "$text" -t $timeout -a "progress"
+        }
+
+        function notification_mute {
+            notify-send "$text" -u low -r $id -a "$header" -i "$icon" -t $timeout -a "progress"
+        }
+
+        case $1 in
+        # Output
+        up)
+    		wpctl set-volume @DEFAULT_AUDIO_SINK@ $amount%+
+            volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
+            header="Output volume"
+            text="Currently at $volume%"
+            icon="vol-up"
+            id=$id_output
+        	notification_bar;;
+
+        down)
+    		wpctl set-volume @DEFAULT_AUDIO_SINK@ $amount%-
+            volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
+            header="Output volume"
+            text="Currently at $volume%"
+            icon="vol-down"
+            id=$id_output
+        	notification_bar;;
+
+        mute)
+            echo $is_muted_output
+            if [ "$is_muted_output" == "[]" ]; then
+                header="Output"
+                text="Unmuted."
+                icon="vol"
+                id=$id_output
+                wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+                notification_mute
+            else
+                header="Output"
+                text="Muted."
+                icon="vol-muted"
+                id=$id_output
+                wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+                notification_mute
+            fi;;
+        esac
   '';
 
   powermenu = pkgs.writeShellScriptBin "powermenu" ''
