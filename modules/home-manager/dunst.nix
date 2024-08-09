@@ -20,7 +20,6 @@ in
           height = 300;
           origin = "top-right";
           offset = "10x10";
-          notification_limit = 4;
           frame_width = 0;
           frame_color = matu.outline;
           corner_radius = 8;
@@ -28,23 +27,21 @@ in
           icon_path = "${./theming/icons}";
         };
         urgency_low = {
-          background = matu.primary;
-          foreground = matu.on_primary;
-          highlight = matu.on_primary;
+          background = matu.surface_container_highest;
+          foreground = matu.primary;
+          highlight = matu.primary;
           timeout = 10;
         };
         urgency_normal = {
-          background = matu.primary;
-          foreground = matu.on_primary;
-          highlight = matu.on_primary;
+          background = matu.surface_container_highest;
+          foreground = matu.primary;
+          highlight = matu.primary;
           timeout = 10;
         };
         urgency_critical = {
           background = matu.error;
           foreground = matu.on_error;
           timeout = 0;
-          # default_icon = "${config.local.theming.icons.package}/share/icons/${config.local.theming.icons.name}/22x22/status/dialog-warning.svg";
-          default_icon = "dialog-warning";
         };
       };
       iconTheme.name = config.local.theming.icons.name;
