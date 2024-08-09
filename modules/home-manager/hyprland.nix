@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  inputs,
   config,
   ...
 }:
@@ -8,6 +9,7 @@ let
   cfg = config.local.DE.hyprland;
 in
 {
+  imports = [ inputs.hyprland.homeManagerModules.default ];
   options.local.DE.hyprland = {
     enable = lib.mkEnableOption "hyprland";
   };
@@ -20,7 +22,6 @@ in
     ];
     wayland.windowManager.hyprland = {
       inherit (cfg) enable;
-      package = pkgs.hyprland;
       extraConfig = ''
 
         monitor = , preferred, auto, 1

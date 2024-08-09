@@ -1,5 +1,6 @@
 {
   lib,
+  inputs,
   pkgs,
   config,
   ...
@@ -15,22 +16,17 @@
     };
     hyprland = {
       enable = lib.mkEnableOption "hyprland";
-      # package = lib.mkPackageOption inputs.hyprland.packages.${pkgs.system} "hyprland" { };
-      package = lib.mkPackageOption pkgs "hyprland" { };
+      package = lib.mkPackageOption inputs.hyprland.packages.${pkgs.system} "hyprland" { };
     };
     sway = {
       enable = lib.mkEnableOption "sway";
       package = lib.mkPackageOption pkgs "swayfx" { };
     };
   };
+  imports = [ inputs.hyprland.nixosModules.default ];
   config = {
     programs = {
-      hyprland = lib.mkIf config.local.DE.hyprland.enable {
-        inherit (config.local.DE.hyprland) enable package;
-        # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland.override {
-        #   hyprland = config.programs.hyprland.finalPackage;
-        # };
-      };
+      hyprland = lib.mkIf config.local.DE.hyprland.enable { inherit (config.local.DE.hyprland) enable; };
       sway = {
         inherit (config.local.DE.sway) enable package;
         extraPackages = [ ];
