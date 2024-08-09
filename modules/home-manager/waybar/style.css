@@ -149,7 +149,7 @@ tooltip {
 }
 
 #tray {
-    background-color: @secondary_container;
+    background-color: @primary;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;

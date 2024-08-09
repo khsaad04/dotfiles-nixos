@@ -87,11 +87,11 @@
         ],
         "headphone": "󰋋"
       },
-      "format-muted": "󰝟",
+      "format-muted": "󰝟 muted",
       "justify": "center",
       "on-click": "changevolume mute",
-      "on-scroll-down": "changevolume down",
-      "on-scroll-up": "changevolume up",
+      "on-scroll-down": "changevolume down 5",
+      "on-scroll-up": "changevolume up 5",
       "tooltip": false
     },
     "cpu": {
