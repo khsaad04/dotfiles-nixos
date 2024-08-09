@@ -32,7 +32,6 @@ in
         exec-once = firefox &
 
         exec = swaybg -i ${config.local.theming.wallpaper} &
-        exec = pkill waybar && waybar
 
         general {
           allow_tearing = true
