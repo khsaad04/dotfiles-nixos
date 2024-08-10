@@ -27,6 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
+    cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   outputs =
