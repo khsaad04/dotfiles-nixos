@@ -41,12 +41,7 @@
       perSystem =
         { pkgs, ... }:
         {
-          devShells.default = pkgs.mkShell {
-            packages = [
-              pkgs.stylua
-              pkgs.home-manager
-            ];
-          };
+          devShells.default = pkgs.mkShell { packages = [ pkgs.home-manager ]; };
           # Took this from https://github.com/gerg-l/nixos :)
           formatter = pkgs.writeShellApplication {
             name = "lint";

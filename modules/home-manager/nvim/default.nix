@@ -35,6 +35,7 @@ in
           gnumake
           lua-language-server
           nil
+          stylua
           ;
       };
     };
