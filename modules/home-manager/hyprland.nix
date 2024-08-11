@@ -76,6 +76,7 @@ in
           force_split = 2
           preserve_split = true
           pseudotile = true
+          no_gaps_when_only = 1
         }
 
         windowrule = workspace 2 silent, ^(firefox)$
