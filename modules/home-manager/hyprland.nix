@@ -36,7 +36,6 @@ in
         exec = swaybg -i ${config.local.theming.wallpaper} &
 
         general {
-          allow_tearing = true
           border_size = 0
           gaps_in = 2
           gaps_out = 2
@@ -82,7 +81,6 @@ in
         windowrule = workspace 2 silent, ^(firefox)$
         windowrule = workspace 3 silent, ^(Spotify)$
         windowrule = workspace 4 silent, ^(discord)$
-        windowrulev2 = immediate, class:^(Minecraft* 1.21)$
 
         #KEYBINDS
 
