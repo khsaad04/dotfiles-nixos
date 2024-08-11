@@ -25,6 +25,8 @@ in
           corner_radius = 8;
           font = "${config.local.theming.font} 10";
           icon_path = "${./theming/icons}";
+          markup = "full";
+          format = ''<b>%a</b>\n<i>%s</i>\n%b'';
         };
         urgency_low = {
           background = matu.surface_container_highest;
