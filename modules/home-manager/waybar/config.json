@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "top",
     "spacing": 0,
-    "margin": "0 0 0 0",
+    "margin": 0,
     "modules-left": [
       "custom/power",
       "hyprland/workspaces",
@@ -12,16 +12,18 @@
       "mpris#prev",
       "mpris#status",
       "mpris#next",
+    ],
+    "modules-center": [
       "hyprland/window",
       "sway/window"
     ],
     "modules-right": [
+      "tray",
       "network",
       "pulseaudio",
       "cpu",
       "memory",
       "clock",
-      "tray"
     ],
     "custom/power": {
         "format": "󱄅",
@@ -33,6 +35,15 @@
         "on-click": "activate",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
         "on-scroll-up": "hyprctl dispatch workspace e+1"
+    },
+    "hyprland/window": {
+        "icon": true,
+        "icon-size": 12,
+    },
+    "sway/window": {
+        "tooltip": false,
+        "icon": true,
+        "icon-size": 12,
     },
     "mpris#player": {
         "format": "{player_icon}",
@@ -110,7 +121,6 @@
       "interval": 1,
       "justify": "center",
       "tooltip": false,
-      "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
     "tray": {
       "icon-size": 12,

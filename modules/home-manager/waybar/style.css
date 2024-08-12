@@ -6,6 +6,7 @@ tooltip,
 #workspaces button,
 #workspaces button label,
 #mpris,
+#window
 #network,
 #pulseaudio,
 #cpu,
@@ -23,8 +24,8 @@ window#waybar {
 }
 
 tooltip {
-    background-color: @surface;
-    color: @on_surface;
+    font-size: 12;
+    font-weight: bold;
     border: 1px solid @outline;
     border-radius: @radius;
 }
@@ -44,10 +45,7 @@ tooltip {
     border: 0;
 }
 
-#workspaces button.active {
-    background-color: @secondary_container;
-}
-
+#workspaces button.active,
 #workspaces button.focused {
     background-color: @secondary_container;
 }
@@ -56,23 +54,20 @@ tooltip {
     color: @on_primary;
 }
 
-#workspaces button.active label {
-    color: @on_secondary_container;
-}
-
+#workspaces button.active label,
 #workspaces button.focused label {
     color: @on_secondary_container;
 }
 
 #mpris {
     color: @background;
-    font-size: 12px;
     margin-top: @spacing;
     margin-bottom: @spacing;
     padding: @padding;
 }
 
 #mpris.player {
+    font-size: 12px;
     margin-right: 0px;
     margin-left: @spacing;
     border-radius: @radius 0 0 @radius;
@@ -105,50 +100,18 @@ tooltip {
 }
 
 #window {
+    font-size: 12;
+    font-weight: bold;
     margin: @margin;
 }
 
-#network {
-    color: @on_primary;
-    background-color: @primary;
-    border-radius: @radius;
-    margin: @margin;
-    padding: @padding;
-}
-
-#pulseaudio {
-    color: @on_primary;
-    background-color: @primary;
-    border-radius: @radius;
-    margin: @margin;
-    padding: @padding;
-}
-
-#cpu {
-    color: @on_primary;
-    background-color: @primary;
-    border-radius: @radius;
-    margin: @margin;
-    padding: @padding;
-}
-
-#memory {
-    color: @on_primary;
-    background-color: @primary;
-    border-radius: @radius;
-    margin: @margin;
-    padding: @padding;
-}
-
-#clock {
-    color: @on_primary;
-    background-color: @primary;
-    border-radius: @radius;
-    margin: @margin;
-    padding: @padding;
-}
-
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#clock,
 #tray {
+    color: @on_primary;
     background-color: @primary;
     border-radius: @radius;
     margin: @margin;
@@ -158,8 +121,8 @@ tooltip {
 #custom-power {
     font-size: 12px;
     font-weight: 400;
-    color: @on_primary;
-    background-color: @primary;
+    color: @on_tertiary_container;
+    background-color: @tertiary_container;
     border-radius: @radius;
     margin: @margin;
     padding: @padding;
