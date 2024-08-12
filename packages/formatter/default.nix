@@ -7,7 +7,7 @@
   fd,
 }:
 writeShellApplication {
-  name = "lint";
+  name = "formatter";
   runtimeInputs = [
     nixfmt-rfc-style
     deadnix

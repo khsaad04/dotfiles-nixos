@@ -52,7 +52,7 @@
     pkgs.jdk
     inputs.pollymc.packages.${pkgs.system}.default
     inputs.quickshell.packages.${pkgs.system}.default
-    inputs.self.packages.${pkgs.system}.lint
+    inputs.self.packages.${pkgs.system}.formatter
   ];
 
   news.display = "silent";

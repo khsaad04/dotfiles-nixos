@@ -1,4 +1,3 @@
 pkgs: {
-  sysinfoprint = pkgs.callPackage ./sysinfoprint { };
-  lint = pkgs.callPackage ./lint { };
+  formatter = pkgs.callPackage ./formatter { };
 }
