@@ -94,9 +94,9 @@ in
     icons = {
       name = mkOption {
         type = str;
-        default = "Papirus";
+        default = "Adwaita";
       };
-      package = mkPackageOption pkgs "papirus-icon-theme" { };
+      package = mkPackageOption pkgs "adwaita-icon-theme" { };
     };
     wallpaper = mkOption {
       type = str;
