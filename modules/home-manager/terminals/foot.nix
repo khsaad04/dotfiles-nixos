@@ -25,7 +25,7 @@ in
           pad = "10x10";
         };
         colors = {
-          alpha = 0.9;
+          alpha = 0.95;
           background = strip matu.surface;
           foreground = strip matu.on_surface;
           regular0 = "${strip clr.base0}"; # Surface 1

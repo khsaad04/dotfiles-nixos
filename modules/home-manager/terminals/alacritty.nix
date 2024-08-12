@@ -24,7 +24,7 @@ in
             x = 8;
             y = 8;
           };
-          opacity = 0.9;
+          opacity = 0.95;
         };
         scrolling = {
           history = 5000;

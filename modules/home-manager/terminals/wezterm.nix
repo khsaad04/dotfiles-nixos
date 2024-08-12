@@ -30,7 +30,7 @@ in
           font_size = 10,
           hide_tab_bar_if_only_one_tab = true,
           window_close_confirmation = "NeverPrompt",
-          window_background_opacity = 0.9,
+          window_background_opacity = 0.95,
           text_background_opacity = 1.0,
           colors = {
             background = '${matu.background}',
