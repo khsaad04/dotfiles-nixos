@@ -26,7 +26,7 @@ in
           font = "${config.local.theming.font} 10";
           icon_path = "${./theming/icons}";
           markup = "full";
-          format = ''<b>%a</b>\n%s'';
+          format = ''<b>%a</b>\n%s <i>%b</i>'';
         };
         urgency_low = {
           background = matu.surface_container_highest;
