@@ -28,7 +28,6 @@ in
         '';
     programs.waybar = {
       inherit (cfg) enable;
-      systemd.enable = true;
     };
   };
 }

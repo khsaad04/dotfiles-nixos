@@ -29,7 +29,7 @@ in
 
         exec-once = wl-clipboard &
         exec-once = wl-clip-persist --clipboard regular &
-        # exec-once = waybar &
+        exec-once = waybar &
         exec-once = nm-applet --indicator &
         exec-once = firefox &
 

@@ -88,9 +88,9 @@ in
         blur enable
         default_border none
         smart_gaps on
-        # bar {
-        #   swaybar_command waybar
-        # }
+        bar {
+          swaybar_command waybar
+        }
       '';
     };
   };
