@@ -42,17 +42,15 @@ in
         }
 
         decoration {
-          blur {
-            enabled = true
-          }
           drop_shadow = false
           rounding = 8
         }
 
         animations {
-          animation = fade, 1, 4, default
           animation = windows, 1, 3, default, popin 80%
-          animation = workspaces, 1, 2, default, slide
+          animation = layers, 1, 3, default
+          animation = fade, 1, 3, default
+          animation = workspaces, 1, 3, default
         }
 
         input {
