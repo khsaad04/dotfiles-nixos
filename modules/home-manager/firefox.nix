@@ -36,6 +36,7 @@ in
         extensions = with config.nur.repos.rycee.firefox-addons; [
           ublock-origin
           vimium
+          adaptive-tab-bar-colour
         ];
         settings = {
           "browser.sessionstore.resume_session" = true;
