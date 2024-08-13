@@ -50,15 +50,9 @@ in
         }
 
         animations {
-          bezier = in, 0.5, 1.2, 0.4, 1
-          bezier = wss, 0.5, 1.15, 0.4, 1
-          bezier = fader, 0.33, 1, 0.68, 1
-          bezier = out, 0, 1, 0.6, 1
-
-          animation = windows, 1, 4, in
-          animation = border, 1, 10, default
-          animation = fade, 1, 7, fader
-          animation = workspaces, 1, 5, wss, slide
+          animation = fade, 1, 4, default
+          animation = windows, 1, 3, default, popin 80%
+          animation = workspaces, 1, 2, default, slide
         }
 
         input {
