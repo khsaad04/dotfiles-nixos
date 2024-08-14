@@ -50,7 +50,6 @@
     pkgs.hyperfine
     pkgs.android-tools
     pkgs.jdk
-    inputs.pollymc.packages.${pkgs.system}.default
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.self.packages.${pkgs.system}.formatter
   ];
