@@ -30,14 +30,14 @@
       imports = [
         ./hosts
         ./homes
+        ./packages
       ];
       systems = [ "x86_64-linux" ];
       perSystem =
         { pkgs, ... }:
         {
-          packages = import ./packages pkgs;
           devShells.default = pkgs.mkShell { packages = [ pkgs.home-manager ]; };
-          formatter = inputs.self.packages.${pkgs.stdenv.system}.lint;
+          inherit (inputs.self.packages.${pkgs.stdenv.system}) formatter;
         };
     };
 }
