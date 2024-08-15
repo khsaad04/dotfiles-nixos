@@ -16,6 +16,9 @@ in
     home.packages = [
       pkgs.networkmanagerapplet
       pkgs.wl-clip-persist
+      pkgs.autotiling-rs
+      pkgs.findutils
+      pkgs.grimblast
     ];
     wayland.windowManager.sway = {
       inherit (cfg) enable;
@@ -28,7 +31,7 @@ in
           { command = "wl-clip-persist --clipboard regular &"; }
           { command = "nm-applet --indicator &"; }
           { command = "firefox &"; }
-          { command = "${pkgs.autotiling-rs}/bin/autotiling-rs &"; }
+          { command = "autotiling-rs &"; }
         ];
         fonts = {
           names = [ "${config.local.theming.font}" ];
@@ -53,7 +56,7 @@ in
         up = "k";
         right = "l";
         terminal = "wezterm";
-        menu = "${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        menu = "wofi -I --show drun | xargs swaymsg exec --";
         input = {
           "type:pointer" = {
             accel_profile = "flat";
@@ -72,8 +75,8 @@ in
             "${modifier}+space" = "exec ${cfg.config.menu}";
             "${modifier}+q" = "kill";
             "${modifier}+x" = "exec powermenu";
-            "Print" = "exec ${pkgs.grimblast}/bin/grimblast --notify copysave";
-            "Shift+Print" = "exec ${pkgs.grimblast}/bin/grimblast --notify copysave area";
+            "Print" = "exec grimblast --notify copysave";
+            "Shift+Print" = "exec grimblast --notify copysave area";
             "XF86AudioRaiseVolume" = "exec changevolume up";
             "XF86AudioLowerVolume" = "exec changevolume down";
             "XF86AudioMute" = "exec changevolume mute";

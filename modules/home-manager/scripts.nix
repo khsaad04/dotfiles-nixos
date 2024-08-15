@@ -57,7 +57,7 @@ let
   powermenu = pkgs.writeShellScriptBin "powermenu" ''
     entries="󰗼 Exit\n Shutdown\n⏾ Suspend\n󰒲 Hibernate\n Reboot"
 
-    selected=$(echo -e $entries|${pkgs.wofi}/bin/wofi --dmenu --cache-file /dev/null | awk '{print tolower($2)}')
+    selected=$(echo -e $entries|wofi --dmenu --cache-file /dev/null | awk '{print tolower($2)}')
 
     case $selected in
         exit)
