@@ -47,14 +47,24 @@ in
       commands = {
         open = ''
           ''${{
-          case $(file --mime-type -Lb $f) in
-          text/*) lf -remote "send $id \$$EDITOR \$fx";;
-          *) for f in $fx; do $OPENER "$f" > /dev/null 2> /dev/null & done;;
-          esac
+            case $(file --mime-type -Lb $f) in
+            text/*) lf -remote "send $id \$$EDITOR \$fx";;
+            *) for f in $fx; do $OPENER "$f" > /dev/null 2> /dev/null & done;;
+            esac
           }}'';
+        delete = ''
+          ''${{
+            set -f
+            printf "$fx\n"
+            printf "delete?[y/n]"
+            read ans
+            [ "$ans" = "y" ] && rm -rf $fx
+          }}
+        '';
       };
       keybindings = {
         "<enter>" = "open";
+        "<delete>" = "delete";
       };
     };
   };
