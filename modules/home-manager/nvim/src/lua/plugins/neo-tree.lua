@@ -14,4 +14,13 @@ return {
       desc = "[?] Find recently opened files",
     },
   },
+  config = function()
+    require("neo-tree").setup({
+      filesystem = {
+        filtered_items = {
+          visible = true,
+        },
+      },
+    })
+  end,
 }
