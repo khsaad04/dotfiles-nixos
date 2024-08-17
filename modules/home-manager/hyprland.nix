@@ -23,6 +23,7 @@ in
     ];
     wayland.windowManager.hyprland = {
       inherit (cfg) enable;
+      systemd.variables = [ "--all" ];
       extraConfig = ''
 
         monitor = , preferred, auto, 1
