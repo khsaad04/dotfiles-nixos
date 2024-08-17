@@ -28,8 +28,8 @@
     { flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./hosts
-        ./homes
+        ./nixos/hosts
+        ./home-manager/profiles
         ./packages
       ];
       systems = [ "x86_64-linux" ];

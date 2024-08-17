@@ -8,10 +8,10 @@ let
       };
       modules = [
         ./${hostName}/configuration.nix
-        ../modules/nixos
         ./${hostName}/hardware-configuration.nix
-        inputs.disko.nixosModules.disko
         ./${hostName}/disko.nix
+        inputs.disko.nixosModules.disko
+        ../.
         { networking.hostName = "${hostName}"; }
       ];
     };

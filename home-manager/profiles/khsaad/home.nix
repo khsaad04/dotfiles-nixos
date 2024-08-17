@@ -1,31 +1,16 @@
 { pkgs, inputs, ... }:
 {
   local = {
-    DE.sway.enable = true;
-    DE.hyprland.enable = true;
-    terminals.wezterm.enable = true;
-    editors.nvim.enable = true;
-    browsers.firefox.enable = true;
-    services.dunst.enable = true;
-    programs = {
-      fish.enable = true;
-      starship.enable = true;
-      lf.enable = true;
-      waybar.enable = true;
-      wofi.enable = true;
-      tmux = {
-        enable = true;
-        tms = true;
-      };
-    };
     theming = {
       enable = true;
-      wallpaper = "${../../modules/home-manager/theming/wallpapers/wp.png}";
+      wallpaper = "${../../theming/wallpapers/wp.png}";
     };
   };
 
   programs = {
     home-manager.enable = true;
+    alacritty.enable = true;
+    foot.enable = true;
     eza = {
       enable = true;
       extraOptions = [
