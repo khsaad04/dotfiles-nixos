@@ -19,12 +19,14 @@ in
     programs.lf = {
       inherit (cfg) enable;
       settings = {
-        preview = true;
         drawbox = true;
         hidden = true;
         icons = true;
-        ignorecase = true;
         sixel = true;
+        incsearch = true;
+        number = true;
+        relativenumber = true;
+        scrolloff = 999;
       };
       previewer =
         let
