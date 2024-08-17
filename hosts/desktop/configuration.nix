@@ -44,6 +44,9 @@
       ;
   };
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "wheel" ];
+
   users = {
     mutableUsers = false;
     defaultUserShell = pkgs.fish;
