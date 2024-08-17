@@ -1,14 +1,6 @@
 { pkgs, ... }:
 {
   local = {
-    bootConfig = {
-      enable = true;
-      plymouth = true;
-    };
-    greetdConfig.enable = true;
-    nixConfig.enable = true;
-    sound.enable = true;
-    fonts.enable = true;
     DE.sway.enable = true;
     DE.hyprland.enable = true;
   };
@@ -46,7 +38,7 @@
   };
 
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "wheel" ];
+  users.extraGroups.vboxusers.members = [ "@wheel" ];
 
   users = {
     mutableUsers = false;
@@ -68,6 +60,8 @@
     info.enable = false;
     nixos.enable = false;
   };
+
+  hardware.graphics.enable = true;
 
   system.stateVersion = "24.05";
 }
