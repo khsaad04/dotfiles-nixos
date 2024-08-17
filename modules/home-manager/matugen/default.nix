@@ -4,12 +4,15 @@
   config,
   ...
 }:
+let
+  matugen_pkg = inputs.matugen.packages.${pkgs.hostPlatform.system}.default;
+in
 {
-  home.packages = [ inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+  home.packages = [ matugen_pkg ];
   imports = [ inputs.matugen.nixosModules.default ];
   programs.matugen = {
     enable = true;
-    package = inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = matugen_pkg;
     inherit (config.local.theming) wallpaper;
     jsonFormat = "hex";
     templates = {
