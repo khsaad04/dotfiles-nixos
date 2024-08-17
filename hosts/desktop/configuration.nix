@@ -17,6 +17,7 @@
     git.enable = true;
     nano.enable = false;
     fish.enable = true;
+    nix-ld.enable = true;
     direnv = {
       enable = true;
       silent = true;
