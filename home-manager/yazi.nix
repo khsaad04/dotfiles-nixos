@@ -6,15 +6,70 @@
     settings = {
       manager = {
         show_hidden = true;
-        sort_by = "extension";
+        show_symlink = false;
+        sort_by = "natural";
       };
     };
   };
+  xdg.configFile."yazi/init.lua".text = ''
+    local type = opts and opts.type or ui.Border.ROUNDED
+    local old_build = Tab.build
+
+    Tab.build = function(self, ...)
+    	local bar = function(c, x, y)
+    		if x <= 0 or x == self._area.w - 1 then
+    			return ui.Bar(ui.Rect.default, ui.Bar.TOP)
+    		end
+
+    		return ui.Bar(
+    			ui.Rect { x = x, y = math.max(0, y), w = ya.clamp(0, self._area.w - x, 1), h = math.min(1, self._area.h) },
+    			ui.Bar.TOP
+    		):symbol(c)
+    	end
+
+    	local c = self._chunks
+    	self._chunks = {
+    		c[1]:padding(ui.Padding.y(1)),
+    		c[2]:padding(ui.Padding(c[1].w > 0 and 0 or 1, c[3].w > 0 and 0 or 1, 1, 1)),
+    		c[3]:padding(ui.Padding.y(1)),
+    	}
+
+    	local style = THEME.manager.border_style
+    	self._base = ya.list_merge(self._base or {}, {
+    		ui.Border(self._area, ui.Border.ALL):type(type):style(style),
+    		ui.Bar(self._chunks[1], ui.Bar.RIGHT):style(style),
+    		ui.Bar(self._chunks[3], ui.Bar.LEFT):style(style),
+
+    		bar("┬", c[1].right - 1, c[1].y),
+    		bar("┴", c[1].right - 1, c[1].bottom - 1),
+    		bar("┬", c[2].right, c[2].y),
+    		bar("┴", c[2].right, c[2].bottom - 1),
+    	})
+
+    	old_build(self, ...)
+    end
+
+    function Status:name()
+        local h = self._tab.current.hovered
+        if not h then
+            return ui.Line {}
+        end
+
+        local linked = ""
+        if h.link_to ~= nil then
+            linked = " -> " .. tostring(h.link_to)
+        end
+        return ui.Line(" " .. h.name .. linked)
+    end
+
+    Header:children_add(function()
+        if ya.target_family() ~= "unix" then
+            return ui.Line {}
+        end
+        return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
+    end, 500, Header.LEFT)
+  '';
   xdg.configFile."yazi/theme.toml".text = ''
-    # vim:fileencoding=utf-8:foldmethod=marker
-
-    # : Manager {{{
-
     [manager]
     cwd = { fg = "#83a598" }
 
@@ -40,14 +95,6 @@
     border_symbol = "│"
     border_style  = { fg = "#665c54" }
 
-    # Highlighting
-    # syntect_theme = "~/.config/yazi/Gruvbox-Dark.tmTheme"
-
-    # : }}}
-
-
-    # : Status {{{
-
     [status]
     separator_open  = ""
     separator_close = ""
@@ -70,41 +117,21 @@
     permissions_x = { fg = "#b8bb26" }
     permissions_s = { fg = "#665c54" }
 
-    # : }}}
-
-
-    # : Input {{{
-
     [input]
     border   = { fg = "#bdae93" }
     title    = {}
     value    = {}
     selected = { reversed = true }
 
-    # : }}}
-
-
-    # : Select {{{
-
     [select]
     border   = { fg = "#504945" }
     active   = { fg = "#fe8019" }
     inactive = {}
 
-    # : }}}
-
-
-    # : Tasks {{{
-
     [tasks]
     border  = { fg = "#504945" }
     title   = {}
     hovered = { underline = true }
-
-    # : }}}
-
-
-    # : Which {{{
 
     [which]
     mask            = { bg = "#3c3836" }
@@ -114,11 +141,6 @@
     separator       = "  "
     separator_style = { fg = "#504945" }
 
-    # : }}}
-
-
-    # : Help {{{
-
     [help]
     on      = { fg = "#fe8019" }
     exec    = { fg = "#83a598" }
@@ -126,13 +148,7 @@
     hovered = { bg = "#504945", bold = true }
     footer  = { fg = "#3c3836", bg = "#a89984" }
 
-    # : }}}
-
-
-    # : File-specific styles {{{
-
     [filetype]
-
     rules = [
         # Images
         { mime = "image/*", fg = "#83a598" },
@@ -154,7 +170,5 @@
         { name = "*", fg = "#a89984" },
         { name = "*/", fg = "#83a598" }
     ]
-
-    # : }}}
   '';
 }
