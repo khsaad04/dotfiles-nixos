@@ -7,7 +7,7 @@
 }:
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
-  home.packages = [
+  home.packages = lib.mkIf config.wayland.windowManager.hyprland.enable [
     pkgs.swaybg
     pkgs.grimblast
     pkgs.networkmanagerapplet

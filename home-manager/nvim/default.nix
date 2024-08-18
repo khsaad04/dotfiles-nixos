@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   programs.neovim = {
     enable = true;
@@ -26,12 +31,14 @@
     };
   };
 
-  xdg.configFile."nvim/lua/plugins/colorscheme.lua".source = "${config.programs.matugen.theme.files}/.config/nvim/lua/plugins/colorscheme.lua";
-  xdg.configFile."nvim/lua/plugins/colorscheme.lua".onChange = ''
-    rm -rf ~/.cache/nvim
-  '';
-  xdg.configFile."nvim" = {
-    source = ./src;
-    recursive = true;
+  xdg.configFile = lib.mkIf config.programs.neovim.enable {
+    "nvim/lua/plugins/colorscheme.lua".source = "${config.programs.matugen.theme.files}/.config/nvim/lua/plugins/colorscheme.lua";
+    "nvim/lua/plugins/colorscheme.lua".onChange = ''
+      rm -rf ~/.cache/nvim
+    '';
+    "nvim" = {
+      source = ./src;
+      recursive = true;
+    };
   };
 }

@@ -1,6 +1,11 @@
-{ pkgs, config, ... }:
 {
-  home.packages = [
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+{
+  home.packages = lib.mkIf config.wayland.windowManager.sway.enable [
     pkgs.networkmanagerapplet
     pkgs.wl-clip-persist
     pkgs.autotiling-rs

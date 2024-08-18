@@ -1,13 +1,18 @@
-{ pkgs, ... }:
 {
-  xdg.configFile."lf/icons".source = ./icons;
-  home.packages = [
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+{
+  xdg.configFile = lib.mkIf config.programs.lf.enable { "lf/icons".source = ./icons; };
+  home.packages = lib.mkIf config.programs.lf.enable [
     pkgs.chafa
     pkgs.file
     pkgs.pistol
   ];
   programs.lf = {
-    enable = true;
+    enable = false;
     settings = {
       drawbox = true;
       hidden = true;

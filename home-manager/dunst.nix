@@ -1,9 +1,14 @@
-{ pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   matu = config.programs.matugen.theme.colors.colors.dark;
 in
 {
-  home.packages = [ pkgs.libnotify ];
+  home.packages = lib.mkIf config.services.dunst.enable [ pkgs.libnotify ];
   services.dunst = {
     enable = true;
     settings = {

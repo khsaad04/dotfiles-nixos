@@ -5,7 +5,7 @@ let
 in
 {
   programs.alacritty = {
-    enable = true;
+    enable = false;
     settings = {
       window = {
         padding = {

@@ -9,8 +9,6 @@
 
   programs = {
     home-manager.enable = true;
-    alacritty.enable = true;
-    foot.enable = true;
     eza = {
       enable = true;
       extraOptions = [
