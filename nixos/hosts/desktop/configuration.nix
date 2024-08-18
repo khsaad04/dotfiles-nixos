@@ -15,6 +15,7 @@
       silent = true;
     };
     command-not-found.enable = false;
+    adb.enable = true;
   };
 
   services = {
@@ -51,6 +52,7 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "adbusers"
       ];
     };
   };

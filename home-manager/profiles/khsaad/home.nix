@@ -31,8 +31,6 @@
     pkgs.nitch
     pkgs.wl-clipboard
     pkgs.hyperfine
-    pkgs.android-tools
-    pkgs.jdk
     pkgs.qbittorrent
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.self.packages.${pkgs.system}.formatter
