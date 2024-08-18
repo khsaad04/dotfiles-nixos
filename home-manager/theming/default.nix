@@ -88,11 +88,11 @@ in
       default = "Iosevka";
     };
     icons = {
-        name = mkOption {
-            type = str;
-            default = "Adwaita";
-        };
-        package = mkPackageOption pkgs "adwaita-icon-theme" { };
+      name = mkOption {
+        type = str;
+        default = "Adwaita";
+      };
+      package = mkPackageOption pkgs "adwaita-icon-theme" { };
     };
     cursor = {
       gtk = mkEnableOption "Enable for gtk apps";
@@ -112,12 +112,12 @@ in
       };
     };
     colorPalette = mkOption {
-        type = attrsOf str;
-        default = colors;
+      type = attrsOf str;
+      default = colors;
     };
     wallpaper = mkOption {
-        type = str;
-        default = "${./wallpapers/wp.png}";
+      type = str;
+      default = "${./wallpapers/wp.png}";
     };
   };
 
