@@ -6,20 +6,24 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nur.url = "github:nix-community/NUR";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     matugen = {
       url = "github:/InioX/Matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    disko = {
-      url = "github:nix-community/disko";
+    yazi = {
+      url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

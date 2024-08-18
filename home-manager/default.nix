@@ -15,5 +15,6 @@
     ./tmux.nix
     ./waybar
     ./wofi.nix
+    ./yazi.nix
   ];
 }
