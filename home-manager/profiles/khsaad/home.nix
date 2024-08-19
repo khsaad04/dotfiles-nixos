@@ -14,14 +14,6 @@
 
   programs = {
     home-manager.enable = true;
-    eza = {
-      enable = true;
-      extraOptions = [
-        "-s"
-        "Ext"
-        "-F"
-      ];
-    };
     obs-studio.enable = true;
     git = {
       enable = true;
