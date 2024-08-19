@@ -7,17 +7,12 @@
 let
   inherit (lib.types)
     int
+    path
     str
     package
     attrsOf
     ;
-  inherit (lib)
-    mkIf
-    mkOption
-    mkEnableOption
-    mkPackageOption
-    ;
-  cfg = config.local.theming;
+  inherit (lib) mkOption mkEnableOption mkPackageOption;
   gencolor = pkgs.writers.writePython3Bin "gencolor" { } ''
     import json
     import sys
@@ -83,29 +78,37 @@ in
 {
   options.local.theming = {
     enable = mkEnableOption "Enable theming options";
-    font = mkOption {
-      type = str;
-      default = "Iosevka";
+    font = {
+      name = mkOption {
+        type = str;
+        default = "Iosevka";
+      };
+      size = mkOption {
+        type = int;
+        default = 10;
+      };
     };
-    icons = {
+    icon = {
       name = mkOption {
         type = str;
         default = "Adwaita";
       };
       package = mkPackageOption pkgs "adwaita-icon-theme" { };
+      extra_path = mkOption {
+        type = path;
+        readOnly = true;
+        default = ./icons;
+      };
     };
     cursor = {
-      gtk = mkEnableOption "Enable for gtk apps";
       name = mkOption {
         type = str;
         default = "Adwaita";
       };
-
       package = mkOption {
         type = package;
         default = pkgs.adwaita-icon-theme;
       };
-
       size = mkOption {
         type = int;
         default = 10;
@@ -119,31 +122,10 @@ in
       type = str;
       default = "${./wallpapers/wp.png}";
     };
-  };
-
-  config = mkIf cfg.enable {
-    home.pointerCursor = {
-      inherit (cfg.cursor) name package size;
-      gtk.enable = cfg.cursor.gtk;
-      x11.enable = true;
+    wallpath = mkOption {
+      type = path;
+      readOnly = true;
+      default = ./wallpapers;
     };
-
-    gtk = {
-      enable = true;
-      font = {
-        name = "${config.local.theming.font}";
-        size = 10;
-      };
-      iconTheme = {
-        inherit (cfg.icons) name package;
-      };
-      theme = {
-        name = "adw-gtk3-dark";
-        package = pkgs.adw-gtk3;
-      };
-      gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-    };
-    xdg.configFile."gtk-3.0/gtk.css".source = "${config.programs.matugen.theme.files}/.config/gtk-3.0/gtk.css";
-    xdg.configFile."gtk-4.0/gtk.css".source = "${config.programs.matugen.theme.files}/.config/gtk-4.0/gtk.css";
   };
 }

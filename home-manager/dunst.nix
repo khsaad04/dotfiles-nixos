@@ -20,8 +20,8 @@ in
         frame_width = 0;
         frame_color = matu.outline;
         corner_radius = 8;
-        font = "${config.local.theming.font} 10";
-        icon_path = "${./theming/icons}";
+        font = "${config.local.theming.font.name} ${toString config.local.theming.font.size}";
+        icon_path = "${config.local.theming.icon.extra_path}";
         markup = "full";
         format = ''<b>%a</b>\n%s <i>%b</i>'';
       };
@@ -43,7 +43,7 @@ in
         timeout = 0;
       };
     };
-    iconTheme.name = config.local.theming.icons.name;
-    iconTheme.package = config.local.theming.icons.package;
+    iconTheme.name = config.local.theming.icon.name;
+    iconTheme.package = config.local.theming.icon.package;
   };
 }

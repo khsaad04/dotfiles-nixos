@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ self, inputs, ... }:
 let
   mkHome =
     homeName:
@@ -10,6 +10,7 @@ let
       modules = [
         ./${homeName}/home.nix
         ../.
+        self.nixosModules.theming
         inputs.nur.hmModules.nur
         {
           home = {

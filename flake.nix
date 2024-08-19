@@ -34,6 +34,7 @@
       imports = [
         ./nixos/hosts
         ./home-manager/profiles
+        ./modules
         ./packages
       ];
       systems = [ "x86_64-linux" ];

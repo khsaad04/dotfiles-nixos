@@ -1,9 +1,14 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 {
   local = {
     theming = {
       enable = true;
-      wallpaper = "${../../theming/wallpapers/wp.png}";
+      wallpaper = "${config.local.theming.wallpath}/wp.png";
     };
   };
 

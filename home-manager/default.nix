@@ -3,6 +3,7 @@
     ./dunst.nix
     ./firefox.nix
     ./fish.nix
+    ./gtk.nix
     ./hyprland.nix
     ./lf
     ./nvim
@@ -11,7 +12,6 @@
     ./starship.nix
     ./sway.nix
     ./terminals
-    ./theming
     ./tmux.nix
     ./waybar
     ./wofi.nix

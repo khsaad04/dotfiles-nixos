@@ -20,7 +20,7 @@ in
     style = ''
       * {
           all: initial;
-          font-family: Symbols Nerd Font Mono, ${config.local.theming.font};
+          font-family: Symbols Nerd Font Mono, ${config.local.theming.font.name};
           font-size: 16px;
           font-weight: 500;
           color: ${matu.on_background};
