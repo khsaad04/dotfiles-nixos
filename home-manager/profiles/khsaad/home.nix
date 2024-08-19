@@ -16,6 +16,8 @@
     zathura.enable = true;
     home-manager.enable = true;
     obs-studio.enable = true;
+    mpv.enable = true;
+    feh.enable = true;
     git = {
       enable = true;
       userName = "khsaad04";
@@ -24,8 +26,6 @@
   };
 
   home.packages = [
-    pkgs.mpv
-    pkgs.feh
     pkgs.nitch
     pkgs.wl-clipboard
     pkgs.hyperfine
