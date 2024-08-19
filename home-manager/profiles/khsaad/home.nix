@@ -13,6 +13,7 @@
   };
 
   programs = {
+    zathura.enable = true;
     home-manager.enable = true;
     obs-studio.enable = true;
     git = {
