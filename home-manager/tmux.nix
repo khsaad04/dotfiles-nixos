@@ -10,11 +10,11 @@ in
   xdg.configFile."tms/config.toml".text = ''
     [[search_dirs]]
     path = "/home/khsaad/ext/code"
-    depth = 3
+    depth = 10
 
     [[search_dirs]]
     path = "/home/khsaad/Documents"
-    depth = 1
+    depth = 10
   '';
   xdg.configFile."tmux/tmux.conf".text = ''
     # Change prefix
