@@ -8,24 +8,8 @@ return {
     config = function()
         require("nvim-treesitter.configs").setup({
             -- Add languages to be installed here that you want installed for treesitter
-            ensure_installed = {
-                "c",
-                "lua",
-                "vim",
-                "vimdoc",
-                "query",
-                "python",
-                "rust",
-                "regex",
-                "markdown",
-                "bash",
-                "markdown_inline",
-                "nix",
-                "zig",
-                "css",
-                "json",
-            },
-            auto_install = false,
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+            auto_install = true,
 
             highlight = {
                 enable = true,
