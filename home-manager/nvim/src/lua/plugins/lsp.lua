@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
+        "tpope/vim-sleuth",
         {
             "j-hui/fidget.nvim",
             opts = {
