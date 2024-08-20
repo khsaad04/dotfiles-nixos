@@ -21,7 +21,6 @@ opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.inccommand = "split"
-opt.signcolumn = "yes:1"
 opt.completeopt = "menuone,noselect"
 opt.termguicolors = true
 opt.cmdheight = 1
