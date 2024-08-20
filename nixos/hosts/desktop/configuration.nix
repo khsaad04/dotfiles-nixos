@@ -10,36 +10,30 @@
     nano.enable = false;
     fish.enable = true;
     nix-ld.enable = true;
+    adb.enable = true;
+    command-not-found.enable = false;
     direnv = {
       enable = true;
       silent = true;
     };
-    command-not-found.enable = false;
-    adb.enable = true;
   };
 
-  services = {
-    xserver.videoDrivers = [ "intel" ];
-    fstrim.enable = true;
-  };
-
+  services.fstrim.enable = true;
+  security.polkit.enable = true;
+  hardware.graphics.enable = true;
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Dhaka";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
-      file
-      xdg-utils
-      vim
-      wget
-      htop
-      ;
-  };
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "@wheel" ];
+  environment.systemPackages = [
+    pkgs.file
+    pkgs.xdg-utils
+    pkgs.vim
+    pkgs.wget
+    pkgs.htop
+    pkgs.qemu
+  ];
 
   users = {
     mutableUsers = false;
@@ -57,13 +51,10 @@
     };
   };
 
-  security.polkit.enable = true;
   documentation = {
     info.enable = false;
     nixos.enable = false;
   };
-
-  hardware.graphics.enable = true;
 
   system.stateVersion = "24.05";
 }
