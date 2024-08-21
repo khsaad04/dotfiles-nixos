@@ -20,6 +20,10 @@ in
         input_path = "${./templates/waybar-colors.css}";
         output_path = "~/.config/waybar/colors.css";
       };
+      quickshell = {
+        input_path = "${./templates/quickshell-colors.qml}";
+        output_path = "~/.config/quickshell/Colors.qml";
+      };
       nvim = {
         input_path = "${./templates/nvim-colors.lua}";
         output_path = "~/.config/nvim/lua/plugins/colorscheme.lua";

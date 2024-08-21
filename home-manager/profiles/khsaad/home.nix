@@ -31,7 +31,6 @@
     pkgs.hyperfine
     pkgs.qbittorrent
     pkgs.pavucontrol
-    inputs.quickshell.packages.${pkgs.system}.default
     inputs.self.packages.${pkgs.system}.formatter
   ];
 

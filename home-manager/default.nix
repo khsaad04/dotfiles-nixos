@@ -9,6 +9,7 @@
     ./lf
     ./nvim
     ./matugen
+    ./quickshell
     ./scripts.nix
     ./starship.nix
     ./sway.nix
