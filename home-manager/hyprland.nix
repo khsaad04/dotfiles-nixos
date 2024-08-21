@@ -22,7 +22,7 @@
 
       exec-once = wl-clipboard &
       exec-once = wl-clip-persist --clipboard regular &
-      exec-once = waybar &
+      exec-once = quickshell &
       exec-once = nm-applet --indicator &
       exec-once = firefox &
 
@@ -95,7 +95,7 @@
       bind=SUPER, V, togglefloating,
       bind=SUPER, F, fullscreen,
       bind=SUPER, SPACE, exec, pkill wofi || wofi -I --show drun
-      bind=SUPER, T, exec, pkill waybar || waybar
+      bind=SUPER, T, exec, pkill quickshell || quickshell
       bind=SUPER, X, exec, pkill wofi || powermenu
       bind=SUPER, P, pseudo, # dwindle
       bind=SUPER, J, togglesplit, # dwindle
