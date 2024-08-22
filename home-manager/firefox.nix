@@ -2,23 +2,6 @@
 {
   programs.firefox = {
     enable = true;
-    policies = {
-      DisableFirefoxStudies = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
-      NoDefaultBookmarks = true;
-      FirefoxHome = {
-        Search = true;
-        Pocket = false;
-        Snippets = false;
-        TopSites = false;
-        Highlights = false;
-      };
-      UserMessaging = {
-        ExtensionRecommendations = false;
-        SkipOnboarding = true;
-      };
-    };
     profiles.${config.home.username} = {
       name = config.home.username;
       isDefault = true;
@@ -31,248 +14,353 @@
         vimium
         adaptive-tab-bar-colour
       ];
-      settings = {
-        "browser.sessionstore.resume_session" = true;
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "ui.key.menuAccessKeyFocuses" = false;
-        "browser.toolbars.bookmarks.visibility" = "never";
-      };
+      extraConfig = ''
+        //
+        /* You may copy+paste this file and use it as it is.
+         *
+         * If you make changes to your about:config while the program is running, the
+         * changes will be overwritten by the user.js when the application restarts.
+         *
+         * To make lasting changes to preferences, you will have to edit the user.js.
+         */
+
+        /****************************************************************************
+         * Betterfox                                                                *
+         * "Ad meliora"                                                             *
+         * version: 129                                                             *
+         * url: https://github.com/yokoffing/Betterfox                              *
+        ****************************************************************************/
+
+        /****************************************************************************
+         * SECTION: FASTFOX                                                         *
+        ****************************************************************************/
+        /** GENERAL ***/
+        user_pref("content.notify.interval", 100000);
+
+        /** GFX ***/
+        user_pref("gfx.canvas.accelerated.cache-items", 4096);
+        user_pref("gfx.canvas.accelerated.cache-size", 512);
+        user_pref("gfx.content.skia-font-cache-size", 20);
+
+        /** DISK CACHE ***/
+        user_pref("browser.cache.jsbc_compression_level", 3);
+
+        /** MEDIA CACHE ***/
+        user_pref("media.memory_cache_max_size", 65536);
+        user_pref("media.cache_readahead_limit", 7200);
+        user_pref("media.cache_resume_threshold", 3600);
+
+        /** IMAGE CACHE ***/
+        user_pref("image.mem.decode_bytes_at_a_time", 32768);
+
+        /** NETWORK ***/
+        user_pref("network.http.max-connections", 1800);
+        user_pref("network.http.max-persistent-connections-per-server", 10);
+        user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
+        user_pref("network.http.pacing.requests.enabled", false);
+        user_pref("network.dnsCacheExpiration", 3600);
+        user_pref("network.ssl_tokens_cache_capacity", 10240);
+
+        /** SPECULATIVE LOADING ***/
+        user_pref("network.dns.disablePrefetch", true);
+        user_pref("network.dns.disablePrefetchFromHTTPS", true);
+        user_pref("network.prefetch-next", false);
+        user_pref("network.predictor.enabled", false);
+        user_pref("network.predictor.enable-prefetch", false);
+
+        /** EXPERIMENTAL ***/
+        user_pref("layout.css.grid-template-masonry-value.enabled", true);
+        user_pref("dom.enable_web_task_scheduling", true);
+        user_pref("dom.security.sanitizer.enabled", true);
+
+        /****************************************************************************
+         * SECTION: SECUREFOX                                                       *
+        ****************************************************************************/
+        /** TRACKING PROTECTION ***/
+        user_pref("browser.contentblocking.category", "strict");
+        user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
+        user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+        user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+        user_pref("browser.download.start_downloads_in_tmp_dir", true);
+        user_pref("browser.helperApps.deleteTempFileOnExit", true);
+        user_pref("browser.uitour.enabled", false);
+        user_pref("privacy.globalprivacycontrol.enabled", true);
+
+        /** OCSP & CERTS / HPKP ***/
+        user_pref("security.OCSP.enabled", 0);
+        user_pref("security.remote_settings.crlite_filters.enabled", true);
+        user_pref("security.pki.crlite_mode", 2);
+
+        /** SSL / TLS ***/
+        user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+        user_pref("browser.xul.error_pages.expert_bad_cert", true);
+        user_pref("security.tls.enable_0rtt_data", false);
+
+        /** DISK AVOIDANCE ***/
+        user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+        user_pref("browser.sessionstore.interval", 60000);
+
+        /** SHUTDOWN & SANITIZING ***/
+        user_pref("privacy.history.custom", true);
+
+        /** SEARCH / URL BAR ***/
+        user_pref("browser.urlbar.trimHttps", true);
+        user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
+        user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
+        user_pref("browser.urlbar.update2.engineAliasRefresh", true);
+        user_pref("browser.search.suggest.enabled", false);
+        user_pref("browser.urlbar.quicksuggest.enabled", false);
+        user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+        user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+        user_pref("browser.urlbar.groupLabels.enabled", false);
+        user_pref("browser.formfill.enable", false);
+        user_pref("security.insecure_connection_text.enabled", true);
+        user_pref("security.insecure_connection_text.pbmode.enabled", true);
+        user_pref("network.IDN_show_punycode", true);
+
+        /** HTTPS-FIRST POLICY ***/
+        user_pref("dom.security.https_first", true);
+
+        /** PASSWORDS ***/
+        user_pref("signon.formlessCapture.enabled", false);
+        user_pref("signon.privateBrowsingCapture.enabled", false);
+        user_pref("network.auth.subresource-http-auth-allow", 1);
+        user_pref("editor.truncate_user_pastes", false);
+
+        /** MIXED CONTENT + CROSS-SITE ***/
+        user_pref("security.mixed_content.block_display_content", true);
+        user_pref("pdfjs.enableScripting", false);
+        user_pref("extensions.postDownloadThirdPartyPrompt", false);
+
+        /** HEADERS / REFERERS ***/
+        user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+        /** CONTAINERS ***/
+        user_pref("privacy.userContext.ui.enabled", true);
+
+        /** WEBRTC ***/
+        user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+        user_pref("media.peerconnection.ice.default_address_only", true);
+
+        /** SAFE BROWSING ***/
+        user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+
+        /** MOZILLA ***/
+        user_pref("permissions.default.desktop-notification", 2);
+        user_pref("permissions.default.geo", 2);
+        user_pref("permissions.manager.defaultsUrl", "");
+        user_pref("webchannel.allowObject.urlWhitelist", "");
+
+        /** TELEMETRY ***/
+        user_pref("datareporting.policy.dataSubmissionEnabled", false);
+        user_pref("datareporting.healthreport.uploadEnabled", false);
+        user_pref("toolkit.telemetry.unified", false);
+        user_pref("toolkit.telemetry.enabled", false);
+        user_pref("toolkit.telemetry.server", "data:,");
+        user_pref("toolkit.telemetry.archive.enabled", false);
+        user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+        user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+        user_pref("toolkit.telemetry.updatePing.enabled", false);
+        user_pref("toolkit.telemetry.bhrPing.enabled", false);
+        user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+        user_pref("toolkit.telemetry.coverage.opt-out", true);
+        user_pref("toolkit.coverage.opt-out", true);
+        user_pref("toolkit.coverage.endpoint.base", "");
+        user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+        user_pref("browser.newtabpage.activity-stream.telemetry", false);
+
+        /** EXPERIMENTS ***/
+        user_pref("app.shield.optoutstudies.enabled", false);
+        user_pref("app.normandy.enabled", false);
+        user_pref("app.normandy.api_url", "");
+
+        /** CRASH REPORTS ***/
+        user_pref("breakpad.reportURL", "");
+        user_pref("browser.tabs.crashReporting.sendReport", false);
+        user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+
+        /** DETECTION ***/
+        user_pref("captivedetect.canonicalURL", "");
+        user_pref("network.captive-portal-service.enabled", false);
+        user_pref("network.connectivity-service.enabled", false);
+
+        /****************************************************************************
+         * SECTION: PESKYFOX                                                        *
+        ****************************************************************************/
+        /** MOZILLA UI ***/
+        user_pref("browser.privatebrowsing.vpnpromourl", "");
+        user_pref("extensions.getAddons.showPane", false);
+        user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+        user_pref("browser.discovery.enabled", false);
+        user_pref("browser.shell.checkDefaultBrowser", false);
+        user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+        user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+        user_pref("browser.preferences.moreFromMozilla", false);
+        user_pref("browser.aboutConfig.showWarning", false);
+        user_pref("browser.aboutwelcome.enabled", false);
+        user_pref("browser.tabs.tabmanager.enabled", false);
+        user_pref("browser.profiles.enabled", true);
+
+        /** THEME ADJUSTMENTS ***/
+        user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+        user_pref("browser.compactmode.show", true);
+        user_pref("browser.display.focus_ring_on_anything", true);
+        user_pref("browser.display.focus_ring_style", 0);
+        user_pref("browser.display.focus_ring_width", 0);
+        user_pref("layout.css.prefers-color-scheme.content-override", 2);
+        user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
+        user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
+
+        /** COOKIE BANNER HANDLING ***/
+        user_pref("cookiebanners.service.mode", 1);
+        user_pref("cookiebanners.service.mode.privateBrowsing", 1);
+
+        /** FULLSCREEN NOTICE ***/
+        user_pref("full-screen-api.transition-duration.enter", "0 0");
+        user_pref("full-screen-api.transition-duration.leave", "0 0");
+        user_pref("full-screen-api.warning.delay", -1);
+        user_pref("full-screen-api.warning.timeout", 0);
+
+        /** URL BAR ***/
+        user_pref("browser.urlbar.suggest.calculator", true);
+        user_pref("browser.urlbar.unitConversion.enabled", true);
+        user_pref("browser.urlbar.trending.featureGate", false);
+
+        /** NEW TAB PAGE ***/
+        user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+        user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+
+        /** POCKET ***/
+        user_pref("extensions.pocket.enabled", false);
+
+        /** DOWNLOADS ***/
+        user_pref("browser.download.manager.addToRecentDocs", false);
+
+        /** PDF ***/
+        user_pref("browser.download.open_pdf_attachments_inline", true);
+
+        /** TAB BEHAVIOR ***/
+        user_pref("browser.bookmarks.openInTabClosesMenu", false);
+        user_pref("browser.menu.showViewImageInfo", true);
+        user_pref("findbar.highlightAll", true);
+        user_pref("layout.word_select.eat_space_to_next_word", false);
+        user_pref("ui.key.menuAccessKeyFocuses", false);
+        user_pref("browser.toolbars.bookmarks.visibility", "never");
+
+        /****************************************************************************
+         * START: MY OVERRIDES                                                      *
+        ****************************************************************************/
+        // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
+        // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
+        // Enter your personal overrides below this line:
+        user_pref("signon.rememberSignons", true);
+        user_pref("permissions.default.desktop-notification", 0);
+        user_pref("browser.search.suggest.enabled", true);
+        user_pref(browser.sessionstore.resume_session", true);
+
+        /****************************************************************************
+         * SECTION: SMOOTHFOX                                                       *
+        ****************************************************************************/
+        // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
+        // Enter your scrolling overrides below this line:
+
+        /****************************************************************************
+         * END: BETTERFOX                                                           *
+        ****************************************************************************/
+      '';
       userChrome = ''
-        /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css made available under Mozilla Public License v. 2.0
+        /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/navbar_tabs_responsive_oneliner.css made available under Mozilla Public License v. 2.0
         See the above repository for updates as well as full license text. */
 
-        /*
-        Creates placeholders for window controls.
-        This is a supporting file used by other stylesheets and is mostly
-        unnecessary if window titlebar is enabled.
+        /* Make tabs and navbar appear side-by-side tabs on right */
 
-        Should preferably be imported before other stylesheets, because some values in this style are deliberately overridden by other styles.
-        */
+        /* Use page_action_buttons_on_hover.css to hide page-action-buttons to save more space for the address */
 
-        /* Modify these values to match your preferences
-        These reserve extra space on both sides of the nav-bar to be able to drag the window */
-        :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-          --uc-window-drag-space-pre: 30px; /* left side*/
-          --uc-window-drag-space-post: 30px; /* right side*/
-        }
+        /* Toolbars will be shown normally if window width goes below the value below */
 
-        :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
-          --uc-window-drag-space-pre: 0px; /* Remove pre space */
-        }
 
-        /* Default width - used on Windows10+ */
-        :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-          --uc-window-control-width: 138px;
-        }
 
-        @media  (-moz-platform: windows-win7),
-                (-moz-platform: windows-win8){
-          :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-            --uc-window-control-width: 105px;
+        /* Modify it to suit your needs */
+        @media screen and (min-width: 1100px){
+          :root[tabsintitlebar][sizemode="normal"]{
+            --uc-window-drag-space-width: 24px;
           }
-        }
-        /* On linux set width based on number of caption buttons.
-        One button */
-        @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
-          :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-            --uc-window-control-width: 28px;
+          :root[uidensity="compact"]{
+            --tab-block-margin: 2px !important;
+            }
+          
+          /* Modify these to change relative widths or default height */
+          #navigator-toolbox{
+            --uc-navigationbar-width: 40vw;
+            --uc-toolbar-height: 40px;
+            --uc-urlbar-min-width: 50vw; /* minimum width for opened urlbar */
           }
-        }
-        /* Two buttons */
-        @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
-               (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
-               (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-          :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-            --uc-window-control-width: 56px;
-          }
-        }
-        /* Three buttons */
-        @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-          :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-            --uc-window-control-width: 84px;
-          }
-        }
 
-        @media (-moz-platform: macos){
-          :root:is([tabsintitlebar]) {
-            --uc-window-control-width: 72px;
-          }
-          :root:is([tabsintitlebar][sizemode="fullscreen"]) {
-            --uc-window-control-width: 0;
-          }
-        }
-
-        .titlebar-buttonbox{ color: var(--toolbar-color) }
-        :root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
-
-        :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child{
-          position: absolute;
-          display: flex;
-          top: 0;
-          right:0;
-          height: 40px;
-        }
-
-        :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child{ height: 32px }
-
-        #nav-bar{
-          border-inline: var(--uc-window-drag-space-pre,0px) solid transparent;
-          border-inline-style: solid !important;
-          border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
-          background-clip: border-box !important;
-        }
-
-        /* Rules for window controls on left layout */
-        @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
-               (-moz-gtk-csd-reversed-placement),
-               (-moz-platform: macos){
-          :root[tabsintitlebar="true"] #nav-bar{
-            border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
-          }
-          :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child{ right: unset }
-        }
-        @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"){
-          .titlebar-buttonbox-container{
-            order: -1 !important;
-          }
-          .titlebar-buttonbox{
-            flex-direction: row-reverse;
-          }
-        }
-
-        /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/navbar_tabs_oneliner_menu_buttons_on_right.css made available under Mozilla Public License v. 2.0
-        See the above repository for updates as well as full license text. */
-
-        /* Variation of oneliner where menubutton and overflow button are next to window controls (if window controls are on right side) */
-
-        /* IMPORTANT */
-        /*
-        Get window_control_placeholder_support.css
-        Window controls will be all wrong without it
-        */
-
-        :root[uidensity="compact"]{
-          --tab-block-margin: 2px !important;
-        }
-
-        /* Modify these to change relative widths or default height */
-        #navigator-toolbox{
-          --uc-navigationbar-width: 50vw;
-          --uc-toolbar-height: 40px;
-        }
-
-        #scrollbutton-up,
-        #scrollbutton-down{ border-block-width: 2px !important; }
-
-        /* reserved space for overflow + menu buttons */
-        #navigator-toolbox{
-          --uc-buttons-width: calc(64px + 5 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
-        }
-        #nav-bar:not([nonemptyoverflow]) > #nav-bar-customization-target{ 
-          --uc-buttons-width: calc(32px + 4 * var(--toolbarbutton-outer-padding) + 6px)
-        }
-        /* Override for other densities */
-        :root[uidensity="compact"] #navigator-toolbox{
-          --uc-toolbar-height: 34px;
-          --uc-menubutton-padding: 0px;
-        }
-        :root[uidensity="touch"] #navigator-toolbox{
-          --uc-toolbar-height: 44px;
-        }
-
-        :root[uidensity="compact"] #urlbar-container{
-          --urlbar-container-height: var(--uc-toolbar-height) !important;
-          padding-block: 0 !important;
-        }
-        :root[uidensity="compact"] #urlbar{
-          --urlbar-container-height: var(--uc-toolbar-height) !important;
-        }
-
+          #scrollbutton-up,
+          #scrollbutton-down{ border-block-width: 2px !important; }
+          
         /* prevent urlbar overflow on narrow windows */
         /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
-        @media screen and (max-width: 1000px){
-          #urlbar-container{
-            min-width: 300px !important;
-            flex-shrink: 1 !important;
+          @media screen and (max-width: 1500px){
+            #urlbar-container{
+              min-width: 300px !important;
+              flex-shrink: 1 !important;
+            }
           }
-        }
 
-        #TabsToolbar{
-          margin-left: var(--uc-navigationbar-width);
-          --tabs-navbar-shadow-size: 0px;
-          color: var(--toolbar-color);
-        }
+          /* Override for other densities */
+          :root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 34px; }
+          :root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 44px; }
 
-        #tabbrowser-tabs{
+          #TabsToolbar{
+            margin-left: var(--uc-navigationbar-width);
+            --tabs-navbar-shadow-size: 0px;
+          }
+          #tabbrowser-tabs{
           --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;
         }
-        /* Need to set background color for selected tab so it can be distinguished from background */
-        #TabsToolbar .tab-background[selected]{
-          background: var(--lwt-selected-tab-background-color,rgba(0,0,0,0.2)) !important;
-        }
-
-        #TabsToolbar[brighttext] .tab-background[selected]{
-          background: var(--lwt-selected-tab-background-color,rgba(255,255,255,0.2)) !important;
-        }
-
-        /* This isn't useful when tabs start in the middle of the window */
-        .titlebar-spacer[type="pre-tabs"]{ width:8px !important}
-        #nav-bar{ margin-top: calc(0px - var(--uc-toolbar-height)); }
-
-        #nav-bar-customization-target{ padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)) }
-
-        /* Rules specific to window controls on left layout */
-        @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
-               (-moz-platform: macos),
-               (-moz-gtk-csd-reversed-placement){
-          .titlebar-buttonbox-container{ position: fixed; display: block; left: 0px; z-index: 3; }
-          #nav-bar-customization-target{
-            padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-buttons-width) - var(--uc-window-drag-space-pre))
+          
+          /* This isn't useful when tabs start in the middle of the window */
+          .titlebar-spacer[type="pre-tabs"]{ display: none }
+          
+          #navigator-toolbox > #nav-bar{
+            margin-right:calc(100vw - var(--uc-navigationbar-width));
+            margin-top: calc(0px - var(--uc-toolbar-height));
           }
-        }
 
-        #titlebar{
-          opacity: 1 !important;
-          will-change: unset !important;
-          transition: none !important;
-        }
+          /* Window drag space  */
+          :root[tabsintitlebar="true"] #nav-bar{ padding-left: var(--uc-window-drag-space-width) !important }
 
-        :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container,
-        #TabsToolbar > .toolbar-items{
-          position: relative !important;
-          z-index: 2
-        }
+          /* Rules for window controls on left layout */
 
-        :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-spacer[type="post-tabs"]{
-          display: flex !important;
-        }
+          @media (-moz-gtk-csd-reversed-placement),
+                 (-moz-platform: macos){
+            .titlebar-buttonbox-container{
+              position: fixed;
+              display: flex;
+              left: 0px;
+              z-index: 3;
+              height: var(--uc-toolbar-height);
+              align-items: center
+            }
+            :root[tabsintitlebar="true"] #nav-bar{ padding-inline: calc(var(--uc-window-drag-space-width,0px) + 84px) 0px !important; }
+          }
+          @media (-moz-platform: macos){
+            :root[tabsintitlebar="true"] #nav-bar{ padding-inline: calc(var(--uc-window-drag-space-width,0px) + 72px) 0px !important; }
+          }
 
-        .titlebar-spacer[type="post-tabs"]{
-          width: calc(var(--uc-buttons-width) + var(--uc-window-drag-space-post)) !important;
-        }
-        :root[privatebrowsingmode="temporary"] .titlebar-spacer[type="post-tabs"]{
-          width: var(--uc-buttons-width) !important
-        }
+          /* 1px margin on touch density causes tabs to be too high */
+          .tab-close-button{ margin-top: 0 !important }
 
-        #PanelUI-button,#nav-bar-overflow-button{
-          margin: 0px !important;
-          border: 0px !important;
-          position: relative;
-          z-index: 3;
-        }
-        /* 1px margin on touch density causes tabs to be too high */
-        .tab-close-button{ margin-top: 0 !important }
+          /* Make opened urlbar overlay the toolbar */
+          #urlbar[open]:focus-within{ min-width: var(--uc-urlbar-min-width,none) !important; }
 
-        /* Hide dropdown placeholder */
-        #urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
-      '';
-      userContent = ''
-        @-moz-document url-prefix("about:newtab"),
-            url-prefix("about:home") {
-                /*Hides the cog button to customize the new tab*/
-                [data-l10n-id="newtab-personalize-icon-label"] {
-        display: none !important;
-                }
+          /* Hide dropdown placeholder */
+          #urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
+          
+        }
+        /* Fix customization view */
+        #customization-panelWrapper > .panel-arrowbox > .panel-arrow{ margin-inline-end: initial !important; }
       '';
     };
   };
