@@ -18,7 +18,7 @@ Widget {
         acceptedButtons: Qt.NoButton;
         onWheel: event => {
             event.accepted = true;
-            const step = event.angleDelta.y / 240;
+            const step = -Math.sign(event.angleDelta.y);
             const targetWs = currentIndex + step;
 
             if (targetWs >= baseIndex && targetWs < baseIndex + wsCount) {
