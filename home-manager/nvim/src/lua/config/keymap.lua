@@ -32,5 +32,5 @@ map("v", "<A-j>", ":m '>+1<cr>gv=gv")
 map("v", "<A-k>", ":m '<-2<cr>gv=gv")
 
 -- greatest remap ever
-map("x", "<leader>p", [["_dp]], { silent = true })
-map("x", "<leader>P", [["_dP]], { silent = true })
+map("x", "p", [["_dp]], { silent = true })
+map("x", "P", [["_dP]], { silent = true })
