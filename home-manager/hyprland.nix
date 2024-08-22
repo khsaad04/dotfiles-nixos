@@ -59,15 +59,11 @@
       }
 
       dwindle {
-        force_split = 2
-        preserve_split = true
         pseudotile = true
         no_gaps_when_only = 1
       }
 
       windowrule = workspace 2 silent, ^(firefox)$
-      windowrule = workspace 3 silent, ^(Spotify)$
-      windowrule = workspace 4 silent, ^(discord)$
 
       #KEYBINDS
 
