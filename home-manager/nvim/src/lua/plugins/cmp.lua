@@ -21,7 +21,6 @@ return {
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
-                    vim.snippet.expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -55,11 +54,9 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
-                { name = "luasnip" },
-            }, {
                 { name = "buffer" },
-            }, {
                 { name = "path" },
+                { name = "luasnip" },
             }),
         })
         cmp.setup.cmdline({ "/", "?" }, {
@@ -72,7 +69,6 @@ return {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
                 { name = "path" },
-            }, {
                 { name = "cmdline" },
             }),
             matching = { disallow_symbol_nonprefix_matching = false },
