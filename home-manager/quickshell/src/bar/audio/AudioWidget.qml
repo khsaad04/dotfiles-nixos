@@ -7,7 +7,7 @@ import "root:/bar"
 Widget {
     PwNodeLinkTracker {
         id: linkTracker;
-        node: Pipewire.defaultAudioSource;
+        node: Pipewire.defaultAudioSink;
     }
     PwObjectTracker { objects: [ linkTracker.node ]; }
     text: " " + `${Math.floor(linkTracker.node.audio.volume * 100)}%`;
