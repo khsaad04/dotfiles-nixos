@@ -7,7 +7,9 @@
 }:
 {
   imports = [ inputs.matugen.nixosModules.default ];
-  home.packages = lib.mkIf config.programs.matugen.enable [ inputs.matugen.packages.${pkgs.hostPlatform.system}.default ];
+  home.packages = lib.mkIf config.programs.matugen.enable [
+    inputs.matugen.packages.${pkgs.hostPlatform.system}.default
+  ];
   programs.matugen = {
     inherit (config.local.theming) wallpaper;
     jsonFormat = "hex";

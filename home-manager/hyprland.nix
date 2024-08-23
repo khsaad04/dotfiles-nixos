@@ -40,10 +40,10 @@
       }
 
       animations {
-        animation = windows, 1, 3, default, popin 80%
-        animation = layers, 1, 3, default
-        animation = fade, 1, 3, default
-        animation = workspaces, 1, 3, default
+        animation = windows, 1, 2, default, popin 80%
+        animation = layers, 1, 2, default
+        animation = fade, 1, 2, default
+        animation = workspaces, 1, 2, default
       }
 
       input {

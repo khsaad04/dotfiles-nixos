@@ -8,13 +8,13 @@ in
     settings = {
       window = {
         padding = {
-          x = 8;
-          y = 8;
+          x = 4;
+          y = 4;
         };
         opacity = 0.95;
       };
       scrolling = {
-        history = 5000;
+        history = 10000;
         multiplier = 3;
       };
       font = {
@@ -34,7 +34,7 @@ in
           family = "Iosevka";
           style = "BoldItalic";
         };
-        size = 10;
+        inherit (config.local.theming.font) size;
       };
       colors = {
         primary = {
@@ -44,30 +44,6 @@ in
         cursor = {
           text = matu.surface_variant;
           cursor = matu.on_surface_variant;
-        };
-        vi_mode_cursor = {
-          text = matu.background;
-          cursor = matu.primary;
-        };
-        search.matches = {
-          background = matu.tertiary;
-          foreground = matu.surface_variant;
-        };
-        search.focused_match = {
-          background = matu.primary;
-          foreground = matu.surface_variant;
-        };
-        footer_bar = {
-          background = matu.inverse_surface;
-          foreground = matu.surface_variant;
-        };
-        hints.start = {
-          background = matu.secondary;
-          foreground = matu.surface_variant;
-        };
-        hints.end = {
-          background = matu.secondary;
-          foreground = matu.surface_variant;
         };
         selection = {
           text = matu.background;
