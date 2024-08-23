@@ -17,6 +17,7 @@
     matugen.enable = true;
     neovim.enable = true;
     foot.enable = true;
+    kitty.enable = true;
     waybar.enable = true;
     eza.enable = true;
     firefox.enable = true;
