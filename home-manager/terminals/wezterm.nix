@@ -8,11 +8,9 @@ in
     enable = true;
     extraConfig = ''
       return {
+        front_end = "WebGpu",
         font = wezterm.font_with_fallback({
-          {
-            family = "${config.local.theming.font.name}",
-            harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-          },
+          "${config.local.theming.font.name}",
           "Symbols Nerd Font",
         }),
         font_size = ${toString config.local.theming.font.size},
