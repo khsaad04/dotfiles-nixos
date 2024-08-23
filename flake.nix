@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     matugen = {
-      url = "github:/InioX/Matugen";
+      url = "github:/InioX/Matugen?ref=b6c167614a341976d922d8dfa30096889a993137";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yazi = {
