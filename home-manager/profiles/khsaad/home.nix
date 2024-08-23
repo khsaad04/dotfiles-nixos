@@ -26,9 +26,7 @@
   };
 
   home.packages = [
-    pkgs.nitch
     pkgs.wl-clipboard
-    pkgs.hyperfine
     pkgs.qbittorrent
     pkgs.pavucontrol
     inputs.self.packages.${pkgs.system}.formatter
