@@ -12,6 +12,7 @@
     };
   };
   wayland.windowManager.hyprland.enable = true;
+  gtk.enable = true;
   programs = {
     matugen.enable = true;
     neovim.enable = true;
@@ -20,7 +21,6 @@
     eza.enable = true;
     firefox.enable = true;
     fish.enable = true;
-    gtk.enable = true;
     starship.enable = true;
     wofi.enable = true;
     yazi.enable = true;
