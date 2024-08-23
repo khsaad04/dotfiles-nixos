@@ -14,7 +14,6 @@
     pkgs.wl-clip-persist
   ];
   wayland.windowManager.hyprland = {
-    enable = true;
     systemd.variables = [ "--all" ];
     extraConfig = ''
 

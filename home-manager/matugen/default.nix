@@ -1,14 +1,14 @@
 {
+  lib,
   pkgs,
   inputs,
   config,
   ...
 }:
 {
-  home.packages = [ inputs.matugen.packages.${pkgs.hostPlatform.system}.default ];
   imports = [ inputs.matugen.nixosModules.default ];
+  home.packages = lib.mkIf config.programs.matugen.enable [ inputs.matugen.packages.${pkgs.hostPlatform.system}.default ];
   programs.matugen = {
-    enable = true;
     inherit (config.local.theming) wallpaper;
     jsonFormat = "hex";
     templates = {

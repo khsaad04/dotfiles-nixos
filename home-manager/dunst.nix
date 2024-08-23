@@ -10,7 +10,6 @@ in
 {
   home.packages = lib.mkIf config.services.dunst.enable [ pkgs.libnotify ];
   services.dunst = {
-    enable = true;
     settings = {
       global = {
         width = 300;

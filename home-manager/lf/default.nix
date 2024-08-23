@@ -12,7 +12,6 @@
     pkgs.pistol
   ];
   programs.lf = {
-    enable = false;
     settings = {
       drawbox = true;
       hidden = true;

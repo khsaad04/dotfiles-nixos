@@ -1,7 +1,6 @@
 { config, ... }:
 {
   programs.firefox = {
-    enable = true;
     profiles.${config.home.username} = {
       name = config.home.username;
       isDefault = true;

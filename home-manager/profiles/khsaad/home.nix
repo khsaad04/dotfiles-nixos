@@ -11,8 +11,19 @@
       wallpaper = "${config.local.theming.wallpath}/wp.png";
     };
   };
-
+  wayland.windowManager.hyprland.enable = true;
   programs = {
+    matugen.enable = true;
+    neovim.enable = true;
+    foot.enable = true;
+    waybar.enable = true;
+    eza.enable = true;
+    firefox.enable = true;
+    fish.enable = true;
+    gtk.enable = true;
+    starship.enable = true;
+    wofi.enable = true;
+    yazi.enable = true;
     zathura.enable = true;
     home-manager.enable = true;
     obs-studio.enable = true;
@@ -23,6 +34,10 @@
       userName = "khsaad04";
       userEmail = "khsaad0404@gmail.com";
     };
+  };
+
+  services = {
+    dunst.enable = true;
   };
 
   home.packages = [

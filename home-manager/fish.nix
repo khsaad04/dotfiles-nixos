@@ -1,6 +1,5 @@
 _: {
   programs.fish = {
-    enable = true;
     shellAliases = {
       t = "tmux attach || tmux new-session -s main tms";
       l = "ls -la";

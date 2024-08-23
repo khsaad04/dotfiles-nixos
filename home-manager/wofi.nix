@@ -4,7 +4,6 @@ let
 in
 {
   programs.wofi = {
-    enable = true;
     settings = {
       show = "drun";
       prompt = " Search...";

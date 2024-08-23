@@ -6,7 +6,6 @@ let
 in
 {
   programs.foot = {
-    enable = false;
     settings = {
       main = {
         font = "${config.local.theming.font.name}:size=${toString config.local.theming.font.size},Symbols Nerd Font";
