@@ -26,7 +26,9 @@
   imports = [ inputs.hyprland.nixosModules.default ];
   config = {
     programs = {
-      hyprland = lib.mkIf config.local.DE.hyprland.enable { inherit (config.local.DE.hyprland) enable; };
+      hyprland = {
+        inherit (config.local.DE.hyprland) enable;
+      };
       sway = {
         inherit (config.local.DE.sway) enable package;
         extraPackages = [ ];
