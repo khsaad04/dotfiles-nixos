@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   local = {
-    DE.sway.enable = true;
     DE.hyprland.enable = true;
   };
 
