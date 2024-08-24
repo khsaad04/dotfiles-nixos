@@ -2,7 +2,7 @@
   imports = [
     ./dunst.nix
     ./eza.nix
-    ./firefox.nix
+    ./firefox
     ./fish.nix
     ./gtk.nix
     ./hyprland.nix
