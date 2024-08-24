@@ -117,7 +117,7 @@
       "justify": "center"
     },
     "clock": {
-      "format": "{:%A, %B %d, %Y (%r)}",
+      "format": "󰥔 {:%a, %b %d, %I:%M %p}",
       "interval": 1,
       "justify": "center",
       "tooltip": false,
