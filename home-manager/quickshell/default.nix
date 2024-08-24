@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   inputs,
@@ -20,10 +21,13 @@ let
   '';
 in
 {
-  home.packages = [ inputs.quickshell.packages.${pkgs.system}.default ];
-  xdg.configFile."quickshell" = {
-    inherit onChange;
-    source = "${configs}";
-    recursive = true;
+  options.programs.quickshell.enable = lib.mkEnableOption "Enable Quickshell";
+  config = lib.mkIf config.programs.quickshell.enable {
+    home.packages = [ inputs.quickshell.packages.${pkgs.system}.default ];
+    xdg.configFile."quickshell" = {
+      inherit onChange;
+      source = "${configs}";
+      recursive = true;
+    };
   };
 }
