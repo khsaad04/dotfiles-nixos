@@ -58,6 +58,8 @@
       }
 
       dwindle {
+        force_split = 2
+        preserve_split = true
         pseudotile = true
         no_gaps_when_only = 1
       }
