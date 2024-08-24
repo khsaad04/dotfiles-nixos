@@ -1,3 +1,3 @@
 return {
-    "tpope/vim-sleuth", -- Automatically detect and change indent size
+    { "tpope/vim-sleuth", event = "VeryLazy" }, -- Automatically detect and change indent size
 }

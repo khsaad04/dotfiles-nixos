@@ -3,6 +3,7 @@ return {
     dependencies = {
         {
             "j-hui/fidget.nvim",
+            event = "VeryLazy",
             opts = {
                 notification = {
                     window = {
