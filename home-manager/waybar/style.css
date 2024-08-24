@@ -78,7 +78,7 @@ tooltip {
 }
 
 #mpris.prev {
-  font-size: 9px;
+  font-size: 12px;
   margin-right: 0px;
   border-radius: 0;
 }
@@ -90,7 +90,7 @@ tooltip {
 }
 
 #mpris.next {
-  font-size: 9px;
+  font-size: 12px;
   border-radius: 0 @radius @radius 0;
   margin-right: @spacing;
 }
