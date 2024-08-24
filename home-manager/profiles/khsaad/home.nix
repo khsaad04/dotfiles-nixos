@@ -11,21 +11,24 @@
       wallpaper = "${config.local.theming.wallpath}/wp.png";
     };
   };
+
   wayland.windowManager.hyprland.enable = true;
   gtk.enable = true;
   programs = {
-    matugen.enable = true;
-    neovim.enable = true;
-    foot.enable = true;
-    kitty.enable = true;
-    waybar.enable = true;
     eza.enable = true;
     firefox.enable = true;
     fish.enable = true;
+    foot.enable = true;
+    kitty.enable = true;
+    neovim.enable = true;
+    matugen.enable = true;
     starship.enable = true;
+    tmux'.enable = true;
+    waybar.enable = true;
     wofi.enable = true;
     yazi.enable = true;
     zathura.enable = true;
+
     home-manager.enable = true;
     obs-studio.enable = true;
     mpv.enable = true;
