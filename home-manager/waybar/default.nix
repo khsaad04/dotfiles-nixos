@@ -11,9 +11,9 @@ let
   css_vars = {
     "@font" = config.local.theming.font.name;
     "@radius" = "2px";
-    "@padding" = "0px 4px";
-    "@spacing" = "2px";
-    "@margin" = "2px 2px";
+    "@padding" = "0px 3px";
+    "@spacing" = "3px";
+    "@margin" = "3px 3px";
   };
   onChange = ''
     ${pkgs.procps}/bin/pgrep waybar && ${
