@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   local = {
-    DE.hyprland.enable = true;
+    DE = {
+      hyprland.enable = true;
+      defaultSession = "Hyprland";
+    };
   };
 
   programs = {
