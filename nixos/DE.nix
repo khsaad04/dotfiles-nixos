@@ -16,7 +16,6 @@
     };
     hyprland = {
       enable = lib.mkEnableOption "hyprland";
-      package = lib.mkPackageOption inputs.hyprland.packages.${pkgs.system} "hyprland" { };
     };
     sway = {
       enable = lib.mkEnableOption "sway";
@@ -31,7 +30,7 @@
       };
       sway = {
         inherit (config.local.DE.sway) enable package;
-        extraPackages = [ ];
+        extraPackages = lib.mkForce [ ];
       };
     };
   };
