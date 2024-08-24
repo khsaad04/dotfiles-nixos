@@ -17,8 +17,9 @@ return {
             lua = { "stylua" },
             python = { "black", "isort" },
             c = { "clang-format" },
-            -- Use a sub-list to run only the first available formatter
-            -- javascript = { { "prettierd", "prettier" } },
+            html = { "prettierd" },
+            javascript = { "prettierd" },
+            css = { "prettierd" },
         },
     },
 }

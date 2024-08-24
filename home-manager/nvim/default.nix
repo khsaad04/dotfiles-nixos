@@ -24,6 +24,7 @@
         lua-language-server
         nil
         stylua
+        prettierd
         ;
     };
   };
