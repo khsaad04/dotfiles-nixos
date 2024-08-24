@@ -19,6 +19,7 @@ in
       window_margin_width = 4;
       placement_strategy = "center";
       confirm_os_window_close = 0;
+      disable_ligatures = "always";
 
       background_opacity = "0.95";
       background = matu.surface;
