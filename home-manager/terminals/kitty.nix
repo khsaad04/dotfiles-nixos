@@ -9,6 +9,11 @@ in
       name = "${config.local.theming.font.name}";
       inherit (config.local.theming.font) size;
     };
+    shellIntegration = {
+      enableFishIntegration = false;
+      enableBashIntegration = false;
+      enableZshIntegration = false;
+    };
 
     settings = {
       window_margin_width = 4;
