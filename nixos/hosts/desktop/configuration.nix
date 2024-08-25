@@ -29,12 +29,13 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.systemPackages = [
-    pkgs.file
     pkgs.xdg-utils
     pkgs.vim
     pkgs.wget
-    pkgs.htop
     pkgs.qemu
+    pkgs.file
+    pkgs.fd
+    pkgs.ripgrep
   ];
 
   users = {
