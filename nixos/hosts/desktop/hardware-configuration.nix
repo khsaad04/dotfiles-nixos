@@ -10,10 +10,22 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/NIXOS";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/EFI";
+    fsType = "vfat";
+  };
+
   fileSystems."/home/khsaad/ext" = {
     device = "/dev/disk/by-label/EXT";
     fsType = "ext4";
   };
+
+  swapDevices = [ { device = "/dev/disk/by-label/SWAP"; } ];
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"

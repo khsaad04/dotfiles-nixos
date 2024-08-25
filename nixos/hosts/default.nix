@@ -9,8 +9,6 @@ let
       modules = [
         ./${hostName}/configuration.nix
         ./${hostName}/hardware-configuration.nix
-        ./${hostName}/disko.nix
-        inputs.disko.nixosModules.disko
         ../.
         { networking.hostName = "${hostName}"; }
       ];
