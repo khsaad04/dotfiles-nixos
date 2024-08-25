@@ -37,6 +37,12 @@
       decoration {
         drop_shadow = false
         rounding = 8
+        blur {
+          contrast = 1.0
+          brightness = 1.0
+          vibrancy = 0.2
+          vibrancy_darkness = 0.5
+        }
       }
 
       animations {
