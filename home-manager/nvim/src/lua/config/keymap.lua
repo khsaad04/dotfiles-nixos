@@ -8,12 +8,6 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
--- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>")
-map("n", "<C-Down>", "<cmd>resize -2<cr>")
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
-
 -- Clear highlights on search
 map({ "n", "v" }, "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear highlights on search" })
 

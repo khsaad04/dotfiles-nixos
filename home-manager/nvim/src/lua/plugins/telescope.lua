@@ -3,14 +3,6 @@ return {
     branch = "0.1.x",
     keys = {
         {
-            "<leader>?",
-            function()
-                require("telescope.builtin").oldfiles()
-            end,
-            mode = "n",
-            desc = "[?] Find recently opened files",
-        },
-        {
             "<leader><space>",
             function()
                 require("telescope.builtin").buffers()
@@ -28,14 +20,6 @@ return {
             end,
             mode = "n",
             desc = "[/] Fuzzily search in current buffer",
-        },
-        {
-            "<leader>gf",
-            function()
-                require("telescope.builtin").git_files()
-            end,
-            mode = "n",
-            desc = "Search [G]it [F]iles",
         },
         {
             "<leader>sf",
@@ -68,14 +52,6 @@ return {
             end,
             mode = "n",
             desc = "[S]earch by [G]rep",
-        },
-        {
-            "<leader>sD",
-            function()
-                require("telescope.builtin").diagnostics()
-            end,
-            mode = "n",
-            desc = "[S]earch [D]iagnostics",
         },
     },
     dependencies = {
