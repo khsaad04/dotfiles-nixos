@@ -1,13 +1,6 @@
-{
-  lib,
-  pkgs,
-  config,
-  inputs,
-  ...
-}:
+{ lib, config, ... }:
 {
   programs.yazi = {
-    package = inputs.yazi.packages.${pkgs.system}.default;
     settings = {
       manager = {
         show_hidden = true;
