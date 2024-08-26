@@ -43,6 +43,7 @@
 
   services = {
     dunst.enable = true;
+    udiskie.enable = true;
   };
 
   home.packages = [
