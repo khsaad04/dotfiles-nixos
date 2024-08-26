@@ -62,6 +62,8 @@
     XMODIFIERS = "@im=fcitx";
   };
 
+  fonts.fontconfig.enable = true;
+
   news.display = "silent";
   dconf.enable = true;
 }
