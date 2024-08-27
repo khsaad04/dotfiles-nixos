@@ -16,7 +16,7 @@ in
 
   gtk = {
     font = {
-      name = "${config.local.theming.font.name}";
+      inherit (config.local.theming.font) name;
       inherit (config.local.theming.font) size;
     };
     iconTheme = {

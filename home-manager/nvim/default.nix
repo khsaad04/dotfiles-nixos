@@ -13,20 +13,18 @@
     withNodeJs = true;
 
     extraLuaPackages = luaPkgs: [ luaPkgs.jsregexp ];
-    extraPackages = builtins.attrValues {
-      inherit (pkgs)
-        tree-sitter
-        ripgrep
-        fd
-        unzip
-        gcc
-        gnumake
-        lua-language-server
-        nil
-        stylua
-        prettierd
-        ;
-    };
+    extraPackages = [
+      pkgs.tree-sitter
+      pkgs.ripgrep
+      pkgs.fd
+      pkgs.unzip
+      pkgs.gcc
+      pkgs.gnumake
+      pkgs.lua-language-server
+      pkgs.nil
+      pkgs.stylua
+      pkgs.prettierd
+    ];
   };
 
   xdg.configFile = lib.mkIf config.programs.neovim.enable {
