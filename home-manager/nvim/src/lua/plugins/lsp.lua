@@ -1,18 +1,5 @@
 return {
     "neovim/nvim-lspconfig",
-    dependencies = {
-        {
-            "j-hui/fidget.nvim",
-            event = "VeryLazy",
-            opts = {
-                notification = {
-                    window = {
-                        winblend = 0,
-                    },
-                },
-            },
-        },
-    },
     ft = { "python", "rust", "nix", "lua", "zig", "c" },
     config = function()
         local lspconfig = require("lspconfig")
@@ -21,7 +8,6 @@ return {
                 if desc then
                     desc = "LSP: " .. desc
                 end
-
                 vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
             end
 
@@ -97,13 +83,12 @@ return {
         end
 
         local config = {
-            -- disable virtual text
-            virtual_text = false,
+            underline = true,
+            virtual_text = true,
             signs = {
                 active = signs,
             },
             update_in_insert = true,
-            underline = true,
             severity_sort = true,
             float = {
                 focusable = false,

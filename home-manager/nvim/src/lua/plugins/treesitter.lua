@@ -7,7 +7,7 @@ return {
     },
     config = function()
         require("nvim-treesitter.configs").setup({
-            -- Add languages to be installed here that you want installed for treesitter
+            -- -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
             auto_install = true,
 
@@ -15,7 +15,9 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = false,
             },
-
+            indent = {
+                enable = true,
+            },
             incremental_selection = {
                 enable = true,
                 keymaps = {
@@ -25,29 +27,17 @@ return {
                     node_decremental = "<leader>sd",
                 },
             },
-
             textobjects = {
                 select = {
                     enable = true,
-
-                    -- Automatically jump forward to textobj, similar to targets.vim
                     lookahead = true,
-
                     keymaps = {
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-                        -- You can also use captures from other query groups like `locals.scm`
+                        ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
+                        ["aa"] = { query = "@parameter.outer", desc = "around argument" },
+                        ["af"] = { query = "@function.outer", desc = "around function" },
+                        ["if"] = { query = "@function.inner", desc = "inside function" },
                         ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
                     },
-
-                    selection_modes = {
-                        ["@parameter.outer"] = "v", -- charwise
-                        ["@function.outer"] = "V", -- linewise
-                        ["@class.outer"] = "<c-v>", -- blockwise
-                    },
-                    include_surrounding_whitespace = true,
                 },
             },
         })

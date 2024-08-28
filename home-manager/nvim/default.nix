@@ -10,16 +10,16 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    withNodeJs = true;
 
     extraLuaPackages = luaPkgs: [ luaPkgs.jsregexp ];
     extraPackages = [
+      pkgs.stdenv.cc.cc
+      pkgs.cmake
+      pkgs.unzip
       pkgs.tree-sitter
       pkgs.ripgrep
       pkgs.fd
-      pkgs.unzip
-      pkgs.gcc
-      pkgs.gnumake
+
       pkgs.lua-language-server
       pkgs.nil
       pkgs.stylua
