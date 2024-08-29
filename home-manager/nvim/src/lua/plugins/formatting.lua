@@ -12,7 +12,15 @@ return {
         },
     },
     opts = {
+        formatters = {
+            nix_formatter = {
+                command = "formatter",
+                args = { "$FILENAME" },
+                stdin = false,
+            },
+        },
         formatters_by_ft = {
+            nix = { "nix_formatter" },
             lua = { "stylua" },
             python = { "black", "isort" },
             c = { "clang-format" },
