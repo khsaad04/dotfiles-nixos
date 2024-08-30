@@ -34,8 +34,8 @@ return {
                     keymaps = {
                         ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
                         ["aa"] = { query = "@parameter.outer", desc = "around argument" },
-                        ["af"] = { query = "@function.outer", desc = "around function" },
                         ["if"] = { query = "@function.inner", desc = "inside function" },
+                        ["af"] = { query = "@function.outer", desc = "around function" },
                         ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
                     },
                 },

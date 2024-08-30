@@ -11,17 +11,6 @@ return {
             desc = "[ ] Find existing buffers",
         },
         {
-            "<leader>/",
-            function()
-                require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-                    winblend = 10,
-                    previewer = false,
-                }))
-            end,
-            mode = "n",
-            desc = "[/] Fuzzily search in current buffer",
-        },
-        {
             "<leader>sf",
             function()
                 require("telescope.builtin").find_files()

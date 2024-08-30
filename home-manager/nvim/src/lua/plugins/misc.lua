@@ -25,7 +25,7 @@ return {
         },
     },
     {
-        "folke/which-key.nvim",
+        "folke/which-key.nvim", -- Show which key I'm pressing
         event = "VeryLazy",
         opts = {},
     },

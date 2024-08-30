@@ -27,8 +27,9 @@ return {
             capabilities = capabilities,
         })
 
-        for k, v in pairs(require("config.lsp_config")) do
-            lspconfig[k].setup(v)
+        -- Setup lsp server configs
+        for server, config in pairs(require("config.lsp_config")) do
+            lspconfig[server].setup(config)
         end
 
         -- Diagnostics
