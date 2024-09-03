@@ -7,7 +7,7 @@ return {
     },
     config = function()
         require("nvim-treesitter.configs").setup({
-            -- -- Add languages to be installed here that you want installed for treesitter
+            -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
             auto_install = true,
 
@@ -23,8 +23,8 @@ return {
                 keymaps = {
                     init_selection = "<leader>ss", -- set to `false` to disable one of the mappings
                     node_incremental = "<leader>si",
-                    scope_incremental = "<leader>sc",
                     node_decremental = "<leader>sd",
+                    scope_incremental = "<leader>sc",
                 },
             },
             textobjects = {
@@ -36,7 +36,6 @@ return {
                         ["aa"] = { query = "@parameter.outer", desc = "around argument" },
                         ["if"] = { query = "@function.inner", desc = "inside function" },
                         ["af"] = { query = "@function.outer", desc = "around function" },
-                        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
                     },
                 },
             },
