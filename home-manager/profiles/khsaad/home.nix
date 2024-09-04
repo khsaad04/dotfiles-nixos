@@ -22,7 +22,6 @@
     kitty.enable = true;
     neovim.enable = true;
     matugen.enable = true;
-    quickshell.enable = true;
     starship.enable = true;
     tmux'.enable = true;
     waybar.enable = true;
