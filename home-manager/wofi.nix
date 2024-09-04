@@ -5,63 +5,53 @@ in
 {
   programs.wofi = {
     settings = {
-      show = "drun";
-      prompt = " Search...";
-      width = 450;
+      prompt = "Search...";
+      width = 400;
       height = 300;
-      allow_images = true;
-      image_size = 38;
-      term = "kitty";
+      allow_markup = true;
       matching = "fuzzy";
       insensitive = true;
       location = "center";
     };
     style = ''
       * {
-          all: initial;
-          font-family: Symbols Nerd Font Mono, ${config.local.theming.font.name};
-          font-size: 16px;
-          font-weight: 500;
-          color: ${matu.on_background};
+        all: initial;
+        font-family: ${config.local.theming.font.name}, Symbols Nerd Font;
+        font-size: 16px;
+        color: ${matu.on_background};
+        border-radius: 8px;
       }
 
       #window {
-          margin: 0;
-          background: ${matu.background};
-          border-radius: 8px;
-          border: 2px solid ${matu.primary};
-      }
-
-      #input {
-          border: 0;
-          padding: 10px;
-          margin-bottom: 10px;
-          border-radius: 8px;
-      }
-
-      #input:focus {
-          border: 0;
+        margin: 0;
+        background: ${matu.background};
+        border: 2px solid ${matu.primary};
       }
 
       #outer-box {
-          padding: 10px;
+        padding: 10px;
       }
 
-      #img {
-          margin-right: 6px;
+      #input {
+        border: 0;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      #input:focus {
+        border: 2px solid ${matu.primary};
       }
 
       #entry {
-          padding: 10px;
-          border-radius: 8px;
+        margin: 10px
       }
 
       #entry:selected {
-          background-color: ${matu.surface_container};
+        background-color: ${matu.surface_container};
       }
 
-      #text {
-          margin: 2px;
+      #img {
+        margin: 5px
       }
     '';
   };
