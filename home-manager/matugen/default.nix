@@ -12,6 +12,7 @@
   ];
   programs.matugen = {
     inherit (config.local.theming) wallpaper;
+    type = "scheme-expressive";
     jsonFormat = "hex";
     templates = {
       waybar = {
