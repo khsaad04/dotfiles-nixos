@@ -18,40 +18,28 @@ in
         all: initial;
         font-family: ${config.local.theming.font.name}, Symbols Nerd Font;
         font-size: 16px;
-        color: ${matu.on_background};
+        color: ${matu.on_surface};
         border-radius: 8px;
+        margin: 2px;
+        padding: 2px;
+        border: 0px;
       }
 
       #window {
         margin: 0;
-        background: ${matu.background};
+        background: ${matu.surface};
         border: 2px solid ${matu.primary};
-      }
-
-      #outer-box {
-        padding: 10px;
       }
 
       #input {
-        border: 0;
+        margin: 10px;
         padding: 10px;
-        margin-bottom: 10px;
-      }
-
-      #input:focus {
-        border: 2px solid ${matu.primary};
-      }
-
-      #entry {
-        margin: 10px
+        background: ${matu.surface_container};
       }
 
       #entry:selected {
         background-color: ${matu.surface_container};
-      }
-
-      #img {
-        margin: 5px
+        color: ${matu.primary};
       }
     '';
   };
