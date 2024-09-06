@@ -1,5 +1,10 @@
 local map = vim.keymap.set
 
+map("n", "<Space>", "<Nop>", { silent = true, remap = false })
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Better window navigation
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
