@@ -1,6 +1,7 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   programs.firefox = {
+    package = pkgs.firefox-bin;
     profiles.${config.home.username} = {
       name = config.home.username;
       isDefault = true;
