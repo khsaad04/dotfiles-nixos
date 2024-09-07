@@ -49,6 +49,7 @@
     pkgs.wl-clipboard
     pkgs.qbittorrent
     pkgs.pavucontrol
+    pkgs.libreoffice
     inputs.self.packages.${pkgs.system}.formatter
   ];
 
