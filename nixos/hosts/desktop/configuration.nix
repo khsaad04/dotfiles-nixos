@@ -11,7 +11,6 @@
     git.enable = true;
     nano.enable = false;
     fish.enable = true;
-    nix-ld.enable = true;
     adb.enable = true;
     command-not-found.enable = false;
     direnv = {
