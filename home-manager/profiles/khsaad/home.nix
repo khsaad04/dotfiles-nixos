@@ -51,6 +51,7 @@
     pkgs.pavucontrol
     pkgs.libreoffice
     inputs.self.packages.${pkgs.system}.formatter
+    pkgs.cargo
   ];
 
   i18n.inputMethod = {
