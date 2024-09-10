@@ -110,8 +110,8 @@
       bind=SUPER, mouse_down, workspace, e+1
       bind=SUPER, mouse_up, workspace, e-1
 
-      binde=, XF86AudioRaiseVolume, exec, changevolume up
-      binde=, XF86AudioLowerVolume, exec, changevolume down
+      binde=, XF86AudioRaiseVolume, exec, changevolume up 5
+      binde=, XF86AudioLowerVolume, exec, changevolume down 5
       binde=, XF86AudioMute, exec, changevolume mute
 
       bindr=, Print, exec, grimblast --notify copysave
