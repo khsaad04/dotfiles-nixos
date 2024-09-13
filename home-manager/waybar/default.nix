@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   config,
   ...
 }:
@@ -15,10 +14,13 @@ let
     "@spacing" = "3px";
     "@margin" = "3px 3px";
   };
+  # onChange = ''
+  #   ${pkgs.procps}/bin/pgrep waybar && ${
+  #     inputs.hyprland.packages.${pkgs.hostPlatform.system}.default
+  #   }/bin/hyprctl dispatch exec "pkill waybar;waybar &" || true
+  # '';
   onChange = ''
-    ${pkgs.procps}/bin/pgrep waybar && ${
-      inputs.hyprland.packages.${pkgs.hostPlatform.system}.default
-    }/bin/hyprctl dispatch exec "pkill waybar;waybar &" || true
+    systemctl --user restart waybar.service 
   '';
 in
 {
