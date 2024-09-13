@@ -39,4 +39,8 @@ in
       '';
     };
   };
+  programs.waybar.systemd = {
+    enable = true;
+    target = "hyprland-session.target";
+  };
 }
