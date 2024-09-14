@@ -20,7 +20,7 @@ let
   #   }/bin/hyprctl dispatch exec "pkill waybar;waybar &" || true
   # '';
   onChange = ''
-    systemctl --user restart waybar.service 
+    ${pkgs.systemd}/bin/systemctl --user restart waybar.service 
   '';
 in
 {
