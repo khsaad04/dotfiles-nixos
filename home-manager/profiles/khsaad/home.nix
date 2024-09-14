@@ -18,7 +18,6 @@
     eza.enable = true;
     firefox.enable = true;
     fish.enable = true;
-    foot.enable = true;
     kitty.enable = true;
     neovim.enable = true;
     matugen.enable = true;
