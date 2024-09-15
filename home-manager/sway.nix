@@ -69,7 +69,7 @@
       #
           bindsym $mod+Return exec $term
           bindsym $mod+q kill
-          bindsym $mod+d exec $menu
+          bindsym $mod+space exec $menu
           floating_modifier $mod normal
           bindsym $mod+Shift+c reload
           bindsym $mod+x exec powermenu
@@ -133,7 +133,7 @@
 
           bindsym $mod+f fullscreen
           bindsym $mod+Shift+space floating toggle
-          bindsym $mod+space focus mode_toggle
+          bindsym $mod+t focus mode_toggle
           bindsym $mod+a focus parent
       #
       # Scratchpad:
