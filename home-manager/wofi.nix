@@ -9,7 +9,6 @@ in
       width = 400;
       height = 300;
       allow_markup = true;
-      matching = "fuzzy";
       insensitive = true;
       location = "center";
     };
