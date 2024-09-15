@@ -13,7 +13,6 @@
     pkgs.networkmanagerapplet
     pkgs.wl-clip-persist
   ];
-  services.network-manager-applet.enable = config.wayland.windowManager.hyprland.enable;
   wayland.windowManager.hyprland = {
     systemd.variables = [ "--all" ];
     extraConfig = ''
@@ -23,6 +22,7 @@
       exec-once = wl-clipboard &
       exec-once = wl-clip-persist --clipboard regular &
       # Replaced with systemd services
+      # exec-once = dunst &
       # exec-once = waybar &
       # exec-once = nm-applet --indicator &
       exec-once = firefox &

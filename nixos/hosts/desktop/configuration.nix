@@ -3,6 +3,7 @@
   local = {
     DE = {
       hyprland.enable = true;
+      sway.enable = true;
       defaultSession = "Hyprland";
     };
   };

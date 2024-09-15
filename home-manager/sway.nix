@@ -19,7 +19,8 @@
     extraConfig = ''
       exec wl-clipboard &
       exec wl-clip-persist --clipboard regular &
-      exec nm-applet --indicator &
+      # Replaced with systemd services
+      # exec nm-applet --indicator &
       exec firefox &
       exec autotiling-rs &
 
@@ -31,7 +32,7 @@
       set $up k
       set $right l
 
-      set $term wezterm
+      set $term kitty
 
       set $menu wofi -I --show drun | xargs swaymsg exec --
 
@@ -71,7 +72,6 @@
           bindsym $mod+d exec $menu
           floating_modifier $mod normal
           bindsym $mod+Shift+c reload
-          bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
           bindsym $mod+x exec powermenu
       #
       # Moving around:
@@ -164,9 +164,9 @@
       #
           bindsym Print exec grimblast --notify copysave
           bindsym Shift+Print exec grimblast --notify copysave area
-          bindsym XF86AudioLowerVolume exec changevolume down
+          bindsym XF86AudioRaiseVolume exec changevolume up 5
+          bindsym XF86AudioLowerVolume exec changevolume down 5
           bindsym XF86AudioMute exec changevolume mute
-          bindsym XF86AudioRaiseVolume exec changevolume up
 
       #
       # Status Bar:
