@@ -34,7 +34,7 @@
 
       set $term kitty
 
-      set $menu walker | xargs swaymsg exec --
+      set $menu wofi -I --show drun | xargs swaymsg exec --
 
       ### Appearance
       corner_radius 8
