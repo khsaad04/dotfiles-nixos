@@ -68,7 +68,7 @@
       # Basics:
       #
           bindsym $mod+Return exec $term
-          bindsym $mod+Shift+q kill
+          bindsym $mod+q kill
           bindsym $mod+d exec $menu
           floating_modifier $mod normal
           bindsym $mod+Shift+c reload
