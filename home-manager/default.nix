@@ -1,7 +1,6 @@
 {
   imports = [
     ./dunst.nix
-    ./eza.nix
     ./firefox
     ./fish.nix
     ./gtk.nix

@@ -18,7 +18,6 @@
   gtk.enable = true;
   qt.enable = true;
   programs = {
-    eza.enable = true;
     firefox.enable = true;
     fish.enable = true;
     kitty.enable = true;
