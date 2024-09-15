@@ -16,6 +16,7 @@
   wayland.windowManager.sway.enable = true;
   services.network-manager-applet.enable = true;
   gtk.enable = true;
+  qt.enable = true;
   programs = {
     eza.enable = true;
     firefox.enable = true;

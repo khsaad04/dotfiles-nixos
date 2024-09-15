@@ -10,6 +10,7 @@
     ./nvim
     ./matugen
     ./quickshell
+    ./qt.nix
     ./scripts.nix
     ./starship.nix
     ./sway.nix
