@@ -8,7 +8,7 @@
   local = {
     theming = {
       enable = true;
-      wallpaper = "${config.local.theming.wallpath}/wp.png";
+      wallpaper = "${config.local.theming.wallpath}/wp.jpg";
     };
   };
 
