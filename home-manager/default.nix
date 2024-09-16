@@ -15,6 +15,7 @@
     ./sway.nix
     ./terminals
     ./tmux.nix
+    ./walker.nix
     ./waybar
     ./wofi.nix
     ./yazi.nix
