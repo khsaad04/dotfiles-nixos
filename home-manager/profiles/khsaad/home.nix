@@ -25,12 +25,11 @@
     matugen.enable = true;
     starship.enable = true;
     tmux'.enable = true;
-    walker.enable = true;
     waybar.enable = true;
     wofi.enable = true;
     yazi.enable = true;
-    zathura.enable = true;
 
+    zathura.enable = true;
     home-manager.enable = true;
     obs-studio.enable = true;
     mpv.enable = true;
@@ -53,7 +52,6 @@
     pkgs.pavucontrol
     pkgs.libreoffice
     inputs.self.packages.${pkgs.system}.formatter
-    pkgs.cargo
   ];
 
   i18n.inputMethod = {
