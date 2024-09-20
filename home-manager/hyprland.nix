@@ -27,7 +27,7 @@
       # exec-once = nm-applet --indicator &
       exec-once = firefox &
 
-      exec = swaybg -i ${config.local.theming.wallpaper} &
+      exec = swaybg -i ${config.local.theming.wallpaper} --mode fill &
 
       general {
         border_size = 0
