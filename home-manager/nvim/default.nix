@@ -9,7 +9,6 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    vimdiffAlias = true;
 
     extraLuaPackages = luaPkgs: [ luaPkgs.jsregexp ];
     extraPackages = [
@@ -35,7 +34,8 @@
     "nvim/lua/plugins/colorscheme.lua" = {
       source = "${config.programs.matugen.theme.files}/.config/nvim/lua/plugins/colorscheme.lua";
       onChange = ''
-        rm -rf ~/.cache/nvim
+        ${pkgs.fd}/bin/fd "gruvbox" ~/.cache/nvim/luac/ -x rm -- {}
+        ${pkgs.fd}/bin/fd "colorscheme" ~/.cache/nvim/luac/ -x rm -- {}
       '';
     };
   };
