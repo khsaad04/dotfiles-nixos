@@ -16,7 +16,7 @@ in
     ];
     xdg.configFile."tms/config.toml".text = ''
       [[search_dirs]]
-      path = "/home/khsaad/ext/code"
+      path = "/home/khsaad/Programming"
       depth = 10
 
       [[search_dirs]]
