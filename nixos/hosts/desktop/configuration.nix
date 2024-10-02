@@ -4,7 +4,7 @@
     DE = {
       hyprland.enable = true;
       sway.enable = true;
-      defaultSession = "Hyprland";
+      xfce.enable = true;
     };
   };
 

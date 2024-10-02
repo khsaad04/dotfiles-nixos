@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   services.greetd = {
     enable = true;
@@ -13,7 +13,7 @@
             --user-menu \
             --remember \
             --remember-session \
-            --cmd ${config.local.DE.defaultSession}
+            --cmd Hyprland
           '';
         };
       in
