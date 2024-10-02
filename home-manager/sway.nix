@@ -21,6 +21,7 @@
       exec wl-clip-persist --clipboard regular &
       # Replaced with systemd services
       # exec nm-applet --indicator &
+      # exec dunst &
       exec firefox &
       exec autotiling-rs &
 
@@ -33,7 +34,6 @@
       set $right l
 
       set $term kitty
-
       set $menu wofi -I --show drun | xargs swaymsg exec --
 
       ### Appearance
@@ -42,7 +42,7 @@
       gaps outer 2
       default_border none
       smart_gaps on
-      blur on
+      # blur on
 
       ### Assign
       assign [app_id="firefox"] 2
