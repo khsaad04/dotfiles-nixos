@@ -13,17 +13,6 @@ let
     hash = "sha256-K/2FYOtX0RzwdcGyeurLXAh3j8ohxMrH2OWldqVoLwo=";
     sparseCheckout = [ "src" ];
   };
-
-  qtctConf = {
-    Appearance = {
-      custom_palette = false;
-      icon_theme = config.local.theming.icon.name;
-      standard_dialogs = "xdgdesktopportal";
-      style = "kvantum";
-    };
-  };
-
-  defaultFont = "${config.local.theming.font.name},${builtins.toString config.local.theming.font.size}";
 in
 {
   qt = {
@@ -48,34 +37,5 @@ in
       [General]
       theme=KvLibadwaitaDark
     '';
-
-    # qtct config
-    "qt5ct/qt5ct.conf".text =
-      let
-        default = ''"${defaultFont},-1,5,50,0,0,0,0,0"'';
-      in
-      lib.generators.toINI { } (
-        qtctConf
-        // {
-          Fonts = {
-            fixed = default;
-            general = default;
-          };
-        }
-      );
-
-    "qt6ct/qt6ct.conf".text =
-      let
-        default = ''"${defaultFont},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
-      in
-      lib.generators.toINI { } (
-        qtctConf
-        // {
-          Fonts = {
-            fixed = default;
-            general = default;
-          };
-        }
-      );
   };
 }
