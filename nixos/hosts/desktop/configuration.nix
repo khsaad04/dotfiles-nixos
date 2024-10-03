@@ -4,7 +4,6 @@
     DE = {
       hyprland.enable = true;
       sway.enable = true;
-      xfce.enable = true;
     };
   };
 
