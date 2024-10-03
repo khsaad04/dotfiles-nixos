@@ -4,7 +4,7 @@
     flake = "/home/khsaad/Programming/dotfiles";
     clean = {
       enable = true;
-      extraArgs = "--nogcroots --keep-since 7d";
+      extraArgs = "--nogc --nogcroots --keep-since 7d";
     };
   };
 }
