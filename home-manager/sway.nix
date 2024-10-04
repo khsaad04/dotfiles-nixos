@@ -4,6 +4,9 @@
   config,
   ...
 }:
+let
+  matu = config.programs.matugen.theme.colors.colors.dark;
+in
 {
   home.packages = lib.mkIf config.wayland.windowManager.sway.enable [
     pkgs.networkmanagerapplet
@@ -23,7 +26,9 @@
       # exec nm-applet --indicator &
       # exec dunst &
       exec firefox &
-      exec autotiling-rs &
+      # exec autotiling-rs &
+
+      font ${config.local.theming.font.name} ${toString config.local.theming.font.size} 
 
       ### Variables
       set $mod Mod4
@@ -37,6 +42,10 @@
       set $menu wofi -I --show drun | xargs swaymsg exec --
 
       ### Appearance
+      client.focused ${matu.surface} ${matu.surface} ${matu.primary} ${matu.surface} ${matu.surface}
+      client.unfocused ${matu.surface} ${matu.surface} ${matu.on_surface} ${matu.surface} ${matu.surface}
+      client.urgent ${matu.surface} ${matu.surface} ${matu.error} ${matu.surface} ${matu.surface}
+
       corner_radius 8
       gaps inner 2
       gaps outer 2
@@ -124,6 +133,7 @@
       #
       # Layout stuff:
       #
+          workspace_layout tabbed
           bindsym $mod+b splith
           bindsym $mod+v splitv
 
