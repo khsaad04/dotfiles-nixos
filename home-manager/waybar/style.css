@@ -11,7 +11,8 @@ tooltip,
 #cpu,
 #memory,
 #clock,
-#custom-power {
+#custom-power,
+#custom-launcher {
   all: initial;
   font-family:
     @font,
@@ -123,6 +124,16 @@ tooltip {
 }
 
 #custom-power {
+  font-size: 12px;
+  font-weight: 400;
+  color: @error;
+  background-color: @surface_container_highest;
+  border-radius: @radius;
+  margin: @margin;
+  padding: @padding;
+}
+
+#custom-launcher {
   font-size: 12px;
   font-weight: 400;
   color: @on_tertiary_container;

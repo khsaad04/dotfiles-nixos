@@ -5,7 +5,7 @@
     "spacing": 0,
     "margin": 0,
     "modules-left": [
-      "custom/power",
+      "custom/launcher",
       "hyprland/workspaces",
       "sway/workspaces",
       "mpris#player",
@@ -24,11 +24,12 @@
       "cpu",
       "memory",
       "clock",
+      "custom/power",
     ],
-    "custom/power": {
+    "custom/launcher": {
         "format": "󱄅",
         "justify": "center",
-        "on-click": "powermenu",
+        "on-click": "wofi -I --show drun",
         "tooltip": false
     },
     "hyprland/workspaces": {
@@ -80,6 +81,11 @@
       "on-click": "playerctl next",
       "tooltip": false
     },
+    "tray": {
+      "icon-size": 12,
+      "justify": "center",
+      "spacing": 5
+    },
     "network": {
       "format-ethernet": "󰈀 {bandwidthTotalBytes}",
       "format-wifi": "󰖩 {signalStrength}%",
@@ -122,10 +128,11 @@
       "justify": "center",
       "tooltip": false,
     },
-    "tray": {
-      "icon-size": 12,
-      "justify": "center",
-      "spacing": 5
+    "custom/power": {
+        "format": "⏻",
+        "justify": "center",
+        "on-click": "powermenu",
+        "tooltip": false
     }
   }
 ]
