@@ -26,6 +26,14 @@ map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi")
 map("v", "<A-j>", ":m '>+1<cr>gv=gv")
 map("v", "<A-k>", ":m '<-2<cr>gv=gv")
 
--- greatest remap ever
+-- greatest remaps ever
 map("x", "p", [["_dp]])
 map("x", "P", [["_dP]])
+
+map("n", "yo", function()
+    local pos = vim.api.nvim_win_get_cursor(0)
+    local text = vim.api.nvim_get_current_line()
+    vim.cmd.normal("o")
+    vim.api.nvim_set_current_line(text)
+    vim.api.nvim_win_set_cursor(0, { pos[1] + 1, pos[2] })
+end)
