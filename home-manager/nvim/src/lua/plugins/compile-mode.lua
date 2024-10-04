@@ -1,14 +1,26 @@
 return {
     "ej-shafran/compile-mode.nvim",
+    event = { "CmdlineEnter" },
+    keys = {
+        {
+            "<leader>n",
+            vim.cmd.NextError,
+            mode = "n",
+            desc = "Go to [N]ext error in compile mode",
+        },
+        {
+            "<leader>p",
+            vim.cmd.PrevError,
+            mode = "n",
+            desc = "Go to [P]revious error in compile mode",
+        },
+    },
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "m00qek/baleia.nvim",
     },
     config = function()
-        vim.keymap.set("n", "<leader>n", "<cmd>NextError<cr>", { desc = "Go to [N]ext error in compile mode" })
-        vim.keymap.set("n", "<leader>p", "<cmd>PrevError<cr>", { desc = "Go to [P]revious error in compile mode" })
         vim.g.compile_mode = {
-            baleia_setup = true,
+            default_command = "",
         }
     end,
 }
