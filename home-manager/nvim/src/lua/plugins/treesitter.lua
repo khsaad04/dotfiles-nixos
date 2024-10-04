@@ -2,9 +2,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     build = ":TSUpdate",
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-    },
     config = function()
         require("nvim-treesitter.configs").setup({
             -- Add languages to be installed here that you want installed for treesitter
@@ -25,18 +22,6 @@ return {
                     node_incremental = "<leader>si",
                     node_decremental = "<leader>sd",
                     scope_incremental = "<leader>sc",
-                },
-            },
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
-                        ["aa"] = { query = "@parameter.outer", desc = "around argument" },
-                        ["if"] = { query = "@function.inner", desc = "inside function" },
-                        ["af"] = { query = "@function.outer", desc = "around function" },
-                    },
                 },
             },
         })
