@@ -12,6 +12,7 @@ in
   services.dunst = {
     settings = {
       global = {
+        origin = "bottom-right";
         offset = "10x10";
         frame_width = 0;
         frame_color = matu.outline;
