@@ -26,7 +26,7 @@ in
       # exec nm-applet --indicator &
       # exec dunst &
       exec firefox &
-      # exec autotiling-rs &
+      exec autotiling-rs &
 
       font ${config.local.theming.font.name} ${toString config.local.theming.font.size} 
 
@@ -133,7 +133,6 @@ in
       #
       # Layout stuff:
       #
-          workspace_layout tabbed
           bindsym $mod+b splith
           bindsym $mod+v splitv
 
