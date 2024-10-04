@@ -1,7 +1,7 @@
 [
   {
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
     "spacing": 0,
     "margin": 0,
     "modules-left": [
@@ -117,7 +117,7 @@
       "justify": "center"
     },
     "clock": {
-      "format": "󰥔 {:%a, %b %d, %I:%M %p}",
+      "format": " {:%a, %b %d 󰥔 %I:%M %p}",
       "interval": 1,
       "justify": "center",
       "tooltip": false,
