@@ -3,10 +3,10 @@ return {
     event = "VeryLazy",
     keys = {
         {
-            "<leader>mt",
+            "<leader>vmm",
             "<Plug>(VM-Toggle-Mappings)",
             mode = "n",
-            desc = "vim-visual-multi Toggle Mappings",
+            desc = "[V]isual-[M]ulti Toggle [M]appings",
         },
     },
     init = function()

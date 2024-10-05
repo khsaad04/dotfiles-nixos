@@ -3,16 +3,22 @@ return {
     event = { "CmdlineEnter" },
     keys = {
         {
-            "<leader>n",
+            "<leader>cn",
             vim.cmd.NextError,
             mode = "n",
-            desc = "Go to [N]ext error in compile mode",
+            desc = "Go to [C]ompile mode [N]ext error",
         },
         {
-            "<leader>p",
+            "<leader>cp",
             vim.cmd.PrevError,
             mode = "n",
-            desc = "Go to [P]revious error in compile mode",
+            desc = "Go to [C]ompile mode [P]revious error",
+        },
+        {
+            "<leader>cr",
+            vim.cmd.Recompile,
+            mode = "n",
+            desc = "[C]ompile mode [R]ecompile",
         },
     },
     dependencies = {
