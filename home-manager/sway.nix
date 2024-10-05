@@ -11,7 +11,6 @@ in
   home.packages = lib.mkIf config.wayland.windowManager.sway.enable [
     pkgs.networkmanagerapplet
     pkgs.wl-clip-persist
-    pkgs.autotiling-rs
     pkgs.findutils
     pkgs.grimblast
   ];
@@ -26,7 +25,6 @@ in
       # exec nm-applet --indicator &
       # exec dunst &
       exec firefox &
-      exec autotiling-rs &
 
       font ${config.local.theming.font.name} ${toString config.local.theming.font.size} 
 
