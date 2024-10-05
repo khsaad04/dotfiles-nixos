@@ -26,7 +26,7 @@ in
       # exec dunst &
       exec firefox &
 
-      font ${config.local.theming.font.name} ${toString config.local.theming.font.size} 
+      font pango:${config.local.theming.font.name} ${toString config.local.theming.font.size} 
 
       ### Variables
       set $mod Mod4
@@ -48,6 +48,7 @@ in
       gaps inner 2
       gaps outer 2
       default_border none
+      default_floating_border none
       smart_gaps on
       # blur on
 
