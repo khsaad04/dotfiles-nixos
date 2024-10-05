@@ -2,7 +2,6 @@
 {
   local = {
     DE = {
-      hyprland.enable = true;
       sway.enable = true;
     };
   };
