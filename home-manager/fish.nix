@@ -3,6 +3,7 @@ _: {
     shellAliases = {
       t = "tmux attach || tmux new-session -s main tms";
       l = "ls -lah";
+      y = "yazi";
     };
     interactiveShellInit = ''
       set fish_greeting
