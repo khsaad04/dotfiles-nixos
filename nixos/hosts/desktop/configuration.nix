@@ -17,6 +17,7 @@
       enable = true;
       silent = true;
     };
+    kdeconnect.enable = true;
   };
 
   services = {
