@@ -9,7 +9,6 @@ let
 in
 {
   home.packages = lib.mkIf config.wayland.windowManager.sway.enable [
-    pkgs.networkmanagerapplet
     pkgs.wl-clip-persist
     pkgs.findutils
     pkgs.grimblast

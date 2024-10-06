@@ -24,7 +24,6 @@ let
   '';
 in
 {
-  home.packages = mkIf cfg.enable [ pkgs.playerctl ];
   xdg.configFile = mkIf cfg.enable {
     "waybar/config" = {
       inherit onChange;

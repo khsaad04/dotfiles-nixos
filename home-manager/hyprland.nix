@@ -10,7 +10,6 @@
   home.packages = lib.mkIf config.wayland.windowManager.hyprland.enable [
     pkgs.swaybg
     pkgs.grimblast
-    pkgs.networkmanagerapplet
     pkgs.wl-clip-persist
   ];
   wayland.windowManager.hyprland = {
