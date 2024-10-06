@@ -5,7 +5,6 @@
     ./fish.nix
     ./gtk.nix
     ./hyprland.nix
-    ./lf
     ./nvim
     ./matugen
     ./quickshell
