@@ -51,6 +51,8 @@
     pkgs.pavucontrol
     pkgs.libreoffice
     inputs.self.packages.${pkgs.system}.formatter
+    inputs.self.packages.${pkgs.system}.changevolume
+    inputs.self.packages.${pkgs.system}.powermenu
   ];
 
   i18n.inputMethod = {
