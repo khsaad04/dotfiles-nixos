@@ -1,7 +1,13 @@
 return {
     "ej-shafran/compile-mode.nvim",
-    event = { "CmdlineEnter" },
+    cmd = "Compile",
     keys = {
+        {
+            "<leader>cr",
+            vim.cmd.Recompile,
+            mode = "n",
+            desc = "[C]ompile mode [R]ecompile",
+        },
         {
             "<leader>cn",
             vim.cmd.NextError,
@@ -13,12 +19,6 @@ return {
             vim.cmd.PrevError,
             mode = "n",
             desc = "Go to [C]ompile mode [P]revious error",
-        },
-        {
-            "<leader>cr",
-            vim.cmd.Recompile,
-            mode = "n",
-            desc = "[C]ompile mode [R]ecompile",
         },
     },
     dependencies = {
