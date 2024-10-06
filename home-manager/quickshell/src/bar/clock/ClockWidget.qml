@@ -5,9 +5,9 @@ import "root:/bar"
 Widget {
     property var locale: Qt.locale()
     property var date: new Date()
-    property string time: date.toLocaleString(locale, "ddd, MMM dd, hh:mm A")
+    property string time: date.toLocaleString(locale, " ddd, MMM dd 󰥔 hh:mm A")
 
-    text: "󰥔 " + time;
+    text: time;
 
     Timer {
         interval: 1000;
