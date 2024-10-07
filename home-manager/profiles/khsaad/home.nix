@@ -49,7 +49,6 @@
     pkgs.wl-clipboard
     pkgs.qbittorrent
     pkgs.pavucontrol
-    pkgs.libreoffice
     inputs.self.packages.${pkgs.system}.formatter
     inputs.self.packages.${pkgs.system}.changevolume
     inputs.self.packages.${pkgs.system}.powermenu
