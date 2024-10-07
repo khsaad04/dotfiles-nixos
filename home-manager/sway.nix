@@ -17,6 +17,7 @@ in
     package = null;
     config = null;
     checkConfig = false;
+    systemd.xdgAutostart = true;
     extraConfig = ''
       exec wl-clipboard &
       exec wl-clip-persist --clipboard regular &

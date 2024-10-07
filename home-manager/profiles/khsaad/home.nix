@@ -55,11 +55,6 @@
     inputs.self.packages.${pkgs.system}.powermenu
   ];
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-openbangla-keyboard ];
-  };
-
   fonts.fontconfig.enable = true;
 
   news.display = "silent";

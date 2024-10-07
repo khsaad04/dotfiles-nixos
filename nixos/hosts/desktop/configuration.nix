@@ -30,7 +30,14 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Dhaka";
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5.addons = [ pkgs.fcitx5-openbangla-keyboard ];
+    };
+  };
 
   environment.systemPackages = [
     pkgs.xdg-utils
@@ -41,12 +48,6 @@
     pkgs.fd
     pkgs.ripgrep
   ];
-
-  environment.variables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-  };
 
   users = {
     mutableUsers = false;
