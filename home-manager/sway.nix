@@ -14,9 +14,9 @@ in
     pkgs.grimblast
   ];
   wayland.windowManager.sway = {
-    package = pkgs.swayfx;
-    checkConfig = false;
+    package = null;
     config = null;
+    checkConfig = false;
     extraConfig = ''
       exec wl-clipboard &
       exec wl-clip-persist --clipboard regular &

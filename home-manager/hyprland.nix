@@ -13,7 +13,6 @@
     pkgs.wl-clip-persist
   ];
   wayland.windowManager.hyprland = {
-    systemd.variables = [ "--all" ];
     extraConfig = ''
 
       monitor = , preferred, auto, 1
