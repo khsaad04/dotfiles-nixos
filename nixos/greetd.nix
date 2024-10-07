@@ -13,7 +13,7 @@
             --user-menu \
             --remember \
             --remember-session \
-            --cmd Hyprland
+            --cmd sway
           '';
         };
       in
