@@ -42,12 +42,17 @@
     pkgs.ripgrep
   ];
 
+  environment.variables = {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+  };
+
   users = {
     mutableUsers = false;
     defaultUserShell = pkgs.fish;
     users.khsaad = {
       isNormalUser = true;
-      useDefaultShell = true;
       initialPassword = "khsaad";
       description = "KH Saad";
       extraGroups = [

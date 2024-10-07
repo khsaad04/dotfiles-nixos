@@ -59,11 +59,6 @@
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-openbangla-keyboard ];
   };
-  home.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-  };
 
   fonts.fontconfig.enable = true;
 
