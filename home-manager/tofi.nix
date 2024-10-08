@@ -7,7 +7,7 @@ in
     settings = {
       anchor = "bottom";
       width = "100%";
-      height = 25;
+      height = 22;
       horizontal = true;
       font = config.local.theming.font.name;
       font-size = config.local.theming.font.size;
