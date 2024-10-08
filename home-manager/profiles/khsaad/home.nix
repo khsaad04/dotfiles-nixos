@@ -23,6 +23,7 @@
     matugen.enable = true;
     starship.enable = true;
     tmux'.enable = true;
+    tofi.enable = true;
     waybar.enable = true;
     wofi.enable = true;
     yazi.enable = true;

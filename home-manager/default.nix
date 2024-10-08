@@ -13,6 +13,7 @@
     ./sway.nix
     ./terminals
     ./tmux.nix
+    ./tofi.nix
     ./walker.nix
     ./waybar
     ./wofi.nix

@@ -37,7 +37,8 @@ in
       set $right l
 
       set $term kitty
-      set $menu wofi -I --show drun | xargs swaymsg exec --
+      # set $menu wofi -I --show drun | xargs swaymsg exec --
+      set $menu tofi-drun --terminal=$term | xargs swaymsg exec --
 
       ### Appearance
       client.focused ${matu.surface} ${matu.surface} ${matu.primary} ${matu.surface} ${matu.surface}
