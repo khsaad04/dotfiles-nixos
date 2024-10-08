@@ -29,7 +29,7 @@
     "custom/launcher": {
         "format": "󱄅",
         "justify": "center",
-        "on-click": "wofi -I --show drun",
+        "on-click": "tofi-drun --terminal=kitty | xargs swaymsg exec --",
         "tooltip": false
     },
     "hyprland/workspaces": {
