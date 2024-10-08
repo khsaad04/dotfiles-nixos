@@ -11,6 +11,7 @@
     pkgs.swaybg
     pkgs.grimblast
     pkgs.wl-clip-persist
+    pkgs.findutils
   ];
   wayland.windowManager.hyprland = {
     extraConfig = ''
@@ -98,9 +99,10 @@
       bind=SUPER, M, exit,
       bind=SUPER, V, togglefloating,
       bind=SUPER, F, fullscreen,
-      bind=SUPER, SPACE, exec, pkill wofi || wofi -I --show drun
+      # bind=SUPER, SPACE, exec, pkill wofi || wofi -I --show drun
+      bind=SUPER, SPACE, exec, tofi-run | xargs -r kitty -- 
       bind=SUPER, T, exec, pkill waybar || waybar
-      bind=SUPER, X, exec, pkill wofi || powermenu
+      bind=SUPER, X, exec, powermenu
       bind=SUPER, P, pseudo, # dwindle
       bind=SUPER, J, togglesplit, # dwindle
       bind=SUPER SHIFT, h, movefocus, r

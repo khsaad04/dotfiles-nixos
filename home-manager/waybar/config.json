@@ -29,7 +29,7 @@
     "custom/launcher": {
         "format": "󱄅",
         "justify": "center",
-        "on-click": "tofi-drun --terminal=kitty | xargs swaymsg exec --",
+        "on-click": "tofi-run | xargs -r kitty --",
         "tooltip": false
     },
     "hyprland/workspaces": {
