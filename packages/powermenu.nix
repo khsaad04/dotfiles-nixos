@@ -4,7 +4,7 @@ writeShellApplication {
   text = ''
     entries="󰗼 Exit\n Shutdown\n⏾ Suspend\n󰒲 Hibernate\n Reboot"
 
-    selected=$(echo -e "$entries"|wofi --dmenu --cache-file /dev/null | awk '{print tolower($2)}')
+    selected=$(echo -e "$entries"|tofi| awk '{print tolower($2)}')
 
     case "$selected" in
         exit)
