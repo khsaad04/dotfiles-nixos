@@ -100,7 +100,7 @@
       bind=SUPER, V, togglefloating,
       bind=SUPER, F, fullscreen,
       # bind=SUPER, SPACE, exec, pkill wofi || wofi -I --show drun
-      bind=SUPER, SPACE, exec, tofi-run | xargs -r kitty -- 
+      bind=SUPER, SPACE, exec, tofi-drun --terminal=kitty | xargs -r hyprctl dispatch exec -- 
       bind=SUPER, T, exec, pkill waybar || waybar
       bind=SUPER, X, exec, powermenu
       bind=SUPER, P, pseudo, # dwindle
