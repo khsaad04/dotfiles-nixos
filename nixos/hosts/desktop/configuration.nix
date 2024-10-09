@@ -47,6 +47,11 @@
     pkgs.file
     pkgs.fd
     pkgs.ripgrep
+    (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
+      qemu-system-x86_64 \
+        -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
+        "$@"
+    '')
   ];
 
   users = {
