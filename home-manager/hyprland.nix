@@ -93,7 +93,6 @@
       bindm=SUPER, mouse:272, movewindow
       bindm=SUPER, mouse:273, resizewindow
 
-      # bind=SUPER, RETURN, exec, [float;tile] wezterm start --always-new-process
       bind=SUPER, RETURN, exec, kitty
       bind=SUPER, Q, killactive,
       bind=SUPER, M, exit,
