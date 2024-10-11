@@ -30,9 +30,6 @@ in
       line_break = {
         disabled = true;
       };
-      python = {
-        symbol = " ";
-      };
       git_branch = {
         format = " [$symbol$branch(:$remote_branch)]($style) ";
         symbol = " ";
