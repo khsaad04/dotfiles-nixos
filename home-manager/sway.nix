@@ -36,7 +36,7 @@ in
       set $up k
       set $right l
 
-      set $term kitty
+      set $term kitty --single-instance
       # set $menu wofi -I --show drun | xargs swaymsg exec --
       set $menu tofi-drun --terminal=kitty | xargs -r swaymsg exec -- 
 
