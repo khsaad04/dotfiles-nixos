@@ -12,7 +12,7 @@ in
         pad = "4x4 center";
       };
       colors = {
-        alpha = 0.95;
+        alpha = 1;
         background = strip matu.surface;
         foreground = strip matu.on_surface;
         regular0 = "${strip clr.base0}";

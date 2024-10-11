@@ -21,7 +21,7 @@ in
       confirm_os_window_close = 0;
       disable_ligatures = "always";
 
-      background_opacity = "1.0";
+      background_opacity = 1;
       background = matu.surface;
       foreground = matu.on_surface;
 
