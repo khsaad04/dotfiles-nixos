@@ -18,7 +18,7 @@
   programs = {
     firefox.enable = true;
     fish.enable = true;
-    kitty.enable = true;
+    foot.enable = true;
     neovim.enable = true;
     matugen.enable = true;
     starship.enable = true;

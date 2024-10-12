@@ -36,9 +36,9 @@ in
       set $up k
       set $right l
 
-      set $term kitty --single-instance
+      set $term foot
       # set $menu wofi -I --show drun | xargs swaymsg exec --
-      set $menu tofi-drun --terminal=kitty | xargs -r swaymsg exec -- 
+      set $menu tofi-drun --terminal=foot | xargs -r swaymsg exec -- 
 
       ### Appearance
       client.focused ${matu.surface} ${matu.surface} ${matu.primary} ${matu.surface} ${matu.surface}

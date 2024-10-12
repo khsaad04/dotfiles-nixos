@@ -93,13 +93,13 @@
       bindm=SUPER, mouse:272, movewindow
       bindm=SUPER, mouse:273, resizewindow
 
-      bind=SUPER, RETURN, exec, kitty
+      bind=SUPER, RETURN, exec, foot
       bind=SUPER, Q, killactive,
       bind=SUPER, M, exit,
       bind=SUPER, V, togglefloating,
       bind=SUPER, F, fullscreen,
       # bind=SUPER, SPACE, exec, pkill wofi || wofi -I --show drun
-      bind=SUPER, SPACE, exec, tofi-drun --terminal=kitty | xargs -r hyprctl dispatch exec -- 
+      bind=SUPER, SPACE, exec, tofi-drun --terminal=foot | xargs -r hyprctl dispatch exec -- 
       bind=SUPER, T, exec, pkill waybar || waybar
       bind=SUPER, X, exec, powermenu
       bind=SUPER, P, pseudo, # dwindle
