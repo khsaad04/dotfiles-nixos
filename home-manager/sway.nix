@@ -42,9 +42,14 @@ in
       set $menu tofi-drun --terminal=footclient | xargs -r swaymsg exec -- 
 
       ### Appearance
-      client.focused ${matu.surface} ${matu.surface} ${matu.primary} ${matu.surface} ${matu.surface}
-      client.unfocused ${matu.surface} ${matu.surface} ${matu.on_surface} ${matu.surface} ${matu.surface}
-      client.urgent ${matu.surface} ${matu.surface} ${matu.error} ${matu.surface} ${matu.surface}
+      # class                   border      background  text        indicator   child_border
+      client.background                     ${matu.surface} 
+      client.focused            ${matu.surface}     ${matu.surface_container_highest}     ${matu.primary}     ${matu.surface}     ${matu.surface}
+      client.focused_inactive   ${matu.surface}     ${matu.surface_container_highest}     ${matu.primary}     ${matu.surface}     ${matu.surface}
+      client.focused_tab_title  ${matu.surface}     ${matu.surface_container_highest}     ${matu.primary}
+      client.unfocused          ${matu.surface}     ${matu.surface}     ${matu.on_surface}     ${matu.surface}     ${matu.surface}
+      client.urgent             ${matu.surface}     ${matu.surface}     ${matu.error}     ${matu.surface}     ${matu.surface}
+      client.placeholder        ${matu.surface}     ${matu.surface}     ${matu.error}     ${matu.surface}     ${matu.surface}
 
       corner_radius 8
       gaps inner 2
