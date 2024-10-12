@@ -25,6 +25,7 @@ in
       # exec nm-applet --indicator &
       # exec dunst &
       exec firefox &
+      exec foot --server &
 
       font pango:${config.local.theming.font.name} ${toString config.local.theming.font.size} 
 
@@ -36,9 +37,9 @@ in
       set $up k
       set $right l
 
-      set $term foot
+      set $term footclient
       # set $menu wofi -I --show drun | xargs swaymsg exec --
-      set $menu tofi-drun --terminal=foot | xargs -r swaymsg exec -- 
+      set $menu tofi-drun --terminal=footclient | xargs -r swaymsg exec -- 
 
       ### Appearance
       client.focused ${matu.surface} ${matu.surface} ${matu.primary} ${matu.surface} ${matu.surface}
