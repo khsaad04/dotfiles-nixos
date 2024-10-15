@@ -19,13 +19,13 @@ in
     checkConfig = false;
     systemd.xdgAutostart = true;
     extraConfig = ''
-      exec wl-clipboard &
-      exec wl-clip-persist --clipboard regular &
       # Replaced with systemd services
       # exec nm-applet --indicator &
       # exec dunst &
       exec firefox &
       exec foot --server &
+      exec wl-clipboard &
+      exec wl-clip-persist --clipboard regular &
 
       font pango:${config.local.theming.font.name} ${toString config.local.theming.font.size} 
 
@@ -38,7 +38,6 @@ in
       set $right l
 
       set $term footclient
-      # set $menu wofi -I --show drun | xargs swaymsg exec --
       set $menu tofi-drun --terminal=footclient | xargs -r swaymsg exec -- 
 
       ### Appearance
