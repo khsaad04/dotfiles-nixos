@@ -44,4 +44,5 @@ in
     enable = true;
     target = "hyprland-session.target";
   };
+  home.packages = lib.mkIf config.programs.waybar.enable [ pkgs.playerctl ];
 }
