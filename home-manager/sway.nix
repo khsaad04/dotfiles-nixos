@@ -50,7 +50,7 @@ in
       client.urgent             ${matu.surface}     ${matu.surface}     ${matu.error}     ${matu.surface}     ${matu.surface}
       client.placeholder        ${matu.surface}     ${matu.surface}     ${matu.error}     ${matu.surface}     ${matu.surface}
 
-      corner_radius 8
+      # corner_radius 8
       gaps inner 2
       gaps outer 2
       default_border none

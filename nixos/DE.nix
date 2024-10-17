@@ -10,7 +10,7 @@
     hyprland.enable = lib.mkEnableOption "Enable hyprland window manager";
     sway = {
       enable = lib.mkEnableOption "Enable sway window manager";
-      package = lib.mkPackageOption pkgs "swayfx" { };
+      package = lib.mkPackageOption pkgs "sway" { };
     };
   };
   imports = [ inputs.hyprland.nixosModules.default ];
