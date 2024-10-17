@@ -9,7 +9,7 @@
   imports = [ inputs.hyprland.homeManagerModules.default ];
   home.packages = lib.mkIf config.wayland.windowManager.hyprland.enable [
     pkgs.swaybg
-    pkgs.grimblast
+    pkgs.sway-contrib.grimshot
     pkgs.wl-clip-persist
     pkgs.findutils
   ];
@@ -115,8 +115,9 @@
       binde=, XF86AudioLowerVolume, exec, changevolume down 5
       binde=, XF86AudioMute, exec, changevolume mute
 
-      bindr=, Print, exec, grimblast --notify copysave
-      bindr=SHIFT, Print, exec, grimblast --notify copysave area
+      bindr=, Print, exec, grimshot --notify savecopy
+      bindr=SHIFT, Print, exec, grimshot --notify savecopy area
+      bindr=CTRL, Print, exec, grimshot --notify savecopy window
     '';
   };
 }

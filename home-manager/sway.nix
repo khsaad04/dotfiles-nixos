@@ -11,7 +11,7 @@ in
   home.packages = lib.mkIf config.wayland.windowManager.sway.enable [
     pkgs.wl-clip-persist
     pkgs.findutils
-    pkgs.grimblast
+    pkgs.sway-contrib.grimshot
   ];
   wayland.windowManager.sway = {
     package = null;
@@ -176,8 +176,9 @@ in
       #
       # Screenshot and Volume
       #
-          bindsym Print exec grimblast --notify copysave
-          bindsym Shift+Print exec grimblast --notify copysave area
+          bindsym Print exec grimshot --notify savecopy
+          bindsym Shift+Print exec grimshot --notify savecopy area
+          bindsym Ctrl+Print exec grimshot --notify savecopy window
           bindsym XF86AudioRaiseVolume exec changevolume up 5
           bindsym XF86AudioLowerVolume exec changevolume down 5
           bindsym XF86AudioMute exec changevolume mute
