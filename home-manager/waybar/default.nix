@@ -15,9 +15,7 @@ let
     "@margin" = "3px 3px";
   };
   # onChange = ''
-  #   ${pkgs.procps}/bin/pgrep waybar && ${
-  #     inputs.hyprland.packages.${pkgs.hostPlatform.system}.default
-  #   }/bin/hyprctl dispatch exec "pkill waybar;waybar &" || true
+  #   ${pkgs.procps}/bin/pgrep waybar && ${pkgs.hyprland}/bin/hyprctl dispatch exec "pkill waybar;waybar &" || true
   # '';
   onChange = ''
     ${pkgs.procps}/bin/pgrep Hyprland && ${pkgs.systemd}/bin/systemctl --user restart waybar.service 

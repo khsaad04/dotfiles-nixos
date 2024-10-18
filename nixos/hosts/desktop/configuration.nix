@@ -1,12 +1,10 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
-  local = {
-    DE = {
-      sway.enable = true;
-    };
-  };
-
   programs = {
+    sway = {
+      enable = true;
+      extraPackages = lib.mkForce [ ];
+    };
     nix-ld.enable = true;
     git.enable = true;
     nano.enable = false;

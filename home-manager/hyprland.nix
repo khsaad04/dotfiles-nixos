@@ -1,12 +1,10 @@
 {
   lib,
   pkgs,
-  inputs,
   config,
   ...
 }:
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
   home.packages = lib.mkIf config.wayland.windowManager.hyprland.enable [
     pkgs.swaybg
     pkgs.sway-contrib.grimshot
