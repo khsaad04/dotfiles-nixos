@@ -18,13 +18,14 @@
 
       monitor = , preferred, auto, 1
 
-      exec-once = wl-clipboard &
-      exec-once = wl-clip-persist --clipboard regular &
       # Replaced with systemd services
       # exec-once = dunst &
       # exec-once = waybar &
       # exec-once = nm-applet --indicator &
       exec-once = firefox &
+      exec-once = foot --server &
+      exec-once = wl-clipboard &
+      exec-once = wl-clip-persist --clipboard regular &
 
       exec = swaybg -i ${config.local.theming.wallpaper} --mode fill &
 
@@ -37,8 +38,9 @@
 
       decoration {
         drop_shadow = false
-        rounding = 8
+        rounding = 0
         blur {
+          enabled = false
           contrast = 1.0
           brightness = 1.0
           vibrancy = 0.2
@@ -47,6 +49,7 @@
       }
 
       animations {
+        enabled = false
         animation = windows, 1, 2, default, popin 80%
         animation = layers, 1, 2, default
         animation = fade, 1, 2, default
@@ -68,7 +71,6 @@
         force_split = 2
         preserve_split = true
         pseudotile = true
-        no_gaps_when_only = 1
       }
 
       windowrule = workspace 2 silent, ^(firefox)$
