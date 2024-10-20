@@ -12,7 +12,7 @@ let
     "@radius" = "2px";
     "@padding" = "0px 3px";
     "@spacing" = "3px";
-    "@margin" = "3px 3px";
+    "@margin" = "2px 2px";
   };
   # onChange = ''
   #   ${pkgs.procps}/bin/pgrep waybar && ${pkgs.hyprland}/bin/hyprctl dispatch exec "pkill waybar;waybar &" || true
