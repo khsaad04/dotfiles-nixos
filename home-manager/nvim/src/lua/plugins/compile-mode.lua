@@ -23,10 +23,12 @@ return {
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "m00qek/baleia.nvim",
     },
     config = function()
         vim.g.compile_mode = {
             default_command = "",
+            baleia_setup = true,
         }
     end,
 }
