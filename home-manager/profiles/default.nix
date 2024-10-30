@@ -18,6 +18,7 @@ let
             homeDirectory = "/home/${homeName}";
             stateVersion = "23.11";
           };
+          xdg.userDirs.enable = true;
         }
       ];
     };
