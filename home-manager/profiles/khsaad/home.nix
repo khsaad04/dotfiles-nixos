@@ -49,13 +49,13 @@
     pkgs.wl-clipboard
     pkgs.qbittorrent
     pkgs.pavucontrol
+    pkgs.cargo
+    pkgs.gcc
     inputs.self.packages.${pkgs.system}.formatter
     inputs.self.packages.${pkgs.system}.changevolume
     inputs.self.packages.${pkgs.system}.powermenu
   ];
 
   fonts.fontconfig.enable = true;
-
   news.display = "silent";
-  dconf.enable = true;
 }
