@@ -56,6 +56,5 @@
     inputs.self.packages.${pkgs.system}.powermenu
   ];
 
-  fonts.fontconfig.enable = true;
   news.display = "silent";
 }
