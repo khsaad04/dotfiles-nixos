@@ -51,6 +51,7 @@
     pkgs.pavucontrol
     pkgs.cargo
     pkgs.gcc
+    pkgs.python3
     inputs.self.packages.${pkgs.system}.formatter
     inputs.self.packages.${pkgs.system}.changevolume
     inputs.self.packages.${pkgs.system}.powermenu
