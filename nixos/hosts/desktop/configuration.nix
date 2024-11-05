@@ -127,6 +127,14 @@
     };
   };
 
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
+        gtk-theme = "adw-gtk3-dark";
+      };
+    }
+  ];
+
   documentation = {
     info.enable = false;
     nixos.enable = false;
