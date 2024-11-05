@@ -12,8 +12,8 @@
 
     extraLuaPackages = luaPkgs: [ luaPkgs.jsregexp ];
     extraPackages = [
-      pkgs.stdenv.cc.cc
-      pkgs.cmake
+      pkgs.gcc
+      pkgs.gnumake
       pkgs.unzip
       pkgs.tree-sitter
       pkgs.ripgrep
