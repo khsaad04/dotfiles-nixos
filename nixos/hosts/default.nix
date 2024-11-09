@@ -9,6 +9,7 @@ let
       modules = [
         ./${hostName}/configuration.nix
         ./${hostName}/hardware-configuration.nix
+        ../users
         ../.
         { networking.hostName = "${hostName}"; }
       ];
