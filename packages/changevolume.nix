@@ -2,7 +2,8 @@
 writeShellApplication {
   name = "changevolume";
   text = ''
-    amount=$2
+    icon_path="$HOME/.config/icons"
+    amount=''${2:-5}
     id_output="8052"
     timeout=2000
     is_muted_output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '[]')
@@ -22,7 +23,7 @@ writeShellApplication {
         volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
         header="Volume"
         text="Currently at $volume%"
-        icon="vol-up"
+        icon="$icon_path/vol-up.png"
         id=$id_output
     	notification_bar;;
 
@@ -31,7 +32,7 @@ writeShellApplication {
         volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
         header="Volume"
         text="Currently at $volume%"
-        icon="vol-down"
+        icon="$icon_path/vol-down.png"
         id=$id_output
     	notification_bar;;
 
@@ -40,14 +41,14 @@ writeShellApplication {
         if [ "$is_muted_output" == "[]" ]; then
             header="Volume"
             text="Unmuted."
-            icon="vol"
+            icon="$icon_path/vol.png"
             id=$id_output
             wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
             notification_mute
         else
             header="Volume"
             text="Muted."
-            icon="vol-muted"
+            icon="$icon_path/vol-muted.png"
             id=$id_output
             wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
             notification_mute
