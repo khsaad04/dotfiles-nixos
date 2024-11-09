@@ -43,21 +43,6 @@
   };
 
   environment = {
-    systemPackages = [
-      pkgs.xdg-utils
-      pkgs.vim
-      pkgs.wget
-      pkgs.qemu
-      pkgs.file
-      pkgs.fd
-      pkgs.ripgrep
-      pkgs.btop
-      (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
-        qemu-system-x86_64 \
-          -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
-          "$@"
-      '')
-    ];
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -77,6 +62,19 @@
         "adbusers"
       ];
       packages = [
+        pkgs.xdg-utils
+        pkgs.vim
+        pkgs.wget
+        pkgs.file
+        pkgs.fd
+        pkgs.ripgrep
+        pkgs.btop
+        pkgs.qemu
+        (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
+          qemu-system-x86_64 \
+            -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
+            "$@"
+        '')
         pkgs.wl-clipboard
         pkgs.qbittorrent
         pkgs.pavucontrol
