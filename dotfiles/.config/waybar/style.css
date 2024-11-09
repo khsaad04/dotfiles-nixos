@@ -1,0 +1,142 @@
+window#waybar,
+tooltip,
+#workspaces,
+#workspaces button,
+#workspaces button label,
+#mpris,
+#window #network,
+#pulseaudio,
+#cpu,
+#memory,
+#clock,
+#custom-power,
+#custom-launcher {
+  all: initial;
+  font-family:
+    Iosevka,
+    Symbols Nerd Font,
+    Noto Sans Bengali;
+  font-size: 10px;
+}
+
+window#waybar {
+  background-color: #13140c;
+  color: #e5e3d6;
+}
+
+tooltip {
+  font-size: 12;
+  font-weight: bold;
+  background-color: #13140c;
+  color: #e5e3d6;
+  border: 1px solid #929282;
+  border-radius: 2px;
+}
+
+#workspaces {
+  background-color: #35352d;
+  border-radius: 2px;
+  margin: 2px 2px;
+}
+
+#workspaces button {
+  background: transparent;
+  border-radius: 2px;
+  padding: 0px 3px;
+  margin: 2px 2px;
+  transition: all 0.3s ease;
+  border: 0;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  background-color: #e1e994;
+}
+
+#workspaces button label {
+  color: #e1e994;
+}
+
+#workspaces button.active label,
+#workspaces button.focused label {
+  color: #1a1d00;
+}
+
+#mpris {
+  color: #13140c;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 0px 3px;
+}
+
+#mpris.player {
+  font-size: 12px;
+  margin-right: 0px;
+  margin-left: 3px;
+  border-radius: 2px 0 0 2px;
+}
+
+#mpris.prev {
+  font-size: 12px;
+  margin-right: 0px;
+  border-radius: 0;
+}
+
+#mpris.status {
+  font-size: 9px;
+  margin-right: 0px;
+  border-radius: 0;
+}
+
+#mpris.next {
+  font-size: 12px;
+  border-radius: 0 2px 2px 0;
+  margin-right: 3px;
+}
+
+#mpris.spotify {
+  background-color: #1ed760;
+}
+
+#mpris.firefox {
+  background-color: #ee8424;
+}
+
+#window {
+  font-size: 12;
+  font-weight: bold;
+  margin: 2px 2px;
+}
+
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#clock,
+#tray {
+  color: #e1e994;
+  background-color: #35352d;
+  border-radius: 2px;
+  margin: 2px 2px;
+  padding: 0px 3px;
+}
+
+#custom-power {
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffb4ab;
+  background-color: #35352d;
+  border-radius: 2px;
+  margin: 2px 2px;
+  padding: 0px 3px;
+}
+
+#custom-launcher {
+  font-size: 12px;
+  font-weight: 400;
+  color: #beecdc;
+  background-color: #234e43;
+  border-radius: 2px;
+  margin: 2px 2px;
+  padding: 0px 3px;
+}

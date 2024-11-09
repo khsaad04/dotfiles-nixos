@@ -1,0 +1,142 @@
+window#waybar,
+tooltip,
+#workspaces,
+#workspaces button,
+#workspaces button label,
+#mpris,
+#window #network,
+#pulseaudio,
+#cpu,
+#memory,
+#clock,
+#custom-power,
+#custom-launcher {
+  all: initial;
+  font-family:
+    Iosevka,
+    Symbols Nerd Font,
+    Noto Sans Bengali;
+  font-size: 10px;
+}
+
+window#waybar {
+  background-color: #{{surface}};
+  color: #{{on_surface}};
+}
+
+tooltip {
+  font-size: 12;
+  font-weight: bold;
+  background-color: #{{surface}};
+  color: #{{on_surface}};
+  border: 1px solid #{{outline}};
+  border-radius: 2px;
+}
+
+#workspaces {
+  background-color: #{{surface_container_highest}};
+  border-radius: 2px;
+  margin: 2px 2px;
+}
+
+#workspaces button {
+  background: transparent;
+  border-radius: 2px;
+  padding: 0px 3px;
+  margin: 2px 2px;
+  transition: all 0.3s ease;
+  border: 0;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  background-color: #{{primary_fixed}};
+}
+
+#workspaces button label {
+  color: #{{primary_fixed}};
+}
+
+#workspaces button.active label,
+#workspaces button.focused label {
+  color: #{{on_primary_fixed}};
+}
+
+#mpris {
+  color: #{{background}};
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 0px 3px;
+}
+
+#mpris.player {
+  font-size: 12px;
+  margin-right: 0px;
+  margin-left: 3px;
+  border-radius: 2px 0 0 2px;
+}
+
+#mpris.prev {
+  font-size: 12px;
+  margin-right: 0px;
+  border-radius: 0;
+}
+
+#mpris.status {
+  font-size: 9px;
+  margin-right: 0px;
+  border-radius: 0;
+}
+
+#mpris.next {
+  font-size: 12px;
+  border-radius: 0 2px 2px 0;
+  margin-right: 3px;
+}
+
+#mpris.spotify {
+  background-color: #1ed760;
+}
+
+#mpris.firefox {
+  background-color: #ee8424;
+}
+
+#window {
+  font-size: 12;
+  font-weight: bold;
+  margin: 2px 2px;
+}
+
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#clock,
+#tray {
+  color: #{{primary_fixed}};
+  background-color: #{{surface_container_highest}};
+  border-radius: 2px;
+  margin: 2px 2px;
+  padding: 0px 3px;
+}
+
+#custom-power {
+  font-size: 12px;
+  font-weight: 400;
+  color: #{{error}};
+  background-color: #{{surface_container_highest}};
+  border-radius: 2px;
+  margin: 2px 2px;
+  padding: 0px 3px;
+}
+
+#custom-launcher {
+  font-size: 12px;
+  font-weight: 400;
+  color: #{{on_tertiary_container}};
+  background-color: #{{tertiary_container}};
+  border-radius: 2px;
+  margin: 2px 2px;
+  padding: 0px 3px;
+}

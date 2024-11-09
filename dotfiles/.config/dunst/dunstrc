@@ -1,0 +1,28 @@
+[global]
+corner_radius=8
+font="Iosevka 10"
+format="<b>%a</b>\n%s <i>%b</i>"
+frame_color="#929282"
+frame_width=0
+enable_recursive_icon_lookup = true
+icon_theme = "Adwaita"
+markup="full"
+offset="10x10"
+origin="bottom-right"
+
+[urgency_low]
+background="#35352d"
+foreground="#c5cd7a"
+highlight="#c5cd7a"
+timeout=10
+
+[urgency_normal]
+background="#35352d"
+foreground="#c5cd7a"
+highlight="#c5cd7a"
+timeout=10
+
+[urgency_critical]
+background="#ffb4ab"
+foreground="#690005"
+timeout=0

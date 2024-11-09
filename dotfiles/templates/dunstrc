@@ -1,0 +1,28 @@
+[global]
+corner_radius=8
+font="Iosevka 10"
+format="<b>%a</b>\n%s <i>%b</i>"
+frame_color="#{{outline}}"
+frame_width=0
+enable_recursive_icon_lookup = true
+icon_theme = "Adwaita"
+markup="full"
+offset="10x10"
+origin="bottom-right"
+
+[urgency_low]
+background="#{{surface_container_highest}}"
+foreground="#{{primary}}"
+highlight="#{{primary}}"
+timeout=10
+
+[urgency_normal]
+background="#{{surface_container_highest}}"
+foreground="#{{primary}}"
+highlight="#{{primary}}"
+timeout=10
+
+[urgency_critical]
+background="#{{error}}"
+foreground="#{{on_error}}"
+timeout=0
