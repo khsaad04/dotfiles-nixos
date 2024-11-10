@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "dotman": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1731216481,
+        "narHash": "sha256-+YD2lw4d21+4WKwudPfBaDt/eSlA7Q4yX5GDlNf3FWM=",
+        "owner": "khsaad04",
+        "repo": "dotman",
+        "rev": "e1457717bac4b3859172fe77f1d46dfe0e413eb0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "khsaad04",
+        "repo": "dotman",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -68,6 +91,7 @@
     },
     "root": {
       "inputs": {
+        "dotman": "dotman",
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "quickshell": "quickshell"
