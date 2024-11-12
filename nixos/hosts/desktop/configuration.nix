@@ -57,6 +57,9 @@
       inputs.self.packages.${pkgs.system}.powermenu
       inputs.dotman.packages.${pkgs.system}.default
 
+      inputs.pollymc.packages.${pkgs.system}.default
+      pkgs.jdk
+
       # sway
       pkgs.wl-clip-persist
       pkgs.findutils
