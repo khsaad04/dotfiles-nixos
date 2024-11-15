@@ -9,10 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     pollymc = {
       url = "github:fn2006/PollyMC";
       inputs.nixpkgs.follows = "nixpkgs";
