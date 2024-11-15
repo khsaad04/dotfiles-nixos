@@ -11,7 +11,6 @@
       extraPackages = lib.mkForce [ ];
     };
     command-not-found.enable = false;
-    kdeconnect.enable = true;
     nix-ld.enable = true;
     nano.enable = false;
     fish.enable = true;
@@ -77,12 +76,10 @@
       # neovim
       pkgs.neovim
       pkgs.luajitPackages.jsregexp
-      pkgs.gcc
       pkgs.gnumake
       pkgs.unzip
       pkgs.tree-sitter
       pkgs.ripgrep
-      pkgs.fd
       pkgs.lua-language-server
       pkgs.nil
       pkgs.stylua
