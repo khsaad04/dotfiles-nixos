@@ -33,32 +33,6 @@
       VISUAL = "nvim";
     };
     systemPackages = [
-      pkgs.xdg-utils
-      pkgs.wget
-      pkgs.file
-      pkgs.fd
-      pkgs.ripgrep
-      pkgs.btop
-      pkgs.qemu
-      (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
-        qemu-system-x86_64 \
-          -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
-          "$@"
-      '')
-      pkgs.wl-clipboard
-      pkgs.qbittorrent
-      pkgs.pavucontrol
-      pkgs.cargo
-      pkgs.gcc
-      pkgs.python3
-      inputs.self.packages.${pkgs.system}.formatter
-      inputs.self.packages.${pkgs.system}.changevolume
-      inputs.self.packages.${pkgs.system}.powermenu
-      inputs.dotman.packages.${pkgs.system}.default
-
-      inputs.pollymc.packages.${pkgs.system}.default
-      pkgs.jdk
-
       # sway
       pkgs.wl-clip-persist
       pkgs.findutils
@@ -85,6 +59,33 @@
       pkgs.stylua
       pkgs.prettierd
 
+      # pollymc
+      inputs.pollymc.packages.${pkgs.system}.default
+      pkgs.jdk
+
+      # misc
+      pkgs.xdg-utils
+      pkgs.wget
+      pkgs.file
+      pkgs.fd
+      pkgs.ripgrep
+      pkgs.btop
+      pkgs.qemu
+      (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
+        qemu-system-x86_64 \
+          -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
+          "$@"
+      '')
+      pkgs.wl-clipboard
+      pkgs.qbittorrent
+      pkgs.pavucontrol
+      pkgs.cargo
+      pkgs.gcc
+      pkgs.python3
+      inputs.self.packages.${pkgs.system}.formatter
+      inputs.self.packages.${pkgs.system}.changevolume
+      inputs.self.packages.${pkgs.system}.powermenu
+      inputs.dotman.packages.${pkgs.system}.default
       pkgs.firefox-bin
       pkgs.foot
       pkgs.starship
