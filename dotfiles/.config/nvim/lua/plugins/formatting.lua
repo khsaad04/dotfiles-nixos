@@ -22,7 +22,7 @@ return {
         formatters_by_ft = {
             nix = { "nix_formatter" },
             lua = { "stylua" },
-            python = { "black", "isort" },
+            python = { "ruff_format" },
             c = { "clang-format" },
             html = { "prettierd" },
             javascript = { "prettierd" },
