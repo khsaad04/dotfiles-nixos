@@ -64,7 +64,6 @@
       pkgs.jdk
 
       # misc
-      pkgs.gh
       pkgs.xdg-utils
       pkgs.wget
       pkgs.file
