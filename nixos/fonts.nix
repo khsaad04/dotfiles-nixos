@@ -1,15 +1,11 @@
 { pkgs, ... }:
 {
   fonts = {
-    packages =
-      let
-        nerdfonts = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
-      in
-      [
-        pkgs.noto-fonts
-        pkgs.iosevka
-        nerdfonts
-      ];
+    packages = [
+      pkgs.noto-fonts
+      pkgs.iosevka
+      pkgs.nerd-fonts.symbols-only
+    ];
     fontconfig = {
       defaultFonts =
         let

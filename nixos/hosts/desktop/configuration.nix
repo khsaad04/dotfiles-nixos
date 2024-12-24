@@ -59,10 +59,6 @@
       pkgs.stylua
       pkgs.prettierd
 
-      # pollymc
-      inputs.pollymc.packages.${pkgs.system}.default
-      pkgs.jdk
-
       # misc
       pkgs.xdg-utils
       pkgs.wget
